@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Carlos — Slate 2026-07-18</title><style>
+:root{color-scheme:light;--bg:#eef1f5;--card:#fff;--ink:#161a1d;--mut:#5b6770;--line:#e1e6ec;
+--green:#1a7f37;--navy:#0f2740;--accent:#1a7f4f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.55}
+.wrap{max-width:1100px;margin:0 auto;padding:14px 14px 50px}
+nav.site{display:flex;gap:4px;align-items:center;flex-wrap:wrap;background:var(--navy);border-radius:12px;padding:8px 10px;margin-bottom:14px;position:sticky;top:8px;z-index:10;box-shadow:0 2px 10px rgba(15,39,64,.25)}
+nav.site .brand{color:#fff;font-weight:800;letter-spacing:-.2px;margin-right:8px;font-size:15px;text-decoration:none}
+nav.site .brand .dot{color:#3ddc84}
+nav.site a.t{color:#c8d3de;text-decoration:none;font-size:13px;font-weight:700;padding:5px 10px;border-radius:8px}
+nav.site a.t.on,nav.site a.t:hover{background:rgba(255,255,255,.14);color:#fff}
+nav.site .upd{margin-left:auto;color:#8fa3b5;font-size:11px;text-align:right}
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px;border-bottom:2px solid #d7dde4;padding-bottom:12px;margin-bottom:16px}
+.title{font-size:21px;font-weight:800;letter-spacing:-.3px}
+.sub{color:var(--mut);font-size:13px;margin-top:3px}
+.meta{text-align:right;font-size:12px;color:var(--mut)}
+.meta .exp{display:inline-block;margin-top:4px;background:var(--navy);color:#fff;padding:3px 9px;border-radius:999px;font-weight:700;font-size:12px}
+.badge{display:inline-flex;align-items:center;gap:5px;font-weight:700;font-size:11px;padding:3px 8px;border-radius:6px;letter-spacing:.2px}
+.b-conf{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.b-pend{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-hit{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.r-miss{background:#fde7e7;color:#b42318;border:1px solid #f3bcbc}
+.r-part{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-live{background:#e7eefc;color:#1d4ed8;border:1px solid #bcd0f5}
+.b-sim{background:#efeafd;color:#6b46c1;border:1px solid #d6c8f5}
+.sim{font-size:12px;color:#4a3a6b;margin-top:9px;background:#f7f4fe;border:1px solid #ece5fb;border-radius:8px;padding:7px 9px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.window{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);margin:20px 0 10px;display:flex;align-items:center;gap:8px}
+.window::after{content:"";flex:1;height:1px;background:#dbe1e8}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 15px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.card.confirmed{border-left:4px solid #1a7f37}
+.card.pending{border-left:4px solid #e8b33a}
+.match{font-size:16px;font-weight:800;letter-spacing:-.2px}
+.ctx{font-size:12px;color:var(--mut);margin-top:2px}
+.row{display:flex;align-items:center;justify-content:space-between;margin-top:11px;gap:8px}
+.pred{font-size:14px}.pred b{font-weight:800}.score{font-weight:800}
+.muted{color:#8a949c}
+.stake{font-size:12px;font-weight:800;background:var(--navy);color:#fff;padding:2px 8px;border-radius:6px;white-space:nowrap}
+.scorer{font-size:12.5px;color:#34404a;margin-top:9px}.scorer .k{color:var(--mut)}
+.result{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:11px;padding:8px 10px;border-radius:8px;background:#f6f8fb;border:1px solid #e6ebf1}
+.result .rscore{font-weight:800;font-size:14px}.result .rscore .k{color:var(--mut);font-weight:600;font-size:11px}
+.note{font-size:11.5px;color:var(--mut);margin-top:9px;border-top:1px dashed var(--line);padding-top:8px}
+.note.held{color:#1a7f37}
+footer{margin-top:26px;font-size:11px;color:#8a949c;text-align:center;line-height:1.6}
+/* prose (markdown pages) */
+.prose{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;box-shadow:0 1px 2px rgba(16,39,64,.04);overflow-x:auto}
+.prose h1{font-size:22px;letter-spacing:-.3px;margin:.2em 0 .5em}
+.prose h2{font-size:17px;margin:1.3em 0 .5em;padding-bottom:5px;border-bottom:1px solid var(--line)}
+.prose h3{font-size:15px;margin:1.2em 0 .4em}
+.prose p,.prose li{font-size:14px;color:#2a333b}
+.prose table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13px}
+.prose th,.prose td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+.prose th{background:#f4f6f9;font-weight:700}
+.prose tr:nth-child(even) td{background:#fafbfc}
+.prose blockquote{margin:10px 0;padding:6px 14px;border-left:3px solid #cbd5df;color:var(--mut);font-size:13.5px}
+.prose code{background:#f0f3f6;border:1px solid #e3e8ee;border-radius:4px;padding:1px 5px;font-size:12.5px}
+.prose hr{border:0;border-top:1px solid var(--line);margin:18px 0}
+.prose a{color:#1d4ed8}
+.prose img{max-width:100%}
+/* index lists */
+.linklist{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;margin-top:12px}
+.linklist a{display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;text-decoration:none;color:var(--ink);font-weight:700;font-size:13.5px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.linklist a:hover{border-color:#b9c4cf}
+.linklist a .d{display:block;font-weight:500;color:var(--mut);font-size:12px;margin-top:3px}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0 0 16px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.stat .v{font-size:19px;font-weight:800;letter-spacing:-.3px}
+.stat .k{font-size:11px;color:var(--mut);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.dayhead{font-size:16px;font-weight:800;margin:26px 0 4px}
+@media (max-width:560px){.wrap{padding:10px 9px 40px}.grid{grid-template-columns:1fr}.meta{text-align:left}}
+</style></head>
+<body><div class="wrap">
+<nav class="site"><a class="brand" href="../index.html">Carlos<span class="dot"> ●</span></a><a class="t" href="../index.html">Board</a><a class="t on" href="../history.html">History</a><a class="t" href="../record.html">Record</a><a class="t" href="../intel.html">Intel</a>
+<span class="upd">updated<br><b id="ago">…</b></span></nav>
+<div class="prose"><h1>Carlos — Match Prediction Cards · July 18, 2026 — Third-Place Play-Off</h1>
+<p>*Knockouts: a draw after 90' goes to extra time / penalties (confirmed — third place follows the same</p>
+<p>format as other knockout rounds). Lineups pending; sims run only after the watcher confirms each XI</p>
+<p>(~45 min pre-KO). Predictions, not facts; sources at end.*</p>
+<p><b>Calibration applied (carlos.lessons.md):</b> (1) **07-14/07-15 escalated rule — pick'em-level Opta +</p>
+<p>a named structural/motivational lever pointing away from the favorite = PASS or no-lean, not a token</p>
+<p>stake.** Here Opta has France at 50.7% (reg.) / England 25.6% / draw 23.7% — thin, coin-flip-adjacent,</p>
+<p>same shape as the last two SF misses. But unlike those two, there is **no enumerated bear-case lever</p>
+<p>pointing away from France** — both sides are rotating similarly (dead-rubber, both managers confirmed</p>
+<p>making changes), so the escalated PASS rule does not clearly fire; this gets a <b>capped 1u lean</b>, not a</p>
+<p>pass, with the rotation chaos as the reason for the cap rather than a directional red flag. (2)</p>
+<p>**06-25 dead-rubber/motivation lesson (Ecuador, Paraguay, Japan) — motivation flips these games; a bus</p>
+<p>final-placement match with nothing riding on the table result is not run like a normal knockout.**</p>
+<p>Applied directly: both squads are heavily changed, intensity is the swing variable, not class. (3)</p>
+<p><b>Scorer-list construction: include the arriving/rotated attacking mid, not just the front three</b></p>
+<p>(repeat lesson 07-09 through 07-15) — Doué, Cherki, Zaire-Emery (FRA) and Rogers, Anderson (ENG) are on</p>
+<p>the list below for exactly this reason. (4) <b>Margin-widen lesson does NOT apply</b> — this is a</p>
+<p>heavily-rotated France side, not a full-strength one; don't carry the "widen France's margin" rule into</p>
+<p>a game where their first-choice spine (Saliba out, likely more changes) isn't out there.</p>
+<hr>
+<h2>1) France vs England — Third-Place Play-Off · Miami Stadium (Hard Rock Stadium), Miami Gardens · 5:00 PM ET</h2>
+<p><b>Prediction:</b> <b>France win</b> — most likely <b>2–1</b>; alts <b>2–0</b>, **1–1 (→ ET/pens, live — Opta has the</p>
+<p>draw at 23.7%, and dead-rubber games run hot-and-cold on discipline)**. A loose, rotated, high-event game</p>
+<p>more than a tactical chess match.</p>
+<p><b>Why:</b> Opta's supercomputer has this at 50.7% France / 25.6% England / 23.7% draw in regulation — a</p>
+<p>real edge for France but well short of the "class gap" reads that justified a wide margin earlier in the</p>
+<p>bracket. Both sides have nothing left to play for except pride, individual milestones, and (for</p>
+<p>Deschamps) a farewell — he is coaching his final match in charge of France — and both managers are</p>
+<p>confirmed making multiple changes from their semifinal XIs. France are missing William Saliba (back</p>
+<p>injury from the semifinal; Maxence Lacroix deputizes) and are expected to rest key personnel further</p>
+<p>given the dead-rubber stakes; England are already without Jordan Henderson (long-term) and are managing</p>
+<p>a Reece James muscular issue, on top of a squad that "looked spent" after conceding twice late against</p>
+<p>Argentina. The single biggest live storyline is <b>Kylian Mbappé's Golden Boot chase</b> — he and Messi are</p>
+<p>tied on 8 goals, and with Messi playing the final tomorrow (07-19) rather than today, this is Mbappé's</p>
+<p>last opportunity to pull ahead outright, which is a real individual-incentive lever even inside a</p>
+<p>rotated, low-stakes team context. Third-place play-offs are historically looser and more open than</p>
+<p>group-stage or bracket knockout football — teams press less, defensive discipline drops, and the</p>
+<p>scoreline distribution widens; that argues for keeping the draw/ET tail genuinely live rather than</p>
+<p>treating this like a normal coin-flip knockout. <b>Net read:</b> lean France on the Opta edge and the</p>
+<p>Mbappé-specific motivation asymmetry, but cap the stake hard — both teams are rotated, neither side's</p>
+<p>"first XI" quality gap is what it was in the group stage, and dead-rubber variance (Ecuador-over-Germany</p>
+<p>class) is real.</p>
+<p><b>Players to watch:</b> Kylian Mbappé (8 goals, tied Golden Boot lead, last chance to pull clear of Messi</p>
+<p>before the final), Désiré Doué (Ballon d'Or holder, expected to start in a more expansive/rotated</p>
+<p>attacking line), Rayan Cherki and Warren Zaïre-Emery (fringe pieces getting a rare run-out, exactly the</p>
+<p>"arriving attacker" scorer-list gap flagged as a repeat miss). For England: Harry Kane (6 goals, chasing</p>
+<p>the England outfield cap record, likely captains a rotated side), Jude Bellingham (6 goals, tournament's</p>
+<p>form player, expected to still play some minutes even in a weakened XI), Morgan Rogers and Elliot</p>
+<p>Anderson (rotation pieces stepping into a bigger creative/scoring role).</p>
+<p><b>Most likely scorer:</b> <b>Kylian Mbappé</b> (medium-high — Golden Boot race, individual incentive</p>
+<p>independent of team stakes, last chance to add before Messi plays tomorrow) as primary; <b>Désiré Doué</b></p>
+<p>(medium — reigning Ballon d'Or, expected starter in a more expansive setup) as co-primary. Alts: Rayan</p>
+<p>Cherki, Michael Olise, Warren Zaïre-Emery (arriving-midfielder tail, per the repeat scorer-construction</p>
+<p>lesson). For England, <b>Harry Kane</b> (medium — 6 goals, focal point even in a rotated XI) is the primary</p>
+<p>source, with <b>Jude Bellingham</b> (medium — 6 goals, tournament's hottest England scorer) as co-primary;</p>
+<p>Morgan Rogers and Anthony Gordon (medium-low — wide/creative rotation pieces) round out the list.</p>
+<p><b>Confidence &amp; stake:</b> <b>Low-medium confidence, 1u France.</b> Opta's edge (50.7/25.6/23.7) is real but</p>
+<p>thin, and this is a dead-rubber game with both teams heavily changed — exactly the "cap the stake, don't</p>
+<p>over-lean the favorite label" spot (07-07/07-10), reinforced by the fact that neither side's rotated XI</p>
+<p>carries the class gap that justified bigger stakes earlier in the bracket. The Mbappé Golden Boot</p>
+<p>incentive is the one asymmetric lever, which nudges the lean to France rather than a full pass, but 1u is</p>
+<p>the ceiling here.</p>
+<p><b>What would flip it:</b> A start for a significantly weakened France back four (beyond just Saliba out)</p>
+<p>against an England side that keeps more first-choice attackers (Kane/Bellingham/Saka-type) on the pitch</p>
+<p>would flip this toward England or the draw; conversely, if Deschamps fields a lineup close to full</p>
+<p>strength as a farewell send-off, France's class gap reopens and the wider 2–0/3–0 margin becomes live</p>
+<p>again. Motivation is the single biggest live variable in a game where the table result means nothing to</p>
+<p>either side.</p>
+<hr>
+<h3>Slate note</h3>
+<p>Total exposure <b>1u / 1 game</b> (France 1u). Single-fixture day — the third-place play-off; the final</p>
+<p>(Spain vs Argentina) follows 07-19 at MetLife Stadium. Sim attaches once the watcher confirms the XI</p>
+<p>(~4:15 PM ET).</p>
+<h3>Sources</h3>
+<ul>
+<li>Match details, kickoff, venue, Opta model probabilities (50.7/25.6/23.7): <a href="https://www.foxsports.com/stories/soccer/2026-world-cup-third-place-odds-france-england" target="_blank" rel="noopener">FOX Sports</a>, <a href="https://www.squawka.com/us/news/world-cup/match-preview-france-vs-england-07-18-26-world-cup-2026-third-place-play-off/" target="_blank" rel="noopener">Squawka preview</a></li>
+<li>Predicted lineups, Saliba/Lacroix, Reece James/Henderson: <a href="https://www.rotowire.com/soccer/article/france-vs-england-preview-predicted-lineups-team-news-tactical-analysis-2026-world-cup-third-place-playoff-123027" target="_blank" rel="noopener">RotoWire preview</a>, <a href="https://www.si.com/soccer/france-predicted-lineup-vs-england-world-cup-third-place-playoff-7-18-26" target="_blank" rel="noopener">SI predicted lineup</a></li>
+<li>Deschamps' final match, rotation context, both managers changing sides: <a href="https://www.aljazeera.com/sports/2026/7/16/world-cup-why-is-there-a-third-place-playoff-between-france-and-england" target="_blank" rel="noopener">Al Jazeera</a></li>
+<li>Mbappé/Messi Golden Boot tie (8 goals each), goals in third-place count toward the race: <a href="https://www.squawka.com/us/news/world-cup/match-preview-france-vs-england-07-18-26-world-cup-2026-third-place-play-off/" target="_blank" rel="noopener">Squawka</a></li>
+<li>Extra time / penalty rules confirmation for the third-place match: <a href="https://www.beinsports.com/en-us/soccer/fifa-world-cup-2026/articles/is-there-extra-time-and-penalties-in-france-vs-england-for-third-place-at-the-2026-fifa-world-cup-2026-07-16" target="_blank" rel="noopener">beIN Sports</a></li>
+</ul>
+<hr>
+<h2>Grades (graded 2026-07-19 07:07 ET)</h2>
+<h3>1) France vs England — Third-Place Play-Off → <b>England 6–4 France (FT, reg.)</b></h3>
+<p><b>Verified final:</b> England 6–4 France, Miami. England: <b>Declan Rice</b>, <b>Ezri Konsa</b>, <b>Bukayo Saka</b> (37', 45+', 87' pen — <b>hat-trick</b>), <b>Jude Bellingham</b> (his 7th of the tournament — record for an England player at a major tournament). France: <b>Kylian Mbappé</b> ×2 (now the <b>World Cup's all-time leading scorer, 22</b>, and won the Golden Boot outright over Messi), <b>Bradley Barcola</b>, <b>Ousmane Dembélé</b> (96'). 10 goals = most in a WC match since 1982 and the most ever in a third-place game; England's best WC finish since 1966. Sources: <a href="https://www.espn.com/soccer/match/_/gameId/760516/england-france" target="_blank" rel="noopener">ESPN</a>, <a href="https://www.fifa.com/en/match-centre/match/17/285023/289291/400021542" target="_blank" rel="noopener">FIFA</a>, <a href="https://www.skysports.com/football/france-vs-england/report/549868" target="_blank" rel="noopener">Sky Sports</a>, <a href="https://www.nbcnews.com/sports/soccer/sakas-hat-trick-lifts-england-mbappe-france-6-4-wild-world-cup-third-p-rcna588212" target="_blank" rel="noopener">NBC News</a>, <a href="https://www.aljazeera.com/sports/2026/7/18/saka-hat-trick-helps-england-down-france-to-win-world-cup-2026-bronze-final" target="_blank" rel="noopener">Al Jazeera</a>.</p>
+<ul>
+<li><b>Outcome:</b> ❌ <b>MISS</b> — predicted France win; England won 6–4 outright (no ET/pens tail; the draw→ET alt never came into play).</li>
+<li><b>Scoreline:</b> ❌ neither exact nor within-one — predicted France 2–1 (a mirror to the <i>wrong</i> side, 2-goal swing) and, more sharply, a 3-goal total vs an actual <b>10-goal</b> game. The single worst total-goals miss of the season (−7).</li>
+<li><b>Most-likely scorer:</b> ◐ <b>PARTIAL</b> — France primary <b>Mbappé ✅ scored (brace)</b>; the Golden-Boot / individual-incentive lever was exactly right (he scored twice and won the Boot). England co-primary <b>Bellingham ✅ scored</b>. BUT the game's decisive scorer, <b>Saka (hat-trick)</b>, was on <b>no list</b> — not players-to-watch, not the scorer list — the biggest list-construction miss of the tournament. England primary <b>Kane blanked</b>; France co-primary <b>Doué</b> blanked. <b>Rice, Konsa</b> (England set-piece/midfield runners) and France's <b>Barcola, Dembélé</b> (subs) were all unlisted actual scorers too.</li>
+<li><b>Key players featured:</b> mixed — Mbappé and Bellingham decided/featured as billed; Kane (England focal point) did not score.</li>
+<li><b>Stake P&amp;L:</b> France 1u → <b>−1u</b>. The cap-the-stake discipline (1u ceiling, low-med confidence) contained the loss, but this is the <b>third straight knockout token-favorite stake to lose</b> (07-14 France −2u, 07-15 England −1u, 07-18 France −1u).</li>
+<li><b>Calibration:</b> Low-medium confidence, correctly capped — process working on sizing. The card explicitly flagged third-place games run "looser / higher-event / wider scoreline distribution," which was directionally correct about openness, yet still leaned the favorite and under-projected goals by 7. In a pure dead-rubber with both sides rotating similarly, <b>no directional bear-case lever ≠ safe to lean</b> — variance itself argues for <b>no-lean/pass</b>, the same conclusion routed after 07-14/07-15.</li>
+</ul>
+<p><b>Sim (v2):</b> <b>No sim run for 07-18</b> — the watcher has now been dark since 07-03 (extends the outage to the entire QF/SF/final-week window). Step 6 skipped; no <code>grade_sim.py</code>. Sim-calibration metrics remain frozen at 07-02.</p>
+<h3>Day totals</h3>
+<ul>
+<li><b>Outcome 0–1</b> · 0 exact / 0 within-one · <b>most-likely scorer: primary hit (Mbappé) + co-primary hit (Bellingham), but hat-trick hero Saka unlisted</b> · <b>−1u net (1u staked)</b>.</li>
+<li><b>Lessons routed:</b> (1) <b>scorer-list construction — worst single miss of the tournament:</b> Saka scored three and was nowhere on the card; the "Saka-type" phrase even appeared in the flip line but never made the list. Extend the list to in-form wide forwards and set-piece/midfield goal threats (Rice, Konsa) even in rotated XIs. Route: scout-personnel. (2) <b>dead-rubber = pure variance, lean nothing:</b> a 10-goal bronze-final blowing past a 3-goal projection is the clearest case yet that symmetric-rotation dead-rubbers should be <b>pass/no-lean</b>, not a token favorite stake — third straight KO token-stake loss. (3) <b>watcher outage now spans the whole knockout back-half</b> — top infrastructure lesson, unresolved. (4) <b>positive:</b> the Mbappé Golden-Boot motivation call was the read of the day (brace + Boot + all-time WC scorer record).</li>
+</ul></div>
+<footer>Carlos Command Center · World Cup 2026 · auto-published by the prediction pipeline.<br>
+Predictions, not facts. Notional stakes 0–5 units.</footer>
+</div>
+<script>
+(function(){
+  var BUILT = 1784461003297, ID = "1784461003";
+  function ago(){var m=Math.max(0,Math.round((Date.now()-BUILT)/60000));
+    var el=document.getElementById('ago');if(!el)return;
+    el.textContent = m<1?'just now':(m<60?m+'m ago':Math.floor(m/60)+'h '+(m%60)+'m ago');}
+  ago(); setInterval(ago,30000);
+  function poll(){fetch('../meta.json?t='+Date.now(),{cache:'no-store'})
+    .then(function(r){return r.json()})
+    .then(function(j){if(j.build_id&&j.build_id!==ID)location.reload();})
+    .catch(function(){});}
+  setInterval(poll,60000);
+})();
+</script></body></html>

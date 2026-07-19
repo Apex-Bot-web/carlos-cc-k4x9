@@ -1,0 +1,48 @@
+{
+  "date": "2026-07-07",
+  "subtitle": "Round of 16 — Day 4 (final R16 day) · 07-04→07 backfilled retrospectively after a 4-day pipeline gap",
+  "exposure": "Exposure 0u staked today · 1 game backfilled (retrospective, not staked) · 1 live (ungraded)",
+  "games": [
+    {
+      "home": "Argentina",
+      "away": "Egypt",
+      "group": "R16",
+      "venue": "Atlanta (Mercedes-Benz Stadium)",
+      "koET": "12:00 PM ET",
+      "window": "12:00 PM ET · Round of 16",
+      "prediction": "Argentina win (RETROSPECTIVE — not staked)",
+      "scoreline": "1–1 (post-hoc sim proj)",
+      "alts": "2–0, 1–0; Egypt upset live tail",
+      "stake": "N/A — retrospective backfill, no card was pre-registered",
+      "scorer": "Messi <span class=\"k\">(med)</span> · alts Álvarez, Lautaro Martínez; Salah, Marmoush (EGY)",
+      "status": "confirmed",
+      "statusTime": "FT",
+      "note": "RETROSPECTIVE BACKFILL: the lineup-watcher went dark after 07-03 and never re-armed, so no card/board/sim existed for any R16 match day (07-04–07). Sim run post-hoc on pre-match fundamentals only (not the result). Full detail: postmortems/2026-07-04_07-r16-backfill.md.",
+      "noteHeld": false,
+      "simProbs": "58.2% / 25.0% / 16.8%",
+      "simProj": "1–1",
+      "simExtra": "post-hoc · O2.5 56.1% · red 11.5% · comeback 11.3% · top scorer Messi 37.2% · unlisted 58.6%",
+      "simModel": "v2 (backfill)",
+      "result": "FT 3–2 (Argentina down 0–2, scored 3 in the last 13')",
+      "resultGrade": "HIT",
+      "resultScorers": "Ibrahim 15', Zico 67' (Egypt); Romero 79', Messi 83', Enzo Fernández 90+2' (Argentina)"
+    },
+    {
+      "home": "Switzerland",
+      "away": "Colombia",
+      "group": "R16",
+      "venue": "Vancouver (BC Place)",
+      "koET": "4:00 PM ET",
+      "window": "4:00 PM ET · Round of 16",
+      "prediction": "Not pre-registered — pipeline gap",
+      "scoreline": "—",
+      "alts": "—",
+      "stake": "N/A",
+      "scorer": "—",
+      "status": "live",
+      "statusTime": "in progress as of 5:22 PM ET",
+      "note": "Final R16 fixture of the tournament. No card exists (same 07-03→ watcher outage). Will be graded through the normal watcher/grader pipeline once final — not staked or backfilled retroactively since it was still live when the gap was discovered.",
+      "noteHeld": false
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Post-mortem — 2026-07-02-portugal-croatia</title><style>
+:root{color-scheme:light;--bg:#eef1f5;--card:#fff;--ink:#161a1d;--mut:#5b6770;--line:#e1e6ec;
+--green:#1a7f37;--navy:#0f2740;--accent:#1a7f4f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.55}
+.wrap{max-width:1100px;margin:0 auto;padding:14px 14px 50px}
+nav.site{display:flex;gap:4px;align-items:center;flex-wrap:wrap;background:var(--navy);border-radius:12px;padding:8px 10px;margin-bottom:14px;position:sticky;top:8px;z-index:10;box-shadow:0 2px 10px rgba(15,39,64,.25)}
+nav.site .brand{color:#fff;font-weight:800;letter-spacing:-.2px;margin-right:8px;font-size:15px;text-decoration:none}
+nav.site .brand .dot{color:#3ddc84}
+nav.site a.t{color:#c8d3de;text-decoration:none;font-size:13px;font-weight:700;padding:5px 10px;border-radius:8px}
+nav.site a.t.on,nav.site a.t:hover{background:rgba(255,255,255,.14);color:#fff}
+nav.site .upd{margin-left:auto;color:#8fa3b5;font-size:11px;text-align:right}
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px;border-bottom:2px solid #d7dde4;padding-bottom:12px;margin-bottom:16px}
+.title{font-size:21px;font-weight:800;letter-spacing:-.3px}
+.sub{color:var(--mut);font-size:13px;margin-top:3px}
+.meta{text-align:right;font-size:12px;color:var(--mut)}
+.meta .exp{display:inline-block;margin-top:4px;background:var(--navy);color:#fff;padding:3px 9px;border-radius:999px;font-weight:700;font-size:12px}
+.badge{display:inline-flex;align-items:center;gap:5px;font-weight:700;font-size:11px;padding:3px 8px;border-radius:6px;letter-spacing:.2px}
+.b-conf{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.b-pend{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-hit{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.r-miss{background:#fde7e7;color:#b42318;border:1px solid #f3bcbc}
+.r-part{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-live{background:#e7eefc;color:#1d4ed8;border:1px solid #bcd0f5}
+.b-sim{background:#efeafd;color:#6b46c1;border:1px solid #d6c8f5}
+.sim{font-size:12px;color:#4a3a6b;margin-top:9px;background:#f7f4fe;border:1px solid #ece5fb;border-radius:8px;padding:7px 9px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.window{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);margin:20px 0 10px;display:flex;align-items:center;gap:8px}
+.window::after{content:"";flex:1;height:1px;background:#dbe1e8}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 15px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.card.confirmed{border-left:4px solid #1a7f37}
+.card.pending{border-left:4px solid #e8b33a}
+.match{font-size:16px;font-weight:800;letter-spacing:-.2px}
+.ctx{font-size:12px;color:var(--mut);margin-top:2px}
+.row{display:flex;align-items:center;justify-content:space-between;margin-top:11px;gap:8px}
+.pred{font-size:14px}.pred b{font-weight:800}.score{font-weight:800}
+.muted{color:#8a949c}
+.stake{font-size:12px;font-weight:800;background:var(--navy);color:#fff;padding:2px 8px;border-radius:6px;white-space:nowrap}
+.scorer{font-size:12.5px;color:#34404a;margin-top:9px}.scorer .k{color:var(--mut)}
+.result{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:11px;padding:8px 10px;border-radius:8px;background:#f6f8fb;border:1px solid #e6ebf1}
+.result .rscore{font-weight:800;font-size:14px}.result .rscore .k{color:var(--mut);font-weight:600;font-size:11px}
+.note{font-size:11.5px;color:var(--mut);margin-top:9px;border-top:1px dashed var(--line);padding-top:8px}
+.note.held{color:#1a7f37}
+footer{margin-top:26px;font-size:11px;color:#8a949c;text-align:center;line-height:1.6}
+/* prose (markdown pages) */
+.prose{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;box-shadow:0 1px 2px rgba(16,39,64,.04);overflow-x:auto}
+.prose h1{font-size:22px;letter-spacing:-.3px;margin:.2em 0 .5em}
+.prose h2{font-size:17px;margin:1.3em 0 .5em;padding-bottom:5px;border-bottom:1px solid var(--line)}
+.prose h3{font-size:15px;margin:1.2em 0 .4em}
+.prose p,.prose li{font-size:14px;color:#2a333b}
+.prose table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13px}
+.prose th,.prose td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+.prose th{background:#f4f6f9;font-weight:700}
+.prose tr:nth-child(even) td{background:#fafbfc}
+.prose blockquote{margin:10px 0;padding:6px 14px;border-left:3px solid #cbd5df;color:var(--mut);font-size:13.5px}
+.prose code{background:#f0f3f6;border:1px solid #e3e8ee;border-radius:4px;padding:1px 5px;font-size:12.5px}
+.prose hr{border:0;border-top:1px solid var(--line);margin:18px 0}
+.prose a{color:#1d4ed8}
+.prose img{max-width:100%}
+/* index lists */
+.linklist{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;margin-top:12px}
+.linklist a{display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;text-decoration:none;color:var(--ink);font-weight:700;font-size:13.5px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.linklist a:hover{border-color:#b9c4cf}
+.linklist a .d{display:block;font-weight:500;color:var(--mut);font-size:12px;margin-top:3px}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0 0 16px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.stat .v{font-size:19px;font-weight:800;letter-spacing:-.3px}
+.stat .k{font-size:11px;color:var(--mut);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.dayhead{font-size:16px;font-weight:800;margin:26px 0 4px}
+@media (max-width:560px){.wrap{padding:10px 9px 40px}.grid{grid-template-columns:1fr}.meta{text-align:left}}
+</style></head>
+<body><div class="wrap">
+<nav class="site"><a class="brand" href="../index.html">Carlos<span class="dot"> ●</span></a><a class="t" href="../index.html">Board</a><a class="t" href="../history.html">History</a><a class="t" href="../record.html">Record</a><a class="t on" href="../intel.html">Intel</a>
+<span class="upd">updated<br><b id="ago">…</b></span></nav>
+<div class="prose"><h1>Post-Mortem: Portugal 2–1 Croatia — R32, July 2, 2026</h1>
+<h2>Prediction vs actual</h2>
+<ul>
+<li><b>Card:</b> Portugal win, most likely <b>2–1</b> (alts 1–0, 2–0); draw→ET/pens flagged as a fat, live tail (Croatia's habitat); Ronaldo primary scorer (low/med, trivia-streak discounted); 1u stake.</li>
+<li><b>Actual:</b> <b>Portugal 2–1 Croatia</b> (Perišić 53'; Ronaldo pen 68'; Ramos 94'). Croatia had a 113' Gvardiol goal disallowed by VAR (Pašalić offside).</li>
+<li><b>Grade:</b> ✅ outcome, <b>✅ EXACT scoreline (primary)</b>, ✅ scorer (Ronaldo primary, penalty). +1u. No sim was run for this game (watcher coverage gap).</li>
+</ul>
+<h2>Deep dive</h2>
+<p><b>Shot profile:</b> Portugal 15 shots / 3 on target; Croatia 13 shots / <b>6 on target</b> — Croatia was the more clinical/threatening side on target count despite losing, and generated a disallowed late equalizer on top of that. Possession: Portugal 55% / Croatia 37% / 8% contested (specific xG not available from public sources at filing; shot data above sourced from NBC live coverage).</p>
+<p><b>Phase-by-phase:</b></p>
+<ul>
+<li><b>1st half → 53':</b> Consistent with the card's framing — Portugal dominant on the ball, Neves/Vitinha controlling tempo, Modrić/Kovačić grinding value out of fewer touches. Croatia broke the pattern with Perišić's low strike in the 53rd, a converted moment from limited touches — exactly the "drag it into their strength" profile flagged pre-match, but arriving via a clean finish rather than extra time.</li>
+<li><b>68':</b> Ronaldo leveled from the spot after Vlasic fouled Renato Veiga in the box — the equalizer came from a dead-ball/set-piece route, not open play creativity, consistent with the card's "role/box presence, not the No.9 dribbling through a packed box" scorer logic.</li>
+<li><b>90+4' (94'):</b> Ramos, introduced as an attacking sub, headed in from a Leão cross for the winner — Leão was correctly flagged as a wide creative outlet on the card, but Ramos himself was not named in the scorer pool (only Bruno Fernandes/Leão/Conceição were listed as Portugal alts).</li>
+<li><b>113' (ET):</b> Gvardiol's goal was ruled out for a marginal offside on Pašalić — Croatia's ET/pens tail very nearly fired exactly as flagged ("fat, live tail... this is Croatia's signature habitat"), decided by a VAR margin call rather than a clean miss on the model.</li>
+</ul>
+<p><b>What caused the result:</b> Portugal's midfield control translated into the win, as predicted, but the margin came down to fine details the card correctly anticipated in kind (Croatia drags it late, decided on marginal moments) even though the specific mechanism (a disallowed goal in extra time, not a shootout) was more dramatic than modeled.</p>
+<h2>Process vs variance split</h2>
+<p><b>~40% process, ~60% variance.</b> The outcome, scoreline, and primary scorer all hit — this is close to a clean pre-registration win. The genuine process gap: Ramos was omitted from the scorer pool despite being a credible attacking-sub option on a Portugal squad the card itself flagged as "occasionally slack at the back" but explosive going forward. The rest — Croatia's 6 shots on target to Portugal's 3, the near-miss disallowed equalizer — is the "Croatia drags good sides to the wire" pattern playing out almost exactly as scripted, which counts as a correct read, not variance. The genuinely lucky/marginal piece is the offside call on Pašalić; a fractionally different VAR read sends this to extra time, which the card had already priced as live.</p>
+<h2>Predictive signals for future games</h2>
+<ul>
+<li><b>Portugal's bench/subs are a live secondary scorer pool, not just squad depth</b> — Ramos coming on and scoring the winner is the second straight slate (cf. Ramos-class subs elsewhere) where an attacking substitute, not a starter, decided the game. Extend scorer lists to include high-minutes attacking subs by default for possession-heavy sides that rotate their front line.</li>
+<li><b>Croatia's "drag it to the wire" identity should be modeled as shots-on-target parity/superiority even in losses</b>, not just as an outcome/ET-tail probability — 6 SOT to 3 while losing is a repeatable signature (three straight tournaments reaching/pushing knockout rounds) and should raise the model's live-goal and late-chaos weighting specifically for Croatia matchups, independent of the overall win/loss lean.</li>
+<li><b>Set-piece/penalty scorer routes for aging strikers (Ronaldo) continue to validate the "role, not dribble-through-a-packed-box" scorer logic</b> — worth keeping as a durable rule for veteran No.9s in tight games.</li>
+<li><b>Watcher coverage gap flagged again:</b> no sim was run for this game — 2nd of 3 games this slate with no sim output at all (see <code>predictions/2026-07-02-slate.md</code> grading notes and <code>RECORD.md</code>). This is now the top operational issue blocking calibration measurement, ahead of any football-specific lesson.</li>
+</ul>
+<hr>
+<p>Sources: <a href="https://www.nbcsports.com/soccer/live/portugal-vs-croatia-live-updates-score-goals-highlights-stats-from-2026-fifa-world-cup" target="_blank" rel="noopener">NBC Sports live updates</a>; <a href="https://www.aljazeera.com/sports/2026/7/3/ronaldo-scores-as-portugal-comeback-to-win-but-croatia-denied-by-late-var" target="_blank" rel="noopener">Al Jazeera report</a>; <a href="https://www.skysports.com/football/portugal-vs-croatia/report/549850" target="_blank" rel="noopener">Sky Sports report</a>; <a href="https://www.espn.com/soccer/report/_/gameId/760496" target="_blank" rel="noopener">ESPN game analysis</a></p></div>
+<footer>Carlos Command Center · World Cup 2026 · auto-published by the prediction pipeline.<br>
+Predictions, not facts. Notional stakes 0–5 units.</footer>
+</div>
+<script>
+(function(){
+  var BUILT = 1784461003297, ID = "1784461003";
+  function ago(){var m=Math.max(0,Math.round((Date.now()-BUILT)/60000));
+    var el=document.getElementById('ago');if(!el)return;
+    el.textContent = m<1?'just now':(m<60?m+'m ago':Math.floor(m/60)+'h '+(m%60)+'m ago');}
+  ago(); setInterval(ago,30000);
+  function poll(){fetch('../meta.json?t='+Date.now(),{cache:'no-store'})
+    .then(function(r){return r.json()})
+    .then(function(j){if(j.build_id&&j.build_id!==ID)location.reload();})
+    .catch(function(){});}
+  setInterval(poll,60000);
+})();
+</script></body></html>

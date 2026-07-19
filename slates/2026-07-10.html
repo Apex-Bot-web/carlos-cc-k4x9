@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Carlos — Slate 2026-07-10</title><style>
+:root{color-scheme:light;--bg:#eef1f5;--card:#fff;--ink:#161a1d;--mut:#5b6770;--line:#e1e6ec;
+--green:#1a7f37;--navy:#0f2740;--accent:#1a7f4f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.55}
+.wrap{max-width:1100px;margin:0 auto;padding:14px 14px 50px}
+nav.site{display:flex;gap:4px;align-items:center;flex-wrap:wrap;background:var(--navy);border-radius:12px;padding:8px 10px;margin-bottom:14px;position:sticky;top:8px;z-index:10;box-shadow:0 2px 10px rgba(15,39,64,.25)}
+nav.site .brand{color:#fff;font-weight:800;letter-spacing:-.2px;margin-right:8px;font-size:15px;text-decoration:none}
+nav.site .brand .dot{color:#3ddc84}
+nav.site a.t{color:#c8d3de;text-decoration:none;font-size:13px;font-weight:700;padding:5px 10px;border-radius:8px}
+nav.site a.t.on,nav.site a.t:hover{background:rgba(255,255,255,.14);color:#fff}
+nav.site .upd{margin-left:auto;color:#8fa3b5;font-size:11px;text-align:right}
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px;border-bottom:2px solid #d7dde4;padding-bottom:12px;margin-bottom:16px}
+.title{font-size:21px;font-weight:800;letter-spacing:-.3px}
+.sub{color:var(--mut);font-size:13px;margin-top:3px}
+.meta{text-align:right;font-size:12px;color:var(--mut)}
+.meta .exp{display:inline-block;margin-top:4px;background:var(--navy);color:#fff;padding:3px 9px;border-radius:999px;font-weight:700;font-size:12px}
+.badge{display:inline-flex;align-items:center;gap:5px;font-weight:700;font-size:11px;padding:3px 8px;border-radius:6px;letter-spacing:.2px}
+.b-conf{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.b-pend{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-hit{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.r-miss{background:#fde7e7;color:#b42318;border:1px solid #f3bcbc}
+.r-part{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-live{background:#e7eefc;color:#1d4ed8;border:1px solid #bcd0f5}
+.b-sim{background:#efeafd;color:#6b46c1;border:1px solid #d6c8f5}
+.sim{font-size:12px;color:#4a3a6b;margin-top:9px;background:#f7f4fe;border:1px solid #ece5fb;border-radius:8px;padding:7px 9px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.window{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);margin:20px 0 10px;display:flex;align-items:center;gap:8px}
+.window::after{content:"";flex:1;height:1px;background:#dbe1e8}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 15px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.card.confirmed{border-left:4px solid #1a7f37}
+.card.pending{border-left:4px solid #e8b33a}
+.match{font-size:16px;font-weight:800;letter-spacing:-.2px}
+.ctx{font-size:12px;color:var(--mut);margin-top:2px}
+.row{display:flex;align-items:center;justify-content:space-between;margin-top:11px;gap:8px}
+.pred{font-size:14px}.pred b{font-weight:800}.score{font-weight:800}
+.muted{color:#8a949c}
+.stake{font-size:12px;font-weight:800;background:var(--navy);color:#fff;padding:2px 8px;border-radius:6px;white-space:nowrap}
+.scorer{font-size:12.5px;color:#34404a;margin-top:9px}.scorer .k{color:var(--mut)}
+.result{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:11px;padding:8px 10px;border-radius:8px;background:#f6f8fb;border:1px solid #e6ebf1}
+.result .rscore{font-weight:800;font-size:14px}.result .rscore .k{color:var(--mut);font-weight:600;font-size:11px}
+.note{font-size:11.5px;color:var(--mut);margin-top:9px;border-top:1px dashed var(--line);padding-top:8px}
+.note.held{color:#1a7f37}
+footer{margin-top:26px;font-size:11px;color:#8a949c;text-align:center;line-height:1.6}
+/* prose (markdown pages) */
+.prose{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;box-shadow:0 1px 2px rgba(16,39,64,.04);overflow-x:auto}
+.prose h1{font-size:22px;letter-spacing:-.3px;margin:.2em 0 .5em}
+.prose h2{font-size:17px;margin:1.3em 0 .5em;padding-bottom:5px;border-bottom:1px solid var(--line)}
+.prose h3{font-size:15px;margin:1.2em 0 .4em}
+.prose p,.prose li{font-size:14px;color:#2a333b}
+.prose table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13px}
+.prose th,.prose td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+.prose th{background:#f4f6f9;font-weight:700}
+.prose tr:nth-child(even) td{background:#fafbfc}
+.prose blockquote{margin:10px 0;padding:6px 14px;border-left:3px solid #cbd5df;color:var(--mut);font-size:13.5px}
+.prose code{background:#f0f3f6;border:1px solid #e3e8ee;border-radius:4px;padding:1px 5px;font-size:12.5px}
+.prose hr{border:0;border-top:1px solid var(--line);margin:18px 0}
+.prose a{color:#1d4ed8}
+.prose img{max-width:100%}
+/* index lists */
+.linklist{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;margin-top:12px}
+.linklist a{display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;text-decoration:none;color:var(--ink);font-weight:700;font-size:13.5px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.linklist a:hover{border-color:#b9c4cf}
+.linklist a .d{display:block;font-weight:500;color:var(--mut);font-size:12px;margin-top:3px}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0 0 16px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.stat .v{font-size:19px;font-weight:800;letter-spacing:-.3px}
+.stat .k{font-size:11px;color:var(--mut);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.dayhead{font-size:16px;font-weight:800;margin:26px 0 4px}
+@media (max-width:560px){.wrap{padding:10px 9px 40px}.grid{grid-template-columns:1fr}.meta{text-align:left}}
+</style></head>
+<body><div class="wrap">
+<nav class="site"><a class="brand" href="../index.html">Carlos<span class="dot"> ●</span></a><a class="t" href="../index.html">Board</a><a class="t on" href="../history.html">History</a><a class="t" href="../record.html">Record</a><a class="t" href="../intel.html">Intel</a>
+<span class="upd">updated<br><b id="ago">…</b></span></nav>
+<div class="prose"><h1>Carlos — Match Prediction Cards · July 10, 2026 — Quarterfinal (Day 2)</h1>
+<p>*Knockouts: a draw after 90' goes to extra time / penalties. Lineups pending; sims run only after the</p>
+<p>watcher confirms each XI (~45 min pre-KO). Predictions, not facts; sources at end.*</p>
+<p><b>Calibration applied (carlos.lessons.md):</b> (1) <b>Margin under-projection is a durable, repeat error</b></p>
+<p>— reinforced again 07-09 (France 2–0 proj on 3.10 xG, arguably light). Widening Spain's primary</p>
+<p>scoreline rather than reflexively capping at 1–0. (2) **Respect a tournament-hardened underdog's</p>
+<p>late/ET route, but price the tail off actual chance-creation, not scoreboard optics** (07-09 refinement)</p>
+<p>— Belgium's comeback DNA (down 2–0 on Senegal, won 3–2) is real, but that came with Trossard/Doku/De</p>
+<p>Bruyne in a different attacking shape than the XI likely to start here. (3) **A "favorite" barely ahead</p>
+<p>of a near-even field is a coin-flip for staking** (07-07 lesson) — multiple outlets call this the most</p>
+<p>evenly-matched QF of the round, which argues against over-staking even with Spain clearly favored on</p>
+<p>paper. (4) <b>Personnel-driven re-derivation</b> — Amadou Onana (Belgium's defensive-midfield disruptor) is</p>
+<p>out for the rest of the tournament (ACL), and Kevin De Bruyne/Jérémy Doku/Romelu Lukaku all look set to</p>
+<p>start from the bench again per the Belgian camp's plan — this thins Belgium's proven "flip the game late"</p>
+<p>personnel even though the pattern itself stays live.</p>
+<hr>
+<h2>1) Spain vs Belgium — QF · Inglewood (SoFi Stadium) · 3:00 PM ET</h2>
+<p><b>Prediction:</b> <b>Spain win</b> — most likely <b>2–0</b>; alts 3–0, 1–0. Draw after 90' → ET/pens **live but</p>
+<p>thin** tail (not dead — Belgium has already proven a comeback gear this tournament).</p>
+<p><b>Why:</b> Spain are the form team left in the bracket by a wide margin: five games, nine goals for, **zero</p>
+<p>conceded**, and unbeaten in 90 minutes across their last 35 matches under Luis de la Fuente. The 3-0</p>
+<p>round-of-32 win over Austria (2.84 xG, 23 shots to 5, 51 touches in the box) shows the attack clicking</p>
+<p>when the game opens up, and the 1-0 round-of-16 grind past Portugal (a Merino injury-time winner) shows</p>
+<p>they can also close out a tight, low-event knockout game without conceding — the calibration-affirmed</p>
+<p>range for this side runs from "controlled 1-0" to "the attack breaks fully open," not a single mode.</p>
+<p>Belgium's path here is far bumpier: one win in three group games, a round-of-32 escape from 2-0 down</p>
+<p>against Senegal (won 3-2, decided by a 117' penalty after a long VAR review), then their best 90 minutes</p>
+<p>of the tournament in a 4-1 demolition of the USA. That USA win is the real form signal — Charles De</p>
+<p>Ketelaere (2 goals, 1 assist) and Leandro Trossard (now 2 goals, 2 assists across Belgium's last three</p>
+<p>games) carried it — but it came with Kevin De Bruyne an unused sub for a second straight match and Onana</p>
+<p>now out for the rest of the tournament with a torn ACL, which removes Belgium's primary midfield</p>
+<p>disruptor against exactly the kind of possession side (Spain, Rodri/Pedri) built to punish an open</p>
+<p>midfield. Multiple outlets are billing this as the most evenly-matched QF of the round given Belgium's</p>
+<p>De Ketelaere/Trossard form, and the Rodri-vs-KDB (if he enters) subplot is real — but Spain's underlying</p>
+<p>numbers (0 conceded in 5, +9 GD) are the best of any side left in the bracket, and the "widen the</p>
+<p>favorite's margin" lesson argues for 2-0 as the primary over a capped 1-0, while Belgium's own defense</p>
+<p>(unsettled back four: Ngoy/Mechele/de Cuyper, none an elite pairing) gives Spain's front three room.</p>
+<p><b>Players to watch:</b> Lamine Yamal, Dani Olmo, Álex Baena (Spain's rotating front three — creation +</p>
+<p>chance volume), Mikel Oyarzabal (2 goals last match, Spain's most reliable finisher), Rodri (midfield</p>
+<p>control battle vs Belgium's double pivot). For Belgium: Leandro Trossard (tournament's form player, likely</p>
+<p>the auxiliary striker), Charles de Ketelaere (2G 1A in the last-16 win), Kevin De Bruyne/Jérémy Doku/</p>
+<p>Romelu Lukaku (all impact-sub options who can change the game late off the bench — exactly Belgium's</p>
+<p>proven route back into games this tournament).</p>
+<p><b>Most likely scorer:</b> <b>Mikel Oyarzabal</b> (medium-high — braced last match, Spain's most consistent</p>
+<p>box presence) and <b>Lamine Yamal</b> (medium — highest chance-volume creator/carrier) as co-primaries.</p>
+<p>Alts: Dani Olmo, Álex Baena, Pedro Porro (scored vs Austria). For Belgium, <b>Leandro Trossard</b> (low-med</p>
+<p>— tournament's in-form attacker) is the most plausible source of a goal, with <b>Charles de Ketelaere</b></p>
+<p>(low) and a <b>late De Bruyne/Lukaku sub introduction</b> (low, but the exact shape of Belgium's Senegal</p>
+<p>comeback) as secondary threats.</p>
+<p><b>Confidence &amp; stake:</b> <b>Medium confidence, 2u Spain.</b> The underlying numbers (0 conceded in 5 games,</p>
+<p>best defense and GD left in the field) support a real edge, and the margin-widening lesson argues past a</p>
+<p>1u cap — but this stops short of the top of the ladder because Belgium is unambiguously the form team of</p>
+<p>the last-16 round and multiple neutral previews call it the tightest QF matchup, which is exactly the</p>
+<p>"don't over-lean on the favorite label" scenario the 07-07 lesson warns about.</p>
+<p><b>What would flip it:</b> An early Belgium goal off a Trossard/De Ketelaere combination (their proven route</p>
+<p>into games this tournament) would flip this toward the tightly-priced draw/ET path Belgium has already</p>
+<p>shown it can navigate; conversely, if Spain's back four (Cubarsí/Laporte/Porro/Cucurella) holds the</p>
+<p>clean sheet past the hour the way it has in every game so far, the margin should widen toward the 3-0 alt</p>
+<p>rather than sit capped at 2-0.</p>
+<hr>
+<h3>Slate note</h3>
+<p>Total exposure <b>2u / 1 game</b> (Spain 2u). Single-fixture day (second of the QF round, following France</p>
+<p>2–0 Morocco on 07-09); Norway–England and Argentina–Switzerland follow 07-11/07-12. Sim attaches once</p>
+<p>the watcher confirms the XI (~2:15 PM ET).</p>
+<h3>Sources</h3>
+<ul>
+<li>Match details, kickoff, referee, predicted lineups, team news: <a href="https://www.espn.com/soccer/story/_/id/49293727/spain-vs-belgium-fifa-world-cup-2026-tv-channel-how-watch-kick-live-stream-injury-predicted-line-ups" target="_blank" rel="noopener">ESPN preview</a>, <a href="https://www.sportsmole.co.uk/football/spain/world-cup-2026/preview/spain-vs-belgium-prediction-team-news-lineups_600878.html" target="_blank" rel="noopener">Sports Mole preview</a>, <a href="https://www.aljazeera.com/sports/2026/7/10/spain-vs-belgium-world-cup-quarterfinal-prediction-start-time-lineups" target="_blank" rel="noopener">Al Jazeera preview</a></li>
+<li>Onana ACL / Belgium team news: <a href="https://www.espn.com/soccer/story/_/id/49293727/spain-vs-belgium-fifa-world-cup-2026-tv-channel-how-watch-kick-live-stream-injury-predicted-line-ups" target="_blank" rel="noopener">ESPN</a></li>
+<li>Belgium 4-1 USA (De Ketelaere 2, Trossard assist, KDB unused sub): <a href="https://www.cnn.com/2026/07/06/sport/live-news/usa-belgium-world-cup-score" target="_blank" rel="noopener">CNN</a>, <a href="https://www.espn.com/soccer/match/_/gameId/760507/belgium-united-states" target="_blank" rel="noopener">ESPN match</a></li>
+<li>Spain 3-0 Austria stats (2.84 xG, 23 shots to 5): <a href="https://theanalyst.com/articles/spain-vs-austria-stats-world-cup-2026" target="_blank" rel="noopener">The Analyst/Opta</a></li>
+<li>Spain form/record (0 conceded in 5, 35-game unbeaten run, 1-0 Portugal R16): <a href="https://www.espn.com/soccer/story/_/id/49293727/spain-vs-belgium-fifa-world-cup-2026-tv-channel-how-watch-kick-live-stream-injury-predicted-line-ups" target="_blank" rel="noopener">ESPN preview</a></li>
+</ul>
+<hr>
+<h2>Grades (graded 2026-07-11 07:05 ET)</h2>
+<h3>1) Spain vs Belgium — QF → <b>Spain 2–1 Belgium (FT)</b></h3>
+<p><b>Final:</b> Spain 2–1 Belgium. Fabián Ruiz 30' (rebound off a parried Dani Olmo shot, after a Yamal→Porro→Olmo move), <b>Charles De Ketelaere 41'</b> (header over Cubarsí past Unai Simón) to equalise, <b>Mikel Merino 88'</b> super-sub winner (pounced on a Senne Lammens spill — Courtois went off injured, Tielemans out in the warm-up). Spain advance to face France in the semi-final.</p>
+<ul>
+<li><b>Outcome:</b> ✅ <b>HIT</b> — predicted Spain win; Spain won in regulation. The live-but-thin Belgium comeback/ET tail nearly fired (2–1 with a Belgian equaliser and a game-state that sat level from 41' to 88').</li>
+<li><b>Scoreline:</b> ❌ not exact (primary 2–0; alts 3–0, 1–0 — 2–1 not listed) · ◐ <b>within-one</b> of the primary 2–0 (one extra Belgium goal).</li>
+<li><b>Key players featured:</b> ✅ mixed. Lamine Yamal (assist on the opener), Pedro Porro, Dani Olmo all featured and were directly involved in goal one; Rodri controlled midfield. But the two Spain goals came from Fabián Ruiz (not on any watch/scorer list) and Merino (named only as the R16 Portugal winner in the write-up, not on this card's lists).</li>
+<li><b>Most-likely scorer:</b> ❌ <b>MISS</b> on Spain — co-primaries Oyarzabal and Yamal both blanked (Yamal assisted). Neither Spain scorer (Ruiz, Merino) was on the scorer list at all → recurring <b>scorer-list construction</b> miss (both goals from central/box-arriving midfielders, not the front-three names). ✅ <b>Belgium side hit:</b> De Ketelaere, listed as a low secondary Belgian threat, scored the equaliser — the "keep the in-form secondary on the list" fix paid off on the Belgium half of the card.</li>
+<li><b>Stake P&amp;L:</b> <b>2u Spain win → +2u.</b></li>
+<li><b>Calibration note:</b> The <b>margin-widen</b> lesson was directionally right on Spain's goal count (2, not a capped 1) and the 2u stake was validated by the result — but the <b>clean-sheet assumption failed</b>: Cubarsí (named as the back-four anchor expected to "hold the clean sheet past the hour") was the man beaten on De Ketelaere's header, so the "widen toward 3–0 if the clean sheet holds" branch was correctly conditional and correctly did not fire. The card's framing that this was the tightest QF and Belgium's comeback DNA was live (De Ketelaere the plausible source) proved accurate — a 2–1 decided by an 88' super-sub is squarely inside the "coin-flippy, don't over-stake the favorite label" read from 07-07, and 2u (not 3u) held that discipline.</li>
+</ul>
+<h3>Day totals (2026-07-10)</h3>
+<ul>
+<li><b>Cards graded:</b> 1 · <b>Outcome:</b> 1–0 (100%) · <b>Scoreline:</b> 0 exact / <b>1 within-one</b> · <b>Most-likely scorer:</b> 0/1 primary (Spain); Belgium secondary De Ketelaere hit · <b>Stake:</b> <b>+2u (2u staked).</b></li>
+<li><b>v2 simulator:</b> ⚠️ <b>NOT SIMULATED — no <code>sims/2026-07-10-sims-output.json</code>.</b> The watcher has produced no sim output since 07-03 (pipeline dark 4 straight match days again). This is the same coverage gap flagged 07-01/07-02, now a persistent infrastructure failure, not an edge case — the single biggest open lesson. No Brier/scorer/margin numbers to record for today.</li>
+</ul>
+<p><b>Sources:</b> <a href="https://www.cnn.com/2026/07/10/sport/live-news/spain-belgium-world-cup-score" target="_blank" rel="noopener">CNN — Merino late winner</a> · <a href="https://theanalyst.com/articles/spain-vs-belgium-stats-world-cup-2026-quarter-final" target="_blank" rel="noopener">Opta/The Analyst — Spain 2–1 Belgium stats (Lammens error, goals/minutes)</a> · <a href="https://www.nbcsports.com/soccer/live/spain-vs-belgium-live-updates-score-goals-highlights-stats-from-2026-fifa-world-cup" target="_blank" rel="noopener">NBC Sports — Merino super-sub, 2–1</a> · <a href="https://heavy.com/sports/soccer/world-cup/fabian-ruiz-spain-belgium-quarterfinal-goal/" target="_blank" rel="noopener">Heavy — Fabián Ruiz opener detail</a></p></div>
+<footer>Carlos Command Center · World Cup 2026 · auto-published by the prediction pipeline.<br>
+Predictions, not facts. Notional stakes 0–5 units.</footer>
+</div>
+<script>
+(function(){
+  var BUILT = 1784461003297, ID = "1784461003";
+  function ago(){var m=Math.max(0,Math.round((Date.now()-BUILT)/60000));
+    var el=document.getElementById('ago');if(!el)return;
+    el.textContent = m<1?'just now':(m<60?m+'m ago':Math.floor(m/60)+'h '+(m%60)+'m ago');}
+  ago(); setInterval(ago,30000);
+  function poll(){fetch('../meta.json?t='+Date.now(),{cache:'no-store'})
+    .then(function(r){return r.json()})
+    .then(function(j){if(j.build_id&&j.build_id!==ID)location.reload();})
+    .catch(function(){});}
+  setInterval(poll,60000);
+})();
+</script></body></html>

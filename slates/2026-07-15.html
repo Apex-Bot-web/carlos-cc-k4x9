@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Carlos — Slate 2026-07-15</title><style>
+:root{color-scheme:light;--bg:#eef1f5;--card:#fff;--ink:#161a1d;--mut:#5b6770;--line:#e1e6ec;
+--green:#1a7f37;--navy:#0f2740;--accent:#1a7f4f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.55}
+.wrap{max-width:1100px;margin:0 auto;padding:14px 14px 50px}
+nav.site{display:flex;gap:4px;align-items:center;flex-wrap:wrap;background:var(--navy);border-radius:12px;padding:8px 10px;margin-bottom:14px;position:sticky;top:8px;z-index:10;box-shadow:0 2px 10px rgba(15,39,64,.25)}
+nav.site .brand{color:#fff;font-weight:800;letter-spacing:-.2px;margin-right:8px;font-size:15px;text-decoration:none}
+nav.site .brand .dot{color:#3ddc84}
+nav.site a.t{color:#c8d3de;text-decoration:none;font-size:13px;font-weight:700;padding:5px 10px;border-radius:8px}
+nav.site a.t.on,nav.site a.t:hover{background:rgba(255,255,255,.14);color:#fff}
+nav.site .upd{margin-left:auto;color:#8fa3b5;font-size:11px;text-align:right}
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px;border-bottom:2px solid #d7dde4;padding-bottom:12px;margin-bottom:16px}
+.title{font-size:21px;font-weight:800;letter-spacing:-.3px}
+.sub{color:var(--mut);font-size:13px;margin-top:3px}
+.meta{text-align:right;font-size:12px;color:var(--mut)}
+.meta .exp{display:inline-block;margin-top:4px;background:var(--navy);color:#fff;padding:3px 9px;border-radius:999px;font-weight:700;font-size:12px}
+.badge{display:inline-flex;align-items:center;gap:5px;font-weight:700;font-size:11px;padding:3px 8px;border-radius:6px;letter-spacing:.2px}
+.b-conf{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.b-pend{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-hit{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.r-miss{background:#fde7e7;color:#b42318;border:1px solid #f3bcbc}
+.r-part{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-live{background:#e7eefc;color:#1d4ed8;border:1px solid #bcd0f5}
+.b-sim{background:#efeafd;color:#6b46c1;border:1px solid #d6c8f5}
+.sim{font-size:12px;color:#4a3a6b;margin-top:9px;background:#f7f4fe;border:1px solid #ece5fb;border-radius:8px;padding:7px 9px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.window{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);margin:20px 0 10px;display:flex;align-items:center;gap:8px}
+.window::after{content:"";flex:1;height:1px;background:#dbe1e8}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 15px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.card.confirmed{border-left:4px solid #1a7f37}
+.card.pending{border-left:4px solid #e8b33a}
+.match{font-size:16px;font-weight:800;letter-spacing:-.2px}
+.ctx{font-size:12px;color:var(--mut);margin-top:2px}
+.row{display:flex;align-items:center;justify-content:space-between;margin-top:11px;gap:8px}
+.pred{font-size:14px}.pred b{font-weight:800}.score{font-weight:800}
+.muted{color:#8a949c}
+.stake{font-size:12px;font-weight:800;background:var(--navy);color:#fff;padding:2px 8px;border-radius:6px;white-space:nowrap}
+.scorer{font-size:12.5px;color:#34404a;margin-top:9px}.scorer .k{color:var(--mut)}
+.result{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:11px;padding:8px 10px;border-radius:8px;background:#f6f8fb;border:1px solid #e6ebf1}
+.result .rscore{font-weight:800;font-size:14px}.result .rscore .k{color:var(--mut);font-weight:600;font-size:11px}
+.note{font-size:11.5px;color:var(--mut);margin-top:9px;border-top:1px dashed var(--line);padding-top:8px}
+.note.held{color:#1a7f37}
+footer{margin-top:26px;font-size:11px;color:#8a949c;text-align:center;line-height:1.6}
+/* prose (markdown pages) */
+.prose{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;box-shadow:0 1px 2px rgba(16,39,64,.04);overflow-x:auto}
+.prose h1{font-size:22px;letter-spacing:-.3px;margin:.2em 0 .5em}
+.prose h2{font-size:17px;margin:1.3em 0 .5em;padding-bottom:5px;border-bottom:1px solid var(--line)}
+.prose h3{font-size:15px;margin:1.2em 0 .4em}
+.prose p,.prose li{font-size:14px;color:#2a333b}
+.prose table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13px}
+.prose th,.prose td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+.prose th{background:#f4f6f9;font-weight:700}
+.prose tr:nth-child(even) td{background:#fafbfc}
+.prose blockquote{margin:10px 0;padding:6px 14px;border-left:3px solid #cbd5df;color:var(--mut);font-size:13.5px}
+.prose code{background:#f0f3f6;border:1px solid #e3e8ee;border-radius:4px;padding:1px 5px;font-size:12.5px}
+.prose hr{border:0;border-top:1px solid var(--line);margin:18px 0}
+.prose a{color:#1d4ed8}
+.prose img{max-width:100%}
+/* index lists */
+.linklist{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;margin-top:12px}
+.linklist a{display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;text-decoration:none;color:var(--ink);font-weight:700;font-size:13.5px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.linklist a:hover{border-color:#b9c4cf}
+.linklist a .d{display:block;font-weight:500;color:var(--mut);font-size:12px;margin-top:3px}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0 0 16px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.stat .v{font-size:19px;font-weight:800;letter-spacing:-.3px}
+.stat .k{font-size:11px;color:var(--mut);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.dayhead{font-size:16px;font-weight:800;margin:26px 0 4px}
+@media (max-width:560px){.wrap{padding:10px 9px 40px}.grid{grid-template-columns:1fr}.meta{text-align:left}}
+</style></head>
+<body><div class="wrap">
+<nav class="site"><a class="brand" href="../index.html">Carlos<span class="dot"> ●</span></a><a class="t" href="../index.html">Board</a><a class="t on" href="../history.html">History</a><a class="t" href="../record.html">Record</a><a class="t" href="../intel.html">Intel</a>
+<span class="upd">updated<br><b id="ago">…</b></span></nav>
+<div class="prose"><h1>Carlos — Match Prediction Cards · July 15, 2026 — Semifinal (Day 2)</h1>
+<p>*Knockouts: a draw after 90' goes to extra time / penalties. Lineups pending; sims run only after the</p>
+<p>watcher confirms each XI (~45 min pre-KO). Predictions, not facts; sources at end.*</p>
+<p><b>Calibration applied (carlos.lessons.md):</b> (1) **07-14 NEW RULE — when the card's own bear case</p>
+<p>enumerates the opponent's full ceiling and the model is a coin-flip, don't lean the favorite on</p>
+<p>form/vibes; lean the side the STRUCTURAL factors favor, or go pick'em.** Opta itself has England</p>
+<p>marginally ahead both in regulation (38.2% ENG / 32.0% ARG / 29.7% draw) and to the final (51.9/48.1) —</p>
+<p>leaning England here follows the model's own structural read, not a vibes override, so the lesson is</p>
+<p>satisfied rather than violated. (2) **07-07/07-10 "tightest-game" rule — cap the stake, don't over-lean</p>
+<p>the favorite label.** A sub-7-point edge with a draw at ~30% is a genuine coin-flip; capped at 1u. (3)</p>
+<p><b>Margin-widen (06-24/07-09/07-10) does NOT apply here</b> — that rule is for favorites with a clear class</p>
+<p>gap; this is pick'em, so the scoreline stays tight, not widened. (4) **Scorer-list construction: include</p>
+<p>the arriving/super-sub threat, not just the front three (repeat miss 07-09/07-10/07-14 — Merino, Porro</p>
+<p>all missed).** Lautaro Martínez (ARG bench 9) and the England fullback/wide overlap threat are flagged</p>
+<p>explicitly below.</p>
+<hr>
+<h2>1) England vs Argentina — Semifinal · Mercedes-Benz Stadium, Atlanta · 3:00 PM ET</h2>
+<p><b>Prediction:</b> <b>England win</b> — most likely <b>2–1</b>; alts <b>1–0</b>, **1–1 (→ ET/pens, live and not</p>
+<p>thin — Opta has the draw at ~29.7%, the highest draw-probability game of the round)**. Tight, structurally</p>
+<p>even semifinal.</p>
+<p><b>Why:</b> Opta's supercomputer has this at 38.2% England / 32.0% Argentina in regulation, 29.7% to extra</p>
+<p>time, and 51.9% England / 48.1% Argentina to reach the final — as close to a coin-flip as the bracket</p>
+<p>gets, with a thin, model-driven (not vibes-driven) lean to England. England arrive with two players on 6</p>
+<p>goals each (Kane, Bellingham) — the first time in World Cup history one nation has had two players hit</p>
+<p>6+ in the same edition — and knocked out Norway 2-1 in extra time on the back of a Bellingham brace,</p>
+<p>extending his run of two-plus-goal World Cup games to a level only Kane and Lineker have matched for</p>
+<p>England. Argentina counter with the tournament's outright top scorer by volume: 17 goals, most of any</p>
+<p>side, one short of their all-time-best 18, with Messi on 8 (tied for tournament joint-lead) and each of</p>
+<p>their last four matches producing exactly 3 goals. Argentina have also never lost a World Cup semifinal —</p>
+<p>5/5 all-time — which is the single biggest structural item in Argentina's favor and the strongest plank</p>
+<p>of the bear case against England here. Historically England hold the head-to-head edge (won 6, drawn 6,</p>
+<p>lost 2 of 14; unbeaten in 90 minutes across the last five meetings, last 90-minute loss 1986), but that</p>
+<p>record is thin, dated evidence against a completely different Argentina generation and is weighted</p>
+<p>accordingly (low). The swing detail: Declan Rice is managing an illness that "clearly affected him"</p>
+<p>against Norway and is unconfirmed for full fitness — his midfield battle with Enzo Fernández/De</p>
+<p>Paul/Mac Allister is the single biggest in-game lever, mirroring the France-Spain "control-battle decides</p>
+<p>it" framing from 07-14 (which resolved against the side that lost that battle). <b>Net read:</b> lean</p>
+<p>England on the model's own structural edge (not narrative), keep the margin tight given genuine coin-flip</p>
+<p>odds, and treat Argentina's 5/5 semifinal record and hot scoring run as live, not dismissed.</p>
+<p><b>Players to watch:</b> Jude Bellingham (6 goals, scored both in the Norway win, a level only Kane/Lineker</p>
+<p>have matched for England), Harry Kane (6 goals, captain, chasing the all-time England outfield cap</p>
+<p>record), Declan Rice (illness/fitness question mark — the swing factor in the midfield battle), Bukayo</p>
+<p>Saka (minutes-managed all tournament but the tournament's #2 assists-per-90 rate among 200+ minute</p>
+<p>players). For Argentina: Lionel Messi (8 goals, tied top scorer, has never faced England, chalked up an</p>
+<p>assist rather than a goal in the Switzerland win), Julián Álvarez (strike partner, expected starter</p>
+<p>alongside Messi), Lisandro Martínez/Cristian Romero (centre-back pairing facing Kane/Bellingham's dual</p>
+<p>threat).</p>
+<p><b>Most likely scorer:</b> <b>Jude Bellingham</b> (medium-high — 6 goals, scored in each of the last two knockout</p>
+<p>rounds, the tournament's hottest England scorer right now) as primary; <b>Harry Kane</b> (medium — co-leader</p>
+<p>on 6, captain, always the focal point) as co-primary. Alts: Anthony Gordon (10-dribble game vs Norway,</p>
+<p>in-form winger), Bukayo Saka (elite chance-creation, minutes managed). For Argentina, <b>Lionel Messi</b></p>
+<p>(medium-high — 8 goals, tournament joint-top scorer) is the primary source, with <b>Julián Álvarez</b></p>
+<p>(medium — expected strike partner) as co-primary; <b>Lautaro Martínez</b> (low-medium — the proven bench</p>
+<p>finisher, explicitly kept on the list per the 07-09/07-10/07-14 super-sub scorer-construction lesson) and</p>
+<p><b>Enzo Fernández/Alexis Mac Allister</b> (low — arriving central-midfield threat, the possession-side</p>
+<p>scorer-list gap flagged as a repeat miss) round out the secondary threats.</p>
+<p><b>Confidence &amp; stake:</b> <b>Low-medium confidence, 1u England.</b> This is the textbook "tightest-game, cap</p>
+<p>the stake" spot from 07-07/07-10 — Opta's own model is within 7 points of pick'em with the draw at</p>
+<p>~29.7%, the highest of the round. The lean follows the model's structural edge (England, marginally),</p>
+<p>not form narrative, satisfying the 07-14 direction rule rather than repeating its mistake — but Argentina's</p>
+<p>5/5 all-time semifinal record and 17-goals-in-6 scoring form are genuinely live enough to keep this</p>
+<p>capped at 1u, not 2u.</p>
+<p><b>What would flip it:</b> A confirmed Declan Rice absence/limitation would hand Argentina's midfield trio</p>
+<p>control and shift this toward Argentina or the draw/ET tail; conversely, an early Bellingham or Kane goal</p>
+<p>against an Argentina side that has needed extra time in its last knockout game (vs Switzerland) would open</p>
+<p>this into a more comfortable England win. Argentina's "exactly 3 goals in each of the last 4 matches"</p>
+<p>streak is also worth tracking live — if that continues against a set England back line, the coin-flip</p>
+<p>tips hard toward Argentina rather than the tight 2–1 modelled here.</p>
+<hr>
+<h3>Slate note</h3>
+<p>Total exposure <b>1u / 1 game</b> (England 1u). Single-fixture day — second semifinal; the final follows</p>
+<p>07-19 (winner vs Spain, who beat France 0-2 on 07-14). Sim attaches once the watcher confirms the XI</p>
+<p>(~2:15 PM ET).</p>
+<h3>Sources</h3>
+<ul>
+<li>Match details, kickoff, venue, Opta model probabilities, H2H, squads/lineups: <a href="https://theanalyst.com/articles/england-vs-argentina-prediction-world-cup-2026-match-preview" target="_blank" rel="noopener">Opta Analyst preview</a>, <a href="https://www.aljazeera.com/sports/2026/7/13/argentina-england-fifa-world-cup-semifinal-prediction-messi-kane-venue" target="_blank" rel="noopener">Al Jazeera</a>, <a href="https://www.si.com/soccer/england-vs-argentina-world-cup-preview-predictions-lineups-7-15-26" target="_blank" rel="noopener">SI preview</a></li>
+<li>England route, Norway 2-1 AET win, Bellingham brace, Kane/Bellingham 6-goal milestone, Rice illness, Saka minutes management: <a href="https://www.npr.org/2026/07/11/nx-s1-5890169/2026-world-cup-fifa-england-norway-quarterfinal" target="_blank" rel="noopener">NPR</a>, <a href="https://www.aljazeera.com/sports/liveblog/2026/7/11/england-vs-norway-live-fifa-world-cup-2026-quarterfinal" target="_blank" rel="noopener">Al Jazeera live blog</a>, <a href="https://theanalyst.com/articles/jude-bellingham-or-bust-england-world-cup-norway-win" target="_blank" rel="noopener">Opta "Bellingham or Bust"</a></li>
+<li>Argentina route, Switzerland 3-1 AET win, Messi assist/goal tally, 5/5 semifinal record, 17-goal tally: <a href="https://theanalyst.com/articles/england-vs-argentina-prediction-world-cup-2026-match-preview" target="_blank" rel="noopener">Opta Analyst preview</a></li>
+<li>Predicted lineups, team news (Henderson wrist surgery, Rice illness): <a href="https://www.rotowire.com/soccer/article/england-vs-argentina-preview-predicted-lineups-team-news-tactical-analysis-2026-world-cup-semifinal-122508" target="_blank" rel="noopener">RotoWire preview</a>, <a href="https://www.sportsmole.co.uk/football/england/world-cup-2026/preview/england-vs-argentina-prediction-team-news-lineups_601122.html" target="_blank" rel="noopener">Sports Mole preview</a></li>
+</ul>
+<hr>
+<h2>Grades (graded 2026-07-16 07:08 ET)</h2>
+<p><b>Actual result — England 1–2 Argentina (regulation) · Mercedes-Benz Stadium, Atlanta.</b> England led through</p>
+<p>Anthony Gordon (55', assisted Morgan Rogers); Argentina came from behind with Enzo Fernández (85', long-range</p>
+<p>strike, assisted Messi cross) and substitute Lautaro Martínez (92', header, assisted Messi cross). Messi</p>
+<p>provided both assists; Argentina reach the final vs Spain (07-19). Sources: ESPN, FIFA match centre, Sky Sports,</p>
+<p>NBC News, NPR, Boston Globe, Al Jazeera (linked in run summary).</p>
+<h3>1) England vs Argentina — predicted <b>England win 2–1 (1u)</b> → <b>Argentina 2–1</b></h3>
+<ul>
+<li><b>Outcome:</b> ❌ <b>MISS</b> — leaned England (thin, model-driven), Argentina won in regulation. Argentina's</li>
+</ul>
+<p><b>5/5 all-time semifinal record</b> — flagged in the card as the single biggest structural plank of the bear</p>
+<p>case — held; the coin-flip tipped to the side the structural item favored. <b>−1u.</b></p>
+<ul>
+<li><b>Scoreline:</b> ❌ predicted England 2–1, actual <b>Argentina 2–1</b> (mirror scoreline). Not exact; **not</li>
+</ul>
+<p>within-one** (margin swing of 2, +1 England → −1 England). None of the listed England alts (1–0, 1–1→ET) hit;</p>
+<p>the game finished in regulation, so the draw/ET tail did not fire.</p>
+<ul>
+<li><b>Most-likely scorer (primary):</b> ❌ <b>0/1</b> — England primaries <b>Bellingham and Kane both blanked.</b></li>
+<li><b>Key-player / scorer-list construction:</b> ✅ <b>strong — the standout positive.</b> All three actual scorers</li>
+</ul>
+<p>were on the card's lists: <b>Gordon</b> (listed England alt) scored England's goal; <b>Enzo Fernández</b> (listed</p>
+<p>low, "arriving central-midfield threat — the possession-side scorer-list gap") scored the equalizer; and</p>
+<p><b>Lautaro Martínez</b> (listed low-medium, **explicitly kept on the list per the 07-09/07-10/07-14 super-sub</p>
+<p>lesson**) scored the winner. First clean list-construction result after four straight slates of unlisted-scorer</p>
+<p>misses (Merino, Porro ×2, Ndoye) — the super-sub fix worked exactly as intended. <b>Messi</b> (named primary,</p>
+<p>medium-high) was decisive with <b>two assists</b> though he did not score. The card's flagged midfield lever</p>
+<p>(Rice's fitness / the Enzo–De Paul–Mac Allister battle) resolved against England as warned — Enzo both scored</p>
+<p>and ran the middle.</p>
+<ul>
+<li><b>Calibration:</b> low-medium confidence, 1u. The <b>"cap the stake on the tightest-game" rule held</b> (loss</li>
+</ul>
+<p>contained to −1u, not −2u), but this is the <b>second straight semifinal</b> losing a token favorite stake on a</p>
+<p>genuine coin-flip (07-14 France −2u, 07-15 England −1u). Reinforces the open 07-14 lesson: when Opta is within</p>
+<p>~7 points of pick'em with a high draw prob, a <b>no-lean/pass</b> may beat a token favorite stake. The 07-14</p>
+<p>"lean the model's structural edge" rule was followed correctly (Opta had England 38.2/32.0/29.7, 51.9/48.1 to</p>
+<p>the final) — but the model itself was a near coin-flip and the bear-case structural plank (5/5 semifinals) won.</p>
+<h3>Sim (v2) — NOT GRADED</h3>
+<p><b>No sim output for 2026-07-15</b> (<code>sims/2026-07-15-sims-output.json</code> absent). The watcher has produced **no live</p>
+<p>sim since 07-03 — now the 7th straight match day dark.** Step 6 skipped; all sim-calibration metrics remain</p>
+<p>frozen at 07-02. This is the top-priority infrastructure lesson, unchanged and worsening.</p>
+<h3>Day totals</h3>
+<p>Outcome <b>0–1</b> · 0 exact / 0 within-one scoreline · most-likely scorer <b>0/1 primary</b> (but **3/3 actual scorers</p>
+<p>on the card's lists<b> — super-sub construction validated) · </b>−1u net (1u staked)** · no sim. Argentina advance</p>
+<p>to face Spain in the final (07-19).</p></div>
+<footer>Carlos Command Center · World Cup 2026 · auto-published by the prediction pipeline.<br>
+Predictions, not facts. Notional stakes 0–5 units.</footer>
+</div>
+<script>
+(function(){
+  var BUILT = 1784461003297, ID = "1784461003";
+  function ago(){var m=Math.max(0,Math.round((Date.now()-BUILT)/60000));
+    var el=document.getElementById('ago');if(!el)return;
+    el.textContent = m<1?'just now':(m<60?m+'m ago':Math.floor(m/60)+'h '+(m%60)+'m ago');}
+  ago(); setInterval(ago,30000);
+  function poll(){fetch('../meta.json?t='+Date.now(),{cache:'no-store'})
+    .then(function(r){return r.json()})
+    .then(function(j){if(j.build_id&&j.build_id!==ID)location.reload();})
+    .catch(function(){});}
+  setInterval(poll,60000);
+})();
+</script></body></html>

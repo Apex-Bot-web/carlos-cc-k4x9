@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Post-mortem — 2026-07-01-belgium-senegal</title><style>
+:root{color-scheme:light;--bg:#eef1f5;--card:#fff;--ink:#161a1d;--mut:#5b6770;--line:#e1e6ec;
+--green:#1a7f37;--navy:#0f2740;--accent:#1a7f4f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.55}
+.wrap{max-width:1100px;margin:0 auto;padding:14px 14px 50px}
+nav.site{display:flex;gap:4px;align-items:center;flex-wrap:wrap;background:var(--navy);border-radius:12px;padding:8px 10px;margin-bottom:14px;position:sticky;top:8px;z-index:10;box-shadow:0 2px 10px rgba(15,39,64,.25)}
+nav.site .brand{color:#fff;font-weight:800;letter-spacing:-.2px;margin-right:8px;font-size:15px;text-decoration:none}
+nav.site .brand .dot{color:#3ddc84}
+nav.site a.t{color:#c8d3de;text-decoration:none;font-size:13px;font-weight:700;padding:5px 10px;border-radius:8px}
+nav.site a.t.on,nav.site a.t:hover{background:rgba(255,255,255,.14);color:#fff}
+nav.site .upd{margin-left:auto;color:#8fa3b5;font-size:11px;text-align:right}
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px;border-bottom:2px solid #d7dde4;padding-bottom:12px;margin-bottom:16px}
+.title{font-size:21px;font-weight:800;letter-spacing:-.3px}
+.sub{color:var(--mut);font-size:13px;margin-top:3px}
+.meta{text-align:right;font-size:12px;color:var(--mut)}
+.meta .exp{display:inline-block;margin-top:4px;background:var(--navy);color:#fff;padding:3px 9px;border-radius:999px;font-weight:700;font-size:12px}
+.badge{display:inline-flex;align-items:center;gap:5px;font-weight:700;font-size:11px;padding:3px 8px;border-radius:6px;letter-spacing:.2px}
+.b-conf{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.b-pend{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-hit{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.r-miss{background:#fde7e7;color:#b42318;border:1px solid #f3bcbc}
+.r-part{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-live{background:#e7eefc;color:#1d4ed8;border:1px solid #bcd0f5}
+.b-sim{background:#efeafd;color:#6b46c1;border:1px solid #d6c8f5}
+.sim{font-size:12px;color:#4a3a6b;margin-top:9px;background:#f7f4fe;border:1px solid #ece5fb;border-radius:8px;padding:7px 9px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.window{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);margin:20px 0 10px;display:flex;align-items:center;gap:8px}
+.window::after{content:"";flex:1;height:1px;background:#dbe1e8}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 15px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.card.confirmed{border-left:4px solid #1a7f37}
+.card.pending{border-left:4px solid #e8b33a}
+.match{font-size:16px;font-weight:800;letter-spacing:-.2px}
+.ctx{font-size:12px;color:var(--mut);margin-top:2px}
+.row{display:flex;align-items:center;justify-content:space-between;margin-top:11px;gap:8px}
+.pred{font-size:14px}.pred b{font-weight:800}.score{font-weight:800}
+.muted{color:#8a949c}
+.stake{font-size:12px;font-weight:800;background:var(--navy);color:#fff;padding:2px 8px;border-radius:6px;white-space:nowrap}
+.scorer{font-size:12.5px;color:#34404a;margin-top:9px}.scorer .k{color:var(--mut)}
+.result{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:11px;padding:8px 10px;border-radius:8px;background:#f6f8fb;border:1px solid #e6ebf1}
+.result .rscore{font-weight:800;font-size:14px}.result .rscore .k{color:var(--mut);font-weight:600;font-size:11px}
+.note{font-size:11.5px;color:var(--mut);margin-top:9px;border-top:1px dashed var(--line);padding-top:8px}
+.note.held{color:#1a7f37}
+footer{margin-top:26px;font-size:11px;color:#8a949c;text-align:center;line-height:1.6}
+/* prose (markdown pages) */
+.prose{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;box-shadow:0 1px 2px rgba(16,39,64,.04);overflow-x:auto}
+.prose h1{font-size:22px;letter-spacing:-.3px;margin:.2em 0 .5em}
+.prose h2{font-size:17px;margin:1.3em 0 .5em;padding-bottom:5px;border-bottom:1px solid var(--line)}
+.prose h3{font-size:15px;margin:1.2em 0 .4em}
+.prose p,.prose li{font-size:14px;color:#2a333b}
+.prose table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13px}
+.prose th,.prose td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+.prose th{background:#f4f6f9;font-weight:700}
+.prose tr:nth-child(even) td{background:#fafbfc}
+.prose blockquote{margin:10px 0;padding:6px 14px;border-left:3px solid #cbd5df;color:var(--mut);font-size:13.5px}
+.prose code{background:#f0f3f6;border:1px solid #e3e8ee;border-radius:4px;padding:1px 5px;font-size:12.5px}
+.prose hr{border:0;border-top:1px solid var(--line);margin:18px 0}
+.prose a{color:#1d4ed8}
+.prose img{max-width:100%}
+/* index lists */
+.linklist{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;margin-top:12px}
+.linklist a{display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;text-decoration:none;color:var(--ink);font-weight:700;font-size:13.5px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.linklist a:hover{border-color:#b9c4cf}
+.linklist a .d{display:block;font-weight:500;color:var(--mut);font-size:12px;margin-top:3px}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0 0 16px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.stat .v{font-size:19px;font-weight:800;letter-spacing:-.3px}
+.stat .k{font-size:11px;color:var(--mut);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.dayhead{font-size:16px;font-weight:800;margin:26px 0 4px}
+@media (max-width:560px){.wrap{padding:10px 9px 40px}.grid{grid-template-columns:1fr}.meta{text-align:left}}
+</style></head>
+<body><div class="wrap">
+<nav class="site"><a class="brand" href="../index.html">Carlos<span class="dot"> ●</span></a><a class="t" href="../index.html">Board</a><a class="t" href="../history.html">History</a><a class="t" href="../record.html">Record</a><a class="t on" href="../intel.html">Intel</a>
+<span class="upd">updated<br><b id="ago">…</b></span></nav>
+<div class="prose"><h1>Post-mortem — Belgium 3–2 Senegal AET (R32, Seattle/Lumen) · 2026-07-01</h1>
+<p><i>Filed 2026-07-02. Film Room / DEEP post-mortem. All stats sourced. No fluff. Outcome HIT, process largely WRONG — this is the file to read carefully.</i></p>
+<h2>1) Prediction vs actual</h2>
+<table><thead><tr><th></th><th>Card</th><th>Actual</th><th>Grade</th></tr></thead><tbody>
+<tr><td>Outcome</td><td><b>Belgium edge</b></td><td><b>Belgium won 3–2 AET</b> (reg 2–2)</td><td>✅ HIT (+1u) — via the ET path listed as live alt</td></tr>
+<tr><td>Scoreline</td><td>primary <b>2–1</b>; alts 1–1 (→ET), 1–0</td><td>reg <b>2–2</b></td><td>❌ not among alts; within-one</td></tr>
+<tr><td>Most-likely scorer</td><td>revised → <b>De Bruyne</b> (after Lukaku benched); alts De Ketelaere, Trossard, Doku</td><td><b>Diarra, Sarr; Lukaku, Tielemans ×2</b></td><td>❌ KDB didn't score; original pick Lukaku scored as a sub</td></tr>
+<tr><td>Stake</td><td><b>1u Belgium</b> (capped — Senegal organised and dangerous)</td><td>—</td><td><b>+1u</b></td></tr>
+<tr><td>Sim (v2, post-XI)</td><td>Bel 46.4 / D 26.9 / Sen 26.7 · proj 1–1 · KDB 23% (Lukaku UNLISTED)</td><td>reg 2–2</td><td>❌ lean on 90' basis, ✅ ±1 · Brier 0.821</td></tr>
+</tbody></table>
+<p>Scorers: <b>H. Diarra 25', I. Sarr 51'; Lukaku 86', Tielemans 89', Tielemans 120+5 pen (124:44 — latest goal in WC history)</b>. Sources: <a href="https://www.skysports.com/football/news/29908/13558804/world-cup-2026-belgium-3-2-senegal-aet-youri-tielemans-extra-time-penalty-winner-wins-last-32-clash" target="_blank" rel="noopener">Sky Sports report</a>; <a href="https://www.espn.com/soccer/story/_/id/49240489/belgium-stunning-comeback-eliminate-senegal" target="_blank" rel="noopener">ESPN</a>; <a href="https://www.espn.com/soccer/story/_/id/49243140/belgium-defeat-senegal-world-cup-round-32-youri-tielemans-ismaila-sarr" target="_blank" rel="noopener">ESPN/Ogden analysis</a>.</p>
+<h2>2) The deep dive</h2>
+<p><b>Shot profile</b> (full match incl. ET, per <a href="https://www.si.com/soccer/belgium-vs-senegal-world-cup-live-score-match-stats" target="_blank" rel="noopener">SI's live match stats</a>): <b>Senegal xG 3.54 — Belgium 1.80</b>; shots on target <b>5–5</b>; big chances <b>2–2</b>; possession Belgium 52–48; passes 602 (86%) vs 536 (84%); fouls Belgium 22, Senegal 12; saves 3–3. Total-shot counts and xG/shot: unknown (per-provider breakdown not confirmed). The single most damning process stat is from Sky's report: <b>Lukaku's 86' goal was Belgium's FIRST shot on target; Tielemans' 89' header (2 min 39 sec later) was their SECOND.</b> Belgium produced zero on-target threat for 85+ minutes.</p>
+<p><b>Block/shape/subs.</b> Belgium's 4-2-3-1 with <b>De Ketelaere false-9 (Lukaku benched)</b> did not function: no reference point, Senegal's midfield (I. Gueye, P. Gueye, Diarra) smothered De Bruyne exactly as the card's flip-risk warned. <b>KDB and Doku were both subbed off in the 56th</b> — the card's central driver was withdrawn with Belgium 2–0 down in effect (2nd goal 51'). <b>Lukaku on at HT</b> restored the target man and scored. Tielemans and Lukaku had a "heated exchange at the hydration break" (~66') before combining to force ET. Senegal's shape: front-foot 4-3-3, scoring via (1) <b>Sarr header off the post → Diarra rebound 25'</b> and (2) <b>a long ball chested down by Sarr that split the Belgium defence 51'</b> — the pace-in-behind route the card itself flagged.</p>
+<p><b>Phase-by-phase.</b></p>
+<ul>
+<li><i>1st half:</i> Senegal "deservedly in front at half-time" (Sky) — Diarra 25'.</li>
+<li><i>2nd half:</i> Sarr 51' → 2–0; Belgium sub off their two stars at 56'; nothing on target until <b>86' Lukaku, 89' Tielemans</b> — a 3-minute salvage against a Senegal side that had controlled ~85 minutes.</li>
+<li><i>ET:</i> penalties loomed; <b>117' Camara challenge on Tielemans (Lukebakio hit the bar in the buildup) → SEVEN-minute VAR review → penalty</b>, converted 120+5. Keane and Neville both called the award wrong; <a href="https://www.espn.com/soccer/story/_/id/49027532/world-cup-2026-var-review-red-card-penalty-handball-goal-line-technology" target="_blank" rel="noopener">ESPN's VAR review questioned it</a>. Referee: Said Martínez.</li>
+</ul>
+<p><b>Conditions:</b> hydration break taken (~66'); weather specifics unknown.</p>
+<h2>3) Process vs variance — the WIN was ~70% variance; the CARD was ~60% process error</h2>
+<p>Two separate honesty checks:</p>
+<ul>
+<li><b>The result.</b> Belgium needed: two goals in 3 minutes from 0 on-target after 85', an opponent collapse, and a marginal 7-minute-VAR penalty at 117'. On a 90-minute basis Senegal won the xG battle ~3.54–1.80 and the game finished 2–2. Credit the +1u; do NOT credit the read. This is the tournament's biggest comeback landing on our side of the ledger.</li>
+<li><b>The card.</b> Real process errors: (a) the <b>stated flip-risk was the actual game script</b> (Gueye/Diarra smothering KDB + pace in behind) yet Belgium stayed the lean at 2–1 — when your own flip mechanism is that live, the primary scoreline should carry Senegal-score mass (2–2 was in nobody's list); (b) the <b>scorer revision logic backfired</b>: dropping benched Lukaku entirely (sim "Other unlisted" 62.1%) ignored that a benched No.9 behind a false-9 experiment is the most likely game-state sub; (c) the sim's Belgium lean at 46.4% was roughly fair — the 1u cap and the "1–1 → ET live alt" were the parts of the process that worked.</li>
+<li><b>Genuine variance (no lesson):</b> the penalty decision itself, Sarr's header hitting the post before Diarra's rebound, Lukebakio's bar. Do not calibrate on Said Martínez.</li>
+</ul>
+<h2>4) Predictive signals for future games</h2>
+<ul>
+<li><b>Belgium profile (next: USA, R16, July 6/7 in Seattle — WE COVER THIS GAME): slow-start, elite late-chaos team.</b> Group stage: Egypt 1–1 rescued by a Lukaku-forced own goal off the bench; now 2 goals in 86'–89' + a 120+5 winner. Belgium's equity is disproportionately in the <b>last 15 + ET</b>; their first hour is beatable (0 SOT in 85' here, 0.62-xG-against blank vs Iran). For the USA card: raise "Belgium score late," lower "Belgium lead at HT." Route: scout-patterns / scout-tactics / carlos.</li>
+<li><b>The false-9 experiment failed and will likely be abandoned — expect Lukaku to start vs USA.</b> When Lukaku is on the pitch Belgium have a reference point and score (own-goal forcer vs Egypt, 86' here). <b>Whether he starts or not, he anchors the scorer list.</b> Route: scout-personnel. <i>(REPEAT: second straight slate where the decisive scorer was unlisted — the fix is now codified: benched stars stay listed.)</i></li>
+<li><b>KDB is no longer the safe "creativity engine" bet</b> — smothered by a physical midfield press and withdrawn at 56'. Against pressing midfields, shift Belgium creation mass to <b>Tielemans (2 goals here, on pens) and Trossard (assist)</b>. Tielemans is Belgium's set-piece/penalty taker of record now — that matters for scorer calls. Route: scout-personnel.</li>
+<li><b>Belgium's high line loses to direct balls in behind</b> (Sarr 51'; card flagged it pre-game). The USA's press-and-run profile (Balogun-less, but Tillman/Pulisic vertical) attacks exactly this. Route: scout-tactics.</li>
+<li><b>Senegal eliminated</b> — archive: dangerous, front-foot, physically dominant vs possession sides, but chronic game-closing failure (led Norway, lost; led 2–0 at 85' here, lost). The "organised and dangerous underdog → compress" rule fired correctly. Route: scout-patterns.</li>
+</ul></div>
+<footer>Carlos Command Center · World Cup 2026 · auto-published by the prediction pipeline.<br>
+Predictions, not facts. Notional stakes 0–5 units.</footer>
+</div>
+<script>
+(function(){
+  var BUILT = 1784461003297, ID = "1784461003";
+  function ago(){var m=Math.max(0,Math.round((Date.now()-BUILT)/60000));
+    var el=document.getElementById('ago');if(!el)return;
+    el.textContent = m<1?'just now':(m<60?m+'m ago':Math.floor(m/60)+'h '+(m%60)+'m ago');}
+  ago(); setInterval(ago,30000);
+  function poll(){fetch('../meta.json?t='+Date.now(),{cache:'no-store'})
+    .then(function(r){return r.json()})
+    .then(function(j){if(j.build_id&&j.build_id!==ID)location.reload();})
+    .catch(function(){});}
+  setInterval(poll,60000);
+})();
+</script></body></html>

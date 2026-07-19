@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Carlos — Slate 2026-06-30</title><style>
+:root{color-scheme:light;--bg:#eef1f5;--card:#fff;--ink:#161a1d;--mut:#5b6770;--line:#e1e6ec;
+--green:#1a7f37;--navy:#0f2740;--accent:#1a7f4f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.55}
+.wrap{max-width:1100px;margin:0 auto;padding:14px 14px 50px}
+nav.site{display:flex;gap:4px;align-items:center;flex-wrap:wrap;background:var(--navy);border-radius:12px;padding:8px 10px;margin-bottom:14px;position:sticky;top:8px;z-index:10;box-shadow:0 2px 10px rgba(15,39,64,.25)}
+nav.site .brand{color:#fff;font-weight:800;letter-spacing:-.2px;margin-right:8px;font-size:15px;text-decoration:none}
+nav.site .brand .dot{color:#3ddc84}
+nav.site a.t{color:#c8d3de;text-decoration:none;font-size:13px;font-weight:700;padding:5px 10px;border-radius:8px}
+nav.site a.t.on,nav.site a.t:hover{background:rgba(255,255,255,.14);color:#fff}
+nav.site .upd{margin-left:auto;color:#8fa3b5;font-size:11px;text-align:right}
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px;border-bottom:2px solid #d7dde4;padding-bottom:12px;margin-bottom:16px}
+.title{font-size:21px;font-weight:800;letter-spacing:-.3px}
+.sub{color:var(--mut);font-size:13px;margin-top:3px}
+.meta{text-align:right;font-size:12px;color:var(--mut)}
+.meta .exp{display:inline-block;margin-top:4px;background:var(--navy);color:#fff;padding:3px 9px;border-radius:999px;font-weight:700;font-size:12px}
+.badge{display:inline-flex;align-items:center;gap:5px;font-weight:700;font-size:11px;padding:3px 8px;border-radius:6px;letter-spacing:.2px}
+.b-conf{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.b-pend{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-hit{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.r-miss{background:#fde7e7;color:#b42318;border:1px solid #f3bcbc}
+.r-part{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-live{background:#e7eefc;color:#1d4ed8;border:1px solid #bcd0f5}
+.b-sim{background:#efeafd;color:#6b46c1;border:1px solid #d6c8f5}
+.sim{font-size:12px;color:#4a3a6b;margin-top:9px;background:#f7f4fe;border:1px solid #ece5fb;border-radius:8px;padding:7px 9px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.window{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);margin:20px 0 10px;display:flex;align-items:center;gap:8px}
+.window::after{content:"";flex:1;height:1px;background:#dbe1e8}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 15px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.card.confirmed{border-left:4px solid #1a7f37}
+.card.pending{border-left:4px solid #e8b33a}
+.match{font-size:16px;font-weight:800;letter-spacing:-.2px}
+.ctx{font-size:12px;color:var(--mut);margin-top:2px}
+.row{display:flex;align-items:center;justify-content:space-between;margin-top:11px;gap:8px}
+.pred{font-size:14px}.pred b{font-weight:800}.score{font-weight:800}
+.muted{color:#8a949c}
+.stake{font-size:12px;font-weight:800;background:var(--navy);color:#fff;padding:2px 8px;border-radius:6px;white-space:nowrap}
+.scorer{font-size:12.5px;color:#34404a;margin-top:9px}.scorer .k{color:var(--mut)}
+.result{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:11px;padding:8px 10px;border-radius:8px;background:#f6f8fb;border:1px solid #e6ebf1}
+.result .rscore{font-weight:800;font-size:14px}.result .rscore .k{color:var(--mut);font-weight:600;font-size:11px}
+.note{font-size:11.5px;color:var(--mut);margin-top:9px;border-top:1px dashed var(--line);padding-top:8px}
+.note.held{color:#1a7f37}
+footer{margin-top:26px;font-size:11px;color:#8a949c;text-align:center;line-height:1.6}
+/* prose (markdown pages) */
+.prose{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;box-shadow:0 1px 2px rgba(16,39,64,.04);overflow-x:auto}
+.prose h1{font-size:22px;letter-spacing:-.3px;margin:.2em 0 .5em}
+.prose h2{font-size:17px;margin:1.3em 0 .5em;padding-bottom:5px;border-bottom:1px solid var(--line)}
+.prose h3{font-size:15px;margin:1.2em 0 .4em}
+.prose p,.prose li{font-size:14px;color:#2a333b}
+.prose table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13px}
+.prose th,.prose td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+.prose th{background:#f4f6f9;font-weight:700}
+.prose tr:nth-child(even) td{background:#fafbfc}
+.prose blockquote{margin:10px 0;padding:6px 14px;border-left:3px solid #cbd5df;color:var(--mut);font-size:13.5px}
+.prose code{background:#f0f3f6;border:1px solid #e3e8ee;border-radius:4px;padding:1px 5px;font-size:12.5px}
+.prose hr{border:0;border-top:1px solid var(--line);margin:18px 0}
+.prose a{color:#1d4ed8}
+.prose img{max-width:100%}
+/* index lists */
+.linklist{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;margin-top:12px}
+.linklist a{display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;text-decoration:none;color:var(--ink);font-weight:700;font-size:13.5px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.linklist a:hover{border-color:#b9c4cf}
+.linklist a .d{display:block;font-weight:500;color:var(--mut);font-size:12px;margin-top:3px}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0 0 16px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.stat .v{font-size:19px;font-weight:800;letter-spacing:-.3px}
+.stat .k{font-size:11px;color:var(--mut);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.dayhead{font-size:16px;font-weight:800;margin:26px 0 4px}
+@media (max-width:560px){.wrap{padding:10px 9px 40px}.grid{grid-template-columns:1fr}.meta{text-align:left}}
+</style></head>
+<body><div class="wrap">
+<nav class="site"><a class="brand" href="../index.html">Carlos<span class="dot"> ●</span></a><a class="t" href="../index.html">Board</a><a class="t on" href="../history.html">History</a><a class="t" href="../record.html">Record</a><a class="t" href="../intel.html">Intel</a>
+<span class="upd">updated<br><b id="ago">…</b></span></nav>
+<div class="prose"><h1>Carlos — Match Prediction Cards · June 30, 2026 — Round of 32 (Day 3)</h1>
+<p>*Knockouts: a draw after 90' goes to extra time / penalties. <b>Both teams are must-win</b>, so the</p>
+<p>group-stage "unmotivated favorite" discount does NOT apply — it's quality + form. Stakes capped</p>
+<p>(honest ladder); only France is a confident 2u. v2 sims (event-based) shown per card. Predictions,</p>
+<p>not facts; sources at end.*</p>
+<hr>
+<h2>1) Ivory Coast vs Norway — R32 · Arlington · 1:00 PM ET <i>(kicked off)</i></h2>
+<p><b>Prediction:</b> <b>Norway edge</b> — most likely <b>1–1</b> (Norway 2–1 alt; a draw after 90' → ET/pens is live).</p>
+<p><b>v2 sim (10k):</b> Ivory Coast 25% / Draw 30% / Norway 45% · proj 1–1 · O2.5 48% · comeback 11%.</p>
+<p><b>Why:</b> Knockout, both must-win. Norway favored on <b>Haaland</b> (4 goals already, rested vs France); Ivory</p>
+<p>Coast arrive in form (Pépé brace vs Curaçao, 4 wins in 5) with pace in Diomandé vs Nusa. Close — Opta had</p>
+<p>Norway ~56%; the sim is more draw-weighted given two must-win sides.</p>
+<p><b>Most likely scorer:</b> <b>Haaland</b> (med). Alts: Pépé, Sørloth, Amad Diallo.</p>
+<p><b>Stake:</b> <b>1u Norway</b> (capped — close knockout, pens live).</p>
+<p><b>What would flip it:</b> IC's front-line pace getting in behind early; Haaland kept quiet by Ndicka/Kossounou.</p>
+<h2>2) France vs Sweden — R32 · East Rutherford · 5:00 PM ET</h2>
+<p><b>Prediction:</b> <b>France win</b> — most likely <b>2–0</b> (alts 2–1, 3–0).</p>
+<p><b>v2 sim (10k):</b> France 64% / Draw 24% / Sweden 12% · proj 2–0 · O2.5 57% · top scorer Mbappé 63%.</p>
+<p><b>Why:</b> France swept Group I (incl. 4–1 Norway); Sweden scraped in as a best-3rd and are leaky (shipped 5</p>
+<p>to the Netherlands). Sweden will sit deeper and counter via Isak/Gyökeres; France's quality breaks them down.</p>
+<p>Mbappé (4 goals) is chasing Klose's all-time WC record. (Opta ~75% France.)</p>
+<p><b>Most likely scorer:</b> <b>Mbappé</b> (med). Alts: Olise, Dembélé; Isak (SWE counter).</p>
+<p><b>Stake:</b> <b>2u France</b> (clearest quality edge of the slate; capped at 2u — Sweden's counter + knockout variance).</p>
+<p><b>What would flip it:</b> Saliba's back issue flaring / a France off-day vs a low block, dragging it to pens.</p>
+<h2>3) Mexico vs Ecuador — R32 · Mexico City (Azteca) · 9:00 PM ET</h2>
+<p><b>Prediction:</b> <b>Mexico edge</b> — most likely <b>1–0</b> (a draw → ET/pens is live; Ecuador 1–0 a real alt).</p>
+<p><b>v2 sim (10k):</b> Mexico 38% / Draw 34% / Ecuador 28% · proj 1–1 · O2.5 37% (low-event) · comeback 8%.</p>
+<p><b>Why:</b> The most evenly-matched R32 tie. Mexico won all 3 Group A games with <b>3 clean sheets</b>, unbeaten</p>
+<p>in 11, at <b>home + Azteca altitude</b>. Ecuador are in form (came from behind to beat Germany 2–1) with an</p>
+<p><b>elite defense</b> (two CL-final defenders; Caicedo screening). Two strong back lines → low-scoring, likely</p>
+<p>decided by a single moment or penalties.</p>
+<p><b>Most likely scorer:</b> <b>Raúl Jiménez</b> (low — tight game). Alts: S. Giménez, Lozano; Valencia (ECU).</p>
+<p><b>Stake:</b> <b>1u Mexico</b> (home/altitude edge, but a coin-flip — pens live).</p>
+<p><b>What would flip it:</b> Ecuador's defense holding for pens; Mexico's altitude legs telling late.</p>
+<hr>
+<h3>Slate note</h3>
+<p>Total exposure <b>4u / 3 games</b> (France 2u; Norway, Mexico 1u each). Knockouts cap confidence — two of three</p>
+<p>project to within one goal / penalties. Motivation is symmetric (both must-win), so the v2 <code>must_win</code> chase is</p>
+<p>applied to <b>both</b> sides in each game.</p>
+<h3>Sources</h3>
+<ul>
+<li>R32 schedule/bracket: <a href="https://www.cbssports.com/soccer/news/world-cup-2026-schedule-times-dates/" target="_blank" rel="noopener">CBS Sports knockout schedule</a>; <a href="https://sports.yahoo.com/soccer/article/world-cup-2026-round-of-32-full-bracket-matchups-schedule-and-how-each-team-qualified-164942403.html" target="_blank" rel="noopener">Yahoo R32 bracket</a></li>
+<li>Ivory Coast–Norway: <a href="https://www.aljazeera.com/news/2026/6/30/ivory-coast-norway-fifa-world-cup-round-of-32-prediction-haaland-diomande-lineups" target="_blank" rel="noopener">Al Jazeera preview</a>; <a href="https://www.cbssports.com/soccer/news/norway-ivory-coast-odds-prediction-time-2026-world-cup-round-of-32-picks/" target="_blank" rel="noopener">CBS preview/odds</a></li>
+<li>France–Sweden: <a href="https://www.aljazeera.com/sports/2026/6/30/france-sweden-fifa-world-cup-round-of-32-prediction-schedule-lineups-mbappe-dembele" target="_blank" rel="noopener">Al Jazeera preview</a>; <a href="https://www.goal.com/en/news/france-sweden-world-cup-preview/bltfb049a9f4a28d059" target="_blank" rel="noopener">Goal.com preview</a></li>
+<li>Mexico–Ecuador: <a href="https://www.espn.com/soccer/story/_/id/49212810/mexico-vs-ecuador-fifa-world-cup-2026-tv-channel-how-watch-kickoff-live-stream-referee-predicted-lineups" target="_blank" rel="noopener">ESPN preview/predicted XIs</a>; <a href="https://www.foxsports.com/stories/soccer/mexico-vs-ecuador-prediction-odds-picks-world-cup-match" target="_blank" rel="noopener">FOX Sports preview</a></li>
+</ul>
+<hr>
+<h2>Grades (graded 2026-07-01 11:15 AM ET)</h2>
+<p><b>Result sources:</b> IC–Norway <a href="https://www.fifa.com/en/match-centre/match/17/285023/289287/400021514" target="_blank" rel="noopener">FIFA 1–2</a> · <a href="https://www.aljazeera.com/sports/liveblog/2026/6/30/ivory-coast-vs-norway-live-fifa-world-cup-2026" target="_blank" rel="noopener">Al Jazeera</a> · <a href="https://www.espn.com/soccer/match/_/gameId/760490/norway-ivory-coast" target="_blank" rel="noopener">ESPN</a>. France–Sweden <a href="https://www.fifa.com/en/match-centre/match/17/285023/289287/400021523" target="_blank" rel="noopener">FIFA 3–0</a> · <a href="https://www.espn.com/soccer/match/_/gameId/760492/sweden-france" target="_blank" rel="noopener">ESPN</a>. Mexico–Ecuador <a href="https://www.fifa.com/en/match-centre/match/17/285023/289287/400021520" target="_blank" rel="noopener">FIFA 2–0</a> · <a href="https://www.espn.com/soccer/story/_/id/49230314/mexico-ecuador-live-world-cup-2026-latest-updates-commentary-score-result" target="_blank" rel="noopener">ESPN</a>.</p>
+<h3>1) Ivory Coast vs Norway → <b>FT: Ivory Coast 1–2 Norway</b> (regulation)</h3>
+<p>Scorers: Amad Diallo (CIV), Nusa (NOR), <b>Haaland 86'</b> (NOR winner).</p>
+<ul>
+<li><b>Outcome:</b> predicted <i>Norway edge</i> → <b>✅ HIT</b> (Norway won, no ET needed).</li>
+<li><b>Scoreline:</b> primary 1–1 miss, but <b>alt "Norway 2–1" = exact</b> (CIV 1–2 NOR) → ✅ alt-exact; also within-one of primary.</li>
+<li><b>Most-likely scorer:</b> <b>Haaland ✅ primary hit</b> (86' winner, "the difference" as called). Alt <b>A. Diallo ✅</b> also scored. Key-player call landed.</li>
+<li><b>Stake:</b> 1u Norway → <b>+1u</b>.</li>
+<li><b>Calibration:</b> close knockout (sim 45–47% Norway) called correctly at capped 1u; alt scoreline exact. Clean.</li>
+</ul>
+<h3>2) France vs Sweden → <b>FT: France 3–0 Sweden</b></h3>
+<p>Scorers: <b>Mbappé ×2</b>, Barcola.</p>
+<ul>
+<li><b>Outcome:</b> predicted <i>France win</i> → <b>✅ HIT</b>.</li>
+<li><b>Scoreline:</b> primary 2–0 miss, but <b>alt "3–0" = exact</b> → ✅ alt-exact; within-one of primary.</li>
+<li><b>Most-likely scorer:</b> <b>Mbappé ✅ primary hit (brace)</b> — the 2u lead call delivered its star. (Barcola not listed; Olise/Dembélé alts blank.)</li>
+<li><b>Stake:</b> 2u France → <b>+2u</b>.</li>
+<li><b>Calibration:</b> the slate's one confident play (2u) was also its most emphatic result — good stake discrimination for once.</li>
+</ul>
+<h3>3) Mexico vs Ecuador → <b>FT: Mexico 2–0 Ecuador</b></h3>
+<p>Scorers: Quiñones 22', <b>Raúl Jiménez 31'</b>.</p>
+<ul>
+<li><b>Outcome:</b> predicted <i>Mexico edge</i> → <b>✅ HIT</b> (won in regulation; the "coin-flip → pens" tail didn't fire — Mexico controlled it).</li>
+<li><b>Scoreline:</b> primary 1–0 → actual 2–0 → <b>◐ within-one</b> (not exact; alts draw/ECU 1–0 blank).</li>
+<li><b>Most-likely scorer:</b> <b>R. Jiménez ✅ primary hit</b> (31') — even flagged "low" for a tight game, he scored. (Quiñones opener not listed.)</li>
+<li><b>Stake:</b> 1u Mexico → <b>+1u</b>.</li>
+<li><b>Calibration:</b> the "widen the margin in a clear home/quality edge" lesson would've upgraded 1–0 → 2–0; direction and scorer both right.</li>
+</ul>
+<h3>Day totals</h3>
+<ul>
+<li><b>Outcome: 3–0 (perfect day).</b></li>
+<li><b>Scoreline:</b> 0/3 primary-exact · <b>2/3 alt-exact</b> (Norway 2–1, France 3–0) · <b>3/3 within-one</b>.</li>
+<li><b>Most-likely scorer (primary): 3/3 ✅✅✅</b> (Haaland, Mbappé, Jiménez) — the single best scorer day of the system; + alt A. Diallo. Scorer model is clicking.</li>
+<li><b>Stake P&amp;L: +4u from 4u staked (100%).</b></li>
+<li><b>Sim (v2) mean Brier: 0.355</b> — best slate to date (no game &gt; 0.9; worst was Mexico 0.54). Sim top-scorer hit <b>3/3</b>. Margin bias small: total-goals ≈ exact (+0.18 mean), but the <i>modal</i> scoreline under-projected the winner's margin by 1 in France &amp; Mexico (0 in IC–Norway).</li>
+<li><b>Lesson routed:</b> scorer-list construction still missed all three <i>secondary</i> scorers (Amad Diallo, Barcola, Quiñones were absent from their sim's scorer list) even though every <i>top</i> pick scored → scout-personnel: widen the scorer list past the obvious star. And margin-damp persists at ~1 goal on clear favorites → keep nudging favorite modal scoreline up.</li>
+</ul></div>
+<footer>Carlos Command Center · World Cup 2026 · auto-published by the prediction pipeline.<br>
+Predictions, not facts. Notional stakes 0–5 units.</footer>
+</div>
+<script>
+(function(){
+  var BUILT = 1784461003297, ID = "1784461003";
+  function ago(){var m=Math.max(0,Math.round((Date.now()-BUILT)/60000));
+    var el=document.getElementById('ago');if(!el)return;
+    el.textContent = m<1?'just now':(m<60?m+'m ago':Math.floor(m/60)+'h '+(m%60)+'m ago');}
+  ago(); setInterval(ago,30000);
+  function poll(){fetch('../meta.json?t='+Date.now(),{cache:'no-store'})
+    .then(function(r){return r.json()})
+    .then(function(j){if(j.build_id&&j.build_id!==ID)location.reload();})
+    .catch(function(){});}
+  setInterval(poll,60000);
+})();
+</script></body></html>

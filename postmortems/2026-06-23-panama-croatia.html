@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Post-mortem — 2026-06-23-panama-croatia</title><style>
+:root{color-scheme:light;--bg:#eef1f5;--card:#fff;--ink:#161a1d;--mut:#5b6770;--line:#e1e6ec;
+--green:#1a7f37;--navy:#0f2740;--accent:#1a7f4f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.55}
+.wrap{max-width:1100px;margin:0 auto;padding:14px 14px 50px}
+nav.site{display:flex;gap:4px;align-items:center;flex-wrap:wrap;background:var(--navy);border-radius:12px;padding:8px 10px;margin-bottom:14px;position:sticky;top:8px;z-index:10;box-shadow:0 2px 10px rgba(15,39,64,.25)}
+nav.site .brand{color:#fff;font-weight:800;letter-spacing:-.2px;margin-right:8px;font-size:15px;text-decoration:none}
+nav.site .brand .dot{color:#3ddc84}
+nav.site a.t{color:#c8d3de;text-decoration:none;font-size:13px;font-weight:700;padding:5px 10px;border-radius:8px}
+nav.site a.t.on,nav.site a.t:hover{background:rgba(255,255,255,.14);color:#fff}
+nav.site .upd{margin-left:auto;color:#8fa3b5;font-size:11px;text-align:right}
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px;border-bottom:2px solid #d7dde4;padding-bottom:12px;margin-bottom:16px}
+.title{font-size:21px;font-weight:800;letter-spacing:-.3px}
+.sub{color:var(--mut);font-size:13px;margin-top:3px}
+.meta{text-align:right;font-size:12px;color:var(--mut)}
+.meta .exp{display:inline-block;margin-top:4px;background:var(--navy);color:#fff;padding:3px 9px;border-radius:999px;font-weight:700;font-size:12px}
+.badge{display:inline-flex;align-items:center;gap:5px;font-weight:700;font-size:11px;padding:3px 8px;border-radius:6px;letter-spacing:.2px}
+.b-conf{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.b-pend{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-hit{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.r-miss{background:#fde7e7;color:#b42318;border:1px solid #f3bcbc}
+.r-part{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-live{background:#e7eefc;color:#1d4ed8;border:1px solid #bcd0f5}
+.b-sim{background:#efeafd;color:#6b46c1;border:1px solid #d6c8f5}
+.sim{font-size:12px;color:#4a3a6b;margin-top:9px;background:#f7f4fe;border:1px solid #ece5fb;border-radius:8px;padding:7px 9px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.window{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);margin:20px 0 10px;display:flex;align-items:center;gap:8px}
+.window::after{content:"";flex:1;height:1px;background:#dbe1e8}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 15px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.card.confirmed{border-left:4px solid #1a7f37}
+.card.pending{border-left:4px solid #e8b33a}
+.match{font-size:16px;font-weight:800;letter-spacing:-.2px}
+.ctx{font-size:12px;color:var(--mut);margin-top:2px}
+.row{display:flex;align-items:center;justify-content:space-between;margin-top:11px;gap:8px}
+.pred{font-size:14px}.pred b{font-weight:800}.score{font-weight:800}
+.muted{color:#8a949c}
+.stake{font-size:12px;font-weight:800;background:var(--navy);color:#fff;padding:2px 8px;border-radius:6px;white-space:nowrap}
+.scorer{font-size:12.5px;color:#34404a;margin-top:9px}.scorer .k{color:var(--mut)}
+.result{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:11px;padding:8px 10px;border-radius:8px;background:#f6f8fb;border:1px solid #e6ebf1}
+.result .rscore{font-weight:800;font-size:14px}.result .rscore .k{color:var(--mut);font-weight:600;font-size:11px}
+.note{font-size:11.5px;color:var(--mut);margin-top:9px;border-top:1px dashed var(--line);padding-top:8px}
+.note.held{color:#1a7f37}
+footer{margin-top:26px;font-size:11px;color:#8a949c;text-align:center;line-height:1.6}
+/* prose (markdown pages) */
+.prose{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;box-shadow:0 1px 2px rgba(16,39,64,.04);overflow-x:auto}
+.prose h1{font-size:22px;letter-spacing:-.3px;margin:.2em 0 .5em}
+.prose h2{font-size:17px;margin:1.3em 0 .5em;padding-bottom:5px;border-bottom:1px solid var(--line)}
+.prose h3{font-size:15px;margin:1.2em 0 .4em}
+.prose p,.prose li{font-size:14px;color:#2a333b}
+.prose table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13px}
+.prose th,.prose td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+.prose th{background:#f4f6f9;font-weight:700}
+.prose tr:nth-child(even) td{background:#fafbfc}
+.prose blockquote{margin:10px 0;padding:6px 14px;border-left:3px solid #cbd5df;color:var(--mut);font-size:13.5px}
+.prose code{background:#f0f3f6;border:1px solid #e3e8ee;border-radius:4px;padding:1px 5px;font-size:12.5px}
+.prose hr{border:0;border-top:1px solid var(--line);margin:18px 0}
+.prose a{color:#1d4ed8}
+.prose img{max-width:100%}
+/* index lists */
+.linklist{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;margin-top:12px}
+.linklist a{display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;text-decoration:none;color:var(--ink);font-weight:700;font-size:13.5px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.linklist a:hover{border-color:#b9c4cf}
+.linklist a .d{display:block;font-weight:500;color:var(--mut);font-size:12px;margin-top:3px}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0 0 16px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.stat .v{font-size:19px;font-weight:800;letter-spacing:-.3px}
+.stat .k{font-size:11px;color:var(--mut);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.dayhead{font-size:16px;font-weight:800;margin:26px 0 4px}
+@media (max-width:560px){.wrap{padding:10px 9px 40px}.grid{grid-template-columns:1fr}.meta{text-align:left}}
+</style></head>
+<body><div class="wrap">
+<nav class="site"><a class="brand" href="../index.html">Carlos<span class="dot"> ●</span></a><a class="t" href="../index.html">Board</a><a class="t" href="../history.html">History</a><a class="t" href="../record.html">Record</a><a class="t on" href="../intel.html">Intel</a>
+<span class="upd">updated<br><b id="ago">…</b></span></nav>
+<div class="prose"><h1>Post-mortem — Panama 0–1 Croatia · Group L · 2026-06-23 (Toronto, BMO Field)</h1>
+<p>*By the postmortem-analyst. Result and stats sourced (below). Prediction from the pre-registered</p>
+<p>card <code>predictions/2026-06-23-slate.md</code> (incl. confirmed-XI updates). Outcome was a HIT — this is a</p>
+<p>PASS with two refinements, not a blame log.*</p>
+<h2>Prediction vs actual</h2>
+<table><thead><tr><th></th><th>Predicted (card)</th><th>Actual</th></tr></thead><tbody>
+<tr><td>Outcome</td><td>Croatia win</td><td><b>Croatia win</b> ✅</td></tr>
+<tr><td>Scoreline</td><td>2–1 (alts 2–0, live draw)</td><td><b>1–0</b> ◐ within one</td></tr>
+<tr><td>Most likely scorer</td><td>Petar Musa (low)</td><td><b>Ante Budimir (54', HT sub)</b> ❌</td></tr>
+<tr><td>Stake</td><td>2u on Croatia</td><td><b>+2u (win)</b></td></tr>
+</tbody></table>
+<p>Grade: outcome HIT, scoreline within-one, scorer MISS (correctly tagged <i>low</i>). Net <b>+2u</b>.</p>
+<h2>What actually happened</h2>
+<p>A quiet first half, then Croatia took over after the break. **Budimir — on at half-time — scored</p>
+<p>in the 54th**, guiding home a Stanišić→Marco Pašalić right-wing cross at the back post past Mosquera.</p>
+<p>Croatia managed the rest out. Panama, set up in a conservative **5-4-1 with their main transition</p>
+<p>outlet (Waterman) benched**, never seriously threatened.</p>
+<h2>Shot profile</h2>
+<ul>
+<li><b>Croatia: 6 shots, 2 on target, ~1.66 xG</b> (high xG-per-shot ≈ 0.28 — fewer but cleaner looks).</li>
+<li><b>Panama: 8 shots, 1 on target, ~0.62 xG</b> — volume without a real opening; the deep block was</li>
+</ul>
+<p>built to not lose, and it didn't create either.</p>
+<ul>
+<li>Modrić started (his <b>200th cap</b>), took an early shot (2'), set tempo, and faded as expected —</li>
+</ul>
+<p>the "managed minutes" caveat was off (he started) but the late-legs read was directionally right.</p>
+<h2>Diff vs prediction</h2>
+<ul>
+<li>1. <b>Croatia kept a clean sheet</b> — the card leaned on Croatia's "leaky" opener (2–4 vs England) and</li>
+</ul>
+<p>flagged a "live draw," but Panama's ultra-conservative setup removed the very threat that would</p>
+<p>have exploited that frailty. The defensive-frailty narrative was **priced off the England game,</p>
+<p>not this matchup's game-state.**</p>
+<ul>
+<li>2. <b>The scorer was an unlisted half-time sub (Budimir), not starter Musa.</b> Musa started and was</li>
+</ul>
+<p>withdrawn at the break without scoring. The low-confidence tag absorbed this.</p>
+<ul>
+<li>3. Scoreline 2–1 → 1–0: the win and the "tight" framing were right; the extra goals didn't come</li>
+</ul>
+<p>against a back five.</p>
+<h2>Process vs variance — ~70% sound read / ~30% noise</h2>
+<ul>
+<li><b>Sound (the bulk):</b> Croatia out-shot Panama on quality (1.66 vs 0.62 xG) and won — exactly the</li>
+</ul>
+<p>"class dominates, but tight/late" call. The 2u stake (capped below the England 3u) was right-sized</p>
+<p>for a stated draw risk. <b>PASS.</b></p>
+<ul>
+<li><b>Refinements (small, fixable):</b></li>
+<li>1. The clean sheet was <b>more likely than the card implied</b> once Panama went 5-back and benched</li>
+</ul>
+<p>Waterman — game-state, not Croatia's back line, determined the defensive outcome.</p>
+<ul>
+<li>2. The decisive scorer being a <b>scoring sub (Budimir)</b> is a recurring Croatia pattern worth</li>
+</ul>
+<p>carrying — their goal threat is spread (Budimir/Kramarić off the bench), not concentrated on</p>
+<p>the nominal No.9.</p>
+<h2>Predictive signals for future games</h2>
+<ul>
+<li>1. **When an underdog goes ultra-conservative (back five) AND benches its main transition outlet,</li>
+</ul>
+<p>downweight the favorite's "defensive frailty / live draw" narrative** — the game-state removes</p>
+<p>the threat that frailty would need. Lean favorite clean-sheet higher than the favorite's prior</p>
+<p>opener suggests.</p>
+<ul>
+<li>2. <b>Croatia's goal threat is distributed, not striker-centric.</b> Budimir is a genuine scoring sub;</li>
+</ul>
+<p>Kramarić too. For Croatia scorer calls, keep the starter low-confidence and explicitly carry a</p>
+<p><b>bench-scorer tail</b> (sub strikers, set-piece men) — especially in tight games they're chasing.</p>
+<ul>
+<li>3. <b>Croatia profile (MD3 vs Ghana):</b> efficient, low-volume/high-quality chance creation (6 shots,</li>
+</ul>
+<p>1.66 xG) and capable of grinding out a 1–0. Expect control without a blitz; a Ghana low block</p>
+<p>(0 SoT in its own last game) points to <b>another tight, low-scoring Croatia win</b> — lean under,</p>
+<p>narrow margin.</p>
+<h2>Verdict</h2>
+<p>A clean <b>PASS</b> — right team, right tone (tight), right-sized stake, +2u. The only durable takeaways</p>
+<p>are calibration nudges: don't import a favorite's defensive-frailty narrative into a game where the</p>
+<p>underdog removes the threat, and treat Croatia's scoring as bench-distributed.</p>
+<hr>
+<p><i>Sources: <a href="https://www.aljazeera.com/sports/2026/6/24/budimir-gives-croatia-a-1-0-win-to-eliminate-panama-from-the-world-cup" target="_blank" rel="noopener">Al Jazeera — Budimir gives Croatia 1–0 to eliminate Panama</a>; <a href="https://www.espn.com/soccer/report/_/gameId/760460" target="_blank" rel="noopener">ESPN — Panama 0-1 Croatia game analysis</a>; <a href="https://xgscore.io/world-cup/panama-croatia/xg-statistics" target="_blank" rel="noopener">xGscore — Panama–Croatia xG (CRO 1.66 / PAN 0.62)</a>; <a href="https://www.goal.com/en-gb/lists/croatia-world-cup-panama-landmark-appearance-luka-modric/blt77b7e5ac1942241b" target="_blank" rel="noopener">Goal.com — Croatia reignite World Cup hopes, Modrić 200th cap</a>.</i></p></div>
+<footer>Carlos Command Center · World Cup 2026 · auto-published by the prediction pipeline.<br>
+Predictions, not facts. Notional stakes 0–5 units.</footer>
+</div>
+<script>
+(function(){
+  var BUILT = 1784461003297, ID = "1784461003";
+  function ago(){var m=Math.max(0,Math.round((Date.now()-BUILT)/60000));
+    var el=document.getElementById('ago');if(!el)return;
+    el.textContent = m<1?'just now':(m<60?m+'m ago':Math.floor(m/60)+'h '+(m%60)+'m ago');}
+  ago(); setInterval(ago,30000);
+  function poll(){fetch('../meta.json?t='+Date.now(),{cache:'no-store'})
+    .then(function(r){return r.json()})
+    .then(function(j){if(j.build_id&&j.build_id!==ID)location.reload();})
+    .catch(function(){});}
+  setInterval(poll,60000);
+})();
+</script></body></html>

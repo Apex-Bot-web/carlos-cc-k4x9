@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Carlos — Calibration Lessons</title><style>
+:root{color-scheme:light;--bg:#eef1f5;--card:#fff;--ink:#161a1d;--mut:#5b6770;--line:#e1e6ec;
+--green:#1a7f37;--navy:#0f2740;--accent:#1a7f4f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.55}
+.wrap{max-width:1100px;margin:0 auto;padding:14px 14px 50px}
+nav.site{display:flex;gap:4px;align-items:center;flex-wrap:wrap;background:var(--navy);border-radius:12px;padding:8px 10px;margin-bottom:14px;position:sticky;top:8px;z-index:10;box-shadow:0 2px 10px rgba(15,39,64,.25)}
+nav.site .brand{color:#fff;font-weight:800;letter-spacing:-.2px;margin-right:8px;font-size:15px;text-decoration:none}
+nav.site .brand .dot{color:#3ddc84}
+nav.site a.t{color:#c8d3de;text-decoration:none;font-size:13px;font-weight:700;padding:5px 10px;border-radius:8px}
+nav.site a.t.on,nav.site a.t:hover{background:rgba(255,255,255,.14);color:#fff}
+nav.site .upd{margin-left:auto;color:#8fa3b5;font-size:11px;text-align:right}
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px;border-bottom:2px solid #d7dde4;padding-bottom:12px;margin-bottom:16px}
+.title{font-size:21px;font-weight:800;letter-spacing:-.3px}
+.sub{color:var(--mut);font-size:13px;margin-top:3px}
+.meta{text-align:right;font-size:12px;color:var(--mut)}
+.meta .exp{display:inline-block;margin-top:4px;background:var(--navy);color:#fff;padding:3px 9px;border-radius:999px;font-weight:700;font-size:12px}
+.badge{display:inline-flex;align-items:center;gap:5px;font-weight:700;font-size:11px;padding:3px 8px;border-radius:6px;letter-spacing:.2px}
+.b-conf{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.b-pend{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-hit{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.r-miss{background:#fde7e7;color:#b42318;border:1px solid #f3bcbc}
+.r-part{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-live{background:#e7eefc;color:#1d4ed8;border:1px solid #bcd0f5}
+.b-sim{background:#efeafd;color:#6b46c1;border:1px solid #d6c8f5}
+.sim{font-size:12px;color:#4a3a6b;margin-top:9px;background:#f7f4fe;border:1px solid #ece5fb;border-radius:8px;padding:7px 9px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.window{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);margin:20px 0 10px;display:flex;align-items:center;gap:8px}
+.window::after{content:"";flex:1;height:1px;background:#dbe1e8}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 15px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.card.confirmed{border-left:4px solid #1a7f37}
+.card.pending{border-left:4px solid #e8b33a}
+.match{font-size:16px;font-weight:800;letter-spacing:-.2px}
+.ctx{font-size:12px;color:var(--mut);margin-top:2px}
+.row{display:flex;align-items:center;justify-content:space-between;margin-top:11px;gap:8px}
+.pred{font-size:14px}.pred b{font-weight:800}.score{font-weight:800}
+.muted{color:#8a949c}
+.stake{font-size:12px;font-weight:800;background:var(--navy);color:#fff;padding:2px 8px;border-radius:6px;white-space:nowrap}
+.scorer{font-size:12.5px;color:#34404a;margin-top:9px}.scorer .k{color:var(--mut)}
+.result{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:11px;padding:8px 10px;border-radius:8px;background:#f6f8fb;border:1px solid #e6ebf1}
+.result .rscore{font-weight:800;font-size:14px}.result .rscore .k{color:var(--mut);font-weight:600;font-size:11px}
+.note{font-size:11.5px;color:var(--mut);margin-top:9px;border-top:1px dashed var(--line);padding-top:8px}
+.note.held{color:#1a7f37}
+footer{margin-top:26px;font-size:11px;color:#8a949c;text-align:center;line-height:1.6}
+/* prose (markdown pages) */
+.prose{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;box-shadow:0 1px 2px rgba(16,39,64,.04);overflow-x:auto}
+.prose h1{font-size:22px;letter-spacing:-.3px;margin:.2em 0 .5em}
+.prose h2{font-size:17px;margin:1.3em 0 .5em;padding-bottom:5px;border-bottom:1px solid var(--line)}
+.prose h3{font-size:15px;margin:1.2em 0 .4em}
+.prose p,.prose li{font-size:14px;color:#2a333b}
+.prose table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13px}
+.prose th,.prose td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+.prose th{background:#f4f6f9;font-weight:700}
+.prose tr:nth-child(even) td{background:#fafbfc}
+.prose blockquote{margin:10px 0;padding:6px 14px;border-left:3px solid #cbd5df;color:var(--mut);font-size:13.5px}
+.prose code{background:#f0f3f6;border:1px solid #e3e8ee;border-radius:4px;padding:1px 5px;font-size:12.5px}
+.prose hr{border:0;border-top:1px solid var(--line);margin:18px 0}
+.prose a{color:#1d4ed8}
+.prose img{max-width:100%}
+/* index lists */
+.linklist{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;margin-top:12px}
+.linklist a{display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;text-decoration:none;color:var(--ink);font-weight:700;font-size:13.5px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.linklist a:hover{border-color:#b9c4cf}
+.linklist a .d{display:block;font-weight:500;color:var(--mut);font-size:12px;margin-top:3px}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0 0 16px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.stat .v{font-size:19px;font-weight:800;letter-spacing:-.3px}
+.stat .k{font-size:11px;color:var(--mut);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.dayhead{font-size:16px;font-weight:800;margin:26px 0 4px}
+@media (max-width:560px){.wrap{padding:10px 9px 40px}.grid{grid-template-columns:1fr}.meta{text-align:left}}
+</style></head>
+<body><div class="wrap">
+<nav class="site"><a class="brand" href="index.html">Carlos<span class="dot"> ●</span></a><a class="t" href="index.html">Board</a><a class="t" href="history.html">History</a><a class="t" href="record.html">Record</a><a class="t on" href="intel.html">Intel</a>
+<span class="upd">updated<br><b id="ago">…</b></span></nav>
+<header class="top"><div><div class="title">Calibration Lessons</div><div class="sub">what each scout + Carlos have learned — read at the start of every run</div></div></header><div class="prose"><h2>README</h2><h1>Calibration — the learning loop</h1>
+<p>After each game, the <b>postmortem-analyst</b> diagnoses what was genuinely different from the</p>
+<p>prediction (separating real process error from variance) and appends a dated, specific lesson to</p>
+<p>the responsible owner's file here. **Every scout and Carlos reads its own lessons file at the start</p>
+<p>of each run and applies them** — that's how the system improves instead of repeating mistakes.</p>
+<p>Files (one per owner):</p>
+<ul>
+<li><code>scout-form.lessons.md</code></li>
+<li><code>scout-tactics.lessons.md</code></li>
+<li><code>scout-personnel.lessons.md</code></li>
+<li><code>scout-sentiment.lessons.md</code></li>
+<li><code>scout-patterns.lessons.md</code></li>
+<li><code>carlos.lessons.md</code></li>
+</ul>
+<p>Rules: lessons must be specific and testable; pure variance is NOT logged as a lesson; a repeated</p>
+<p>miss across games carries more weight than any single game (note repeats).</p><h2>carlos.lessons</h2><h1>carlos — calibration lessons</h1>
+<p>Read and apply these before issuing any card. Newest first.</p>
+<ul>
+<li><b>2026-07-07 · R16 BACKFILL (07-04→07): the watcher went dark for 4 straight match days and no cards/board/sims were produced — [INFRASTRUCTURE, TOP-WEIGHT].</b> <code>wc-carlos-lineup-watcher</code> fired its last one-time <code>fireAt</code> on 07-03 and never re-armed; the 8 AM planner's cron kept firing but never completed its steps, so <code>command-center.json</code> sat frozen on the 07-03 date through all of R16. A sim-only retrospective (6/7 outcome, mean Brier 0.38 — see <code>postmortems/2026-07-04_07-r16-backfill.md</code>) shows the underlying model was fine; the failure was pure process. <b>RULE: treat a stale <code>command-center.json</code> date (&gt;1 day old on a day with fixtures) as a hard failure to surface immediately, not a silent gap — add a same-day health check.</b></li>
+<li><b>2026-07-07 · R16 backfill — a "favorite" barely ahead of a near-even field is a coin-flip for staking, even if it's the largest single probability.</b> Brazil (43.9%) vs Norway (28.0%)/draw (28.1%) was the lone outcome miss — Norway won 2–1 (Haaland brace, 79'/90'). <b>LESSON: when the top probability doesn't clear the runner-up by a wide margin AND the draw is nearly as live, cap the stake like a true toss-up, don't lean on the "favorite" label.</b></li>
+<li><b>2026-07-07 · R16 backfill — margin/total-goals still undershoot once a knockout game breaks open (REPEAT).</b> Morocco 2–0 proj → 3–0 actual; Mexico–England 1–1 proj → 2–3 actual; USA–Belgium 1–1 proj → 1–4 actual. Same durable pattern as 06-24/07-02 — once a side fully commits (chasing or cruising), the calib-minute Poisson still lowballs the eventual margin.</li>
+<li><b>2026-07-07 · R16 backfill — comeback-from-2-down finishes are recurring, not one-off (Argentina 3-2 Egypt, down 0-2, 3 goals in the final 13').</b> Echoes the 07-01 Belgium–Senegal late-chaos game. The <code>must_win_chase</code> lever gets the pre-match win prob roughly right (58% Argentina) but in-game late-goal clustering for a team with an elite closer (Messi) on the bench of possibilities is still underweighted.</li>
+<li><b>2026-07-02 · 3rd straight perfect outcome day (3–0, +4u, cumulative +14u/36u) — but the watcher gap is now a system-level risk, not a footnote.</b> 2 of 3 games (Portugal–Croatia, Switzerland–Algeria) had NO confirmed-XI sim run at all, despite the Switzerland card carrying an explicit mandatory late-window teamsheet-check flag. This is worse than 07-01's single miss and is now actively blocking calibration measurement (sim mean Brier can only be computed on 1/3 of games this slate). <b>LESSON: treat this as urgent infrastructure debt — fix before R16, when every game becomes single-elimination and a missed re-sim means flying blind on a knockout exit.</b></li>
+<li><b>2026-07-02 · A press that fails entirely (zero shots on target allowed) opens the margin, it doesn't just secure the win.</b> Spain 3–0 Austria: outcome + primary-ish call were fine, but the modal 2–0 undershot a game where Austria never landed a punch — once the trailing team commits forward, the favorite's 2nd/3rd goals come cheap. <b>LESSON: distinguish "survives the press" (cap the margin) from "press never lands at all" (raise the margin ceiling) — these are different games even though both start as a favorite-vs-press matchup.</b></li>
+<li><b>2026-07-02 · First primary-scoreline-exact of the season (Portugal 2–1 Croatia) — the "compress the organised underdog" framing validated even in a WIN for the favorite.</b> Croatia's late/ET-pens threat nearly fired (113' goal disallowed by VAR); the model correctly kept that tail live rather than pricing Portugal as a clean, low-variance favorite. <b>Keep pricing organised, tournament-hardened underdogs with a real late/ET route even when they're not favored</b> — the tail showing up almost happening is itself validation, not a near-miss to shrug off.</li>
+<li><b>2026-07-01 · 3–0 day (+3u, cumulative +10u) — but grade the process, not the ledger. Belgium was a rescued miss.</b> On a 90' basis Belgium–Senegal was a 2–2 draw in which Senegal out-xG'd Belgium ~3.54–1.80 and Belgium's first shot on target came in the 86' (Sky/SI). The win needed two goals in 3 minutes plus a 117' penalty awarded after a 7-minute VAR review that Keane, Neville, and ESPN's VAR review all questioned. <b>LESSON (testable): when the card's own "what would flip it" mechanism IS the observed game script (Gueye/Diarra smothering KDB + pace in behind — both scored), the primary scoreline must carry opponent-score mass — 2–2 was in nobody's list.</b> The 1u cap was the correct part; keep it. Don't let the +1u overwrite this.</li>
+<li><b>2026-07-01 · Kill trivia streaks as scoring predictors [NEW RULE].</b> The USA card's "Bosnia score too / over 2.5" driver was the <i>"no clean sheet in six WC matches"</i> streak; Bosnia produced ~0.25 xG and 0 goals. <b>RULE: a scoring-streak stat may only support a "team scores" call if backed by ≥1.0 xG-for per game vs comparable opposition.</b> Bosnia's tournament xG profile (0.23 vs Switzerland, −0.52 differential) said "can't score on organized defenses" all along.</li>
+<li><b>2026-07-01 · The deep-block calibration WORKED — twice.</b> England vs DR Congo: 1–0/2–1 held live as instructed, 2–1 alt exact, Kane primary hit, 1u cap correct (Mpasi 5 saves vs 1.95 xGOT + a denied legitimate pen = the exact variance the cap prices). USA "model 2+" margin lesson → 2 goals. <b>Keep both rules at full weight.</b> England-specific: their block-breaking lands LATE (both goals 75'+; same shape vs Ghana) — weight England "goal after 75'" up, and don't panic-fade on a scoreless hour. · Perfect day (3–0, +4u), but the SAME two errors persist under the wins — read them, don't let the result hide them.**</li>
+</ul>
+<p>(a) <b>Margin under-projection [REPEAT, durable]:</b> France <b>2–0→3–0</b> (3.17 xG) and Mexico <b>1–0→2–0</b> (1.02 xG) both under-shot the modal by one; the <b>alt caught both</b> (France 3–0 exact), so P&amp;L was clean — but keep nudging the favorite's modal scoreline up. For France specifically: a <b>compact 4-4-2 that still plays is not a bus</b> — model 3–0/3–1. For Mexico at home: <b>beats its xG, model 2+</b>.</p>
+<p>(b) <b>Stake discrimination WORKED — protect it.</b> The one 2u play (France) was the most emphatic result (3–0); the two coin-flip ties were correctly capped at 1u. <b>LESSON:</b> this is the honest stake ladder the 06-23 note asked for — reserve the bigger stake for a genuine quality edge in an open game (France), cap the near-even knockouts (Norway, Mexico).</p>
+<ul>
+<li><b>2026-06-30 · Do NOT over-apply "cap all knockout favorites."</b> The R32-compression lesson is real for favorites vs <i>good</i> sides, but here all three favorites <b>won in regulation</b> and France's 2u delivered. <b>LESSON:</b> compress/cap when the underdog is organised and dangerous; do not fade a clear quality gap (France vs a leaky Sweden) into a timid stake. Symmetric must-win motivation meant quality reasserted — no motivation flip on this slate.</li>
+<li><b>2026-06-30 · Mexico at home is not a coin-flip.</b> The card framed Mexico–Ecuador as "the most evenly-matched tie… decided by a single moment or pens"; Mexico instead <b>blitzed it 2–0 in 31'</b> off a home-crowd press. <b>LESSON:</b> for Mexico at the Azteca, favor an <b>early lead / first-to-score / clean sheet</b> over a cagey-draw framing. <i>(Ties to the Mexico margin repeat in scout-patterns.)</i></li>
+<li>**2026-06-24 · MARGIN under-prediction is the systematic slate error — [REPEAT, now across 4</li>
+</ul>
+<p>favorites].<b> Narrow tips came in wide: Morocco 2–0→</b>4–2<b>, Brazil 1–0→</b>3–0<b>, Mexico 1–0→</b>3–0**,</p>
+<p>Bosnia 2–1→<b>3–1</b>; within-one cratered to <b>1/6.</b> <b>LESSON:</b> stop reflexively capping favorites at</p>
+<p>1–0/2–0. <b>Widen the primary scoreline</b> in (a) GD chases, (b) dead rubbers / altitude vs an outclassed</p>
+<p>side, and (c) when the favorite's 1v1 width carrier starts. Reserve the cap for genuine bus-parks with</p>
+<p>no width mismatch. <i>(Repeat of the over-cap theme → durable.)</i></p>
+<ul>
+<li><b>2026-06-24 · ACT on lineup news that falsifies a cap's premise — don't footnote it.</b> The</li>
+</ul>
+<p>Scotland–Brazil cap was built on "Brazil lost their width (Raphinha)." The 17:02 note **correctly saw</p>
+<p>Vini's start "restores the width"<b> but </b>left the 1–0/1u cap in place** ("mildly firms but does not</p>
+<p>lift it") — then Vini posted 3.57 xG in a 3–0. <b>LESSON:</b> when a teamsheet **invalidates the core</p>
+<p>reason for a cap or stake, re-derive the bet** (raise margin/stake), don't keep the capped number.</p>
+<ul>
+<li>**2026-06-24 · Stake selection: don't default to the draw in a seed decider — favor the must-win</li>
+</ul>
+<p>side.<b> Staked draw 1–1 in Canada–Switzerland (−1u); the card's </b>own alt (SUI win 1–2) was exact**</p>
+<p>because Switzerland needed the top seed. (Caveat: Canada out-xG'd 1.34–1.06, so ~half variance — the</p>
+<p>fix is the <b>lean/stake direction</b>, not a Canada downgrade.)</p>
+<ul>
+<li><b>2026-06-24 · PROCESS: the lineup watcher must cover ALL kickoff windows.</b> The worst miss of the day</li>
+</ul>
+<p>— <b>Son benched</b> in South Africa–South Korea (−2u) — sat in the **9 PM ET slot, which had no lineup</p>
+<p>update** in the slate. Ensure late-window (9 PM ET) games get a teamsheet check; that is exactly where</p>
+<p>rotation/talisman-benching risk is highest.</p>
+<ul>
+<li><b>2026-06-24 · Bias check — "should open up / talent edge" flipped twice (repeat).</b> Both staked</li>
+</ul>
+<p>outcome misses (SUI seed-chase, RSA desperation-counter) beat a default-open / marquee-talent read.</p>
+<p><b>Respect motivation + the underdog's chosen route over talent.</b> Keep the scorer hedging — it's</p>
+<p>working (first primary hit Vini; 3/6 incl. alts on 06-24).</p>
+<ul>
+<li>**2026-06-23 · Slate calibration (MD2, 3 cards): 2–1 outcome, +1u, but stakes were INVERTED vs</li>
+</ul>
+<p>results.<b> The lone medium-high </b>3u<b> play (England) lost; both medium </b>2u** plays (Croatia,</p>
+<p>Colombia) won — high-confidence did not outperform low. Scorer calls 0/3 but all correctly hedged</p>
+<p>low/low-med (both goal-games decided by unlisted players — a sub and a full-back). <b>LESSON:</b> keep</p>
+<p>the <b>stake ladder honest</b> — a "clean 2–0 vs a deep block" is NOT your highest-conviction spot,</p>
+<p>it's a <i>capped</i> one. Reserve 3u for genuinely open, high-quality-edge games, not break-the-bus</p>
+<p>favorites. Keep scorer calls low-confidence (validated again).</p>
+<ul>
+<li><b>2026-06-23 · Colombia 1–0 DR Congo — [REPEAT of England scoreline error].</b> Predicted 2–0</li>
+</ul>
+<p>(anchor) vs a deep block; actual 1–0 (the <i>alternate</i> hit). <b>LESSON:</b> vs a fit deep block make</p>
+<p><b>1–0 the PRIMARY scoreline</b>, not the alt — two games running (England, Colombia) the 2–0 anchor</p>
+<p>was too high. Win lean fine, ≤2u, carry the 0–0/draw tail. *(Repeat → durable rule now, not a</p>
+<p>one-off.)*</p>
+<ul>
+<li><b>2026-06-23 · England 0–0 Ghana</b> — predicted England win <b>2–0 at 3u (MISS)</b>. ~50% variance</li>
+</ul>
+<p>(England ~80% possession, hit the bar, a strong Asare save, but few shots on target). <b>LESSON:</b></p>
+<p>do <b>not</b> stake 3u on a clean 2–0 when the card's own "what would flip it" is a low block. For</p>
+<p>break-the-bus games: **cap the stake (≤1–2u), widen the scoreline range, and raise the</p>
+<p>draw / clean-sheet-against weight.** The low-confidence goalscorer tag (Kane) was correct —</p>
+<p>keep hedging scorer calls in low-event games.</p>
+<ul>
+<li><i>Refinement (deep dive):</i> the fuller data (19 shots, ~1.28 xG, gaping late misses) shows the miss was</li>
+</ul>
+<p><b>~65% finishing variance, ~35% process</b>. So the durable fix is <b>NOT "England can't score"</b> — keep</p>
+<p>the <b>win</b> lean for England vs minnows. The discipline is on <b>margin/scoreline/team-total</b>: vs a</p>
+<p>deep block, predict a narrower win, widen toward 1–0/0–0, cap stake (≤1–2u), and keep the scorer call</p>
+<p>(Kane) low/medium because a packed box starves the No.9. Don't over-correct on one unlucky 0–0.</p>
+<h2>2026-07-01 — ENGINE AUDIT REVAMP (applies to all sims from today)</h2>
+<ul>
+<li><b>v2 scorer %s before 07-01 were inflated</b> — the engine counted expected goals ×100, not P(scores ≥1). A "70% Mbappé" was really E[0.70 goals] ≈ 52% anytime. Fixed: per-sim counting. Do NOT compare scorer-hit rates across the 07-01 break; the 3/3 on 06-30 stands (hits are hits) but the published probabilities were too high.</li>
+<li><b>Must-win while LEVEL now modeled</b> (was zero boost unless trailing — the Ecuador–Germany miss class). v2 <code>must_win_level_factor</code> 0.6 × must_win_chase. Asymmetric effect verified: +0.9% win / −1.4% opp on a coin-flip.</li>
+<li><b>v1 now has Dixon-Coles draw correlation</b> (<code>rho</code> per game, default −0.10): 0-0/1-1 boosted, 1-0/0-1 trimmed (~+2.7% draw on a coin-flip). Part of the "sims under-price draws" lesson was model artifact, not football.</li>
+<li><b>Scorer lists now output "Other (unlisted)"</b> = P(≥1 off-list scorer). If it's &gt;45%, the list is too thin — widen before publishing (Pépé/Amad Diallo/Barcola/Quiñones class).</li>
+<li><b>All sim grading math is now scripted</b> (<code>tools/grade_sim.py</code>): Brier (outcome lean = argmax W/D/L, NOT the modal scoreline's outcome), exact/±1, margin &amp; total-goals bias, scorer hit. Graders must use it — no hand arithmetic.</li>
+<li>Validation: fixed v2 on 06-30 slate → outcome 3/3, Brier 0.364; 16-game backfill re-run → 0.436 (no regression; that input has no must-win flags/scorer lists so the fixed paths don't fire).</li>
+</ul>
+<h2>2026-07-09 — France 2–0 Morocco (QF) — PASS/WIN, all 3 axes hit (outcome + exact 2–0 + Mbappé scorer + 2u cashed)</h2>
+<ul>
+<li><b>VALIDATED (repeat): "France is not a bus-parker — model the wider 2–0/3–0, don't cap at 1–0."</b> France won 2–0 on <b>~3.10 xG</b> (21 shots, 8 on target, 12 shots in the box, 5 big chances). The 2–0 primary over a capped 1–0 was correct. This is the <b>2nd France instance</b> confirming the durable margin-under-projection error — if anything a 3–0 was live (they cleared 1.87 xG by HT). Keep widening France's primary; don't reflexively trim to 1–0.</li>
+<li><b>REFINEMENT: don't over-credit an underdog's "late/ET tail" when its chance-creation is ~zero.</b> The card kept Morocco's draw→ET/pens tail "live, not thin" (off the 07-02 "respect the tournament-hardened underdog" lesson). Actual: Morocco = <b>0 big chances all night, 0.13 xG, 1 first-half shot.</b> The 0–0-to-the-hour was <b>France finishing variance + a career Bounou night (6 saves, penalty save, ~0.47 goals prevented)</b>, not Morocco competitiveness. <b>RULE:</b> price the draw/ET tail off the underdog's <i>expected chance-creation</i>, not the scoreboard at the hour. When the creator is missing (Saibari out) and the underdog has no transition/set-piece outlet, cut the tail and raise favorite-clean-sheet. Cost this time: none (pick won), but the tail was mis-weighted.</li>
+<li><b>SCORER: France now carry TWO co-primary finishers.</b> The watch list had Mbappé (hit) + Doué/Barcola/Kolo Muani, but <b>omitted Dembélé</b> — reigning Ballon d'Or, scored the clincher (66'), MVP 8.9, 0.70 xA. For France, list <b>Dembélé as a co-primary alongside Mbappé</b>, not an afterthought.</li>
+</ul>
+<h2>2026-07-10 — Spain 2–1 Belgium (QF) — PASS/WIN (outcome ✅ + within-one 2–1 + 2u cashed = +2u)</h2>
+<ul>
+<li><b>VALIDATED (repeat): margin-widen over a capped 1–0.</b> Spain scored <b>2</b> (primary 2–0 correct on goal count; on <b>2.08 xG / 8 SoT / 68% poss</b> a 3–0 was live). Nth confirmation of the durable margin-under-projection fix — keep widening the elite favorite's primary.</li>
+<li><b>VALIDATED (repeat): stake discipline on the "tightest-QF" favorite.</b> Held <b>2u, not 3u</b>, per the 07-07 "don't over-lean the favorite label" rule — and it cashed on a game decided by an <b>88' super-sub off a backup-keeper error (Lammens) after Courtois's 71' injury</b>. A 2–1 that hinged on a late variance swing is exactly why 2u was right; do not retro-inflate to 3u.</li>
+<li><b>NO over-correction: the 2–1 (not 2–0) is variance, not a lesson.</b> Spain under-finished 2.08 xG, Belgium over-performed 0.37 (converted their lone chance). The read was correct; the ball wobbled. Logged, no scoreline lesson.</li>
+<li><b>ROUTED PROCESS FIX → scout-personnel/patterns:</b> Spain scorer list was front-three-only and <b>missed both actual scorers (Ruiz, Merino)</b> — a <b>repeat of 07-09</b>. Fix lives in the scout files: include arriving central midfielders + the proven super-sub (Merino) for possession sides. This is the single carried-forward miss from an otherwise clean day.</li>
+</ul>
+<h2>2026-07-14 — France 0–2 Spain (SF) — MISS, direction error (−2u) [~70% process]</h2>
+<ul>
+<li><b>NEW RULE (direction, not just stake): when the card's OWN bear case enumerates the opponent's full ceiling AND the model is a coin-flip, do NOT lean the favorite on "form/vibes."</b> The card listed every reason Spain could win — Opta 42.1/31.8/26.1 (pick'em), Euro-24 SF precedent (Spain 2–1), Spain's tournament-best defense, and a control game "built to strangle exactly the kind of transition speed France offers" — then leaned <b>France</b> on "red-hot form / Golden Boot race." France produced <b>0.3 xG from 10 shots</b>; Spain <b>1.63 xG</b>, both SoT scored. The game played out exactly as the card's bear case predicted. <b>Go pick'em (no lean / cap 1u) or lean the side the STRUCTURAL factors favor — never bet against your own enumerated bear case.</b> This is a level <i>beyond</i> the 07-07/07-10 "cap the stake" rule: the stake cap (2u not 3u) worked; the <b>direction</b> was the miss.</li>
+<li><b>VALIDATED (stake half worked):</b> 2u-not-3u held and France was called "fine margins, not a rout" — loss contained to −2u. Keep the cap; fix the lean.</li>
+<li><b>ROUTED → scout-form:</b> France's 16-goals-in-6 form was schedule-inflated (soft/deep-block opponents); vs a top-5 defense they mustered 0.3 xG. Regress a favorite's goals-per-game hard when beaten opponents were weak.</li>
+</ul>
+<h2>2026-07-15 — England 1–2 Argentina (SF) — MISS, direction error (−1u) [~65% process]</h2>
+<ul>
+<li><b>REPEAT (2nd straight SF, high weight now): the 07-14 direction rule fired again.</b> Card leaned England on a thin, model-driven edge (Opta 38.2/32.0/29.7, 51.9/48.1) while its OWN bear case named the decisive plank (Argentina <b>5/5 all-time semifinals</b>) AND a concrete midfield lever (Rice fitness / Enzo–De Paul–Mac Allister). <b>Both flagged risks resolved against England</b> — Argentina won xG <b>1.84 vs 0.53</b>, out-shot England <b>15–5</b>, and Enzo both scored (85') and ran the middle. <b>RULE (now escalated across 07-14 FRA −2u + 07-15 ENG −1u):</b> when Opta is within ~7 pts of pick'em AND the card's own "what would flip it" names a structural/midfield lever pointing the other way, <b>PASS / no-lean beats a token favorite stake.</b> Two coin-flip favorite losses in a row on the same pattern → treat pick'em SF favorites as no-bet by default.</li>
+<li><b>VALIDATED (stake cap held):</b> 1u-not-2u contained the loss on a genuine coin-flip — keep the tightest-game cap. The direction, not the size, was the miss.</li>
+<li><b>VALIDATED (scorer-list construction, the day's positive):</b> all <b>3/3 actual scorers were listed</b> — Gordon (alt), Enzo (listed low, "arriving central-midfield threat"), Lautaro (listed low-med, the explicit super-sub keep). First clean list after 4 straight unlisted-scorer slates; the super-sub fix worked. Keep it.</li>
+<li><b>Do NOT lesson the pure variance:</b> England scoring first on 0.53 xG and Enzo's long-range screamer carry noise, but Argentina's 1.84 xG / sustained onslaught means the result matched the underlying game. ~35% variance, logged, no scoreline lesson.</li>
+</ul>
+<h2>2026-07-18 — England 6–4 France (3rd-place play-off) — MISS, direction + total-goals (−1u) [~60% process on outcome, ~65% on total]</h2>
+<ul>
+<li><b>ESCALATED (3rd straight KO token-favorite loss: 07-14 −2u, 07-15 −1u, 07-18 −1u): symmetric-rotation dead rubber = PASS/no-lean.</b> The card leaned <b>France</b> on a thin Opta <i>reg.</i> edge (50.7/25.6/23.7) and justified it by "no directional bear-case lever." That is the error — in a pure dead rubber the <b>absence</b> of a bear lever is not a green light; the game is coin-flip-plus-noise. England actually <b>out-xG'd France 3.21–2.92</b> and out-shot them on target 11–9 — the "underdog" was the deserved winner. <b>RULE:</b> bronze final / both-sides-rotating dead rubber → <b>no-bet by default</b>, do not lean the nominal favorite.</li>
+<li><b>NEW (total-goals translation): convert a qualitative "open/high-event" read into the actual number.</b> The card correctly wrote third-place games run "looser / higher-event / wider scoreline distribution," then printed a tight <b>2–1 (~3 total)</b> — while combined xG was <b>5.7</b> and the game finished <b>10 goals</b>. <b>RULE:</b> whenever the card's own text says "wide distribution / high-event," raise the total-goals line to match (5–6+ here) and widen the scoreline, don't default to a tidy low score. Worst total-goals miss of the season (−7).</li>
+<li><b>KEEP (read of the day): the Mbappé Golden-Boot individual-incentive lever hit clean</b> — brace, Boot won outright over Messi, all-time WC scoring record (22). Asymmetric-motivation calls independent of team stakes remain a real, usable edge. Not a variance fluke — keep listing them.</li>
+</ul><h2>scout-form.lessons</h2><h1>scout-form — calibration lessons</h1>
+<p>Read and apply these before every form/stakes scout. Newest first.</p>
+<ul>
+<li><b>2026-06-30 · SYMMETRIC must-win (knockouts) = quality reasserts, no motivation flip.</b> Unlike the group-stage flips (Switzerland, South Africa, Ecuador), R32 Day 3 had <b>both sides must-win</b>, so the <code>must_win</code> chase applied to both and <b>cancelled out</b> — the three better/quality sides (France, Mexico, Norway) all won in regulation. <b>LESSON:</b> when motivation is symmetric, <b>fall back to quality + form</b> and don't manufacture an underdog edge from "desperation" (that lever is for <i>asymmetric</i> motivation). France was correctly the slate's one confident play and delivered 3–0 at 2u.</li>
+</ul>
+<ul>
+<li><b>2026-06-30 · Two-already-through sides = cagey draw (the other face of motivation).</b> Colombia 0–0 Portugal</li>
+</ul>
+<p>— both already qualified, nothing to play for → a dead 0–0 (the sim leaned Portugal). <b>LESSON:</b> when BOTH</p>
+<p>sides are already through / unmotivated, <b>raise the draw + under mass</b> (mirror of the must-win bump).</p>
+<ul>
+<li><b>2026-06-25 · Ecuador 2–1 Germany — motivation REPEAT ×3 (TOP-WEIGHT).</b> An already-through Germany</li>
+</ul>
+<p>(protecting only top seed, rotated) lost to <b>must-win Ecuador</b> (Plata's late winner). Third slate</p>
+<p>running the same flip (Switzerland seed-chase, South Africa desperation, now Ecuador). <b>LESSON:</b> an</p>
+<p>unmotivated / already-qualified favorite vs a <b>must-win / desperate</b> underdog is **near-even, not a big</p>
+<p>favorite** — compress the gap, lean (or at least respect) the desperate side, never stake the comfy favorite.</p>
+<ul>
+<li><b>2026-06-24 · Seed deciders — lean the side that NEEDS the win, not the default draw.</b> Canada were</li>
+</ul>
+<p>happy with a point (a draw topped the group on GD) and managed a low-event first half; **Switzerland</p>
+<p>needed first place, took the initiative after the break, and won 2–1** — the card staked the draw and</p>
+<p>its <b>own listed alt (SUI win 1–2) was exact.</b> <b>LESSON:</b> in a two-already-qualified seed decider,</p>
+<p><b>favor the must-win side over the comfortable draw</b>, even when the game projects low-event.</p>
+<ul>
+<li><b>2026-06-24 · Motivation/route beats marquee talent — [REPEAT, both day-3 outcome misses].</b> Both</li>
+</ul>
+<p>staked outcome misses were "should open up / talent edge" reads that flipped to the sharper-motivated</p>
+<p>side: <b>Switzerland</b> (seed chase) and <b>South Africa</b> (elimination desperation, deep-counter, beat</p>
+<p>Korea 1–0). <b>LESSON:</b> weight <b>seed-chase / elimination-desperation</b> above a default talent or</p>
+<p>default-draw lean. <i>(Repeat → durable.)</i></p>
+<ul>
+<li><b>2026-06-24 · A rotated favorite vs an outclassed side is NOT meaningfully weakened.</b> Mexico rotated</li>
+</ul>
+<p>heavily (17-yo Mora started, Ochoa on at 77') and still won **3–0 at altitude with 1.79 xG and a clean</p>
+<p>sheet.<b> </b>LESSON:** don't over-discount a deep, talented favorite's win/margin just because it rotates</p>
+<p>against a weaker, desperate side — Czechia's desperation produced volume (13 shots) but 0.47 xG.</p>
+<ul>
+<li><b>2026-06-24 · GD-chase incentive keeps a favorite scoring.</b> Morocco kept pushing for the goal-</li>
+</ul>
+<p>difference race (4 goals, 3.26 xG) rather than coasting once qualification was safe. <b>LESSON:</b> a</p>
+<p>favorite with a <b>live GD/seeding incentive does not coast — keep the margin/over live.</b></p>
+<h2>2026-07-14 · Discount schedule-inflated goal tallies — France's 16-in-6 collapsed to 0.3 xG vs a top defense</h2>
+<ul>
+<li>France arrived "red-hot" (16 goals / 6 games, 6 straight wins) but those goals came largely vs weaker/deeper-block opponents (Morocco QF etc.). Against Spain's elite defense they managed <b>0.3 xG from 10 shots</b> and were shut out. <b>LESSON:</b> when projecting a favorite's attack, <b>regress raw goals-per-game by opponent strength</b> — cut the attacking projection hard vs a top-5 defense. Testable: track France's per-game xG vs top-tier defenses vs vs weak sides; the gap here was ~3.1 → 0.3.</li>
+</ul><h2>scout-patterns.lessons</h2><h1>scout-patterns — calibration lessons</h1>
+<p>Read and apply these before every patterns scout. Newest first.</p>
+<ul>
+<li><b>2026-07-02 · R32 Day 5 team profiles (3–0 day, 3rd straight perfect outcome slate):</b></li>
+</ul>
+<p>(a) <b>Croatia = shots-on-target parity/superiority even in losses — a repeatable signature, not a one-off.</b> vs Portugal: 6 SOT to Portugal's 3 despite losing 2–1, plus a 113' goal disallowed by a marginal VAR call. Three straight tournaments reaching/pushing knockout rounds on this identity. <b>LESSON:</b> model Croatia's live-goal and late-chaos weighting off shot/SOT numbers even when they're behind on the scoreboard — they are competitive in a way the outcome alone doesn't show.</p>
+<p>(b) <b>Spain = press-immunity, not just press-survival.</b> Zero shots allowed on target vs Austria's high press; when Spain's midfield fully neutralizes a press (not just absorbs it), expect the game to open up late as the trailing team commits numbers forward (Oyarzabal's 89' 2nd, Porro's fullback goal). Distinct from "grind out a 1-goal win vs a low block."</p>
+<p>(c) <b>Fast second-half-restart goals (within ~2 minutes of kickoff) are an underweighted, real pattern.</b> Ndoye's Switzerland goal 48 seconds into the 2nd half is the kind of goal that isn't sustained-pressure-driven — flag teams that dominated 1st-half xG without adding to the lead as live for an early 2nd-half strike.</p>
+<p>(d) <b>Watcher/sim coverage gap is now the #1 operational issue, not a football pattern:</b> 2 of 3 games this slate (Portugal–Croatia, Switzerland–Algeria) had NO sim output at all, despite the Switzerland card carrying an explicit mandatory late-window teamsheet-check flag that should have triggered a re-sim. This is worse than 07-01's single miss (USA) and needs a system fix before R16 — it is actively blocking calibration measurement on 2/3 of games per slate.</p>
+<ul>
+<li><b>2026-07-01 · R32 Day 4 team profiles (3–0 day; two of these teams meet in OUR R16 game, Belgium–USA July 6/7 Seattle):</b></li>
+</ul>
+<p>(a) <b>Belgium = slow-start, elite late-chaos team [profile, 2 data points + group stage].</b> 0 shots on target for 85 minutes vs Senegal, then goals at 86', 89', 120+5; vs Egypt (June 15) the equaliser was forced by sub Lukaku late. Their equity concentrates in the <b>final 15 + ET</b>; their first hour is beatable. For the USA card: raise "Belgium score late" / "draw at HT" mass, lower "Belgium lead at HT."</p>
+<p>(b) <b>USA = multi-state winners.</b> In one game: press-turnover goal (Ream interception chain → Balogun 45'), set-piece goal (Tillman direct FK 81'), and a competent 10-man low block for 26 minutes. No longer a one-script fast-start team — group-stage "goal inside 15'" pattern did NOT repeat vs a deep block, and they won anyway. Don't auto-fade USA when the early goal doesn't come.</p>
+<p>(c) <b>England's block-breaking lands LATE</b> — 2.03 xG vs DR Congo but both goals after 75'; vs Ghana the block held 90'. Pattern: England "goal after 75'" is a live market read; a scoreless England hour vs a block is NOT an off-day signal.</p>
+<p>(d) <b>"Never kept a clean sheet"-class streak stats are trivia, not predictors</b> — Bosnia's six-game streak died (0.25 xG, blanked) the moment they met a top defense with a lead. Use opponent xG-for profile instead. <i>(Route confirmed with carlos as a hard rule.)</i></p>
+<p>(e) <b>Archive (eliminated): DR Congo</b> — three straight sub-0.85-xG-against deep-block games (Portugal 1–1, Colombia 0–1, England 1–2): the "fit deep block caps elite favorites to ~2" rule survives another test. <b>Senegal</b> — front-foot and dangerous but chronic game-closers (led Norway, lost; 2–0 at 85' vs Belgium, lost); the "organised and dangerous underdog → compress" rule fired correctly.</p>
+<ul>
+<li><b>2026-06-30 · R32 Day 3 — three team-profile signals + a knockout counter-signal (all 3 favorites won, 3–0 day):</b></li>
+</ul>
+<p>(a) <b>Norway = a crossing/aerial team built around Haaland, NOT a possession side.</b> vs Ivory Coast they abandoned build-up variety and loaded the box; Haaland had <b>3 touches in the opening 30 min (fewest on the pitch)</b> yet tapped in the 86' winner off a Berg low cross (2 earlier headers blocked/saved). <b>LESSON:</b> model Haaland's scorer share off <b>cross/box volume</b>, keep his anytime-scorer high even when he's "anonymous," and expect Norway to go direct + cross. (Next: Brazil — watch whether Ajer/Heggem can wide-shepherd Vinícius as they did Diomandé.)</p>
+<p>(b) <b>Territory/corner dominance ≠ chance creation.</b> Ivory Coast took <b>14 corners but created just 1 chance</b>; striker Bonny won <b>0 aerial duels</b> vs Ajer (8 headed clearances). <b>LESSON:</b> fade set-piece/territory-based conversion when the opponent has an aerially dominant CB pair.</p>
+<p>(c) <b>Mexico at home/Azteca = fast-start press that scores early, keeps clean sheets, and BEATS its xG — [REPEAT, Mexico-specific].</b> 2–0 from <b>1.02 xG</b> (4th straight win + clean sheet); on 06-24 they went <b>3–0 from 1.79 xG</b> at altitude. <b>LESSON:</b> raise Mexico's <b>first-to-score / first-half-goal / clean-sheet</b> mass at the Azteca and stop framing Mexico home games as cagey coin-flips. <i>(Repeat → durable.)</i></p>
+<p>(d) <b>Knockout counter-signal to the "R32 compresses → pens" rule:</b> France, Mexico and Norway all <b>closed out in regulation</b> (none went to pens). <b>LESSON:</b> the compression/cap rule applies hardest to favorites facing <b>good, organised</b> sides (Germany/Netherlands), not to <i>every</i> knockout favorite — don't reflexively fade quality (France 2u → 3–0).</p>
+<ul>
+<li><b>2026-06-30 · Beaten-team profiles: Ecuador can't create from possession; a compact 4-4-2 is not a bus.</b> Ecuador had <b>68% of the ball and 15 crosses in the 2nd half but only 5 shots / 0 clear chances</b> vs Mexico — fade their possession-based conversion. Separately, Sweden's <b>compact-but-proactive 4-4-2</b> (tight lines, still stepping) was taken for <b>3.17 xG</b> by France — <b>distinguish a mid-block that plays from a genuine 5-back bus-park</b> when setting the favorite's margin (3–0/3–1, not 2–0). Route also to scout-tactics/carlos.</li>
+<li><b>2026-06-30 · Backfill June 26–29 (16 games, sim 11/16, Brier 0.434) — three patterns:</b></li>
+</ul>
+<p>(a) <b>R32 knockouts COMPRESS → draws-after-90 / penalties.</b> 2 of 4 R32 ties went to pens (Germany &amp;</p>
+<p>Netherlands both <i>eliminated</i> despite being favored). <b>LESSON:</b> in knockout cards raise the **draw/ET-pens</p>
+<p>mass<b> and </b>cap stakes on favorites** — even clear favorites get held.</p>
+<p>(b) <b>Margins UNDER-predicted for clear quality gaps / blowouts (REPEAT, now overwhelming):</b> Belgium 5–1,</p>
+<p>Senegal 5–0, France 4–1, Argentina 3–1 all beat a proj 2–0/2–1. <b>LESSON:</b> raise the favorite's lambda vs a</p>
+<p>weak/eliminated side — don't apply measured/deep-block scorelines to a big quality gap.</p>
+<p>(c) <b>Evenly-matched/open games have fat goal tails</b> (Austria 3–3 Algeria, Egypt 1–1) — don't assume low totals in two-way games.</p>
+<ul>
+<li>**2026-06-24 · MARGINS under-predicted across the slate — [REPEAT of the deep-block over-cap, now</li>
+</ul>
+<p>the dominant error].<b> Four winning favorites tipped narrow came in wide: </b>Morocco 4–2** (3.26 xG),</p>
+<p><b>Brazil 3–0</b> (4.46 xG), <b>Mexico 3–0</b> (1.79 xG, clean sheet), Bosnia 3–1. The deep-block "cap at</p>
+<p>1–0/2–0" rule is for <b>genuine bus-parks only.</b> <b>LESSON:</b> widen the primary scoreline when (a) a</p>
+<p>big quality gap meets a <b>GD chase</b> (Morocco kept scoring for the GD race), (b) a **rotated favorite</p>
+<p>plays at altitude vs an outclassed side** (Mexico's rotation XI still posted 1.79 xG / clean sheet),</p>
+<p>or (c) the favorite's <b>1v1 width carrier actually starts</b> (Vini). <i>(Repeat → durable rule.)</i></p>
+<ul>
+<li><b>2026-06-24 · Desperation expresses DIFFERENTLY by team — don't assume "must-win = open."</b> Same</li>
+</ul>
+<p>night, two desperate underdogs did opposite things: <b>Czechia</b> committed forward and produced</p>
+<p><b>volume without xG (13 shots / 1 on target / 0.47 xG)</b> in a 0–3 loss; <b>South Africa</b> instead</p>
+<p><b>sat deep (31.5% possession, their lowest-ever) and counter-attacked clinically</b>, out-shooting and</p>
+<p>out-xG'ing Korea (13–8 shots, 1.10–1.00 xG) to win 1–0. <b>LESSON:</b> read the underdog's <b>best route</b></p>
+<p>(forward-and-leaky vs deep-and-transition) rather than defaulting to "both need it → open game." For</p>
+<p>the forward-committing type, fade conversion + raise favorite clean-sheet; for the deep-counter type,</p>
+<p>raise underdog-counter-goal and favorite-fails-to-break-down.</p>
+<ul>
+<li>**2026-06-24 · Bosnia distributed/efficient, Qatar fragile-not-toothless, Korea possession≠threat</li>
+</ul>
+<p>without Son.<b> Bosnia scored </b>3 from 0.65 xG** via an 18-yo worldie + an OG + a late strike (Džeko</p>
+<p>blanked) — model their threat as <b>distributed/set-piece/transition</b>, not striker-led. Qatar mustered</p>
+<p>0.75 xG and a goal — fade their clean sheets but not to zero attack. Korea on **68.5% possession (their</p>
+<p>highest-ever) made just 1.00 xG** without Son — possession without penetration; fade their conversion.</p>
+<ul>
+<li>**2026-06-23 · Colombia 1–0 DR Congo — [REPEAT of the England 0–0 Ghana block pattern; weight</li>
+</ul>
+<p>harder].<b> Favorite vs a fit deep block, </b>second straight game** where the modal outcome was a</p>
+<p><b>narrow margin, not the 2–0 cruise</b>: Colombia 20 shots / 9 on target / <b>~1.03 xG</b> (≈0.05</p>
+<p>xG/shot) but only a <b>76'</b> breakthrough vs a keeper having a career game (Mpasi 8 saves, 5 in the</p>
+<p>first 20 min). <b>LESSON:</b> when an elite attack faces a fit deep block (5-back) + live keeper,</p>
+<p><b>make 1–0 the primary scoreline, not an alternate</b> — expect high shot volume, low xG-per-shot,</p>
+<p>and a <b>late or no</b> breakthrough. Win lean stays fine; the recurring error is the <i>margin anchor.</i></p>
+<p>Also: <b>scorer often comes from a secondary runner / full-back / deflection</b> (here Muñoz, a RB),</p>
+<p>not the marquee winger (Díaz led shots, didn't finish) — carry that tail. *(Repeat → weigh harder</p>
+<p>than England alone.)*</p>
+<ul>
+<li><b>2026-06-23 · Panama 0–1 Croatia.</b> A wounded-favorite read was right but the **"leaky defense /</li>
+</ul>
+<p>live draw"** narrative (priced off Croatia's 2–4 England opener) didn't apply once Panama went</p>
+<p><b>5-4-1 and benched their transition outlet (Waterman)</b> — Croatia kept a clean sheet (Panama 0.62</p>
+<p>xG, 1 SoT). <b>LESSON:</b> a favorite's defensive-frailty narrative is <b>matchup/game-state dependent</b></p>
+<p>— when the underdog removes its own counter threat, downweight it and raise favorite-clean-sheet.</p>
+<ul>
+<li><b>2026-06-23 · England 0–0 Ghana.</b> The "elite favorite that just scored four cruises past a</li>
+</ul>
+<p>workmanlike side" prior overrated England's win/conversion. <b>LESSON:</b> in group play a fit,</p>
+<p>organized **deep block produces favorite-fails-to-score outcomes (0–0 / 1–0-against) far more</p>
+<p>often** than the cruise prior implies. When the favorite must break a set low block, widen</p>
+<p>draw + under + opponent-clean-sheet mass: favorites reliably out-<i>shoot</i> but do not always</p>
+<p>out-<i>score</i>. (Watch for repeats — if this recurs, weight it harder.)</p>
+<ul>
+<li><i>Refinement (deep dive, same game):</i> England's profile was <b>19 shots / 3 on target / ~1.28 xG</b></li>
+</ul>
+<p>at ~0.067 xG per shot, with the xG <b>back-loaded</b> into a late burst. Signal for future block-breaking</p>
+<p>games: expect <b>high shot volume but low xG-per-shot and late-arriving chances</b> — so price the</p>
+<p><b>draw/under tail higher</b> while NOT over-fading the favorite's win (the process created enough).</p>
+<p>Underdog low-block sides that counter (like Ghana: 0 SoT / ~0 xG) are clean-sheet-capable but</p>
+<p>toothless — lean <b>under</b> and <b>opponent-clean-sheet</b>, fade <b>"underdog to score."</b></p>
+<ul>
+<li><b>2026-07-09 · France 2–0 Morocco (QF) — two team-profiles confirmed.</b></li>
+</ul>
+<p><b>(1) France block-breaker profile (validated, repeat):</b> vs a set low block France produced <b>21 shots / 8 on target / 12 in the box / 5 big chances / ~3.10 xG</b>, breaking through on the hour via <b>repeat box entries + width + 1v1 carriers (Dembélé, Olise) + full-back support</b> — not central combination alone. <b>LESSON:</b> for France, model the <b>wider margin (2–0/3–0)</b> and expect the block to break in the 2nd half once entries pile up; two 5-goal finishers (Mbappé + Dembélé) mean the scorer is distributed. <i>(Repeats the 07-01 France "not a bus" read → durable.)</i></p>
+<p><b>(2) Morocco-without-Saibari profile:</b> pure <b>shot-suppression / clean-sheet-or-bust</b> — <b>0 big chances, 0.13 xG, 1 first-half shot</b>, entirely reliant on Bounou. A deep block with <b>no transition/creator outlet</b> has <b>no live "steal it late" tail</b> — model it as "lose 0–1/0–2 unless the keeper is superhuman," high favorite-clean-sheet, near-zero own xG. <b>LESSON:</b> distinguish a <i>dangerous</i> low block (genuine counter/set-piece threat) from a <i>toothless</i> one (creator missing, 0 out-ball) — only the former carries a real upset/ET tail.</p>
+<ul>
+<li><b>2026-07-10 · Spain 2–1 Belgium (QF) — two team-profiles.</b></li>
+</ul>
+<p><b>(1) Spain route-to-goal profile:</b> goals are <b>distributed to arriving midfielders + super-subs</b>, not the front three. Vs Belgium: <b>2.08 xG, 8 SoT, ~68% possession</b>; both goals = a Ruiz rebound (30') and a Merino super-sub finish (88'). <b>LESSON:</b> model Spain's scorer mass across central runners and De la Fuente's bench (Merino = repeat late-goal source), and keep the <b>widened margin (2–0/3–0)</b> vs a mid/low block — a 3–0 was live on xG. <i>(Reinforces the durable margin-under-projection fix.)</i></p>
+<p><b>(2) Belgium-without-Onana profile (validated tail):</b> vs an elite 68%-possession side Belgium were <b>shut down — 0.37 xG, 2 SoT</b>, and their bench-comeback DNA (KDB/Doku/Lukaku) never engaged. Their one goal was an <b>aerial/cross header (De Ketelaere over Cubarsí)</b>, i.e. a set-piece-adjacent route, not open play. <b>LESSON:</b> price an underdog's late/ET tail off <b>actual chance-creation</b>, not scoreboard optics — Belgium's tail was correctly called <i>thin</i> and stayed thin (same read that held for Morocco 07-09). A shut-down favorite-vs-underdog game's only realistic underdog goal is aerial/set-piece — weight it there, not open play.</p>
+<h2>2026-07-14 · Spain (this cycle) BEATS elite transition favorites outright — not just survives — [team-profile, high weight]</h2>
+<ul>
+<li>Spain 2–0 France is the <b>third straight win over France</b> (Euro 2024 SF 2–1, Nations League SF 2025 5–4, WC 2026 SF 2–0). Profile: a <b>control/press side that wins midfield, crowds the opponent's transition star, and finishes efficiently</b> (1.63 xG, both SoT scored; France held to 0.3 xG). <b>LESSON:</b> when a possession-control side of this tier meets a transition-reliant favorite, do NOT default to "the favorite's attack eventually breaks through" — <b>model the control side winning outright and raise its clean-sheet mass.</b> H2H + stylistic → durable, high weight.</li>
+<li>Spain also extended their unbeaten run to <b>37 (level with Italy's all-time record)</b> — a form/robustness signal, not just a one-off.</li>
+</ul>
+<h2>2026-07-15 · Argentina route-to-goal = Messi as assist-hub feeding arriving runners [team-profile, high weight]</h2>
+<ul>
+<li>Messi took <b>two assists, zero goals</b>; both Argentina goals came from <b>second-wave runners</b> — Enzo Fernández striking from deep midfield (85') and <b>Lautaro Martínez as a substitute</b> heading in a Messi cross at the back post (92'). <b>LESSON:</b> in Argentina knockout service games, weight <b>Messi's assist threat at least as heavily as his goal threat</b>, and build the scorer list around the runners he feeds — deep/arriving central midfielders (Enzo) and the bench striker (Lautaro), not just Messi/Álvarez up top. Reinforces the durable possession-side "scorer is distributed to arriving midfielders + super-subs" read (Spain 07-09/07-10).</li>
+<li><b>Result-vs-underlying tell:</b> England led 1–0 on 0.53 xG while losing the game 1.84–0.53 on xG — a scoreboard-first read would have called England "in control." <b>LESSON:</b> in tight SF/knockouts, price the tail off <b>live chance-creation</b>, not the current scoreline; the trailing side that owns xG and territory carries a real, rising late-goal tail.</li>
+</ul>
+<h2>2026-07-18 · England 6–4 France (bronze final) — three team/game profiles [dead-rubber high-total, high weight]</h2>
+<ul>
+<li><b>(1) Bronze-final / symmetric-rotation dead rubber = open, high-total, pure variance.</b> Combined <b>5.7 xG</b> (WC-high), <b>20 SoT</b>, <b>10 goals</b> (most in a WC game since 1982). <b>LESSON:</b> model this game class with a <b>much higher total-goals line and a wide scoreline distribution</b>, and <b>lean no side</b> — the nominal favorite has no reliable edge (England out-xG'd France 3.21–2.92 as the "underdog"). Third straight KO token-favorite stake to lose → no-bet by default.</li>
+<li><b>(2) England loose-game profile: clinical early, set-piece + transition routes.</b> With nothing riding on it England went <b>4–0 by HT</b> on limited volume — a turnover strike (Rice 3'), a corner header (Konsa 18'), then a Saka brace. <b>LESSON:</b> England's threat is <b>not front-three-only</b> in open games — weight set-piece targets and deep runners, and treat Saka/Bellingham as locks. Finishing ran hot vs xG in the first half (variance), but the <i>route</i> mix (turnover + set piece) is the transferable read.</li>
+<li><b>(3) France are never dead, even rotated — a second-half surge side.</b> From <b>0–4 down</b>, a heavily-changed France produced ~<b>2.9 xG and 53 opposition-box touches</b> (vs England's 33), scoring four after the break. <b>LESSON:</b> when France trail, model a strong <b>second-half comeback tail regardless of rotation</b>; the scorer is distributed (Mbappé + Barcola + Dembélé). Territory flipping to France after HT did <b>not</b> flip the result — high box-touch volume ≠ win.</li>
+</ul><h2>scout-personnel.lessons</h2><h1>scout-personnel — calibration lessons</h1>
+<p>Read and apply these before every personnel scout. Newest first.</p>
+<ul>
+<li><b>2026-07-07 · R16 backfill — top-pick scorer hit 4/7, but repeat misses are role-fit not list-construction.</b> Hakimi (Morocco fullback, assisted not scored), Yamal (hyped teen winger, blanked in a tight 1-goal Spain win), De Bruyne (deployed deeper, didn't finish — De Ketelaere's brace did) were all reasonable top-picks that lost out to a lower-listed teammate WHO WAS STILL ON THE LIST. <b>LESSON: distinguish this from the Pépé/Amad-Diallo/Porro class of miss (unlisted actual scorer) — this is a genuine calibrated coin-flip among 2-3 plausible names. Keep scorer confidence framed as "low/medium among several," never "primary lock," in tight knockout games.</b></li>
+<li><b>2026-07-02 · R32 Day 5 — THREE straight unlisted-secondary-scorer misses in one slate: Porro (SPA, RB), Ndoye (SUI, sub in for Manzambi's buildup credit), Ramos (POR, attacking sub) — [REPEAT ×5+ now, TOP-WEIGHT, applies across ALL slates].</b> Spain's Porro (a fullback) scored the 2nd goal, unlisted in the sim pool. Switzerland's Ndoye scored the 2nd goal despite Manzambi (the flagged form-spike name) being the one who created the FIRST goal — buildup credit does not equal scorer credit, and the actual 2nd scorer was never listed. Portugal's Ramos, an attacking sub, headed in the 94th-minute winner and was not in the scorer pool (only Bruno Fernandes/Leão/Conceição were listed). <b>RULE: separate "who creates" from "who scores" — a flagged creator (Manzambi) does not replace the need to list the actual likely secondary finishers. Include attacking fullbacks/wing-backs in possession-heavy systems (Porro-class) and high-minutes attacking subs (Ramos-class) by default, not as afterthoughts.</b> This is now the dominant, most consistent sim flaw across the whole prediction era.</li>
+<li><b>2026-07-01 · BALOGUN SUSPENDED for Belgium–USA R16 (July 6/7) — highest-priority item.</b> Red card 64' vs Bosnia (ESPN's VAR review: wrongly given — irrelevant, ban stands). USA lose their No.9 and most efficient finisher (3 goals on ~1.3 tournament xG per ESPN) for OUR covered game. Expect a front-line reshuffle; treat any USA scorer list built around Balogun as void until the new XI is confirmed. <b>Tillman's share rises</b> — assist + direct FK goal vs Bosnia (only the 2nd direct-FK goal in USMNT WC history), the form player per ESPN ratings.</li>
+<li><b>2026-07-01 · Benched stars stay ON the scorer list — [REPEAT ×2, now a hard rule].</b> Lukaku was benched at XI-confirm (De Ketelaere false-9), got DROPPED from the list entirely ("Other unlisted" 62.1%), came on at HT and scored the 86' goal that started the comeback. Same class as the 06-30 slate omissions (Barcola/Amad/Quiñones). <b>RULE: a high-impact benched forward keeps a scorer share (game-state sub is the most likely usage), and the false-9 experiment that benched him failed — expect Lukaku to start vs USA; he anchors Belgium's list either way.</b></li>
+<li><b>2026-07-01 · Shift Belgium creation mass from De Bruyne to Tielemans/Trossard vs pressing midfields.</b> KDB was smothered by Gueye/Diarra and subbed at 56' with Belgium behind; Tielemans scored twice (incl. the 120+5 pen — he is Belgium's penalty taker of record), Trossard assisted the 89' equaliser. Against a midfield press (USA's profile), KDB is no longer the safe creativity bet.</li>
+<li><b>2026-07-01 · England: Gordon off the bench is a live route-changer vs tired blocks</b> (cross → Kane 75' equaliser); carry England's bench wingers in assist/scorer lists. <b>Kane's anytime stays HIGH even starved</b> — 2 goals from a packed box (header off a cross + self-made 86' strike); the "packed box starves the No.9" hedge is 1-for-2 against Kane specifically. <b>England RB is a fault line</b> — Spence dragged out on the DRC goal, Rice ended at RB (route detail with scout-tactics). · Secondary/difference-maker scorer OMITTED again across the whole slate — [REPEAT ×N, TOP-WEIGHT].<b> Every top pick hit (Haaland, Mbappé, Jiménez) but </b>all three secondary scorers were absent from their sim's list: Amad Diallo (CIV, 74'), Barcola (FRA, 53'), Quiñones (MEX, 22' + assist).<b> In each case a listed alt was blanked while an unlisted starter/repeat-scorer decided the game. </b>LESSON:<b> build every scorer list from the </b>FULL confirmed front line + the in-form repeat scorer<b>, and rank the </b>tournament's actual scorers above reputation<b>. Specifics: </b>Quiñones is Mexico's difference-maker (3 goals + 1 assist) — list him ABOVE the veteran 9 (Jiménez), not off the list<b>; </b>Barcola is France's rotating left-side finisher — include him with the stars.** <i>(Now the dominant scorer-list error, multiple slates → highest weight.)</i></li>
+<li><b>2026-06-30 · Haaland scores from near-zero involvement — keep his anytime-scorer HIGH regardless of touch count.</b> vs Ivory Coast: <b>3 touches in 30 min, "largely anonymous," still the 86' winner</b> off a cross. <b>LESSON:</b> for a box-poacher fed by a crossing team, model the scorer share off <b>his team's cross/box volume</b>, not his build-up involvement; a quiet Haaland is still the most likely scorer.</li>
+<li><b>2026-06-30 · Olise is France's creation engine + Mbappé is chasing the all-time record.</b> Olise <b>94 touches (most on pitch), 5 tournament assists</b> — set up both open-play goals; model him as <b>primary assist / secondary scorer</b> and carry an <b>Olise+Mbappé combo tag.</b> Mbappé now <b>6 tournament goals, level with Messi, chasing Klose's all-time WC record</b> — keep his anytime-scorer top and treat the record as a live motivation lever (route to scout-sentiment).</li>
+<li>**2026-06-25 · Curaçao 0–2 Ivory Coast — the brace-scorer (Nicolas Pépé) was NOT in the sim's scorer</li>
+</ul>
+<p>list.** The list had Bonny/Diallo/Diomandé/Kessié; the availability gate removed the wrong name (Haller)</p>
+<p>but never added the right starter. <b>LESSON:</b> build scorer shares from the **FULL confirmed starting</p>
+<p>front line** — every starting forward + wide forwards/wingers + the penalty/set-piece taker. A missing</p>
+<p>starting attacker is a guaranteed scorer miss; the availability gate must <b>ADD the right starters</b>, not</p>
+<p>only remove the unavailable. (Applies hardest to the sim-scout.)</p>
+<ul>
+<li><b>2026-06-25 · VERIFY AVAILABILITY before naming a player (sim-scout + scorer calls).</b> The sim-scout</li>
+</ul>
+<p>modeled **Sébastien Haller as an Ivory Coast scorer — he is injured and out for the ENTIRE 2026 World</p>
+<p>Cup.<b> Modeling an unavailable player silently inflates a team's scoring/top-scorer line. </b>LESSON:**</p>
+<p>before naming any scorer or leaning strength on a star, confirm they're not injured-out / suspended /</p>
+<p>out of the squad via a fresh source; <b>prefer this tournament's actual scorers over reputation</b>, and</p>
+<p>when unsure <b>leave the name out and widen the unlisted tail.</b> Applies to every scout, hardest to the sim-scout.</p>
+<ul>
+<li>**2026-06-24 · South Africa 1–0 South Korea — CATCH TALISMAN BENCHINGS when a manager signals heavy</li>
+</ul>
+<p>rotation.<b> The card made </b>Son the primary scorer + talent-edge lever**, then downgraded Hong's</p>
+<p>publicly-signalled "2–3 rotations in the heat" to a "mild variance flag." **Son was benched (first</p>
+<p>time in 13 WC games)<b> and the read collapsed. It was never caught because </b>there was no 9 PM ET</p>
+<p>lineup-watcher update<b> for either Group A game. </b>LESSON:<b> when rotation is signalled, </b>explicitly</p>
+<p>model the talisman sitting<b> and demand a lineup check in </b>every** kickoff window, including the late</p>
+<p>9 PM ET slot.</p>
+<ul>
+<li><b>2026-06-24 · In-form repeat scorer &gt; rotated-in #9 — [REPEAT, weigh harder].</b> Morocco's primary</li>
+</ul>
+<p>scorer call (El Kaabi, the rotated-in starter) blanked; the **co-lead Saibari scored for a 3rd</p>
+<p>straight game<b> and the alt Hakimi scored. </b>LESSON:** when a rotation swaps the #9, trust the</p>
+<p><b>in-form repeat scorer</b> over the freshly-installed starter. <i>(Repeats the 06-24 grade note → durable.)</i></p>
+<ul>
+<li><b>2026-06-24 · Unlisted / young / sub / OG scorer tail — [REPEAT].</b> Goal-games again decided by</li>
+</ul>
+<p>non-marquee names: <b>Bosnia</b> via an <b>18-yo (Alajbegović), an own goal, and Mahmić</b> (Džeko blanked);</p>
+<p><b>Mexico</b> via rotation players + a <b>stoppage-time sub (Fidalgo)</b>; Morocco's winners were **two subs</p>
+<p>(Rahimi 78', Yassine 89').<b> </b>LESSON:<b> keep starter-scorer calls low and </b>always carry the</p>
+<p>young-starter / scoring-sub / set-piece / OG tail.** <i>(Now 3 slates running → high weight.)</i></p>
+<ul>
+<li><b>2026-06-23 · scorer attribution (Panama–Croatia &amp; Colombia–DR Congo).</b> Both goal-games were</li>
+</ul>
+<p>decided by <b>non-marquee, unlisted players</b>: Croatia's came from <b>half-time sub Ante Budimir</b></p>
+<p>(starter Musa was withdrawn at the break), Colombia's from <b>right-back Daniel Muñoz</b> off a</p>
+<p>deflection (Díaz led shots but didn't finish). <b>LESSON:</b> (1) for teams with a **distributed/bench</p>
+<p>goal threat<b> (Croatia: Budimir, Kramarić off the bench), explicitly carry a </b>scoring-sub tail**,</p>
+<p>not just the starting 9; (2) vs a deep block + live keeper, weight the **full-back overlap /</p>
+<p>midfield runner / set-piece scorer** alongside the marquee attacker. Keep starter-scorer calls low.</p>
+<ul>
+<li><b>2026-06-23 · England 0–0 Ghana.</b> The pre-kickoff check flagged Iñaki Williams as an attacking</li>
+</ul>
+<p>upgrade, but the decisive personnel story was <b>Thomas Partey's return screening the block</b> and</p>
+<p><b>GK Asare's clean sheet</b> — defensive solidity, not Ghana's attack. <b>LESSON:</b> when a returning</p>
+<p>holding midfielder or keeper strengthens an underdog, weight the **defensive / clean-sheet</p>
+<p>impact**, not just attacking changes.</p>
+<ul>
+<li><b>2026-07-09 · France scorer list must include Dembélé as a co-primary — [scorer-omission error].</b> The card's watch list named Mbappé (hit) + Doué/Barcola/Kolo Muani but <b>left out Ousmane Dembélé</b> — reigning Ballon d'Or, 4 goals coming in, who <b>scored the clincher (66'), was MVP (8.9), 0.70 xA.</b> <b>LESSON:</b> when a team has <b>two elite finishers in form</b>, list <b>both as co-primaries</b> — do not collapse the scorer call onto the single talisman. (France finished with two 5-goal scorers, first side since Brazil 2002.)</li>
+<li><b>2026-07-09 · flagged-absence → toothless attack confirmed.</b> Saibari's absence (priced pre-KO) showed up cleanly: Morocco's Rahimi-led front line produced <b>0.13 xG, 0 big chances.</b> <b>LESSON:</b> when the underdog's primary creator is out, don't just footnote it — <b>cut their own-xG / "underdog to score" mass hard</b>; a missing creator on a defensive side removes the only mechanism for the upset tail. <i>(Reinforces the 06-24 personnel-re-derivation rule.)</i></li>
+</ul>
+<ul>
+<li><b>2026-07-10 · Spain scorer list must include arriving/central midfielders + the super-sub — [scorer-omission error, REPEAT].</b> Both Spain goals vs Belgium came from <b>Fabián Ruiz (30', second-ball rebound)</b> and <b>Mikel Merino (88', super-sub off a keeper spill)</b> — <b>neither was on the card's scorer list</b>; named co-primaries Oyarzabal and Yamal blanked (Yamal assisted). This is the <b>same class as 07-09</b> (France's Ruiz/Merino-type finishers, Dembélé omitted) → carries extra weight. <b>LESSON:</b> for possession sides that manufacture xG via sustained pressure (Spain, France), the scorer list must NOT be front-three-only — <b>include box-arriving central midfielders (Ruiz, Merino, Zubimendi) and the manager's proven goal-scoring super-sub</b> (Merino: R16 Portugal winner AND this QF winner — a repeatable late-goal source). Tag Merino as a live scorer whenever he's a sub option.</li>
+</ul>
+<h2>2026-07-14 · Pedro Porro (Spain RB) scored &amp; unlisted — SAME fullback, SAME miss as 07-02 [REPEAT, high weight]</h2>
+<ul>
+<li>Porro made it 2–0 (58') on a <b>give-and-go with Dani Olmo</b>, breaking free to finish — and was <b>not on the scorer list</b>. This is the <b>identical player and error class</b> logged on 07-02 ("Porro, Spain fullback, unlisted"). <b>LESSON:</b> Spain's attacking fullbacks (Porro especially, plus the LB) are <b>live scorers by default</b> against a side pinned into its own half — they arrive on overlaps/1-2s. Add Spain fullbacks to the scorer list every time Spain are the control side. <i>(Now 2 slates → durable.)</i></li>
+<li><b>Scorer-list HIT to keep:</b> <b>Oyarzabal</b> correctly listed as Spain's primary and scored (pen) — the 07-09/07-10 "include the arriving striker/midfielder, not front-three-only" fix worked here. Merino (listed) did not feature; keep him as a live-sub tail but he's not automatic.</li>
+</ul>
+<h2>2026-07-15 · Lautaro Martínez = standing Argentina super-sub scorer (VALIDATED); Kane+Bellingham muffled by a compact block</h2>
+<ul>
+<li><b>Lautaro</b> came off the bench and headed the 92' winner (Messi cross, back post) — the card's explicit "keep the super-sub on the list" entry <b>hit</b>. <b>LESSON:</b> list <b>Lautaro as a live scorer whenever he's a bench option</b> vs a compact block — same durable super-sub-scorer class as Merino (Spain). This is the first clean scorer-list slate (3/3 actual scorers listed) after 4 straight unlisted-scorer misses — the fix holds, keep it.</li>
+<li><b>Elite scorers go quiet without service:</b> England's 6-goal duo <b>Kane and Bellingham both blanked</b> (0.53 team xG, 5 shots) against Argentina's compact block. <b>LESSON:</b> discount even in-form talismen sharply when the supply line is likely to be cut — an "in-form finisher" is conditional on the chances a compact, midfield-winning opponent denies (same conditional-service lesson as Mbappé 07-14).</li>
+</ul>
+<h2>2026-07-18 · Saka hat-trick UNLISTED — biggest list-construction miss of the tournament [scorer-omission, high weight]</h2>
+<ul>
+<li><b>Bukayo Saka scored THREE (37', 45+2', 87' pen) and was on no list</b> — not players-to-watch, not the scorer list — even though the card's own flip line invoked a "Saka-type." He is a first-choice, in-form England <b>wide forward</b> who started and played big minutes; the "rotated XI" narrative wrongly wrote him out. <b>RULE:</b> an in-form first-choice wide forward is a <b>default scorer lock</b> unless <i>confirmed</i> benched — never omit on a rotation assumption. Convert the instinct ("Saka-type") into a listed name.</li>
+<li><b>Also unlisted actual scorers:</b> <b>Konsa</b> (18', header off a Rice corner — set piece) and <b>Rice</b> (3', turnover strike from range) for England; <b>Barcola</b> (54', sub, Mbappé assist) and <b>Dembélé</b> (90+6', sub) for France. <b>LESSON:</b> for England add <b>set-piece targets (Konsa) and deep-midfield strikers (Rice)</b> to the scorer mass — they are not front-three-only; for France tag <b>Barcola &amp; Dembélé as live sub-scorers</b> every time (repeat of the 07-09 Dembélé omission). Mbappé (primary ✅×2) and Bellingham (co ✅) were correctly listed — keep those.</li>
+</ul><h2>scout-sentiment.lessons</h2><h1>scout-sentiment — calibration lessons</h1>
+<p>Read and apply these before every sentiment scout. Newest first.</p>
+<ul>
+<li><b>2026-07-01 · Talisman narrative ≠ scorer pick.</b> USA's card made Pulisic the primary scorer on the "talisman moment" story (his return from limited minutes); the goals came from the in-form No.9 (Balogun, 3 tournament goals) and the form midfielder (Tillman) — both listed alts. <b>LESSON:</b> narrative pull (comeback story, farewell tour, home-crowd hero) earns a spot on the list, not the top of it; rank tournament production first. Related: the "KDB farewell World Cup" storyline had him as Belgium's revised primary — he was smothered and subbed at 56'. Two narrative-first picks, two misses, same day.</li>
+<li><b>2026-07-01 · Officiating/VAR chaos is a live tail this tournament — price it, don't predict it.</b> Same day: a 7-minute VAR review produced Belgium's 117' penalty (Keane/Neville/ESPN VAR review all disputed it), ESPN's VAR review called Balogun's red <b>wrongly given</b> (he's banned anyway), and England were denied a penalty ESPN judged legitimate. <b>LESSON:</b> none of these are predictable signals — the actionable part is roster fallout (suspensions) and keeping stakes capped in near-even knockouts where one review can decide the game. · An individual record chase is a live scoring lever.<b> Mbappé (6 tournament goals) is </b>level with Messi and chasing Klose's all-time WC goal record<b> — France keep feeding him and he delivered a brace vs Sweden. </b>LESSON:** when a star is publicly chasing a milestone/record, nudge his anytime-scorer and his team's over/margin up a touch — the team funnels chances to him.</li>
+<li><b>2026-06-30 · A weather/logistics delay does NOT dampen a fired-up home team.</b> Mexico–Ecuador kicked off <b>1 hour late after lightning</b> at the Azteca; Mexico came out <b>hotter</b>, 2–0 up inside 31'. <b>LESSON:</b> don't treat a delay/disruption as an equaliser for a home side riding a big crowd — if anything it can raise the home fast-start.</li>
+</ul><h2>scout-tactics.lessons</h2><h1>scout-tactics — calibration lessons</h1>
+<p>Read and apply these before every tactical scout. Newest first.</p>
+<ul>
+<li><b>2026-07-02 · Spain 3–0 Austria — a high press that fails to land AT ALL (not partially) tends to open the game up, not stay compact.</b> Spain allowed zero Austria shots on target the entire match (first WC knockout instance since Germany 2014 final) while posting 2.84 xG themselves; Austria's press never created the turnovers their 3–3-with-Algeria profile implied. <b>LESSON:</b> distinguish "press applies real pressure but the favorite survives it" (keep margin capped) from "press never lands" (raise the margin ceiling — the trailing team commits numbers forward and the game can blow open, as it did with Oyarzabal's 89' 2nd and Porro's fullback goal in between).</li>
+<li><b>2026-07-02 · Algeria's 56% possession vs Switzerland converted to just 0.73 xG — "control without threat" is a real, distinct profile from Algeria's earlier chaos (3–3 vs Austria).</b> The same team can show two very different scripts depending on the opponent's structure: Austria's own high line got carved by Algeria's transitions, but Switzerland's compact mid-block denied Algeria's ball progression from ever becoming shots. <b>LESSON:</b> don't carry a team's "opponent-score mass" flag forward unconditionally from one game to the next — check whether the CURRENT opponent's structure (not just reputation) actually permits the same transition mechanism that fired against a different opponent.</li>
+<li><b>2026-07-01 · Belgium's high line loses to direct balls in behind — and USA (our R16 game) attack exactly that way.</b> Senegal's 2nd (Sarr 51'): one long ball chested down in behind, splitting the back line. The pre-game flag ("Senegal's pace getting in behind Belgium's high line") was the literal game script — Senegal out-xG'd Belgium ~3.54–1.80 (SI match stats). For Belgium–USA: raise USA's transition/in-behind goal mass (Tillman/Pulisic vertical runs), especially in Belgium's slow first hour.</li>
+<li>Also: <b>Belgium's false-9 (De Ketelaere) removed their reference point</b> — 0 shots on target in 85 minutes. If the teamsheet shows no recognized 9, treat Belgium's open-play creation as impaired until proven otherwise.</li>
+<li><b>2026-07-01 · USA vs a deep block: low open-play volume (~0.92 xG reported), routes = press turnovers + set pieces.</b> Both goals: Ream interception → press-turnover chain → Balogun; Tillman direct FK. For future USA-as-favorite cards vs blocks, cap totals and favor 2–0/1–0 shapes — their group-stage fast starts do not transfer to bus games. Their 10-man block held Bosnia to ~0.25 xG — game-management is real (route detail with scout-patterns).</li>
+<li><b>2026-07-01 · England's right-back channel is the way in</b> (next: Mexico). On DRC's goal: Konsa/Guehi squeezed too close, <b>Spence dragged out on the cover, Madueke didn't track back</b> (Sky analysis); Rice finished the game at RB. A quality left-winger should have his goal-involvement mass raised vs England until Tuchel settles the position. England's own block-breaking: patience + width-served Kane, landing after 75' — don't read a scoreless hour as an off-day. · A man-to-man press leaks space in behind the jumping midfield.<b> Ecuador pressed man-for-man (Caicedo/Vite aggressive on Mexico's Lira/Romo pivot, forwards on the CBs), leaving the </b>back four in 1v1s with space behind<b>; Mexico's quick-combination forwards punished it — </b>Quiñones (22')<b> protected vs the press on the touchline, set inside, then broke beyond his marker (Franco) into the vacated space; the 2nd came the same way (Quiñones skips Franco → returns to Jiménez). </b>LESSON:<b> when a side commits to man-marking vs a team with sharp combination forwards, </b>raise the pressed team's in-behind/transition goal mass** — the marker who jumps leaves the space that decides the game.</li>
+<li><b>2026-06-30 · France's bait-and-break is a repeatable route to goal.</b> France set up passive (4-4-2/4-1-4-1), <b>lowered their line of engagement to invite Sweden out</b>, then sprang <b>Olise-between-the-lines → runner</b> — Barcola's 2–0 came directly off Sweden committing bodies forward and France breaking. <b>LESSON:</b> any team that commits numbers to chase the game vs France should have its <b>concede-on-the-counter mass raised</b>; France's rest-defence also neutralised Sweden's Isak/Gyökeres counter (0.67 xG).</li>
+<li><b>2026-06-30 · Don't over-credit a "pace winger vs attacking full-back" edge when the opponent has a disciplined CB pair.</b> The Ivory Coast card leaned on Diomandé's pace vs Nusa; Norway's <b>Ajer/Heggem wide-shepherded CIV's wingers and won the aerial battle</b>, and <b>Diomandé finished with 0 completed take-ons / 1 chance created.</b> <b>LESSON:</b> check the block's <b>personnel</b> (can the CBs defend the box and force play wide?), not just the nominal winger-vs-fullback matchup — a strong CB pairing turns a "pace edge" into cleared crosses. <i>(Complements the Scotland–Brazil note: 1v1 width breaks a block only if the block lacks a stopper.)</i></li>
+<li>**2026-06-24 · Scotland 0–3 Brazil — tie the deep-block margin cap to whether a genuine 1v1 width</li>
+</ul>
+<p>carrier is in the CONFIRMED XI.** The whole "doubly-capped 1–0" rested on Brazil losing their width</p>
+<p>(Raphinha out). <b>Vinícius Júnior started and posted 12 shots / 8 on target / 3.57 xG by himself</b></p>
+<p>(team 4.46 xG), carving Scotland's deep block <b>1v1 repeatedly</b>. <b>LESSON:</b> the cap is for a favorite</p>
+<p><i>forced to combine centrally</i> — **if an elite 1v1 wide carrier (Vini-type) starts wide, it is a</p>
+<p>margin-BREAKER; do not cap.<b> And a low block </b>without a 1v1 stopper at full-back is vulnerable to</p>
+<p>direct dribbling, not just crosses** — check the block's personnel, not just its shape.</p>
+<ul>
+<li><b>2026-06-24 · South Africa 1–0 South Korea — "both must win" ≠ an open game.</b> South Africa</li>
+</ul>
+<p><b>sat deep (31.5% possession) and countered</b>, out-xG'ing Korea (1.10–1.00) — the opposite of the</p>
+<p>card's "two-directional" expectation. <b>LESSON:</b> the <b>underdog's best route governs the game shape</b>,</p>
+<p>not the symmetric "both need it" logic. A desperate side with a real transition threat (Maseko, Moremi)</p>
+<p>will often choose deep-block-and-counter; translate that into higher favorite-fails-to-score /</p>
+<p>underdog-counter-goal, not "open game."</p>
+<ul>
+<li><b>2026-06-24 · Morocco 4–2 Haiti — confirmed multi-route block-breaker profile.</b> Morocco broke a</li>
+</ul>
+<p>low block via **full-back overlap (Hakimi, scored), late central runners (Saibari, scored a 3rd</p>
+<p>straight game), and bench finishers (Rahimi, Yassine subs scored)<b> — 3.26 xG. </b>LESSON:** when a</p>
+<p>favorite has overlap + late runners + scoring subs, expect the block to break and the **margin to</p>
+<p>widen** — route this to scout-patterns as a team-profile signal.</p>
+<ul>
+<li><b>2026-06-23 · Panama 0–1 Croatia.</b> Panama set up **ultra-conservative: a 5-4-1 with their main</li>
+</ul>
+<p>transition outlet (Cecilio Waterman) benched** and a lone 9 (Fajardo) — they produced 0.62 xG / 1</p>
+<p>SoT and never threatened. <b>LESSON:</b> when an under-pressure underdog both **drops to a back five</p>
+<p>AND benches its primary counter/outlet**, it has chosen not-to-lose over to-win — expect near-zero</p>
+<p>attacking output, raise favorite-clean-sheet, and <b>discount any "favorite is leaky" narrative</b>:</p>
+<p>the threat that would punish it has been removed by the opponent's own selection.</p>
+<ul>
+<li><b>2026-06-23 · England 0–0 Ghana</b> (predicted England 2–0). Ghana defended in a deeper, more</li>
+</ul>
+<p>committed shape in-game (reported <b>5-4-1</b>) than the named 4-2-3-1 implied. <b>LESSON:</b> when a</p>
+<p>workmanlike underdog faces a clear favorite and only needs to avoid a heavy defeat, expect an</p>
+<p>in-game shift to a <b>5-at-the-back low block regardless of the nominal XI shape</b>. Translate</p>
+<p>"they'll sit deep" into a concrete <i>higher clean-sheet-against / lower favorite-conversion</i></p>
+<p>expectation for Carlos — not a footnote.</p>
+<ul>
+<li><i>Refinement (deep dive):</i> the block packs <b>central lanes</b> (England had 4 first-half shots blocked</li>
+</ul>
+<p>playing through the middle, 0.27 first-half xG). What eventually threatened was <b>width + crosses</b></p>
+<p>(O'Reilly hit the bar, Guéhi header off a delivery) and a <b>ball-carrier off the bench</b> (Rogers'</p>
+<p>dribbles). Tell for predicting block-breaking: trust a favorite with genuine <b>width / 1v1 carriers</b>;</p>
+<p>be skeptical of one forced to combine centrally. Flag this to Carlos as a route-to-goal read.</p>
+<ul>
+<li><b>2026-07-10 · Cubarsí aerial soft spot (route-to-goal read for Carlos).</b> Belgium's equaliser was <b>De Ketelaere's header over Pau Cubarsí</b> — the young CB beaten in the air on a cross, Belgium's lone big chance converting 0.37-xG-worth of attack. <b>LESSON:</b> vs Spain, the live route to concede is <b>aerial/cross onto Cubarsí</b>, not central combination. Flag to Carlos for the SF vs France (Mbappé/Kolo Muani cross threat): raise France's set-piece/aerial + "underdog/opponent to score via a header" mass even though Spain's overall defense (0 conceded run) is elite.</li>
+</ul>
+<h2>2026-07-14 · Compact aggressive press neutralizes a lone transition star → favorite collapses to 0.3 xG [team-profile / tactical]</h2>
+<ul>
+<li>Spain's press crowded <b>Mbappé</b> in transition, cut his touches in dangerous areas, and pressed France all over the pitch. France (front four Mbappé/Dembélé/Olise/Barcola) produced <b>0.3 xG from 10 shots</b> — worst of their tournament by far (vs ~3.10 xG in the QF). Deschamps' HT changes (Koné for Rabiot, Doué for Barcola) moved nothing. <b>LESSON:</b> vs an elite, high-pressing control side, <b>discount a transition favorite's attacking projection sharply</b> — "in-form finisher" is conditional on service the press denies. Tell: Mbappé's 86' frustration foul on the keeper = star fully neutralized.</li>
+</ul>
+<h2>2026-07-15 · Argentina = control + late-onslaught profile; England's creation collapses without the midfield [team-profile / tactical]</h2>
+<ul>
+<li>Argentina controlled (55% poss, <b>15 shots, 1.84 xG</b> vs England's 5 / 0.53) and <b>scored both goals 85'+</b> (Enzo 85', Lautaro 92') after a 30-minute post-going-behind surge of near-misses. <b>LESSON:</b> a side leading Argentina with &lt;30 min left is <b>under-water, not safe</b> — raise Argentina's late-equalizer / late-winner mass and their comeback tail in every future card. The first half was <b>0–0 with no shots on target</b> either side, then the game broke late — tight elite-SF first halves skew to late, sub-driven decisions (mirrors 07-14).</li>
+<li><b>England without central-midfield control = near-zero threat:</b> 0.53 xG from 5 shots, and their only goal was one clinical wide-overlap move (Rogers cross → Gordon at the six-yard box, beating Molina). <b>LESSON:</b> when England lose the midfield battle they generate almost nothing through the middle — trust their threat only via <b>width/crosses/fullback overlaps</b>, not central combination. The Rice-fitness lever the card flagged decided the game exactly as written.</li>
+</ul>
+<h2>2026-07-18 · Game inverted at the break — England ruthlessness → France territorial siege, result unchanged [team-profile / tactical]</h2>
+<ul>
+<li>First half: England clinical and vertical (turnover + set piece + two Saka finishes) for <b>4–0</b>; France passive, rotated. Second half: France pressed high and flooded the box (<b>53 box touches vs 33</b>, ~2.9 xG post-break) and pulled to <b>4–3</b> by the 66' before a late trade ended it <b>6–4</b>. <b>LESSON:</b> in an open dead rubber, <b>territory and box-touch dominance after going behind does not equal control of the result</b> — England's early xG cushion (finished 3.21 vs 2.92) held despite being pinned back. Price the <i>chance quality already banked</i>, not second-half territory. Tell for future France comeback games: they generate almost all their xG in a concentrated post-HT surge — a 0–0/0–2 at the hour is not settled.</li>
+</ul></div>
+<footer>Carlos Command Center · World Cup 2026 · auto-published by the prediction pipeline.<br>
+Predictions, not facts. Notional stakes 0–5 units.</footer>
+</div>
+<script>
+(function(){
+  var BUILT = 1784461003297, ID = "1784461003";
+  function ago(){var m=Math.max(0,Math.round((Date.now()-BUILT)/60000));
+    var el=document.getElementById('ago');if(!el)return;
+    el.textContent = m<1?'just now':(m<60?m+'m ago':Math.floor(m/60)+'h '+(m%60)+'m ago');}
+  ago(); setInterval(ago,30000);
+  function poll(){fetch('meta.json?t='+Date.now(),{cache:'no-store'})
+    .then(function(r){return r.json()})
+    .then(function(j){if(j.build_id&&j.build_id!==ID)location.reload();})
+    .catch(function(){});}
+  setInterval(poll,60000);
+})();
+</script></body></html>

@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Carlos — History</title><style>
+:root{color-scheme:light;--bg:#eef1f5;--card:#fff;--ink:#161a1d;--mut:#5b6770;--line:#e1e6ec;
+--green:#1a7f37;--navy:#0f2740;--accent:#1a7f4f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.55}
+.wrap{max-width:1100px;margin:0 auto;padding:14px 14px 50px}
+nav.site{display:flex;gap:4px;align-items:center;flex-wrap:wrap;background:var(--navy);border-radius:12px;padding:8px 10px;margin-bottom:14px;position:sticky;top:8px;z-index:10;box-shadow:0 2px 10px rgba(15,39,64,.25)}
+nav.site .brand{color:#fff;font-weight:800;letter-spacing:-.2px;margin-right:8px;font-size:15px;text-decoration:none}
+nav.site .brand .dot{color:#3ddc84}
+nav.site a.t{color:#c8d3de;text-decoration:none;font-size:13px;font-weight:700;padding:5px 10px;border-radius:8px}
+nav.site a.t.on,nav.site a.t:hover{background:rgba(255,255,255,.14);color:#fff}
+nav.site .upd{margin-left:auto;color:#8fa3b5;font-size:11px;text-align:right}
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px;border-bottom:2px solid #d7dde4;padding-bottom:12px;margin-bottom:16px}
+.title{font-size:21px;font-weight:800;letter-spacing:-.3px}
+.sub{color:var(--mut);font-size:13px;margin-top:3px}
+.meta{text-align:right;font-size:12px;color:var(--mut)}
+.meta .exp{display:inline-block;margin-top:4px;background:var(--navy);color:#fff;padding:3px 9px;border-radius:999px;font-weight:700;font-size:12px}
+.badge{display:inline-flex;align-items:center;gap:5px;font-weight:700;font-size:11px;padding:3px 8px;border-radius:6px;letter-spacing:.2px}
+.b-conf{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.b-pend{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-hit{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.r-miss{background:#fde7e7;color:#b42318;border:1px solid #f3bcbc}
+.r-part{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-live{background:#e7eefc;color:#1d4ed8;border:1px solid #bcd0f5}
+.b-sim{background:#efeafd;color:#6b46c1;border:1px solid #d6c8f5}
+.sim{font-size:12px;color:#4a3a6b;margin-top:9px;background:#f7f4fe;border:1px solid #ece5fb;border-radius:8px;padding:7px 9px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.window{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);margin:20px 0 10px;display:flex;align-items:center;gap:8px}
+.window::after{content:"";flex:1;height:1px;background:#dbe1e8}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 15px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.card.confirmed{border-left:4px solid #1a7f37}
+.card.pending{border-left:4px solid #e8b33a}
+.match{font-size:16px;font-weight:800;letter-spacing:-.2px}
+.ctx{font-size:12px;color:var(--mut);margin-top:2px}
+.row{display:flex;align-items:center;justify-content:space-between;margin-top:11px;gap:8px}
+.pred{font-size:14px}.pred b{font-weight:800}.score{font-weight:800}
+.muted{color:#8a949c}
+.stake{font-size:12px;font-weight:800;background:var(--navy);color:#fff;padding:2px 8px;border-radius:6px;white-space:nowrap}
+.scorer{font-size:12.5px;color:#34404a;margin-top:9px}.scorer .k{color:var(--mut)}
+.result{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:11px;padding:8px 10px;border-radius:8px;background:#f6f8fb;border:1px solid #e6ebf1}
+.result .rscore{font-weight:800;font-size:14px}.result .rscore .k{color:var(--mut);font-weight:600;font-size:11px}
+.note{font-size:11.5px;color:var(--mut);margin-top:9px;border-top:1px dashed var(--line);padding-top:8px}
+.note.held{color:#1a7f37}
+footer{margin-top:26px;font-size:11px;color:#8a949c;text-align:center;line-height:1.6}
+/* prose (markdown pages) */
+.prose{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;box-shadow:0 1px 2px rgba(16,39,64,.04);overflow-x:auto}
+.prose h1{font-size:22px;letter-spacing:-.3px;margin:.2em 0 .5em}
+.prose h2{font-size:17px;margin:1.3em 0 .5em;padding-bottom:5px;border-bottom:1px solid var(--line)}
+.prose h3{font-size:15px;margin:1.2em 0 .4em}
+.prose p,.prose li{font-size:14px;color:#2a333b}
+.prose table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13px}
+.prose th,.prose td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+.prose th{background:#f4f6f9;font-weight:700}
+.prose tr:nth-child(even) td{background:#fafbfc}
+.prose blockquote{margin:10px 0;padding:6px 14px;border-left:3px solid #cbd5df;color:var(--mut);font-size:13.5px}
+.prose code{background:#f0f3f6;border:1px solid #e3e8ee;border-radius:4px;padding:1px 5px;font-size:12.5px}
+.prose hr{border:0;border-top:1px solid var(--line);margin:18px 0}
+.prose a{color:#1d4ed8}
+.prose img{max-width:100%}
+/* index lists */
+.linklist{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;margin-top:12px}
+.linklist a{display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;text-decoration:none;color:var(--ink);font-weight:700;font-size:13.5px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.linklist a:hover{border-color:#b9c4cf}
+.linklist a .d{display:block;font-weight:500;color:var(--mut);font-size:12px;margin-top:3px}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0 0 16px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.stat .v{font-size:19px;font-weight:800;letter-spacing:-.3px}
+.stat .k{font-size:11px;color:var(--mut);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.dayhead{font-size:16px;font-weight:800;margin:26px 0 4px}
+@media (max-width:560px){.wrap{padding:10px 9px 40px}.grid{grid-template-columns:1fr}.meta{text-align:left}}
+</style></head>
+<body><div class="wrap">
+<nav class="site"><a class="brand" href="index.html">Carlos<span class="dot"> ●</span></a><a class="t" href="index.html">Board</a><a class="t on" href="history.html">History</a><a class="t" href="record.html">Record</a><a class="t" href="intel.html">Intel</a>
+<span class="upd">updated<br><b id="ago">…</b></span></nav>
+<header class="top"><div><div class="title">Match History</div><div class="sub">every graded day — board snapshots, results, and the full prediction cards</div></div></header>
+<div class="dayhead">2026-07-18 — Third-Place Play-Off · France vs England&nbsp; <a href="slates/2026-07-18.html" style="font-size:12px">full cards →</a></div>
+<div class="window">5:00 PM ET · Third-Place Play-Off</div><div class="grid">
+<div class="card pending">
+  <div class="match">France vs England</div>
+  <div class="ctx">Group 3rd Place · Miami Stadium (Hard Rock Stadium), Miami Gardens · 5:00 PM ET</div>
+  <div class="row">
+    <div class="pred"><b>France win</b> · <span class="score">2–1</span> <span class="muted">(2–0, 1–1; draw/ET-pens live (Opta draw ~23.7%) — dead-rubber, both sides heavily rotated)</span></div>
+    <span class="stake">1u France</span>
+  </div><div class="scorer"><span class="k">Most likely scorer:</span> Mbappé <span class="k">(medium-high — Golden Boot chase, tied Messi on 8, last chance before the final)</span> · co-primary Doué (medium); alts Cherki, Olise, Zaïre-Emery; Kane (ENG, medium), Bellingham (medium); alts Rogers, Gordon</div>
+  <div class="row"><span class="badge b-pend">◷ LINEUP PENDING</span></div>
+  <div class="result"><span class="rscore"><span class="k">RESULT </span>FT 4–6 <span class="muted" style="font-weight:600">— ENG: Saka x3 (37,45+,87 pen), Rice, Konsa, Bellingham | FRA: Mbappe x2, Barcola, Dembele 96</span></span><span class="badge r-miss">MISS</span></div>
+  <div class="note">Watcher confirms the XI ~45 min before kickoff, then runs the 10k sim.</div>
+</div>
+</div>
+<div class="dayhead">2026-07-15 — Semifinals — Day 2 · England vs Argentina&nbsp; <a href="slates/2026-07-15.html" style="font-size:12px">full cards →</a></div>
+<div class="window">3:00 PM ET · Semifinal</div><div class="grid">
+<div class="card pending">
+  <div class="match">England vs Argentina</div>
+  <div class="ctx">SF · Mercedes-Benz Stadium, Atlanta · 3:00 PM ET</div>
+  <div class="row">
+    <div class="pred"><b>England win</b> · <span class="score">2–1</span> <span class="muted">(1–0, 1–1; draw/ET-pens live and not thin (Opta has this game's draw prob at ~29.7%, highest of the round))</span></div>
+    <span class="stake">1u England</span>
+  </div><div class="scorer"><span class="k">Most likely scorer:</span> Bellingham <span class="k">(medium-high)</span> · co-primary Kane (medium); alts Gordon, Saka; Messi (ARG, medium-high), Álvarez (medium), Lautaro Martínez (low-medium, super-sub), Enzo Fernández/Mac Allister (low)</div>
+  <div class="row"><span class="badge b-pend">◷ LINEUP PENDING</span></div>
+  <div class="result"><span class="rscore"><span class="k">RESULT </span>FT 1–2 <span class="muted" style="font-weight:600">— Gordon 55'; Enzo Fernández 85', Lautaro Martínez 90+2' (Messi 2 assists)</span></span><span class="badge r-miss">MISS</span></div>
+  <div class="note">Watcher confirms the XI ~45 min before kickoff, then runs the 10k sim.</div>
+</div>
+</div>
+<div class="dayhead">2026-07-14 — Semifinals — Day 1 · France vs Spain&nbsp; <a href="slates/2026-07-14.html" style="font-size:12px">full cards →</a></div>
+<div class="window">3:00 PM ET · Semifinal</div><div class="grid">
+<div class="card pending">
+  <div class="match">France vs Spain</div>
+  <div class="ctx">SF · AT&amp;T Stadium, Arlington (Dallas) · 3:00 PM ET</div>
+  <div class="row">
+    <div class="pred"><b>France win</b> · <span class="score">2–1</span> <span class="muted">(2–0, 1–1; draw/ET-pens live and not thin (Spain's best defense of the tourney, Euro 2024 SF precedent Spain 2-1))</span></div>
+    <span class="stake">2u France</span>
+  </div><div class="scorer"><span class="k">Most likely scorer:</span> Mbappé <span class="k">(medium-high)</span> · co-primary Dembélé (medium); alts Olise, Doué/Barcola; Oyarzabal (ESP, low-med), Merino (low-med), Yamal (low)</div>
+  <div class="row"><span class="badge b-pend">◷ LINEUP PENDING</span></div>
+  <div class="result"><span class="rscore"><span class="k">RESULT </span>FT 0–2 <span class="muted" style="font-weight:600">— Oyarzabal 22 pen, Porro 58</span></span><span class="badge r-miss">MISS</span></div>
+  <div class="note">Watcher confirms the XI ~45 min before kickoff, then runs the 10k sim.</div>
+</div>
+</div>
+<div class="dayhead">2026-07-10 — Quarterfinals — Day 2 · Spain vs Belgium&nbsp; <a href="slates/2026-07-10.html" style="font-size:12px">full cards →</a></div>
+<div class="window">3:00 PM ET · Quarterfinal</div><div class="grid">
+<div class="card pending">
+  <div class="match">Spain vs Belgium</div>
+  <div class="ctx">QF · Inglewood (SoFi Stadium) · 3:00 PM ET</div>
+  <div class="row">
+    <div class="pred"><b>Spain win</b> · <span class="score">2–0</span> <span class="muted">(3–0, 1–0; draw/ET-pens live but thin (Belgium has proven comeback gear, but Onana out + KDB/Doku/Lukaku bench again))</span></div>
+    <span class="stake">2u Spain</span>
+  </div><div class="scorer"><span class="k">Most likely scorer:</span> Oyarzabal <span class="k">(medium-high)</span> · co-primary Yamal (medium); alts Olmo, Baena, Porro; Trossard (BEL, low-med), De Ketelaere (low)</div>
+  <div class="row"><span class="badge b-pend">◷ LINEUP PENDING</span></div>
+  <div class="result"><span class="rscore"><span class="k">RESULT </span>FT 2–1 <span class="muted" style="font-weight:600">— F. Ruiz 30, De Ketelaere 41, Merino 88 (Spain win — outcome ✅, scoreline within-one, scorer primary ✗)</span></span><span class="badge r-part">PARTIAL</span></div>
+  <div class="note">Watcher confirms the XI ~45 min before kickoff, then runs the 10k sim.</div>
+</div>
+</div>
+<div class="dayhead">2026-07-09 — Quarterfinals — Day 1 · France vs Morocco kicks off the QF round&nbsp; <a href="slates/2026-07-09.html" style="font-size:12px">full cards →</a></div>
+<div class="window">4:00 PM ET · Quarterfinal</div><div class="grid">
+<div class="card pending">
+  <div class="match">France vs Morocco</div>
+  <div class="ctx">QF · Foxborough (Gillette Stadium) · 4:00 PM ET</div>
+  <div class="row">
+    <div class="pred"><b>France win</b> · <span class="score">2–0</span> <span class="muted">(3–0, 1–0; draw/ET-pens live tail (Morocco tournament-hardened))</span></div>
+    <span class="stake">2u France</span>
+  </div><div class="scorer"><span class="k">Most likely scorer:</span> Mbappé <span class="k">(high)</span> · alts Doué, Kolo Muani/Barcola; Rahimi/Brahim Diaz (MAR, low-med)</div>
+  <div class="row"><span class="badge b-pend">◷ LINEUP PENDING</span></div>
+  <div class="note">Watcher confirms the XI ~45 min before kickoff, then runs the 10k sim.</div>
+</div>
+</div>
+<div class="dayhead">2026-07-07 — Round of 16 — Day 4 (final R16 day) · 07-04→07 backfilled retrospectively after a 4-day pipeline gap</div>
+<div class="window">12:00 PM ET · Round of 16</div><div class="grid">
+<div class="card confirmed">
+  <div class="match">Argentina vs Egypt</div>
+  <div class="ctx">R16 · Atlanta (Mercedes-Benz Stadium) · 12:00 PM ET</div>
+  <div class="row">
+    <div class="pred"><b>Argentina win (RETROSPECTIVE — not staked)</b> · <span class="score">1–1 (post-hoc sim proj)</span> <span class="muted">(2–0, 1–0; Egypt upset live tail)</span></div>
+    <span class="stake">N/A — retrospective backfill, no card was pre-registered</span>
+  </div>
+  <div class="sim"><span class="badge b-sim">⊞ SIM 10k · v2 (backfill)</span><span><b>58.2% / 25.0% / 16.8%</b> · proj <b>1–1</b> <span class="muted">· post-hoc · O2.5 56.1% · red 11.5% · comeback 11.3% · top scorer Messi 37.2% · unlisted 58.6%</span></span></div><div class="scorer"><span class="k">Most likely scorer:</span> Messi <span class="k">(med)</span> · alts Álvarez, Lautaro Martínez; Salah, Marmoush (EGY)</div>
+  <div class="row"><span class="badge b-conf">✓ LINEUP CONFIRMED · FT</span></div>
+  <div class="result"><span class="rscore"><span class="k">RESULT </span>FT 3–2 (Argentina down 0–2, scored 3 in the last 13') <span class="muted" style="font-weight:600">— Ibrahim 15', Zico 67' (Egypt); Romero 79', Messi 83', Enzo Fernández 90+2' (Argentina)</span></span><span class="badge r-hit">HIT</span></div>
+  <div class="note">RETROSPECTIVE BACKFILL: the lineup-watcher went dark after 07-03 and never re-armed, so no card/board/sim existed for any R16 match day (07-04–07). Sim run post-hoc on pre-match fundamentals only (not the result). Full detail: postmortems/2026-07-04_07-r16-backfill.md.</div>
+</div>
+</div>
+<div class="window">4:00 PM ET · Round of 16</div><div class="grid">
+<div class="card pending">
+  <div class="match">Switzerland vs Colombia</div>
+  <div class="ctx">R16 · Vancouver (BC Place) · 4:00 PM ET</div>
+  <div class="row">
+    <div class="pred"><b>Not pre-registered — pipeline gap</b> · <span class="score">—</span> <span class="muted">(—)</span></div>
+    <span class="stake">N/A</span>
+  </div><div class="scorer"><span class="k">Most likely scorer:</span> —</div>
+  <div class="row"><span class="badge b-pend">◷ LINEUP PENDING</span></div>
+  <div class="note">Final R16 fixture of the tournament. No card exists (same 07-03→ watcher outage). Will be graded through the normal watcher/grader pipeline once final — not staked or backfilled retroactively since it was still live when the gap was discovered.</div>
+</div>
+</div>
+<div class="dayhead">2026-07-03 — Round of 32 — Day 6&nbsp; <a href="slates/2026-07-03.html" style="font-size:12px">full cards →</a></div>
+<div class="window">2:00 PM ET · Round of 32</div><div class="grid">
+<div class="card confirmed">
+  <div class="match">Australia vs Egypt</div>
+  <div class="ctx">R32 · Arlington (AT&amp;T Stadium) · 2:00 PM ET</div>
+  <div class="row">
+    <div class="pred"><b>Australia to advance</b> · <span class="score">1–1 (proj)</span> <span class="muted">(2–1, 1–0; draw → ET/pens live tail)</span></div>
+    <span class="stake">1u Australia</span>
+  </div>
+  <div class="sim"><span class="badge b-sim">⊞ SIM 10k · v2</span><span><b>52.2% / 27.5% / 20.3%</b> · proj <b>1–1</b> <span class="muted">· post-XI · O2.5 47.8% · red 11.2% · comeback 10.4% · top scorer Irankunda 29.3% · unlisted 26.8%</span></span></div><div class="scorer"><span class="k">Most likely scorer:</span> Irankunda (med) · alts Volpato, Irvine, Souttar; Salah, Marmoush (EGY)</div>
+  <div class="row"><span class="badge b-conf">✓ LINEUP CONFIRMED · 1:15 PM ET</span></div>
+  <div class="result"><span class="rscore"><span class="k">RESULT </span>FT 1–1 (pens 4–3) <span class="muted" style="font-weight:600">— Ashour 13' (Egypt), Hany 55' OG (Australia)</span></span><span class="badge r-hit">HIT</span></div>
+  <div class="note">Confirmed XI: AUS 5-4-1 (Irankunda lone striker); EGY 4-3-3 with SALAH + Marmoush starting (Salah recovered from hamstring). Cautious AUS setup tempers the 2-0 narrative.</div>
+</div>
+</div>
+<div class="window">6:00 PM ET · Round of 32</div><div class="grid">
+<div class="card confirmed">
+  <div class="match">Argentina vs Cape Verde</div>
+  <div class="ctx">R32 · Miami (Hard Rock Stadium) · 6:00 PM ET</div>
+  <div class="row">
+    <div class="pred"><b>Argentina win</b> · <span class="score">3–0</span> <span class="muted">(2–0; 4–0; draw → ET/pens FAT, live tail)</span></div>
+    <span class="stake">1.5u Argentina</span>
+  </div><div class="scorer"><span class="k">Most likely scorer:</span> Nico Williams <span class="k">(med)</span> · alts Messi (late/pens), De Paul, Busquets; Cape Verde spare finish low/med</div>
+  <div class="row"><span class="badge b-conf">✓ LINEUP CONFIRMED · FT</span></div>
+  <div class="result"><span class="rscore"><span class="k">RESULT </span>FT 3–0 <span class="muted" style="font-weight:600">— Messi</span></span><span class="badge r-hit">HIT</span></div>
+  <div class="note">Watcher confirms the XI ~45 min before kickoff, then runs the 10k sim. Cape Verde 48-hour late-add; ultra-deep block (flat 5-3-2) likely. Nico Williams rotation risk; watch De Paul press-escape role.</div>
+</div>
+</div>
+<div class="window">9:30 PM ET · Round of 32</div><div class="grid">
+<div class="card pending">
+  <div class="match">Colombia vs Ghana</div>
+  <div class="ctx">R32 · Kansas City (GEHA Field at Arrowhead Stadium) · 9:30 PM ET</div>
+  <div class="row">
+    <div class="pred"><b>Colombia win</b> · <span class="score">LIVE 0–0 (7')</span> <span class="muted">(2–1 (set-piece shift post-Inzaghi); 1–0; draw → ET/pens live tail)</span></div>
+    <span class="stake">1.5u Colombia</span>
+  </div><div class="scorer"><span class="k">Most likely scorer:</span> none yet</div>
+  <div class="row"><span class="badge b-pend">◷ LINEUP PENDING</span></div>
+  <div class="result"><span class="rscore"><span class="k">RESULT </span>FT 1–0 <span class="muted" style="font-weight:600">— Arias 14'</span></span><span class="badge r-hit">HIT</span></div>
+  <div class="note">Watcher confirms the XI ~45 min before kickoff, then runs the 10k sim. Ghana interim coach post-Inzaghi (late-slot structural risk). Colombia altitude/crowd edge; Rodrygo–Arias left-side connection key.</div>
+</div>
+</div>
+<div class="dayhead">2026-07-02 — Round of 32 — Day 5&nbsp; <a href="slates/2026-07-02.html" style="font-size:12px">full cards →</a></div>
+<div class="window">3:00 PM ET · Round of 32</div><div class="grid">
+<div class="card confirmed">
+  <div class="match">Spain vs Austria</div>
+  <div class="ctx">R32 · Inglewood (SoFi Stadium) · 3:00 PM ET</div>
+  <div class="row">
+    <div class="pred"><b>Spain win</b> · <span class="score">2–0</span> <span class="muted">(2–1 (press scores once); 3–1; draw → ET/pens thin tail)</span></div>
+    <span class="stake">2u Spain</span>
+  </div>
+  <div class="sim"><span class="badge b-sim">⊞ SIM 10k · v2 (XI-confirmed, run in-match)</span><span><b>Spain 64.1% · draw→ET 22.9% · Austria 13.0%</b> · proj <b>1–0</b> <span class="muted">· top: 1–0 12%, 2–0 12%, 2–1 11% · O2.5 53% · Yamal top scorer 32%</span></span></div><div class="scorer"><span class="k">Most likely scorer:</span> Yamal <span class="k">(med)</span> · alts Oyarzabal, Merino, Baena; Arnautović/Kalajdžić (AUT)</div>
+  <div class="row"><span class="badge b-conf">✓ LINEUP CONFIRMED · 03:28 PM ET</span></div>
+  <div class="result"><span class="rscore"><span class="k">RESULT </span>FT 3–0 <span class="muted" style="font-weight:600">— Oyarzabal 36', Porro 66', Oyarzabal 89'</span></span><span class="badge r-hit">HIT</span></div>
+  <div class="note">LIVE — kicked off 3:00 PM ET. XI confirmed: Simon; Porro, Cubarsí, Laporte, Cucurella; Rodri, Pedri, Olmo; Yamal, Baena, Oyarzabal (no Nico Williams/Pino, as flagged). AUT: Schlager; Posch, Danso, Alaba, Laimer; Seiwald, X. Schlager, Wanner; Schmid, Sabitzer, Gregoritsch — Arnautović on the bench. Live score feed pending.</div>
+</div>
+</div>
+<div class="window">7:00 PM ET · Round of 32</div><div class="grid">
+<div class="card pending">
+  <div class="match">Portugal vs Croatia</div>
+  <div class="ctx">R32 · Toronto (BMO Field) · 7:00 PM ET</div>
+  <div class="row">
+    <div class="pred"><b>Portugal win</b> · <span class="score">2–1</span> <span class="muted">(1–0; 2–0; draw → ET/pens FAT tail (Croatia's habitat))</span></div>
+    <span class="stake">1u Portugal</span>
+  </div><div class="scorer"><span class="k">Most likely scorer:</span> Ronaldo <span class="k">(low/med)</span> · alts Bruno Fernandes, Leão, Conceição; Kramarić (CRO)</div>
+  <div class="row"><span class="badge b-pend">◷ LINEUP PENDING</span></div>
+  <div class="result"><span class="rscore"><span class="k">RESULT </span>LIVE 0–0 (HT) <span class="muted" style="font-weight:600">— —</span></span><span class="badge r-live">● LIVE</span></div>
+  <div class="note">Watcher confirms the XI ~45 min before kickoff, then runs the 10k sim. Watch Portugal's front-line calls (Félix/Neto vs Conceição/Leão).</div>
+</div>
+</div>
+<div class="window">11:00 PM ET · Round of 32</div><div class="grid">
+<div class="card pending">
+  <div class="match">Switzerland vs Algeria</div>
+  <div class="ctx">R32 · Vancouver (BC Place) · 11:00 PM ET</div>
+  <div class="row">
+    <div class="pred"><b>Switzerland win</b> · <span class="score">2–1</span> <span class="muted">(1–0; 2–0; draw → ET/pens live tail)</span></div>
+    <span class="stake">1u Switzerland</span>
+  </div><div class="scorer"><span class="k">Most likely scorer:</span> Embolo <span class="k">(low/med)</span> · alts Manzambi (start or super-sub), Vargas; Gouiri, Mahrez (ALG)</div>
+  <div class="row"><span class="badge b-pend">◷ LINEUP PENDING</span></div>
+  <div class="note">Watcher confirms the XI ~45 min before kickoff, then runs the 10k sim. MANDATORY late-window teamsheet check ~10:15 PM ET (max rotation risk).</div>
+</div>
+</div>
+<div class="dayhead">2026-07-01 — Round of 32 — Day 4&nbsp; <a href="slates/2026-07-01.html" style="font-size:12px">full cards →</a></div>
+<div class="window">12:00 PM ET · Round of 32</div><div class="grid">
+<div class="card confirmed">
+  <div class="match">England vs DR Congo</div>
+  <div class="ctx">R32 · Atlanta (Mercedes-Benz Stadium) · 12:00 PM ET</div>
+  <div class="row">
+    <div class="pred"><b>England win</b> · <span class="score">2–0</span> <span class="muted">(1–0 live co-primary (deep block); 2–1; draw → ET/pens tail)</span></div>
+    <span class="stake">1u England</span>
+  </div>
+  <div class="sim"><span class="badge b-sim">⊞ SIM 10k · v2</span><span><b>53.7% / 26.6% / 19.7%</b> · proj <b>1–1</b> <span class="muted">· post-XI · O2.5 49% · red 11% · comeback 10% · top scorer Kane 33%</span></span></div><div class="scorer"><span class="k">Most likely scorer:</span> Kane</div>
+  <div class="row"><span class="badge b-conf">✓ LINEUP CONFIRMED · 12:00 PM ET</span></div>
+  <div class="result"><span class="rscore"><span class="k">RESULT </span>FT 2–1 <span class="muted" style="font-weight:600">— Cipenga 7; Kane 75, 86</span></span><span class="badge r-hit">HIT</span></div>
+  <div class="note">XI: Pickford; Spence, Konsa, Guehi, O Reilly; Anderson, Rice; Madueke, Bellingham, Rashford; Kane. James+Quansah out.</div>
+</div>
+</div>
+<div class="window">4:00 PM ET · Round of 32</div><div class="grid">
+<div class="card confirmed">
+  <div class="match">Belgium vs Senegal</div>
+  <div class="ctx">R32 · Seattle (Lumen Field) · 4:00 PM ET</div>
+  <div class="row">
+    <div class="pred"><b>Belgium edge</b> · <span class="score">2–1</span> <span class="muted">(1–1 → ET/pens live; 1–0)</span></div>
+    <span class="stake">1u Belgium</span>
+  </div>
+  <div class="sim"><span class="badge b-sim">⊞ SIM 10k · v2</span><span><b>46.4% / 26.9% / 26.7%</b> · proj <b>1–1</b> <span class="muted">· post-XI · O2.5 56% · red 11% · comeback 12% · top scorer De Bruyne 23%</span></span></div><div class="scorer"><span class="k">Most likely scorer:</span> De Bruyne</div>
+  <div class="row"><span class="badge b-conf">✓ LINEUP CONFIRMED · 4:00 PM ET</span></div>
+  <div class="result"><span class="rscore"><span class="k">RESULT </span>AET 3–2 (reg 2–2) <span class="muted" style="font-weight:600">— Diarra 25, I. Sarr 51; Lukaku 86, Tielemans 89 + 120+5 pen</span></span><span class="badge r-hit">HIT</span></div>
+  <div class="note">De Ketelaere false-9, LUKAKU BENCHED (material change); Senegal: Mendy out, M. Diaw in goal.</div>
+</div>
+</div>
+<div class="window">8:00 PM ET · Round of 32</div><div class="grid">
+<div class="card pending">
+  <div class="match">USA vs Bosnia &amp; Herzegovina</div>
+  <div class="ctx">R32 · Santa Clara (SF Bay Area Stadium / Levi's) · 8:00 PM ET</div>
+  <div class="row">
+    <div class="pred"><b>USA win</b> · <span class="score">2–1</span> <span class="muted">(2–0; 3–1; lean over 2.5)</span></div>
+    <span class="stake">1u USA</span>
+  </div><div class="scorer"><span class="k">Most likely scorer:</span> <b>Pulisic</b> <span class="muted">(med — talisman, set pieces)</span> · alt Balogun / Tillman · Džeko (BIH)</div>
+  <div class="row"><span class="badge b-pend">◷ LINEUP PENDING</span></div>
+  <div class="result"><span class="rscore"><span class="k">RESULT </span>FT 2–0 <span class="muted" style="font-weight:600">— Balogun 44, Tillman 81</span></span><span class="badge r-hit">HIT</span></div>
+  <div class="note">Watcher confirms the XI ~45 min before kickoff, then runs the 10k sim. LATE-WINDOW teamsheet check mandatory ~7:15 PM ET (USA rotated heavily vs Türkiye — confirm Pulisic + Balogun start). Bosnia never kept a WC clean sheet in 6 games → home favorite modeled 2+.</div>
+</div>
+</div>
+<div class="dayhead">2026-06-30 — Round of 32 — Day 3&nbsp; <a href="slates/2026-06-30.html" style="font-size:12px">full cards →</a></div>
+<div class="window">1:00 PM ET · Round of 32</div><div class="grid">
+<div class="card pending">
+  <div class="match">Ivory Coast vs Norway</div>
+  <div class="ctx">R32 · Arlington (AT&amp;T Stadium) · 1:00 PM ET</div>
+  <div class="row">
+    <div class="pred"><b>Norway edge</b> · <span class="score">1–1</span> <span class="muted">(Norway 2–1; draw → ET/pens live)</span></div>
+    <span class="stake">1u Norway</span>
+  </div>
+  <div class="sim"><span class="badge b-sim">⊞ SIM 10k · v2</span><span><b>Ivory Coast 25% / Draw 30% / Norway 45%</b> · proj <b>1–1</b> <span class="muted">· live · O2.5 48% · red 12% · comeback 11% · top scorer Haaland 61%</span></span></div><div class="scorer"><span class="k">Most likely scorer:</span> <b>Haaland</b> <span class="muted">(med — 4 goals already)</span> · alt Pépé / Sørloth / A. Diallo</div>
+  <div class="row"><span class="badge b-pend">◷ LINEUP PENDING</span></div>
+  <div class="result"><span class="rscore"><span class="k">RESULT </span>FT 1–2 <span class="muted" style="font-weight:600">— Amad Diallo; Nusa, Haaland 86′</span></span><span class="badge r-hit">HIT</span></div>
+  <div class="note">KICKED OFF 1 PM ET (watcher posts live/final). Knockout, both must-win — no motivation discount. Norway's Haaland the difference; IC's pace (Diomandé) + form keep it live.</div>
+</div>
+</div>
+<div class="window">5:00 PM ET · Round of 32</div><div class="grid">
+<div class="card pending">
+  <div class="match">France vs Sweden</div>
+  <div class="ctx">R32 · East Rutherford (MetLife) · 5:00 PM ET</div>
+  <div class="row">
+    <div class="pred"><b>France win</b> · <span class="score">2–0</span> <span class="muted">(alts 2–1, 3–0)</span></div>
+    <span class="stake">2u</span>
+  </div>
+  <div class="sim"><span class="badge b-sim">⊞ SIM 10k · v2</span><span><b>France 69% / Draw 20% / Sweden 10%</b> · proj <b>2–0</b> <span class="muted">· pre-XI · recal · O2.5 62% · red 11% · comeback 11% · top scorer Mbappé 70%</span></span></div><div class="scorer"><span class="k">Most likely scorer:</span> <b>Mbappé</b> <span class="muted">(med — 4 goals, chasing Klose's record)</span> · alt Olise / Dembélé · Isak (SWE)</div>
+  <div class="row"><span class="badge b-pend">◷ LINEUP PENDING</span></div>
+  <div class="result"><span class="rscore"><span class="k">RESULT </span>FT 3–0 <span class="muted" style="font-weight:600">— Mbappé ×2, Barcola</span></span><span class="badge r-hit">HIT</span></div>
+  <div class="note">France swept Group I (incl. 4–1 Norway); Sweden scraped in as a best-3rd (leaky — shipped 5 to NL). Sweden sit deep + counter via Isak/Gyökeres; France break them down. Watcher confirms XI ~4:15 PM ET.</div>
+</div>
+</div>
+<div class="window">9:00 PM ET · Round of 32</div><div class="grid">
+<div class="card pending">
+  <div class="match">Mexico vs Ecuador</div>
+  <div class="ctx">R32 · Mexico City (Estadio Azteca) · 9:00 PM ET</div>
+  <div class="row">
+    <div class="pred"><b>Mexico edge</b> · <span class="score">1–0</span> <span class="muted">(draw → ET/pens live; ECU 1–0)</span></div>
+    <span class="stake">1u Mexico</span>
+  </div>
+  <div class="sim"><span class="badge b-sim">⊞ SIM 10k · v2</span><span><b>Mexico 38% / Draw 34% / Ecuador 28%</b> · proj <b>1–1</b> <span class="muted">· pre-XI · O2.5 37% · red 11% · comeback 8% · top scorer Jiménez 23%</span></span></div><div class="scorer"><span class="k">Most likely scorer:</span> <b>R. Jiménez</b> <span class="muted">(low — tight game)</span> · alt Giménez / Lozano · Valencia (ECU)</div>
+  <div class="row"><span class="badge b-pend">◷ LINEUP PENDING</span></div>
+  <div class="result"><span class="rscore"><span class="k">RESULT </span>FT 2–0 <span class="muted" style="font-weight:600">— Quiñones 22′, Jiménez 31′</span></span><span class="badge r-hit">HIT</span></div>
+  <div class="note">Most evenly-matched R32 game. Mexico: won all 3 Group A, 3 clean sheets, home + Azteca altitude. Ecuador: in form (beat Germany 2–1), elite defense (Caicedo screen). Low-event → pens live. Watcher confirms XI ~8:15 PM ET.</div>
+</div>
+</div>
+<div class="dayhead">All pre-registered slates</div><div class="linklist"><a href="slates/2026-07-18.html">Slate 2026-07-18<span class="d">pre-registered prediction cards</span></a><a href="slates/2026-07-15.html">Slate 2026-07-15<span class="d">pre-registered prediction cards</span></a><a href="slates/2026-07-14.html">Slate 2026-07-14<span class="d">pre-registered prediction cards</span></a><a href="slates/2026-07-10.html">Slate 2026-07-10<span class="d">pre-registered prediction cards</span></a><a href="slates/2026-07-09.html">Slate 2026-07-09<span class="d">pre-registered prediction cards</span></a><a href="slates/2026-07-03.html">Slate 2026-07-03<span class="d">pre-registered prediction cards</span></a><a href="slates/2026-07-02.html">Slate 2026-07-02<span class="d">pre-registered prediction cards</span></a><a href="slates/2026-07-01.html">Slate 2026-07-01<span class="d">pre-registered prediction cards</span></a><a href="slates/2026-06-30.html">Slate 2026-06-30<span class="d">pre-registered prediction cards</span></a><a href="slates/2026-06-25.html">Slate 2026-06-25<span class="d">pre-registered prediction cards</span></a><a href="slates/2026-06-24.html">Slate 2026-06-24<span class="d">pre-registered prediction cards</span></a><a href="slates/2026-06-23.html">Slate 2026-06-23<span class="d">pre-registered prediction cards</span></a></div>
+<footer>Carlos Command Center · World Cup 2026 · auto-published by the prediction pipeline.<br>
+Predictions, not facts. Notional stakes 0–5 units.</footer>
+</div>
+<script>
+(function(){
+  var BUILT = 1784461003297, ID = "1784461003";
+  function ago(){var m=Math.max(0,Math.round((Date.now()-BUILT)/60000));
+    var el=document.getElementById('ago');if(!el)return;
+    el.textContent = m<1?'just now':(m<60?m+'m ago':Math.floor(m/60)+'h '+(m%60)+'m ago');}
+  ago(); setInterval(ago,30000);
+  function poll(){fetch('meta.json?t='+Date.now(),{cache:'no-store'})
+    .then(function(r){return r.json()})
+    .then(function(j){if(j.build_id&&j.build_id!==ID)location.reload();})
+    .catch(function(){});}
+  setInterval(poll,60000);
+})();
+</script></body></html>

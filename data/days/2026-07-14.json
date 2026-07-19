@@ -1,0 +1,27 @@
+{
+  "date": "2026-07-14",
+  "subtitle": "Semifinals — Day 1 · France vs Spain",
+  "exposure": "Exposure 2u · 1 game",
+  "games": [
+    {
+      "home": "France",
+      "away": "Spain",
+      "group": "SF",
+      "venue": "AT&T Stadium, Arlington (Dallas)",
+      "koET": "3:00 PM ET",
+      "window": "3:00 PM ET · Semifinal",
+      "prediction": "France win",
+      "scoreline": "2–1",
+      "alts": "2–0, 1–1; draw/ET-pens live and not thin (Spain's best defense of the tourney, Euro 2024 SF precedent Spain 2-1)",
+      "stake": "2u France",
+      "scorer": "Mbappé <span class=\"k\">(medium-high)</span> · co-primary Dembélé (medium); alts Olise, Doué/Barcola; Oyarzabal (ESP, low-med), Merino (low-med), Yamal (low)",
+      "status": "pending",
+      "statusTime": "",
+      "note": "Watcher confirms the XI ~45 min before kickoff, then runs the 10k sim.",
+      "noteHeld": false,
+      "result": "FT 0–2",
+      "resultGrade": "MISS",
+      "resultScorers": "Oyarzabal 22 pen, Porro 58"
+    }
+  ]
+}

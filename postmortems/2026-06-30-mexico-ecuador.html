@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Post-mortem — 2026-06-30-mexico-ecuador</title><style>
+:root{color-scheme:light;--bg:#eef1f5;--card:#fff;--ink:#161a1d;--mut:#5b6770;--line:#e1e6ec;
+--green:#1a7f37;--navy:#0f2740;--accent:#1a7f4f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.55}
+.wrap{max-width:1100px;margin:0 auto;padding:14px 14px 50px}
+nav.site{display:flex;gap:4px;align-items:center;flex-wrap:wrap;background:var(--navy);border-radius:12px;padding:8px 10px;margin-bottom:14px;position:sticky;top:8px;z-index:10;box-shadow:0 2px 10px rgba(15,39,64,.25)}
+nav.site .brand{color:#fff;font-weight:800;letter-spacing:-.2px;margin-right:8px;font-size:15px;text-decoration:none}
+nav.site .brand .dot{color:#3ddc84}
+nav.site a.t{color:#c8d3de;text-decoration:none;font-size:13px;font-weight:700;padding:5px 10px;border-radius:8px}
+nav.site a.t.on,nav.site a.t:hover{background:rgba(255,255,255,.14);color:#fff}
+nav.site .upd{margin-left:auto;color:#8fa3b5;font-size:11px;text-align:right}
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px;border-bottom:2px solid #d7dde4;padding-bottom:12px;margin-bottom:16px}
+.title{font-size:21px;font-weight:800;letter-spacing:-.3px}
+.sub{color:var(--mut);font-size:13px;margin-top:3px}
+.meta{text-align:right;font-size:12px;color:var(--mut)}
+.meta .exp{display:inline-block;margin-top:4px;background:var(--navy);color:#fff;padding:3px 9px;border-radius:999px;font-weight:700;font-size:12px}
+.badge{display:inline-flex;align-items:center;gap:5px;font-weight:700;font-size:11px;padding:3px 8px;border-radius:6px;letter-spacing:.2px}
+.b-conf{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.b-pend{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-hit{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.r-miss{background:#fde7e7;color:#b42318;border:1px solid #f3bcbc}
+.r-part{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-live{background:#e7eefc;color:#1d4ed8;border:1px solid #bcd0f5}
+.b-sim{background:#efeafd;color:#6b46c1;border:1px solid #d6c8f5}
+.sim{font-size:12px;color:#4a3a6b;margin-top:9px;background:#f7f4fe;border:1px solid #ece5fb;border-radius:8px;padding:7px 9px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.window{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);margin:20px 0 10px;display:flex;align-items:center;gap:8px}
+.window::after{content:"";flex:1;height:1px;background:#dbe1e8}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 15px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.card.confirmed{border-left:4px solid #1a7f37}
+.card.pending{border-left:4px solid #e8b33a}
+.match{font-size:16px;font-weight:800;letter-spacing:-.2px}
+.ctx{font-size:12px;color:var(--mut);margin-top:2px}
+.row{display:flex;align-items:center;justify-content:space-between;margin-top:11px;gap:8px}
+.pred{font-size:14px}.pred b{font-weight:800}.score{font-weight:800}
+.muted{color:#8a949c}
+.stake{font-size:12px;font-weight:800;background:var(--navy);color:#fff;padding:2px 8px;border-radius:6px;white-space:nowrap}
+.scorer{font-size:12.5px;color:#34404a;margin-top:9px}.scorer .k{color:var(--mut)}
+.result{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:11px;padding:8px 10px;border-radius:8px;background:#f6f8fb;border:1px solid #e6ebf1}
+.result .rscore{font-weight:800;font-size:14px}.result .rscore .k{color:var(--mut);font-weight:600;font-size:11px}
+.note{font-size:11.5px;color:var(--mut);margin-top:9px;border-top:1px dashed var(--line);padding-top:8px}
+.note.held{color:#1a7f37}
+footer{margin-top:26px;font-size:11px;color:#8a949c;text-align:center;line-height:1.6}
+/* prose (markdown pages) */
+.prose{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;box-shadow:0 1px 2px rgba(16,39,64,.04);overflow-x:auto}
+.prose h1{font-size:22px;letter-spacing:-.3px;margin:.2em 0 .5em}
+.prose h2{font-size:17px;margin:1.3em 0 .5em;padding-bottom:5px;border-bottom:1px solid var(--line)}
+.prose h3{font-size:15px;margin:1.2em 0 .4em}
+.prose p,.prose li{font-size:14px;color:#2a333b}
+.prose table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13px}
+.prose th,.prose td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+.prose th{background:#f4f6f9;font-weight:700}
+.prose tr:nth-child(even) td{background:#fafbfc}
+.prose blockquote{margin:10px 0;padding:6px 14px;border-left:3px solid #cbd5df;color:var(--mut);font-size:13.5px}
+.prose code{background:#f0f3f6;border:1px solid #e3e8ee;border-radius:4px;padding:1px 5px;font-size:12.5px}
+.prose hr{border:0;border-top:1px solid var(--line);margin:18px 0}
+.prose a{color:#1d4ed8}
+.prose img{max-width:100%}
+/* index lists */
+.linklist{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;margin-top:12px}
+.linklist a{display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;text-decoration:none;color:var(--ink);font-weight:700;font-size:13.5px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.linklist a:hover{border-color:#b9c4cf}
+.linklist a .d{display:block;font-weight:500;color:var(--mut);font-size:12px;margin-top:3px}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0 0 16px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.stat .v{font-size:19px;font-weight:800;letter-spacing:-.3px}
+.stat .k{font-size:11px;color:var(--mut);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.dayhead{font-size:16px;font-weight:800;margin:26px 0 4px}
+@media (max-width:560px){.wrap{padding:10px 9px 40px}.grid{grid-template-columns:1fr}.meta{text-align:left}}
+</style></head>
+<body><div class="wrap">
+<nav class="site"><a class="brand" href="../index.html">Carlos<span class="dot"> ●</span></a><a class="t" href="../index.html">Board</a><a class="t" href="../history.html">History</a><a class="t" href="../record.html">Record</a><a class="t on" href="../intel.html">Intel</a>
+<span class="upd">updated<br><b id="ago">…</b></span></nav>
+<div class="prose"><h1>Post-mortem — Mexico 2–0 Ecuador (R32, Mexico City/Azteca) · 2026-06-30</h1>
+<p><i>Filed 2026-07-01. Film Room / DEEP post-mortem. All stats sourced; "unknown" where unconfirmed. No fluff.</i></p>
+<h2>1) Prediction vs actual</h2>
+<table><thead><tr><th></th><th>Card</th><th>Actual</th><th>Grade</th></tr></thead><tbody>
+<tr><td>Outcome</td><td><b>Mexico edge</b> (coin-flip; draw→ET live)</td><td><b>Mexico won 2–0 in regulation</b></td><td>✅ HIT</td></tr>
+<tr><td>Scoreline</td><td>primary <b>1–0</b>; alts draw, ECU 1–0</td><td><b>2–0</b></td><td>◐ within-one (not exact)</td></tr>
+<tr><td>Most-likely scorer</td><td><b>Raúl Jiménez</b> (low); alts S. Giménez, Lozano; Valencia (ECU)</td><td><b>Jiménez 31'</b> + <b>Quiñones 22'</b></td><td>✅ primary hit</td></tr>
+<tr><td>Stake</td><td>1u Mexico</td><td>—</td><td><b>+1u</b></td></tr>
+<tr><td>Sim (v2)</td><td>MEX 38 / Draw 34 / ECU 28 · proj 1–1 · O2.5 37% (low-event)</td><td>2–0, 2 goals</td><td>outcome ✅; <b>margin under</b></td></tr>
+</tbody></table>
+<p>Scorers: <b>Quiñones 22'</b>, <b>Jiménez 31'</b>. <b>Hincapié (ECU) straight red 90+5'</b> (covered mouth in an altercation with sub S. Giménez). Sources: <a href="https://www.aljazeera.com/news/2026/7/1/mexico-ecuador-fifa-world-cup-2026-score-jimenez-quinones-hincapie" target="_blank" rel="noopener">Al Jazeera</a>; <a href="https://www.skysports.com/football/news/11095/13558814/world-cup-2026-mexico-2-0-ecuador-electric-hosts-storm-into-last-16-as-piero-hincapie-sees-red" target="_blank" rel="noopener">Sky Sports</a>; <a href="https://www.squawka.com/en/features/post-match-analysis-mexico-vs-ecuador-01-07-26/" target="_blank" rel="noopener">Squawka analysis</a>.</p>
+<h2>2) The deep dive</h2>
+<p><b>Shot profile.</b> xG <b>Mexico 1.02 / Ecuador 0.73</b> — genuinely <b>low-event and close on the underlying numbers</b>, exactly as the card's O2.5 37% implied. Full-match shot/possession totals: unknown (not cleanly reported); confirmed second-half split below. Mexico scored <b>2 from ~1.0 xG</b> — clinical early finishing + Ecuador self-inflicted damage.</p>
+<p><b>Conditions.</b> Kick-off <b>delayed one hour by a severe thunderstorm/lightning</b> over Mexico City. Played at the <b>Azteca (altitude)</b>. Mexico's <b>4th straight win + 4th clean sheet</b> of the tournament.</p>
+<p><b>Block/shape &amp; the decisive story.</b> The card framed this as a cagey coin-flip decided by "a single moment or penalties." Instead <b>Mexico blitzed it before Ecuador settled.</b> Ecuador (Beccacece) pressed <b>man-to-man</b> (Valencia/Plata on the CBs, Angulo/Yeboah on the full-backs, Caicedo/Vite aggressive on the Lira/Romo pivot) — which left their <b>back four in 1v1s with space in behind the jumping midfield.</b> Mexico's quick-combination forwards attacked exactly that space, with <b>Mora–Alvarado rotations down the right</b> unsettling the markers.</p>
+<p><b>Phase-by-phase.</b></p>
+<ul>
+<li><i>First 15':</i> Frantic, end-to-end. Gilt-edged early chances for <b>Mora and Jiménez</b> (missed); <b>Yeboah (ECU) hit the woodwork.</b> Mexico "rode their luck," then took over.</li>
+<li><i>22' Quiñones:</i> protected the ball vs the man-press on the touchline, set it inside, carried on his run to break away from <b>Alan Franco</b> into the space behind, cut inside and drove a powerful strike to the near/top corner.</li>
+<li><i>31' Jiménez</i> (after the hydration break): <b>Quiñones</b> skipped Franco again and squared/returned; Jiménez took a touch inside the box and <b>scuffed but quick</b> into the top-right corner — keeper not set. <b>2–0 at the break, before Ecuador had found the game.</b></li>
+<li><i>2nd half:</i> Ecuador pushed both full-backs up, pinned Alvarado deep and forced <b>Mexico into a temporary back five</b>; Ecuador had <b>68% possession and 15 crosses but only 5 shots and no clear chances.</b> Galindez (ECU GK) made a fingertip save on <b>Montes (66')</b>. Frustration boiled over → <b>Hincapié red 90+5'</b>.</li>
+</ul>
+<h2>3) Process vs variance — ~70% correct process / ~20% process-miss on framing / ~10% finishing variance</h2>
+<p>Outcome ✅, scorer ✅, and the <b>"low-event" xG read was right</b> (1.02–0.73). But the card's <i>coin-flip / single-moment / pens-live</i> <b>framing under-sold Mexico</b>, who won it in <b>31 minutes</b> with a home-crowd pressing blitz. Two threads:</p>
+<ul>
+<li>1. <b>Margin under-projection (REPEAT, Mexico-specific):</b> primary <b>1–0 vs actual 2–0</b>, and this is now <b>twice</b> that Mexico have beaten a low xG at home — 06-24 they went <b>1–0→3–0 from 1.79 xG</b> (clean sheet); here <b>1–0→2–0 from 1.02 xG</b> (clean sheet). Mexico <b>out-finish their xG at the Azteca</b> and start fast. That is a repeatable edge the model keeps under-weighting, not variance. (~20% of the divergence.)</li>
+<li>2. <b>Finishing variance (~10%):</b> 2 goals from ~1.0 xG is a mild over-performance; the underlying game was close, so some of the 2-goal cushion was fortune (Ecuador hit the woodwork; Jiménez's finish was scuffed).</li>
+</ul>
+<p>The red card was cosmetic (90+5', game already dead). The "coin-flip → pens" tail simply didn't apply because <b>Mexico's home fast-start took the toss out of it.</b></p>
+<h2>4) Predictive signals for future games</h2>
+<ul>
+<li><b>Mexico at home/Azteca = a fast-start pressing side that scores early, keeps clean sheets, and beats its xG.</b> Now <b>4 straight wins + 4 clean sheets</b>; twice they've turned ~1–1.8 xG into 2–3 goals at home. <b>Raise Mexico's first-to-score / first-half-goal and clean-sheet mass at the Azteca; stop framing Mexico home games as cagey coin-flips.</b> Route: scout-patterns / carlos. <i>(Repeat of the Mexico margin note → durable.)</i></li>
+<li><b>A man-to-man press leaks space in behind the jumping midfield</b> — teams with quick-combination forwards (here Quiñones) punish it by baiting a marker and breaking beyond. When a team commits to man-marking vs a side with sharp forwards, <b>raise the pressed team's in-behind/transition goal mass.</b> Route: scout-tactics / scout-patterns.</li>
+<li><b>Quiñones is Mexico's difference-maker (3 goals + 1 assist in the tournament), yet was OFF the scorer list</b> (which had S. Giménez/Lozano). <b>REPEAT of the slate-wide scorer-list gap</b> (Amad Diallo, Barcola same day). Build Mexico's list from the <b>in-form repeat scorer (Quiñones)</b> first, then the veteran 9 (Jiménez). Route: scout-personnel. <i>(Repeat → high weight.)</i></li>
+<li><b>Ecuador's profile as beaten:</b> dangerous going man-for-man but <b>can't create from possession</b> (68% / 15 crosses / 0 clear chances in the 2nd half); against a lead they huff without quality. Fade Ecuador's possession-based conversion in future. Route: scout-patterns.</li>
+<li><b>Weather/logistics:</b> a 1-hour lightning delay did <b>not</b> dampen the home side — if anything Mexico came out hotter. Don't over-weight a delay as a leveller for a fired-up home team. Route: scout-sentiment.</li>
+</ul></div>
+<footer>Carlos Command Center · World Cup 2026 · auto-published by the prediction pipeline.<br>
+Predictions, not facts. Notional stakes 0–5 units.</footer>
+</div>
+<script>
+(function(){
+  var BUILT = 1784461003297, ID = "1784461003";
+  function ago(){var m=Math.max(0,Math.round((Date.now()-BUILT)/60000));
+    var el=document.getElementById('ago');if(!el)return;
+    el.textContent = m<1?'just now':(m<60?m+'m ago':Math.floor(m/60)+'h '+(m%60)+'m ago');}
+  ago(); setInterval(ago,30000);
+  function poll(){fetch('../meta.json?t='+Date.now(),{cache:'no-store'})
+    .then(function(r){return r.json()})
+    .then(function(j){if(j.build_id&&j.build_id!==ID)location.reload();})
+    .catch(function(){});}
+  setInterval(poll,60000);
+})();
+</script></body></html>

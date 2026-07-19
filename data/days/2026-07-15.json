@@ -1,0 +1,27 @@
+{
+  "date": "2026-07-15",
+  "subtitle": "Semifinals — Day 2 · England vs Argentina",
+  "exposure": "Exposure 1u · 1 game",
+  "games": [
+    {
+      "home": "England",
+      "away": "Argentina",
+      "group": "SF",
+      "venue": "Mercedes-Benz Stadium, Atlanta",
+      "koET": "3:00 PM ET",
+      "window": "3:00 PM ET · Semifinal",
+      "prediction": "England win",
+      "scoreline": "2–1",
+      "alts": "1–0, 1–1; draw/ET-pens live and not thin (Opta has this game's draw prob at ~29.7%, highest of the round)",
+      "stake": "1u England",
+      "scorer": "Bellingham <span class=\"k\">(medium-high)</span> · co-primary Kane (medium); alts Gordon, Saka; Messi (ARG, medium-high), Álvarez (medium), Lautaro Martínez (low-medium, super-sub), Enzo Fernández/Mac Allister (low)",
+      "status": "pending",
+      "statusTime": "",
+      "note": "Watcher confirms the XI ~45 min before kickoff, then runs the 10k sim.",
+      "noteHeld": false,
+      "result": "FT 1–2",
+      "resultGrade": "MISS",
+      "resultScorers": "Gordon 55'; Enzo Fernández 85', Lautaro Martínez 90+2' (Messi 2 assists)"
+    }
+  ]
+}

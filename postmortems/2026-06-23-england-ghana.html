@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Post-mortem — 2026-06-23-england-ghana</title><style>
+:root{color-scheme:light;--bg:#eef1f5;--card:#fff;--ink:#161a1d;--mut:#5b6770;--line:#e1e6ec;
+--green:#1a7f37;--navy:#0f2740;--accent:#1a7f4f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.55}
+.wrap{max-width:1100px;margin:0 auto;padding:14px 14px 50px}
+nav.site{display:flex;gap:4px;align-items:center;flex-wrap:wrap;background:var(--navy);border-radius:12px;padding:8px 10px;margin-bottom:14px;position:sticky;top:8px;z-index:10;box-shadow:0 2px 10px rgba(15,39,64,.25)}
+nav.site .brand{color:#fff;font-weight:800;letter-spacing:-.2px;margin-right:8px;font-size:15px;text-decoration:none}
+nav.site .brand .dot{color:#3ddc84}
+nav.site a.t{color:#c8d3de;text-decoration:none;font-size:13px;font-weight:700;padding:5px 10px;border-radius:8px}
+nav.site a.t.on,nav.site a.t:hover{background:rgba(255,255,255,.14);color:#fff}
+nav.site .upd{margin-left:auto;color:#8fa3b5;font-size:11px;text-align:right}
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px;border-bottom:2px solid #d7dde4;padding-bottom:12px;margin-bottom:16px}
+.title{font-size:21px;font-weight:800;letter-spacing:-.3px}
+.sub{color:var(--mut);font-size:13px;margin-top:3px}
+.meta{text-align:right;font-size:12px;color:var(--mut)}
+.meta .exp{display:inline-block;margin-top:4px;background:var(--navy);color:#fff;padding:3px 9px;border-radius:999px;font-weight:700;font-size:12px}
+.badge{display:inline-flex;align-items:center;gap:5px;font-weight:700;font-size:11px;padding:3px 8px;border-radius:6px;letter-spacing:.2px}
+.b-conf{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.b-pend{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-hit{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.r-miss{background:#fde7e7;color:#b42318;border:1px solid #f3bcbc}
+.r-part{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-live{background:#e7eefc;color:#1d4ed8;border:1px solid #bcd0f5}
+.b-sim{background:#efeafd;color:#6b46c1;border:1px solid #d6c8f5}
+.sim{font-size:12px;color:#4a3a6b;margin-top:9px;background:#f7f4fe;border:1px solid #ece5fb;border-radius:8px;padding:7px 9px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.window{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);margin:20px 0 10px;display:flex;align-items:center;gap:8px}
+.window::after{content:"";flex:1;height:1px;background:#dbe1e8}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 15px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.card.confirmed{border-left:4px solid #1a7f37}
+.card.pending{border-left:4px solid #e8b33a}
+.match{font-size:16px;font-weight:800;letter-spacing:-.2px}
+.ctx{font-size:12px;color:var(--mut);margin-top:2px}
+.row{display:flex;align-items:center;justify-content:space-between;margin-top:11px;gap:8px}
+.pred{font-size:14px}.pred b{font-weight:800}.score{font-weight:800}
+.muted{color:#8a949c}
+.stake{font-size:12px;font-weight:800;background:var(--navy);color:#fff;padding:2px 8px;border-radius:6px;white-space:nowrap}
+.scorer{font-size:12.5px;color:#34404a;margin-top:9px}.scorer .k{color:var(--mut)}
+.result{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:11px;padding:8px 10px;border-radius:8px;background:#f6f8fb;border:1px solid #e6ebf1}
+.result .rscore{font-weight:800;font-size:14px}.result .rscore .k{color:var(--mut);font-weight:600;font-size:11px}
+.note{font-size:11.5px;color:var(--mut);margin-top:9px;border-top:1px dashed var(--line);padding-top:8px}
+.note.held{color:#1a7f37}
+footer{margin-top:26px;font-size:11px;color:#8a949c;text-align:center;line-height:1.6}
+/* prose (markdown pages) */
+.prose{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;box-shadow:0 1px 2px rgba(16,39,64,.04);overflow-x:auto}
+.prose h1{font-size:22px;letter-spacing:-.3px;margin:.2em 0 .5em}
+.prose h2{font-size:17px;margin:1.3em 0 .5em;padding-bottom:5px;border-bottom:1px solid var(--line)}
+.prose h3{font-size:15px;margin:1.2em 0 .4em}
+.prose p,.prose li{font-size:14px;color:#2a333b}
+.prose table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13px}
+.prose th,.prose td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+.prose th{background:#f4f6f9;font-weight:700}
+.prose tr:nth-child(even) td{background:#fafbfc}
+.prose blockquote{margin:10px 0;padding:6px 14px;border-left:3px solid #cbd5df;color:var(--mut);font-size:13.5px}
+.prose code{background:#f0f3f6;border:1px solid #e3e8ee;border-radius:4px;padding:1px 5px;font-size:12.5px}
+.prose hr{border:0;border-top:1px solid var(--line);margin:18px 0}
+.prose a{color:#1d4ed8}
+.prose img{max-width:100%}
+/* index lists */
+.linklist{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;margin-top:12px}
+.linklist a{display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;text-decoration:none;color:var(--ink);font-weight:700;font-size:13.5px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.linklist a:hover{border-color:#b9c4cf}
+.linklist a .d{display:block;font-weight:500;color:var(--mut);font-size:12px;margin-top:3px}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0 0 16px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.stat .v{font-size:19px;font-weight:800;letter-spacing:-.3px}
+.stat .k{font-size:11px;color:var(--mut);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.dayhead{font-size:16px;font-weight:800;margin:26px 0 4px}
+@media (max-width:560px){.wrap{padding:10px 9px 40px}.grid{grid-template-columns:1fr}.meta{text-align:left}}
+</style></head>
+<body><div class="wrap">
+<nav class="site"><a class="brand" href="../index.html">Carlos<span class="dot"> ●</span></a><a class="t" href="../index.html">Board</a><a class="t" href="../history.html">History</a><a class="t" href="../record.html">Record</a><a class="t on" href="../intel.html">Intel</a>
+<span class="upd">updated<br><b id="ago">…</b></span></nav>
+<div class="prose"><h1>Post-mortem — England 0–0 Ghana · Group L · 2026-06-23 (Boston)</h1>
+<p>*By the postmortem-analyst. Result and stats sourced (below). Prediction taken from the</p>
+<p>pre-registered card <code>predictions/2026-06-23-slate.md</code> (incl. its confirmed-XI lineup updates).*</p>
+<h2>Prediction vs actual</h2>
+<table><thead><tr><th></th><th>Predicted (card)</th><th>Actual</th></tr></thead><tbody>
+<tr><td>Outcome</td><td>England win</td><td><b>Draw</b> ❌</td></tr>
+<tr><td>Scoreline</td><td>2–0 (alts 2–1, 3–1)</td><td><b>0–0</b> ❌</td></tr>
+<tr><td>Most likely scorer</td><td>Harry Kane (med)</td><td><b>No goals</b> ❌ (correctly hedged low/med)</td></tr>
+<tr><td>Stake</td><td>3 units on England win</td><td><b>−3u (loss)</b></td></tr>
+</tbody></table>
+<p>Grade: outcome MISS, scoreline MISS, scorer N/A (nobody scored). Clean miss on the headline call.</p>
+<h2>What actually happened</h2>
+<p>England controlled the game (~<b>80% possession</b>) but could not break a disciplined Ghana</p>
+<p>defense that dug into a <b>5-4-1 low block</b>. England generated shots (~6) but **almost nothing on</p>
+<p>target<b>, hit the </b>bar<b> (James cross), Kane lashed the rebound over, and </b>Asare** made a strong</p>
+<p>save to deny Saka. Ghana — with <b>Partey</b> restored to screen midfield and <b>Asare</b> keeping goal —</p>
+<p>held out for a 0–0 and a valuable point.</p>
+<h2>Process vs variance — ~50 / 50</h2>
+<ul>
+<li><b>Variance (~half):</b> England dominated and manufactured the better chances — woodwork + a keeper</li>
+</ul>
+<p>save + wayward finishing. On another day a couple of those go in and the card looks fine. You do</p>
+<p><b>not</b> over-calibrate on this part.</p>
+<ul>
+<li><b>Process error (~half):</b> two things the system should have priced better —</li>
+<li>1. The card <i>named</i> Ghana's low block as the risk but still predicted <b>2–0 at 3 units</b> — the</li>
+</ul>
+<p>stake/scoreline didn't respect its own stated "what would flip it."</p>
+<ul>
+<li>2. Ghana defended <b>deeper and with a back five</b> than the nominal 4-2-3-1 suggested; "they'll</li>
+</ul>
+<p>sit deep" wasn't converted into a concrete higher clean-sheet-against / lower-conversion number.</p>
+<h2>What was genuinely different (top 3)</h2>
+<ul>
+<li>1. Ghana's in-game shape was a <b>5-4-1</b>, more conservative than the named XI implied → harder to break than priced.</li>
+<li>2. England's <b>conversion against a set block</b> was far below the "just scored four" prior → favorites out-shoot but don't always out-score.</li>
+<li>3. The <b>3u / 2–0</b> confidence was too strong for an explicit break-the-bus game.</li>
+</ul>
+<h2>Lessons routed (see <code>calibration/</code>)</h2>
+<ul>
+<li><b>scout-tactics</b> → expect a 5-back low block from a workmanlike underdog that only needs to avoid defeat, regardless of nominal shape; price clean-sheet-against risk concretely.</li>
+<li><b>scout-patterns</b> → a fit deep block yields favorite-fails-to-score (0–0 / 1–0-against) far more than the "cruise" prior; widen draw/under/opponent-clean-sheet mass.</li>
+<li><b>carlos</b> → cap stake (≤1–2u) and widen scoreline/draw weight on break-the-bus games; don't contradict your own "what would flip it." Scorer hedge was correct.</li>
+<li><b>scout-personnel</b> → weight the defensive (clean-sheet) impact of a returning holding mid / keeper, not just attacking changes.</li>
+</ul>
+<h2>Verdict</h2>
+<p>A real miss, but a <b>largely defensible</b> one driven half by finishing variance. The durable</p>
+<p>correction is <b>discipline on stake/scoreline against deep blocks</b>, not a wholesale change of read.</p>
+<p>If favorite-fails-to-break-the-block recurs, the patterns lesson gets weighted harder.</p>
+<hr>
+<p><i>Sources: <a href="https://www.fifa.com/en/match-centre/match/17/285023/289273/400021506" target="_blank" rel="noopener">FIFA match centre — England 0-0 Ghana, result &amp; stats</a>; <a href="https://www.aljazeera.com/sports/liveblog/2026/6/23/england-vs-ghana-live-world-cup-2026" target="_blank" rel="noopener">Al Jazeera live blog — England 0-0 Ghana</a>; <a href="https://www.si.com/soccer/england-vs-ghana-world-cup-live-score-match-stats" target="_blank" rel="noopener">SI live score &amp; match stats</a>; <a href="https://www.nbcsports.com/soccer/live/england-vs-ghana-live-updates-score-goals-highlights-stats-2026-fifa-world-cup-june-23" target="_blank" rel="noopener">NBC Sports live updates</a>.</i></p>
+<hr>
+<h1>Deep dive — what actually caused the 0–0 (added 2026-06-23 6:21 PM ET)</h1>
+<h2>The shot profile tells the story</h2>
+<ul>
+<li>England: <b>19 shots, 3 on target, ~1.28 xG</b>, ~81% possession. Ghana: <b>0 shots on target, ~0.0 xG.</b></li>
+<li>xG per shot ≈ <b>0.067</b> — very low. England generated <i>volume, not quality</i>: lots of edge-of-box and blocked attempts (four blocked in the first half alone), few clean sights of goal.</li>
+<li>The xG was <b>back-loaded</b>: only <b>0.27 xG in the entire first half</b>; most of the 1.28 arrived in a late burst (O'Reilly crossbar, Kane's gaping skier, Guéhi cleared off the line in stoppage time).</li>
+</ul>
+<h2>Phase by phase</h2>
+<ul>
+<li><b>First half (0.27 xG, 0 on target):</b> England slow and predictable, trying to play through the middle into a congested zone. Ghana's 5-4-1 packed the central lanes; four England shots were blocked. Rice blazed a free-kick over — the only real noise. 81% of the ball, no penetration.</li>
+<li><b>Second half:</b> England raised tempo and finally created — Gordon and Kane forced routine Asare saves, then a late flurry: O'Reilly hit the bar from close range, <b>Kane smashed the rebound over with the goal gaping</b>, Guéhi's header was cleared off the line in stoppage time. Real chances, but compressed into ~15 minutes, not sustained.</li>
+<li><b>Ghana's plan:</b> deep 5-4-1, spring the counter. Flawless on clear chances; in transition they had threatening <i>moments</i> and territory but produced <b>0 shots on target / ~0 xG</b> — the final ball in transition let them down. They never tested Pickford, and didn't need to.</li>
+</ul>
+<h2>Refined process vs variance — ~65% variance / ~35% process</h2>
+<ul>
+<li><b>Variance (larger share):</b> 1.28 xG with multiple gilt-edged late chances (crossbar, Kane's open-goal skier, off-the-line clearance) "should" be ~1 goal most days. <b>Kane had a poor game and missed the glaring chance.</b> That's finishing noise; it regresses. (A bigger variance share than the first-pass ~50/50 — the full shot data shows England created enough to win.)</li>
+<li><b>Process (smaller, fixable share):</b> (1) a slow, predictable first half generating only 0.27 xG against a block England knew was coming; (2) Carlos staking <b>3u on a clean 2–0</b> — the <i>win</i> lean was fine, the <i>scoreline/stake</i> was overconfident for a break-the-bus game.</li>
+<li><b>Conditions:</b> rain in Boston — sharpens counters, adds finishing noise; minor contributor, not the cause.</li>
+</ul>
+<h1>Predictive signals for future games</h1>
+<ul>
+<li>1. <b>England vs a committed deep block = volume without quality + underpriced draw/under.</b> Expect high possession, many low-xG shots, chances <i>late</i>. Keep <b>England to win</b>, but <b>fade the big scoreline</b> (downgrade England −1.5 / team-total-over) and respect a real <b>1–0 / 0–0 / clean-sheet-against tail</b>. Don't bank a 2–0.</li>
+<li>2. <b>Don't over-fade England's attack.</b> 1.28 xG and several big chances = the process created enough; this was finishing variance, not a broken attack. Win probability stays high — the trap is <i>margin</i> and <i>"England to score 2+"</i> markets.</li>
+<li>3. <b>Kane-to-score is matchup-dependent.</b> Against a packed box he's starved of service and his one big chance can go begging. Keep him a <b>low/medium</b> scorer call vs deep blocks (as the card hedged), not a confident one.</li>
+<li>4. <b>Ghana profile (MD3 and beyond):</b> elite low-block discipline (5-4-1), clean-sheet-capable even vs a strong attack, but <b>toothless going forward</b> (0 SoT, ~0 xG). Lean <b>under / low-scoring</b> in Ghana games; <b>Ghana clean sheet</b> has value vs limited attacks, <b>Ghana to score</b> is shaky. Expect them to sit deep again.</li>
+<li>5. <b>What beat the block was width + carriers, not central combination.</b> England only threatened via crosses (O'Reilly bar, Guéhi header) and a dribbler (Rogers' carries after replacing Bellingham). Tell: trust a favorite with genuine width/1v1 carriers to break a block; be more skeptical of one forced to play through the middle.</li>
+</ul>
+<p><i>Added sources: <a href="https://theanalyst.com/articles/england-vs-ghana-stats-world-cup-2026" target="_blank" rel="noopener">Opta/TheAnalyst — England vs Ghana stats</a>; <a href="https://www.goal.com/en/lists/england-player-ratings-ghana-world-cup-harry-kane-jude-bellingham/blt630cb48f13726f83" target="_blank" rel="noopener">Goal.com — England player ratings vs Ghana</a>; <a href="https://www.sofascore.com/news/england-vs-ghana-at-half-81-ball-0-0" target="_blank" rel="noopener">Sofascore — England vs Ghana at half, 81% ball</a>; <a href="https://www.espn.com/soccer/story/_/id/49155118/england-ghana-live-world-cup-2026-latest-updates-commentary-score-result" target="_blank" rel="noopener">ESPN — England 0-0 Ghana reaction</a>.</i></p></div>
+<footer>Carlos Command Center · World Cup 2026 · auto-published by the prediction pipeline.<br>
+Predictions, not facts. Notional stakes 0–5 units.</footer>
+</div>
+<script>
+(function(){
+  var BUILT = 1784461003297, ID = "1784461003";
+  function ago(){var m=Math.max(0,Math.round((Date.now()-BUILT)/60000));
+    var el=document.getElementById('ago');if(!el)return;
+    el.textContent = m<1?'just now':(m<60?m+'m ago':Math.floor(m/60)+'h '+(m%60)+'m ago');}
+  ago(); setInterval(ago,30000);
+  function poll(){fetch('../meta.json?t='+Date.now(),{cache:'no-store'})
+    .then(function(r){return r.json()})
+    .then(function(j){if(j.build_id&&j.build_id!==ID)location.reload();})
+    .catch(function(){});}
+  setInterval(poll,60000);
+})();
+</script></body></html>

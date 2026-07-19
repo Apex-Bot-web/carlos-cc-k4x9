@@ -1,0 +1,27 @@
+{
+  "date": "2026-07-18",
+  "subtitle": "Third-Place Play-Off · France vs England",
+  "exposure": "Exposure 1u · 1 game",
+  "games": [
+    {
+      "home": "France",
+      "away": "England",
+      "group": "3rd Place",
+      "venue": "Miami Stadium (Hard Rock Stadium), Miami Gardens",
+      "koET": "5:00 PM ET",
+      "window": "5:00 PM ET · Third-Place Play-Off",
+      "prediction": "France win",
+      "scoreline": "2–1",
+      "alts": "2–0, 1–1; draw/ET-pens live (Opta draw ~23.7%) — dead-rubber, both sides heavily rotated",
+      "stake": "1u France",
+      "scorer": "Mbappé <span class=\"k\">(medium-high — Golden Boot chase, tied Messi on 8, last chance before the final)</span> · co-primary Doué (medium); alts Cherki, Olise, Zaïre-Emery; Kane (ENG, medium), Bellingham (medium); alts Rogers, Gordon",
+      "status": "pending",
+      "statusTime": "",
+      "note": "Watcher confirms the XI ~45 min before kickoff, then runs the 10k sim.",
+      "noteHeld": false,
+      "result": "FT 4–6",
+      "resultGrade": "MISS",
+      "resultScorers": "ENG: Saka x3 (37,45+,87 pen), Rice, Konsa, Bellingham | FRA: Mbappe x2, Barcola, Dembele 96"
+    }
+  ]
+}

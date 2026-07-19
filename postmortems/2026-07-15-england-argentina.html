@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Post-mortem — 2026-07-15-england-argentina</title><style>
+:root{color-scheme:light;--bg:#eef1f5;--card:#fff;--ink:#161a1d;--mut:#5b6770;--line:#e1e6ec;
+--green:#1a7f37;--navy:#0f2740;--accent:#1a7f4f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.55}
+.wrap{max-width:1100px;margin:0 auto;padding:14px 14px 50px}
+nav.site{display:flex;gap:4px;align-items:center;flex-wrap:wrap;background:var(--navy);border-radius:12px;padding:8px 10px;margin-bottom:14px;position:sticky;top:8px;z-index:10;box-shadow:0 2px 10px rgba(15,39,64,.25)}
+nav.site .brand{color:#fff;font-weight:800;letter-spacing:-.2px;margin-right:8px;font-size:15px;text-decoration:none}
+nav.site .brand .dot{color:#3ddc84}
+nav.site a.t{color:#c8d3de;text-decoration:none;font-size:13px;font-weight:700;padding:5px 10px;border-radius:8px}
+nav.site a.t.on,nav.site a.t:hover{background:rgba(255,255,255,.14);color:#fff}
+nav.site .upd{margin-left:auto;color:#8fa3b5;font-size:11px;text-align:right}
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px;border-bottom:2px solid #d7dde4;padding-bottom:12px;margin-bottom:16px}
+.title{font-size:21px;font-weight:800;letter-spacing:-.3px}
+.sub{color:var(--mut);font-size:13px;margin-top:3px}
+.meta{text-align:right;font-size:12px;color:var(--mut)}
+.meta .exp{display:inline-block;margin-top:4px;background:var(--navy);color:#fff;padding:3px 9px;border-radius:999px;font-weight:700;font-size:12px}
+.badge{display:inline-flex;align-items:center;gap:5px;font-weight:700;font-size:11px;padding:3px 8px;border-radius:6px;letter-spacing:.2px}
+.b-conf{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.b-pend{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-hit{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.r-miss{background:#fde7e7;color:#b42318;border:1px solid #f3bcbc}
+.r-part{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-live{background:#e7eefc;color:#1d4ed8;border:1px solid #bcd0f5}
+.b-sim{background:#efeafd;color:#6b46c1;border:1px solid #d6c8f5}
+.sim{font-size:12px;color:#4a3a6b;margin-top:9px;background:#f7f4fe;border:1px solid #ece5fb;border-radius:8px;padding:7px 9px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.window{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);margin:20px 0 10px;display:flex;align-items:center;gap:8px}
+.window::after{content:"";flex:1;height:1px;background:#dbe1e8}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 15px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.card.confirmed{border-left:4px solid #1a7f37}
+.card.pending{border-left:4px solid #e8b33a}
+.match{font-size:16px;font-weight:800;letter-spacing:-.2px}
+.ctx{font-size:12px;color:var(--mut);margin-top:2px}
+.row{display:flex;align-items:center;justify-content:space-between;margin-top:11px;gap:8px}
+.pred{font-size:14px}.pred b{font-weight:800}.score{font-weight:800}
+.muted{color:#8a949c}
+.stake{font-size:12px;font-weight:800;background:var(--navy);color:#fff;padding:2px 8px;border-radius:6px;white-space:nowrap}
+.scorer{font-size:12.5px;color:#34404a;margin-top:9px}.scorer .k{color:var(--mut)}
+.result{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:11px;padding:8px 10px;border-radius:8px;background:#f6f8fb;border:1px solid #e6ebf1}
+.result .rscore{font-weight:800;font-size:14px}.result .rscore .k{color:var(--mut);font-weight:600;font-size:11px}
+.note{font-size:11.5px;color:var(--mut);margin-top:9px;border-top:1px dashed var(--line);padding-top:8px}
+.note.held{color:#1a7f37}
+footer{margin-top:26px;font-size:11px;color:#8a949c;text-align:center;line-height:1.6}
+/* prose (markdown pages) */
+.prose{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;box-shadow:0 1px 2px rgba(16,39,64,.04);overflow-x:auto}
+.prose h1{font-size:22px;letter-spacing:-.3px;margin:.2em 0 .5em}
+.prose h2{font-size:17px;margin:1.3em 0 .5em;padding-bottom:5px;border-bottom:1px solid var(--line)}
+.prose h3{font-size:15px;margin:1.2em 0 .4em}
+.prose p,.prose li{font-size:14px;color:#2a333b}
+.prose table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13px}
+.prose th,.prose td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+.prose th{background:#f4f6f9;font-weight:700}
+.prose tr:nth-child(even) td{background:#fafbfc}
+.prose blockquote{margin:10px 0;padding:6px 14px;border-left:3px solid #cbd5df;color:var(--mut);font-size:13.5px}
+.prose code{background:#f0f3f6;border:1px solid #e3e8ee;border-radius:4px;padding:1px 5px;font-size:12.5px}
+.prose hr{border:0;border-top:1px solid var(--line);margin:18px 0}
+.prose a{color:#1d4ed8}
+.prose img{max-width:100%}
+/* index lists */
+.linklist{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;margin-top:12px}
+.linklist a{display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;text-decoration:none;color:var(--ink);font-weight:700;font-size:13.5px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.linklist a:hover{border-color:#b9c4cf}
+.linklist a .d{display:block;font-weight:500;color:var(--mut);font-size:12px;margin-top:3px}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0 0 16px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.stat .v{font-size:19px;font-weight:800;letter-spacing:-.3px}
+.stat .k{font-size:11px;color:var(--mut);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.dayhead{font-size:16px;font-weight:800;margin:26px 0 4px}
+@media (max-width:560px){.wrap{padding:10px 9px 40px}.grid{grid-template-columns:1fr}.meta{text-align:left}}
+</style></head>
+<body><div class="wrap">
+<nav class="site"><a class="brand" href="../index.html">Carlos<span class="dot"> ●</span></a><a class="t" href="../index.html">Board</a><a class="t" href="../history.html">History</a><a class="t" href="../record.html">Record</a><a class="t on" href="../intel.html">Intel</a>
+<span class="upd">updated<br><b id="ago">…</b></span></nav>
+<div class="prose"><h1>Post-Mortem — England 1–2 Argentina · Semifinal · Mercedes-Benz Stadium, Atlanta · 2026-07-15</h1>
+<p><i>Film room for the Carlos slate of 2026-07-15. Sourced ground truth, no invented stats. Written 2026-07-16.</i></p>
+<h2>Prediction vs actual</h2>
+<ul>
+<li><b>Card:</b> England win, most likely <b>2–1</b> (alts 1–0, 1–1→ET). 1u England, low-medium confidence. Primary scorer Bellingham (co: Kane). Argentina primary Messi (co: Álvarez); Lautaro and Enzo/Mac Allister explicitly kept on the list as arriving/super-sub threats.</li>
+<li><b>Actual:</b> <b>Argentina 2–1 in regulation.</b> Gordon 55' (assist Rogers), Enzo Fernández 85' (assist Messi), Lautaro Martínez 92' (assist Messi). Messi: two assists, no goal. Argentina reach the final vs Spain (07-19).</li>
+<li><b>Grade:</b> Outcome ❌ MISS (−1u). Scoreline ❌ (mirror 2–1, not within-one). Primary scorer ❌ 0/1 (Kane + Bellingham both blanked). Scorer-list construction ✅ 3/3 actual scorers were on the card's lists (Gordon, Enzo, Lautaro).</li>
+</ul>
+<h2>Deep dive</h2>
+<p><b>Shot profile (full match).</b> Argentina 15 shots, xG <b>1.84</b>; England 5 shots, xG <b>0.53</b>. Possession Argentina 55% / England 45% (passes 251 vs 198). xG-per-shot ≈ 0.12 Argentina vs ≈ 0.11 England — Argentina's edge was volume and territory, not just one big chance. Argentina out-created England more than 3-to-1 on xG. (Sofascore, FIFA, ESPN.)</p>
+<p><b>Phase-by-phase.</b></p>
+<ul>
+<li><i>First half (0–0).</i> Tactical, cagey, <b>no shots on target from either side.</b> HT xG effectively nil — Sofascore had ENG 0.05 / ARG 0.03. Neither block cracked; England sat compact and Argentina probed without penetration.</li>
+<li><i>Second half — England lead (55').</i> England scored essentially against the run of underlying play with their one clean move: Morgan Rogers curled a cross around the back line and <b>Anthony Gordon</b> cut across the six-yard box, beating Nahuel Molina to the ball, past Pickford's opposite number. One clinical wide-overlap sequence — exactly the "fullback/wide overlap threat" the card flagged.</li>
+<li><i>Second half — Argentina onslaught (55'–85').</i> The 1–0 held for ~30 minutes while Argentina raised intensity into a "relentless onslaught" of near-misses. The pressure converted: <b>Enzo Fernández, 85'</b>, a long-range strike from outside the box (Messi involved in the build/assist). A spectacular finish, but it arrived on the back of sustained territorial dominance, not out of nothing.</li>
+<li><i>Late (92').</i> <b>Lautaro Martínez</b>, on as a substitute, headed the winner at the back post from a <b>Messi right-footed cross</b>, past Pickford. Argentina's second high-quality set-piece-of-open-play chance in eight minutes. Game finished in regulation — the draw/ET tail the card sized never came into play.</li>
+</ul>
+<p><b>What caused the result.</b> Argentina were the better side by every underlying metric (xG 1.84 vs 0.53, shots 15 vs 5, possession +10). England's lead was a fortunate, clinical smash-and-grab on a single move; once Argentina turned the screw in the final 35 minutes, the goals came from where the card actually warned they might — the central-midfield battle (Enzo) and the arriving/super-sub threat (Lautaro), both fed by Messi as creator. The card's own "what would flip it" named the Rice-fitness / Enzo–De Paul–Mac Allister midfield lever; <b>the flip happened</b>, with Enzo both scoring and running the middle.</p>
+<h2>Process vs variance — ~65% process / 35% variance</h2>
+<ul>
+<li><b>Process (the larger share).</b> The underlying game was not a coin-flip in the way the pre-game model read it — Argentina won the xG battle 1.84–0.53 and deserved the result. The card acknowledged the single biggest structural plank against England (Argentina 5/5 all-time semifinals) and the concrete midfield lever, then leaned England anyway on a thin, model-driven edge. Both of the card's flagged risks resolved against England exactly as written. That is a readable, repeatable process signal, not luck.</li>
+<li><b>Variance (the smaller share).</b> Enzo's equalizer was a low-percentage long-range strike (below-average xG shot), and England scoring first on 0.53 xG was itself fortunate — some coin-flip noise sat on top. But Argentina's volume (1.84 xG, sustained near-misses) means a goal was "coming"; the winner off a Messi cross to a back-post header was a genuinely high-quality chance, not a fluke. So variance is real but secondary.</li>
+<li><b>Stake discipline held.</b> Loss contained to −1u (the tightest-game cap worked). No lesson is written on the pure-variance component.</li>
+</ul>
+<h2>Predictive signals for future games</h2>
+<ul>
+<li><b>Argentina — control-and-late-onslaught profile.</b> They build territory (55% poss, 15 shots), keep the underlying game, and surge late — <b>both goals came 85'+</b>. A side leading Argentina with &lt;30 minutes left is under-water, not safe. Raise Argentina's late-equalizer / late-winner mass in future cards.</li>
+<li><b>Argentina route-to-goal — Messi as assist-hub, not scorer.</b> Messi took <b>two assists, zero goals</b>; both goals came from <b>arriving runners</b> (Enzo striking from deep midfield, Lautaro as a sub at the back post). In knockout service games, weight Messi's assist threat at least as heavily as his goal threat, and populate scorer lists with the arriving/second-wave runners he feeds.</li>
+<li><b>Lautaro Martínez — high-impact bench finisher, again.</b> Scored off the bench at the back post. Keep him as a standing super-sub scorer entry vs any compact block.</li>
+<li><b>England — chance-creation collapses when they lose central midfield.</b> 0.53 xG, 5 shots, and <b>Kane + Bellingham (6 goals each) both blanked</b> against a compact Argentina block. England's threat here was one clinical wide-overlap move (Rogers→Gordon); when the middle is lost they generate almost nothing. The Rice-fitness lever decided the game as flagged.</li>
+<li><b>The 0–0-at-half tell.</b> A cagey, shots-on-target-free first half between two elite knockout sides preceded a late-goals second half — tight first halves in this bracket have skewed toward late, sub-driven decisive moments (mirrors the 07-14 "control-battle decides it" framing).</li>
+</ul>
+<h2>Sources</h2>
+<ul>
+<li>Result, xG, shots, possession: <a href="https://www.fifa.com/en/match-centre/match/17/285023/289290/400021540?gender=2&amp;date=2026-07-15" target="_blank" rel="noopener">FIFA match centre</a>, <a href="https://www.sofascore.com/news/england-1-2-argentina-messi-delivers-two-assists-in-atlanta" target="_blank" rel="noopener">Sofascore — England 1-2 Argentina</a>, <a href="https://www.espn.com/soccer/match/_/gameId/760515/argentina-england" target="_blank" rel="noopener">ESPN match</a></li>
+<li>First-half tactical / HT xG / no shots on target: <a href="https://www.sofascore.com/news/england-and-argentina-locked-at-0-0-after-tactical-first-half-in-atlanta" target="_blank" rel="noopener">Sofascore HT report</a>, <a href="https://www.aljazeera.com/sports/2026/7/15/what-happened-in-the-first-half-of-the-england-vs-argentina-semifinal" target="_blank" rel="noopener">Al Jazeera first-half recap</a></li>
+<li>Goal sequences (Gordon 55', Enzo 85', Lautaro 92', Messi two assists): <a href="https://www.skysports.com/football/england-vs-argentina/report/549867" target="_blank" rel="noopener">Sky Sports report</a>, <a href="https://www.npr.org/2026/07/15/nx-s1-5893895/2026-world-cup-fifa-argentina-england-semifinal" target="_blank" rel="noopener">NPR</a>, <a href="https://www.espn.co.uk/football/story/_/id/49367547/england-argentina-live-world-cup-2026-semifinal-latest-updates-commentary-score-result" target="_blank" rel="noopener">ESPN live blog</a>, <a href="https://www.cbssports.com/soccer/news/england-argentina-similar-story-world-cup-2026/" target="_blank" rel="noopener">CBS Sports</a></li>
+</ul></div>
+<footer>Carlos Command Center · World Cup 2026 · auto-published by the prediction pipeline.<br>
+Predictions, not facts. Notional stakes 0–5 units.</footer>
+</div>
+<script>
+(function(){
+  var BUILT = 1784461003297, ID = "1784461003";
+  function ago(){var m=Math.max(0,Math.round((Date.now()-BUILT)/60000));
+    var el=document.getElementById('ago');if(!el)return;
+    el.textContent = m<1?'just now':(m<60?m+'m ago':Math.floor(m/60)+'h '+(m%60)+'m ago');}
+  ago(); setInterval(ago,30000);
+  function poll(){fetch('../meta.json?t='+Date.now(),{cache:'no-store'})
+    .then(function(r){return r.json()})
+    .then(function(j){if(j.build_id&&j.build_id!==ID)location.reload();})
+    .catch(function(){});}
+  setInterval(poll,60000);
+})();
+</script></body></html>

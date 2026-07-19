@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Post-mortem — 2026-06-24-bosnia-qatar</title><style>
+:root{color-scheme:light;--bg:#eef1f5;--card:#fff;--ink:#161a1d;--mut:#5b6770;--line:#e1e6ec;
+--green:#1a7f37;--navy:#0f2740;--accent:#1a7f4f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.55}
+.wrap{max-width:1100px;margin:0 auto;padding:14px 14px 50px}
+nav.site{display:flex;gap:4px;align-items:center;flex-wrap:wrap;background:var(--navy);border-radius:12px;padding:8px 10px;margin-bottom:14px;position:sticky;top:8px;z-index:10;box-shadow:0 2px 10px rgba(15,39,64,.25)}
+nav.site .brand{color:#fff;font-weight:800;letter-spacing:-.2px;margin-right:8px;font-size:15px;text-decoration:none}
+nav.site .brand .dot{color:#3ddc84}
+nav.site a.t{color:#c8d3de;text-decoration:none;font-size:13px;font-weight:700;padding:5px 10px;border-radius:8px}
+nav.site a.t.on,nav.site a.t:hover{background:rgba(255,255,255,.14);color:#fff}
+nav.site .upd{margin-left:auto;color:#8fa3b5;font-size:11px;text-align:right}
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px;border-bottom:2px solid #d7dde4;padding-bottom:12px;margin-bottom:16px}
+.title{font-size:21px;font-weight:800;letter-spacing:-.3px}
+.sub{color:var(--mut);font-size:13px;margin-top:3px}
+.meta{text-align:right;font-size:12px;color:var(--mut)}
+.meta .exp{display:inline-block;margin-top:4px;background:var(--navy);color:#fff;padding:3px 9px;border-radius:999px;font-weight:700;font-size:12px}
+.badge{display:inline-flex;align-items:center;gap:5px;font-weight:700;font-size:11px;padding:3px 8px;border-radius:6px;letter-spacing:.2px}
+.b-conf{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.b-pend{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-hit{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.r-miss{background:#fde7e7;color:#b42318;border:1px solid #f3bcbc}
+.r-part{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-live{background:#e7eefc;color:#1d4ed8;border:1px solid #bcd0f5}
+.b-sim{background:#efeafd;color:#6b46c1;border:1px solid #d6c8f5}
+.sim{font-size:12px;color:#4a3a6b;margin-top:9px;background:#f7f4fe;border:1px solid #ece5fb;border-radius:8px;padding:7px 9px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.window{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);margin:20px 0 10px;display:flex;align-items:center;gap:8px}
+.window::after{content:"";flex:1;height:1px;background:#dbe1e8}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 15px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.card.confirmed{border-left:4px solid #1a7f37}
+.card.pending{border-left:4px solid #e8b33a}
+.match{font-size:16px;font-weight:800;letter-spacing:-.2px}
+.ctx{font-size:12px;color:var(--mut);margin-top:2px}
+.row{display:flex;align-items:center;justify-content:space-between;margin-top:11px;gap:8px}
+.pred{font-size:14px}.pred b{font-weight:800}.score{font-weight:800}
+.muted{color:#8a949c}
+.stake{font-size:12px;font-weight:800;background:var(--navy);color:#fff;padding:2px 8px;border-radius:6px;white-space:nowrap}
+.scorer{font-size:12.5px;color:#34404a;margin-top:9px}.scorer .k{color:var(--mut)}
+.result{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:11px;padding:8px 10px;border-radius:8px;background:#f6f8fb;border:1px solid #e6ebf1}
+.result .rscore{font-weight:800;font-size:14px}.result .rscore .k{color:var(--mut);font-weight:600;font-size:11px}
+.note{font-size:11.5px;color:var(--mut);margin-top:9px;border-top:1px dashed var(--line);padding-top:8px}
+.note.held{color:#1a7f37}
+footer{margin-top:26px;font-size:11px;color:#8a949c;text-align:center;line-height:1.6}
+/* prose (markdown pages) */
+.prose{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;box-shadow:0 1px 2px rgba(16,39,64,.04);overflow-x:auto}
+.prose h1{font-size:22px;letter-spacing:-.3px;margin:.2em 0 .5em}
+.prose h2{font-size:17px;margin:1.3em 0 .5em;padding-bottom:5px;border-bottom:1px solid var(--line)}
+.prose h3{font-size:15px;margin:1.2em 0 .4em}
+.prose p,.prose li{font-size:14px;color:#2a333b}
+.prose table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13px}
+.prose th,.prose td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+.prose th{background:#f4f6f9;font-weight:700}
+.prose tr:nth-child(even) td{background:#fafbfc}
+.prose blockquote{margin:10px 0;padding:6px 14px;border-left:3px solid #cbd5df;color:var(--mut);font-size:13.5px}
+.prose code{background:#f0f3f6;border:1px solid #e3e8ee;border-radius:4px;padding:1px 5px;font-size:12.5px}
+.prose hr{border:0;border-top:1px solid var(--line);margin:18px 0}
+.prose a{color:#1d4ed8}
+.prose img{max-width:100%}
+/* index lists */
+.linklist{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;margin-top:12px}
+.linklist a{display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;text-decoration:none;color:var(--ink);font-weight:700;font-size:13.5px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.linklist a:hover{border-color:#b9c4cf}
+.linklist a .d{display:block;font-weight:500;color:var(--mut);font-size:12px;margin-top:3px}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0 0 16px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.stat .v{font-size:19px;font-weight:800;letter-spacing:-.3px}
+.stat .k{font-size:11px;color:var(--mut);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.dayhead{font-size:16px;font-weight:800;margin:26px 0 4px}
+@media (max-width:560px){.wrap{padding:10px 9px 40px}.grid{grid-template-columns:1fr}.meta{text-align:left}}
+</style></head>
+<body><div class="wrap">
+<nav class="site"><a class="brand" href="../index.html">Carlos<span class="dot"> ●</span></a><a class="t" href="../index.html">Board</a><a class="t" href="../history.html">History</a><a class="t" href="../record.html">Record</a><a class="t on" href="../intel.html">Intel</a>
+<span class="upd">updated<br><b id="ago">…</b></span></nav>
+<div class="prose"><h1>Post-mortem — Bosnia &amp; Herzegovina 3–1 Qatar (2026-06-24, Group B, Seattle)</h1>
+<h2>Prediction vs actual</h2>
+<ul>
+<li><b>Card:</b> Bosnia win, <b>2–1</b> (alts 2–0, 3–1), <b>2u</b>. Most-likely scorer <b>Džeko</b> (alts Demirović; set-piece header from a defender).</li>
+<li><b>Actual:</b> <b>Bosnia 3–1.</b> Alajbegović 29', Al-Brake <b>OG</b> 34', Mahmić 82'; Al-Haydos 42'.</li>
+<li><b>Grade:</b> Outcome ✅ · Scoreline ✅ (<b>3–1 exact via listed alt</b>; 2–1 primary within-one) · Scorer ❌ (Džeko &amp; Demirović blanked). <b>+2u. PASS.</b></li>
+</ul>
+<h2>Deep dive</h2>
+<ul>
+<li><b>Shot profile:</b> Bosnia 14 shots / <b>5 on target</b>; Qatar 9 / <b>3</b>. Possession <b>55–45</b> Bosnia. <b>xG: Bosnia 0.65, Qatar 0.75</b> — Qatar marginally edged xG. (Squawka/Opta)</li>
+<li><b>Read it carefully:</b> Bosnia scored <b>3 goals from 0.65 xG</b> — a hyper-efficient, finishing-driven win, <b>not</b> a performance of control. The decisive goals came from outside the card's model: an <b>18-year-old (Alajbegović) near-post stunner from ~20 yards</b> (created by Bašić), a <b>deflected own goal</b> (a Džeko volley off Al-Brake), and a <b>late Mahmić strike (82')</b>. Qatar's xG (0.75) and Al-Haydos's 42' finish show they were not a cipher going forward.</li>
+<li><b>Phase-by-phase:</b> 1st half — Bosnia control + punch, 2–0 by 34' (Alajbegović 29', OG 34'), then <b>Al-Haydos pulled one back 42'</b> for a 2–1 half-time score (Sofascore: "control vs punch"). 2nd half — game stayed live until <b>Mahmić's 82' clincher</b> settled it. Conditions/lineups: both makeshift back lines (Muharemović suspended for Bosnia; Ahmed &amp; Madibo suspended for Qatar) as the card anticipated.</li>
+</ul>
+<h2>Process vs variance</h2>
+<p><b>~70% variance / 30% process — and the process part is the scorer tail, not the outcome.</b> The <b>outcome read was correct and earns a PASS</b>: the card's "both must win → open, two-directional game" was right (4 goals, Qatar attacked and scored). The <b>3–1 flatters Bosnia</b> — at 0.65 xG the modal game is closer, so the exact-via-alt scoreline credit is mostly variance (a 20-yard worldie + an OG). <b>Do not</b> turn the win margin into a lesson. The <b>repeatable</b> signal is the scorer miss: a third straight goal-game decided by <b>unlisted/secondary scorers</b> (a teenager, an OG, a squad striker) rather than the marquee 9.</p>
+<h2>Predictive signals for future games</h2>
+<ul>
+<li><b>Bosnia's goal threat is distributed, not Džeko-centric.</b> Džeko/Demirović both blanked; an 18-yo, an OG and a late striker scored. Keep Džeko scorer calls <b>low</b> and <b>carry the young-starter / sub / set-piece / OG tail</b> (repeat of the MD2 unlisted-scorer pattern → weight harder). → <b>scout-personnel / scout-patterns.</b></li>
+<li><b>Qatar are defensively fragile but not toothless</b> (0.75 xG, scored). Fade Qatar <b>clean sheets</b>, but don't assume zero attacking output. → <b>scout-patterns.</b></li>
+<li><b>"Both must win" delivered the open game</b> the card predicted — that read worked here and contrasts with South Africa–South Korea the same day (must-win underdog went deep instead). The differentiator: Qatar had <b>no defensive low-block identity</b> to retreat into; a side without that identity will trade blows. → <b>scout-tactics / scout-form.</b></li>
+</ul>
+<h2>Sources</h2>
+<ul>
+<li><a href="https://www.espn.com/soccer/report/_/gameId/760462" target="_blank" rel="noopener">ESPN game analysis</a> · <a href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/bosnia-and-herzegovina-qatar-highlights-match-report" target="_blank" rel="noopener">FIFA match report</a> · <a href="https://www.skysports.com/football/news/23827/13554979/world-cup-2026-bosnia-herzegovina-3-1-qatar-kerim-alajbegovic-nets-stunner-as-last-32-hopes-boosted-after-win-in-group-b-finale" target="_blank" rel="noopener">Sky Sports report</a> · <a href="https://www.squawka.com/en/news/world-cup/bosnia-herzegovina-qatar-result-stats/" target="_blank" rel="noopener">Squawka result/stats</a> · <a href="https://www.sofascore.com/news/bosnia-herzegovina-2-1-qatar-at-halftime-group-b-first-half-defined-by-control-vs-punch" target="_blank" rel="noopener">Sofascore HT analysis</a> · <a href="https://theanalyst.com/articles/bosnia-herzegovina-vs-qatar-stats-world-cup-2026" target="_blank" rel="noopener">Opta Analyst match centre</a></li>
+</ul></div>
+<footer>Carlos Command Center · World Cup 2026 · auto-published by the prediction pipeline.<br>
+Predictions, not facts. Notional stakes 0–5 units.</footer>
+</div>
+<script>
+(function(){
+  var BUILT = 1784461003297, ID = "1784461003";
+  function ago(){var m=Math.max(0,Math.round((Date.now()-BUILT)/60000));
+    var el=document.getElementById('ago');if(!el)return;
+    el.textContent = m<1?'just now':(m<60?m+'m ago':Math.floor(m/60)+'h '+(m%60)+'m ago');}
+  ago(); setInterval(ago,30000);
+  function poll(){fetch('../meta.json?t='+Date.now(),{cache:'no-store'})
+    .then(function(r){return r.json()})
+    .then(function(j){if(j.build_id&&j.build_id!==ID)location.reload();})
+    .catch(function(){});}
+  setInterval(poll,60000);
+})();
+</script></body></html>

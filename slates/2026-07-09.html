@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Carlos — Slate 2026-07-09</title><style>
+:root{color-scheme:light;--bg:#eef1f5;--card:#fff;--ink:#161a1d;--mut:#5b6770;--line:#e1e6ec;
+--green:#1a7f37;--navy:#0f2740;--accent:#1a7f4f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.55}
+.wrap{max-width:1100px;margin:0 auto;padding:14px 14px 50px}
+nav.site{display:flex;gap:4px;align-items:center;flex-wrap:wrap;background:var(--navy);border-radius:12px;padding:8px 10px;margin-bottom:14px;position:sticky;top:8px;z-index:10;box-shadow:0 2px 10px rgba(15,39,64,.25)}
+nav.site .brand{color:#fff;font-weight:800;letter-spacing:-.2px;margin-right:8px;font-size:15px;text-decoration:none}
+nav.site .brand .dot{color:#3ddc84}
+nav.site a.t{color:#c8d3de;text-decoration:none;font-size:13px;font-weight:700;padding:5px 10px;border-radius:8px}
+nav.site a.t.on,nav.site a.t:hover{background:rgba(255,255,255,.14);color:#fff}
+nav.site .upd{margin-left:auto;color:#8fa3b5;font-size:11px;text-align:right}
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px;border-bottom:2px solid #d7dde4;padding-bottom:12px;margin-bottom:16px}
+.title{font-size:21px;font-weight:800;letter-spacing:-.3px}
+.sub{color:var(--mut);font-size:13px;margin-top:3px}
+.meta{text-align:right;font-size:12px;color:var(--mut)}
+.meta .exp{display:inline-block;margin-top:4px;background:var(--navy);color:#fff;padding:3px 9px;border-radius:999px;font-weight:700;font-size:12px}
+.badge{display:inline-flex;align-items:center;gap:5px;font-weight:700;font-size:11px;padding:3px 8px;border-radius:6px;letter-spacing:.2px}
+.b-conf{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.b-pend{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-hit{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.r-miss{background:#fde7e7;color:#b42318;border:1px solid #f3bcbc}
+.r-part{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-live{background:#e7eefc;color:#1d4ed8;border:1px solid #bcd0f5}
+.b-sim{background:#efeafd;color:#6b46c1;border:1px solid #d6c8f5}
+.sim{font-size:12px;color:#4a3a6b;margin-top:9px;background:#f7f4fe;border:1px solid #ece5fb;border-radius:8px;padding:7px 9px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.window{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);margin:20px 0 10px;display:flex;align-items:center;gap:8px}
+.window::after{content:"";flex:1;height:1px;background:#dbe1e8}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 15px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.card.confirmed{border-left:4px solid #1a7f37}
+.card.pending{border-left:4px solid #e8b33a}
+.match{font-size:16px;font-weight:800;letter-spacing:-.2px}
+.ctx{font-size:12px;color:var(--mut);margin-top:2px}
+.row{display:flex;align-items:center;justify-content:space-between;margin-top:11px;gap:8px}
+.pred{font-size:14px}.pred b{font-weight:800}.score{font-weight:800}
+.muted{color:#8a949c}
+.stake{font-size:12px;font-weight:800;background:var(--navy);color:#fff;padding:2px 8px;border-radius:6px;white-space:nowrap}
+.scorer{font-size:12.5px;color:#34404a;margin-top:9px}.scorer .k{color:var(--mut)}
+.result{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:11px;padding:8px 10px;border-radius:8px;background:#f6f8fb;border:1px solid #e6ebf1}
+.result .rscore{font-weight:800;font-size:14px}.result .rscore .k{color:var(--mut);font-weight:600;font-size:11px}
+.note{font-size:11.5px;color:var(--mut);margin-top:9px;border-top:1px dashed var(--line);padding-top:8px}
+.note.held{color:#1a7f37}
+footer{margin-top:26px;font-size:11px;color:#8a949c;text-align:center;line-height:1.6}
+/* prose (markdown pages) */
+.prose{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;box-shadow:0 1px 2px rgba(16,39,64,.04);overflow-x:auto}
+.prose h1{font-size:22px;letter-spacing:-.3px;margin:.2em 0 .5em}
+.prose h2{font-size:17px;margin:1.3em 0 .5em;padding-bottom:5px;border-bottom:1px solid var(--line)}
+.prose h3{font-size:15px;margin:1.2em 0 .4em}
+.prose p,.prose li{font-size:14px;color:#2a333b}
+.prose table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13px}
+.prose th,.prose td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+.prose th{background:#f4f6f9;font-weight:700}
+.prose tr:nth-child(even) td{background:#fafbfc}
+.prose blockquote{margin:10px 0;padding:6px 14px;border-left:3px solid #cbd5df;color:var(--mut);font-size:13.5px}
+.prose code{background:#f0f3f6;border:1px solid #e3e8ee;border-radius:4px;padding:1px 5px;font-size:12.5px}
+.prose hr{border:0;border-top:1px solid var(--line);margin:18px 0}
+.prose a{color:#1d4ed8}
+.prose img{max-width:100%}
+/* index lists */
+.linklist{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;margin-top:12px}
+.linklist a{display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;text-decoration:none;color:var(--ink);font-weight:700;font-size:13.5px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.linklist a:hover{border-color:#b9c4cf}
+.linklist a .d{display:block;font-weight:500;color:var(--mut);font-size:12px;margin-top:3px}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0 0 16px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.stat .v{font-size:19px;font-weight:800;letter-spacing:-.3px}
+.stat .k{font-size:11px;color:var(--mut);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.dayhead{font-size:16px;font-weight:800;margin:26px 0 4px}
+@media (max-width:560px){.wrap{padding:10px 9px 40px}.grid{grid-template-columns:1fr}.meta{text-align:left}}
+</style></head>
+<body><div class="wrap">
+<nav class="site"><a class="brand" href="../index.html">Carlos<span class="dot"> ●</span></a><a class="t" href="../index.html">Board</a><a class="t on" href="../history.html">History</a><a class="t" href="../record.html">Record</a><a class="t" href="../intel.html">Intel</a>
+<span class="upd">updated<br><b id="ago">…</b></span></nav>
+<div class="prose"><h1>Carlos — Match Prediction Cards · July 9, 2026 — Quarterfinal (Day 1)</h1>
+<p>*Knockouts: a draw after 90' goes to extra time / penalties. Both teams must-win, so motivation is</p>
+<p>symmetric — quality + form decide. Lineups pending; sims run only after the watcher confirms each XI</p>
+<p>(~45 min pre-KO). Predictions, not facts; sources at end.*</p>
+<p><b>Calibration applied (carlos.lessons.md):</b> (1) <b>Margin under-projection is a durable, repeat error</b> — France specifically was flagged 07-01: "a compact 4-4-2 that still plays is not a bus — model 3–0/3–1." Widening the primary scoreline accordingly rather than reflexively capping at 1–0/2–0. (2) <b>But respect the organized, tournament-hardened underdog with a real late/ET route</b> (07-02 lesson) — Morocco has already gone the distance once this tournament (extra time + penalties earlier in the bracket) and drew level late against Brazil in the group stage, so the draw→ET/pens tail stays live, not thin. (3) <b>Stake discrimination</b> — reserve the top of the ladder for a genuine quality edge in an open game; Morocco's structure + a proven big-match nerve caps this below max even with a clear favorite. (4) <b>Personnel-driven re-derivation rule (06-24 lesson)</b> — Morocco is already missing a starting attacking piece (Saibari, hamstring); this thins their final-third output and is priced into the card now, not footnoted later.</p>
+<hr>
+<h2>1) France vs Morocco — QF · Foxborough (Gillette Stadium) · 4:00 PM ET</h2>
+<p><b>Prediction:</b> <b>France win</b> — most likely <b>2–0</b>; alts 3–0, 1–0. Draw after 90' → ET/pens <b>live tail</b> (not thin).</p>
+<p><b>Why:</b> France is a perfect 6-for-6 this tournament, 14 goals for and 2 against — the best defensive and attacking record left in the field, and Mbappé is tied for the Golden Boot race (7 goals) after a penalty winner against Paraguay. But that Paraguay result (1–0, decided by a 70' penalty) shows France can be slowed to a single goal by a well-organized low block, not just blown open — the R16 game was a grind, not a rout, despite the eventual final score. Morocco brings exactly that profile: they beat Canada in the R16 despite managing only five shots (fewest by a winning team in a WC knockout match since 1966), meaning their whole tournament path so far is "concede little, win with fewer chances than the opponent." They also have an established big-game gear — going the distance (extra time + penalties) earlier in the bracket, and taking a point off Brazil late in the group stage via a stoppage-time leveler. That's a side that does not fold under pressure, which keeps the draw/ET tail live even though France is the clear quality favorite. The compensating factor: Morocco's most creative attacking piece not named Diaz, Ismael Saibari, is out (hamstring, replaced 22' vs Canada) — Rahimi steps into the front line, which thins Morocco's own goal threat and tilts this toward a France-controls-the-game script rather than a genuine coin-flip. Net read: France should win, and the "France = not a bus, model the wider margin" lesson argues for 2–0 as the primary rather than a capped 1–0, but Morocco's proven resilience keeps 1–0 (grind, à la Paraguay) and the draw/ET route both live enough not to load up.</p>
+<p><b>Players to watch:</b> Mbappé (Golden Boot race, penalty duty, France's decisive/leading scorer all tournament), Doué (chance creation, was fouled for the France penalty vs Paraguay); Brahim Diaz (Morocco's primary creator, African record 4 assists this tournament), Rahimi (stepping into the central striker role in Saibari's place). Chadi Riad (Morocco CB) is a doubt after being substituted last match — a defensive-line question mark if he can't go.</p>
+<p><b>Most likely scorer:</b> <b>Mbappé</b> (high — tournament top scorer, penalty taker, France's clear focal point). Alts: Doué (creator turning scorer), Kolo Muani/Barcola (rotation/impact options off the bench); for Morocco, <b>Rahimi</b> (low-med — new to the central striker slot, first start there) is the most plausible source of a Morocco goal, with Brahim Diaz (low) as a secondary threat via a set piece or a second-phase strike.</p>
+<p><b>Confidence &amp; stake:</b> <b>Medium-high confidence, 2u France.</b> Quality gap is real and the "widen the France margin" lesson pushes past a capped 1u, but the stake stops short of the top of the ladder because Morocco has repeatedly proven it can go the distance and Saibari's absence, while a real dent, doesn't erase Morocco's structural discipline (5 shots to win a knockout game is not a team that will get overrun early).</p>
+<p><b>What would flip it:</b> An early Morocco goal (their tournament pattern is "concede little, strike rarely, but when they do it changes the game plan" — see the Brazil/Netherlands legs) would flip this into the tightly-priced ET/pens game their bracket run has already shown they can win; alternatively, a Riad injury withdrawal exposing Morocco's back line early would argue for widening France's margin further (toward the 3–0 alt) rather than the 2–0 primary.</p>
+<hr>
+<h3>Slate note</h3>
+<p>Total exposure <b>2u / 1 game</b> (France 2u). Single-fixture day (first of the QF round); no other WC2026 matches scheduled July 9. Sim attaches once the watcher confirms the XI (~3:15 PM ET).</p>
+<h3>Sources</h3>
+<ul>
+<li>Match details, form, Golden Boot race: <a href="https://news.bet365.com/en-us/article/france-vs-morocco-quarterfinals-preview-lineup-predictions/2026070721252634143" target="_blank" rel="noopener">bet365 News preview</a>, <a href="https://www.aljazeera.com/sports/2026/7/9/france-morocco-world-cup-quarterfinal-mbappe-saibari-prediction-start-time-lineups" target="_blank" rel="noopener">Al Jazeera preview</a></li>
+<li>Saibari injury / Morocco lineup: <a href="https://www.espn.com/soccer/story/_/id/49310007/morocco-ismael-saibari-injury-france-world-cup-2026-quarterfinal" target="_blank" rel="noopener">ESPN</a>, <a href="https://www.sportsmole.co.uk/football/morocco/world-cup-2026/predicted-lineups/saibari-sidelined-riad-returns-predicted-morocco-world-cup-lineup-vs-france_600834.html" target="_blank" rel="noopener">Sports Mole predicted lineup</a></li>
+<li>Morocco R16 vs Canada (3–0, 5 shots): <a href="https://www.espn.com/soccer/match/_/gameId/760502/morocco-canada" target="_blank" rel="noopener">ESPN match</a></li>
+<li>France R16 vs Paraguay (1–0, Mbappé penalty): <a href="https://www.espn.com/soccer/story/_/id/49271796/kylian-mbappe-penalty-leads-france-paraguay-world-cup-quarterfinals" target="_blank" rel="noopener">ESPN report</a>, <a href="https://www.skysports.com/football/news/12098/13560169/world-cup-2026-paraguay-0-1-france-kylian-mbappe-moves-level-with-lionel-messi-on-seven-goals-as-les-bleus-reach-last-eight" target="_blank" rel="noopener">Sky Sports</a></li>
+<li>Quarterfinal bracket/schedule: <a href="https://www.aljazeera.com/sports/2026/7/8/fifa-world-cup-2026-quarterfinal-fixtures-match-previews-schedule" target="_blank" rel="noopener">Al Jazeera bracket</a>, <a href="https://sports.yahoo.com/soccer/live/world-cup-bracket-schedule-scores-results-live-updates-quarterfinals-203257966.html" target="_blank" rel="noopener">Yahoo Sports bracket</a></li>
+</ul></div>
+<footer>Carlos Command Center · World Cup 2026 · auto-published by the prediction pipeline.<br>
+Predictions, not facts. Notional stakes 0–5 units.</footer>
+</div>
+<script>
+(function(){
+  var BUILT = 1784461003297, ID = "1784461003";
+  function ago(){var m=Math.max(0,Math.round((Date.now()-BUILT)/60000));
+    var el=document.getElementById('ago');if(!el)return;
+    el.textContent = m<1?'just now':(m<60?m+'m ago':Math.floor(m/60)+'h '+(m%60)+'m ago');}
+  ago(); setInterval(ago,30000);
+  function poll(){fetch('../meta.json?t='+Date.now(),{cache:'no-store'})
+    .then(function(r){return r.json()})
+    .then(function(j){if(j.build_id&&j.build_id!==ID)location.reload();})
+    .catch(function(){});}
+  setInterval(poll,60000);
+})();
+</script></body></html>

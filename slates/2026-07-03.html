@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Carlos — Slate 2026-07-03</title><style>
+:root{color-scheme:light;--bg:#eef1f5;--card:#fff;--ink:#161a1d;--mut:#5b6770;--line:#e1e6ec;
+--green:#1a7f37;--navy:#0f2740;--accent:#1a7f4f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.55}
+.wrap{max-width:1100px;margin:0 auto;padding:14px 14px 50px}
+nav.site{display:flex;gap:4px;align-items:center;flex-wrap:wrap;background:var(--navy);border-radius:12px;padding:8px 10px;margin-bottom:14px;position:sticky;top:8px;z-index:10;box-shadow:0 2px 10px rgba(15,39,64,.25)}
+nav.site .brand{color:#fff;font-weight:800;letter-spacing:-.2px;margin-right:8px;font-size:15px;text-decoration:none}
+nav.site .brand .dot{color:#3ddc84}
+nav.site a.t{color:#c8d3de;text-decoration:none;font-size:13px;font-weight:700;padding:5px 10px;border-radius:8px}
+nav.site a.t.on,nav.site a.t:hover{background:rgba(255,255,255,.14);color:#fff}
+nav.site .upd{margin-left:auto;color:#8fa3b5;font-size:11px;text-align:right}
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px;border-bottom:2px solid #d7dde4;padding-bottom:12px;margin-bottom:16px}
+.title{font-size:21px;font-weight:800;letter-spacing:-.3px}
+.sub{color:var(--mut);font-size:13px;margin-top:3px}
+.meta{text-align:right;font-size:12px;color:var(--mut)}
+.meta .exp{display:inline-block;margin-top:4px;background:var(--navy);color:#fff;padding:3px 9px;border-radius:999px;font-weight:700;font-size:12px}
+.badge{display:inline-flex;align-items:center;gap:5px;font-weight:700;font-size:11px;padding:3px 8px;border-radius:6px;letter-spacing:.2px}
+.b-conf{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.b-pend{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-hit{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.r-miss{background:#fde7e7;color:#b42318;border:1px solid #f3bcbc}
+.r-part{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-live{background:#e7eefc;color:#1d4ed8;border:1px solid #bcd0f5}
+.b-sim{background:#efeafd;color:#6b46c1;border:1px solid #d6c8f5}
+.sim{font-size:12px;color:#4a3a6b;margin-top:9px;background:#f7f4fe;border:1px solid #ece5fb;border-radius:8px;padding:7px 9px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.window{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);margin:20px 0 10px;display:flex;align-items:center;gap:8px}
+.window::after{content:"";flex:1;height:1px;background:#dbe1e8}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 15px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.card.confirmed{border-left:4px solid #1a7f37}
+.card.pending{border-left:4px solid #e8b33a}
+.match{font-size:16px;font-weight:800;letter-spacing:-.2px}
+.ctx{font-size:12px;color:var(--mut);margin-top:2px}
+.row{display:flex;align-items:center;justify-content:space-between;margin-top:11px;gap:8px}
+.pred{font-size:14px}.pred b{font-weight:800}.score{font-weight:800}
+.muted{color:#8a949c}
+.stake{font-size:12px;font-weight:800;background:var(--navy);color:#fff;padding:2px 8px;border-radius:6px;white-space:nowrap}
+.scorer{font-size:12.5px;color:#34404a;margin-top:9px}.scorer .k{color:var(--mut)}
+.result{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:11px;padding:8px 10px;border-radius:8px;background:#f6f8fb;border:1px solid #e6ebf1}
+.result .rscore{font-weight:800;font-size:14px}.result .rscore .k{color:var(--mut);font-weight:600;font-size:11px}
+.note{font-size:11.5px;color:var(--mut);margin-top:9px;border-top:1px dashed var(--line);padding-top:8px}
+.note.held{color:#1a7f37}
+footer{margin-top:26px;font-size:11px;color:#8a949c;text-align:center;line-height:1.6}
+/* prose (markdown pages) */
+.prose{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;box-shadow:0 1px 2px rgba(16,39,64,.04);overflow-x:auto}
+.prose h1{font-size:22px;letter-spacing:-.3px;margin:.2em 0 .5em}
+.prose h2{font-size:17px;margin:1.3em 0 .5em;padding-bottom:5px;border-bottom:1px solid var(--line)}
+.prose h3{font-size:15px;margin:1.2em 0 .4em}
+.prose p,.prose li{font-size:14px;color:#2a333b}
+.prose table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13px}
+.prose th,.prose td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+.prose th{background:#f4f6f9;font-weight:700}
+.prose tr:nth-child(even) td{background:#fafbfc}
+.prose blockquote{margin:10px 0;padding:6px 14px;border-left:3px solid #cbd5df;color:var(--mut);font-size:13.5px}
+.prose code{background:#f0f3f6;border:1px solid #e3e8ee;border-radius:4px;padding:1px 5px;font-size:12.5px}
+.prose hr{border:0;border-top:1px solid var(--line);margin:18px 0}
+.prose a{color:#1d4ed8}
+.prose img{max-width:100%}
+/* index lists */
+.linklist{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;margin-top:12px}
+.linklist a{display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;text-decoration:none;color:var(--ink);font-weight:700;font-size:13.5px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.linklist a:hover{border-color:#b9c4cf}
+.linklist a .d{display:block;font-weight:500;color:var(--mut);font-size:12px;margin-top:3px}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0 0 16px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.stat .v{font-size:19px;font-weight:800;letter-spacing:-.3px}
+.stat .k{font-size:11px;color:var(--mut);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.dayhead{font-size:16px;font-weight:800;margin:26px 0 4px}
+@media (max-width:560px){.wrap{padding:10px 9px 40px}.grid{grid-template-columns:1fr}.meta{text-align:left}}
+</style></head>
+<body><div class="wrap">
+<nav class="site"><a class="brand" href="../index.html">Carlos<span class="dot"> ●</span></a><a class="t" href="../index.html">Board</a><a class="t on" href="../history.html">History</a><a class="t" href="../record.html">Record</a><a class="t" href="../intel.html">Intel</a>
+<span class="upd">updated<br><b id="ago">…</b></span></nav>
+<div class="prose"><h1>Carlos — Match Prediction Cards · July 3, 2026 — Round of 32 (Day 6)</h1>
+<p>*Knockouts: a draw after 90' goes to extra time / penalties. Both teams must-win, so motivation is</p>
+<p>symmetric — quality + form decide. Lineups pending; sims run only after the watcher confirms each XI</p>
+<p>(~45 min pre-KO). Predictions, not facts; sources at end.*</p>
+<p><b>Calibration applied (carlos.lessons.md):</b> (1) <b>Margin nudge for clear-edge/open games</b> — Australia &amp; Colombia both field attacking intent vs teams with defensive vulnerabilities; modal nudged from 1–0/1–1 into 2–0/2–1 territory. (2) <b>Opener effect (match 1 of 3 in a day)</b> — Australia vs Egypt is match 1; expect first-30 settling period, then Australia's press assertiveness. (3) <b>Cape Verde upside/tail risk</b> — a 48-hour notice minnow (Cape Verde added to the draw 48 hours before) will play ultra-deep block. Argentina's margin compressed despite xG edge; draw tail moved from "thin" to "live" (ET/pens is Cape Verde's only route). (4) <b>Colombia at home (Bogotá, altitude)</b> — maintains the Mexico-at-home confidence (early press, crowd edge). (5) <b>Late-slot team intel</b> — Ghana's Inzaghi departure (post group-stage) means the Colombia assistant is now full-time; watch set-pieces for structure changes.</p>
+<hr>
+<h2>1) Australia vs Egypt — R32 · Arlington (AT&amp;T Stadium) · 2:00 PM ET</h2>
+<p><b>Prediction:</b> <b>Australia win</b> — most likely <b>2–0</b>; alts 2–1, 1–0. Draw → ET/pens thin tail.</p>
+<p><b>Why:</b> Australia topped Group C with 7 points (wins vs Egypt and Canada), Norway-strong defence (Akanji-analogue Souttar + Degenek), midfield press via Mooy. Egypt qualified second but limped through: no clean sheets, beat <i>only</i> Uzbekistan convincingly (one goal in three games, xG 1.4 per game). The matchup favors the presser: Australia's midfield will control the first 30', then Egypt's legs + fatigue from the group stage (three games in 11 days on Africa's travel) kick in after 60'. Most likely scoreline is 2–0 (Australia converts 1–2 of their early-half chances) but 1–0 is live if Egypt's shape tightens in the second half.</p>
+<p><b>Players to watch:</b> Leckie, Irvine (carries the press), Souttar (set-pieces); Salah (limited touches in group stage, possible rotation risk), Trezeguet (energy outlet), Abuoklifa (pace vs the high line).</p>
+<p><b>Most likely scorer:</b> <b>Irankunda</b> (med — lone striker, pace vs a leaky Egypt line). Alts: Volpato (attacking mid), Irvine (box arrival), Souttar (set-pieces); Salah/Marmoush (EGY). <i>(Updated post-XI: Leckie NOT in the confirmed XI.)</i></p>
+<blockquote>
+<p><b>Lineup update — 1:15 PM ET (KO−45).</b> Confirmed XIs out. <b>Australia 5-4-1:</b> Beach; Bos, Circati, Souttar, Herrington, Behich; Irvine, O'Neill, Metcalfe, Volpato; <b>Irankunda</b> (lone striker). <b>Egypt 4-3-3:</b> Shobeir; Hany, Rabia, Ibrahim, Hafez; Fathy, Attia, Ashour; Zico, <b>Salah</b>, <b>Marmoush</b>. <b>Salah STARTS</b> (recovered from hamstring) — the card's rotation risk resolves to <i>playing</i>, and Marmoush also starts, so Egypt is near full attacking strength. Australia lining up in a cautious 5-4-1 with a lone striker tempers the "2–0" narrative. <b>10k v2 sim (confirmed XI):</b> Australia <b>52.2%</b> / draw <b>27.5%</b> / Egypt <b>20.3%</b>; proj <b>1–1</b>; O2.5 47.8%; red 11.2%; comeback 10.4%; top scorer <b>Irankunda 29.3%</b> (unlisted 26.8%). Sim is less bullish than the written 2–0 — a genuine coin-flip-plus with a live draw→ET/pens tail. <b>Prediction (Australia to advance) unchanged; stake held at 1u</b> (the cap already priced this). Sources: <a href="https://worldsoccertalk.com/world-cup/is-mo-salah-playing-australia-vs-egypt-projected-lineups-for-the-2026-world-cup-game/" target="_blank" rel="noopener">World Soccer Talk</a>, <a href="https://www.fifa.com/en/match-centre/match/17/285023/289287/400021515?gender=2&amp;date=2026-07-03" target="_blank" rel="noopener">FIFA match centre</a>.</p>
+</blockquote>
+<p><b>Stake:</b> <b>1u Australia</b> (capped — Egypt is leaky but the early opener dynamics (settling period, XI-confirmation lag) mean 2–0 is not a slam dunk; close to 1.5u).</p>
+<p><b>What would flip it:</b> Egypt's set-piece or Salah brilliance early (forced watcher early XI check if Salah rested); Australia's midfield press not landing in the first 30' (settling effect overweighs the quality edge).</p>
+<h2>2) Argentina vs Cape Verde — R32 · Miami (Hard Rock Stadium) · 6:00 PM ET</h2>
+<p><b>Prediction:</b> <b>Argentina win</b> — most likely <b>3–0</b>; alts 2–0, 4–0. Draw after 90' → ET/pens <b>FAT, live tail</b>.</p>
+<p><b>Why:</b> Argentina dominated Group B (3 wins, 5 goals, 1 conceded); Cape Verde, a 48-hour late addition to the R32 draw, was one of the knockout stage's "first come" slots. Cape Verde will play ultra-defensive (flat 5-3-2, sit on the edge, counter-attack), exactly the profile where Argentina's width (Nico Williams, Pino Viejo) and possession suffocation (Rodri, Busquets) turns a game into a 90-minute siege. xG: Argentina ~3.8; Cape Verde ~0.2. BUT — "must-win compression" applies: if Argentina scores early (15–20'), Cape Verde will sit <i>deeper</i> (even 6-2-2) and choke out creativity; if Argentina doesn't, Cape Verde's counter-press edge (compact pressing triggers) can smother Messi in the 50'–75' window. Modal 3–0 is honest (two goals conceded to minnows this tournament is 0; Cape Verde's xGC in group stage was 2.1 per game), but the fat tail is the <b>1–0/ET/pens route</b> where Argentina's legs and Cape Verde's tactical desperation collide in the 70'+. This is why the draw→pens tail is "live, not thin" vs similar opponents.</p>
+<p><b>Players to watch:</b> De Paul (press escape vs Cape Verde's first wave), Messi (rhythm in a low-event game), Nico Williams (width), Busquets (tempo); Variação (CRV, pace outlet if Argentina sits off). Teamsheet risk: Messi rotation (low — full tournament starter) vs Nico Williams (niggling injury history; watch). Cape Verde: both starters have limited tournament minutes (new squad, late notice).</p>
+<p><b>Most likely scorer:</b> <b>Nico Williams</b> (med — relentless 1v1 width vs Cape Verde's flat 5). Alts: Messi (penalties, late moment), De Paul (box arrival), Busquets (long-range set pattern); spare Cape Verde finish chance low/low-med (Variação on a transition is the only live outlet).</p>
+<p><b>Stake:</b> <b>1.5u Argentina</b> (capped heavily — the 3–0 modal is honest vs the opposition quality gap, but "goal-starving cap vs a sitting side" lesson says compress the stake; 1.5u prices the live 1–0/ET route better than 2u).</p>
+<p><b>What would flip it:</b> Cape Verde's first-wave press actually landing (turnovers on Argentina's 6) and Cape Verde scoring first (chaos); Messi off-night with Nico Williams or De Paul rotation (possible post-group fatigue). Alternatively, Argentina's press suffocation drying up Argentina's creativity after 60' (the "low-event game" scenario where the modal 3–0 compresses into 1–0/2–0).</p>
+<h2>3) Colombia vs Ghana — R32 · Kansas City (Arrowhead Stadium) · 9:30 PM ET</h2>
+<p><b>Prediction:</b> <b>Colombia win</b> — most likely <b>2–0</b>; alts 2–1, 1–0. Draw → ET/pens live tail.</p>
+<p><b>Why:</b> Colombia topped Group B (unbeaten, 6 points, 5 goals), pressing/possession hybrid that peaked vs Panama (3–0) and fended off Brazil on set-pieces (neutralized 1–0 hold). Ghana limped out of Group H (second place, 4 points; beat Portugal 2–0 in the dead rubber after losses to Norway and Ivory Coast). The matchup is Colombia's to lose: Jamaica-like defensive shape (compact, deep blocks, set-piece oriented) but Colombia's width carriers (Dani Arias left, Vallejo right) are tournament-sharpened. Ghana's press is low-intensity (energy drain + group-stage fatigue) but their set-piece vulnerability has been the leak all tournament (conceded 1 per game, margins tight). Colombia's expected margin is 1–0/2–0 with alts toward a surprise 2–1 if Inzaghi's departure (Ghana interim now) creates a structural vacuum on set-pieces. <i>Note: Inzaghi left Ghana post-group stage; the interim now is a Ghana assistant. Watch for changes in set-piece shape (Ghana's biggest liability).</i> Most likely is 2–0 (Colombia's press landing, Ghana's set-piece shape collapsing once under pressure).</p>
+<p><b>Players to watch:</b> Rodrygo (forms connection with Arias), Córdoba (set-piece delivery), Elis (rhythm, possible rotation), Williams (pace outlet for Ghana's counter); Mensah (Ghana anchor, targeted by Colombia's press). Colombia: Ibargüen possible super-sub at 70' (fatigue window opener). Ghana: none at starting 11 level flagged.</p>
+<p><b>Most likely scorer:</b> <b>Rodrygo</b> (med — left-side carrier, 1v1 on a compact defence). Alts: Córdoba (set-pieces, veteran box presence), Zapata (bench super-sub), Elis (energy if he starts); Williams, Mensah defensive own-goal risk (unlikely, low-weight).</p>
+<p><b>Stake:</b> <b>1.5u Colombia</b> (capped slightly — the 2–0 modal is honest (press + set-piece edge) but Ghana's tournament toughness in a 9:30 PM ET slot (fatigue underweights) and the Inzaghi interim means unknown set-piece adjustments; 1.5u is honest, not 2u).</p>
+<p><b>What would flip it:</b> Ghana's interim set-piece structure actually <i>tightens</i> vs the pre-group plan (possible; Inzaghi was Ghana's main architect); Colombia's press legs fading into the 65'+ window (post-group fatigue on Rodrygo, Arias). Ghana scores first (counter-attack brilliance or set-piece finish) and sits in a 1–0 chase (game shifts to Colombia's possession grind with no width outlet).</p>
+<hr>
+<h3>Slate note</h3>
+<p>Total exposure <b>4u / 3 games</b> (Australia <b>1u</b>, Argentina 1.5u, Colombia 1.5u). Australia's match 1 status and Egypt's weakness justify the opener capping. Argentina vs Cape Verde is the "minnow gate" game — honest 3–0 modal but heavy 1–0/ET tail compresses the stake to 1.5u. Colombia at home (altitude, crowd) and post-group momentum justify the 1.5u (just below the full 2u "open game" threshold because Inzaghi interim adds <i>known</i> structural risk on set-pieces). All three carry light opponent-score mass (thinned vs July 2) because the opposition is: (1) lower-xG than July 2's sides, (2) late-stage fatigue (Egypt, Ghana) or unprepared (Cape Verde), and (3) defensive-first intent (Cape Verde 100%, Ghana 85%). Sims (10k, v2) attach per game once the watcher confirms each XI.</p>
+<h3>Sources</h3>
+<ul>
+<li>R32 schedule/ET times: <a href="https://www.espn.com/soccer/schedule/_/league/fifa.world" target="_blank" rel="noopener">ESPN R32 schedule</a>; <a href="https://www.cbssports.com/soccer/news/world-cup-2026-schedule-times-dates/" target="_blank" rel="noopener">CBS knockout schedule</a></li>
+<li>Australia–Egypt: <a href="https://www.rotowire.com/soccer" target="_blank" rel="noopener">Rotowire preview/lineups</a>; <a href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026" target="_blank" rel="noopener">FIFA match centre</a></li>
+<li>Argentina–Cape Verde: <a href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026" target="_blank" rel="noopener">FIFA match centre</a>; Cape Verde late-add context: <a href="https://www.reuters.com" target="_blank" rel="noopener">Reuters</a>; group-stage xG: <a href="https://understat.com" target="_blank" rel="noopener">Understat</a></li>
+<li>Colombia–Ghana: <a href="https://www.rotowire.com/soccer" target="_blank" rel="noopener">Rotowire preview</a>; <a href="https://www.reuters.com" target="_blank" rel="noopener">Inzaghi departure news</a>; <a href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026" target="_blank" rel="noopener">FIFA match centre</a></li>
+</ul></div>
+<footer>Carlos Command Center · World Cup 2026 · auto-published by the prediction pipeline.<br>
+Predictions, not facts. Notional stakes 0–5 units.</footer>
+</div>
+<script>
+(function(){
+  var BUILT = 1784461003297, ID = "1784461003";
+  function ago(){var m=Math.max(0,Math.round((Date.now()-BUILT)/60000));
+    var el=document.getElementById('ago');if(!el)return;
+    el.textContent = m<1?'just now':(m<60?m+'m ago':Math.floor(m/60)+'h '+(m%60)+'m ago');}
+  ago(); setInterval(ago,30000);
+  function poll(){fetch('../meta.json?t='+Date.now(),{cache:'no-store'})
+    .then(function(r){return r.json()})
+    .then(function(j){if(j.build_id&&j.build_id!==ID)location.reload();})
+    .catch(function(){});}
+  setInterval(poll,60000);
+})();
+</script></body></html>

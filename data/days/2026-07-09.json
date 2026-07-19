@@ -1,0 +1,24 @@
+{
+  "date": "2026-07-09",
+  "subtitle": "Quarterfinals — Day 1 · France vs Morocco kicks off the QF round",
+  "exposure": "Exposure 2u staked today · 1 game",
+  "games": [
+    {
+      "home": "France",
+      "away": "Morocco",
+      "group": "QF",
+      "venue": "Foxborough (Gillette Stadium)",
+      "koET": "4:00 PM ET",
+      "window": "4:00 PM ET · Quarterfinal",
+      "prediction": "France win",
+      "scoreline": "2–0",
+      "alts": "3–0, 1–0; draw/ET-pens live tail (Morocco tournament-hardened)",
+      "stake": "2u France",
+      "scorer": "Mbappé <span class=\"k\">(high)</span> · alts Doué, Kolo Muani/Barcola; Rahimi/Brahim Diaz (MAR, low-med)",
+      "status": "pending",
+      "statusTime": "",
+      "note": "Watcher confirms the XI ~45 min before kickoff, then runs the 10k sim.",
+      "noteHeld": false
+    }
+  ]
+}

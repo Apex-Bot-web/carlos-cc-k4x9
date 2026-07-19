@@ -1,0 +1,27 @@
+{
+  "date": "2026-07-10",
+  "subtitle": "Quarterfinals — Day 2 · Spain vs Belgium",
+  "exposure": "Exposure 2u staked today · 1 game",
+  "games": [
+    {
+      "home": "Spain",
+      "away": "Belgium",
+      "group": "QF",
+      "venue": "Inglewood (SoFi Stadium)",
+      "koET": "3:00 PM ET",
+      "window": "3:00 PM ET · Quarterfinal",
+      "prediction": "Spain win",
+      "scoreline": "2–0",
+      "alts": "3–0, 1–0; draw/ET-pens live but thin (Belgium has proven comeback gear, but Onana out + KDB/Doku/Lukaku bench again)",
+      "stake": "2u Spain",
+      "scorer": "Oyarzabal <span class=\"k\">(medium-high)</span> · co-primary Yamal (medium); alts Olmo, Baena, Porro; Trossard (BEL, low-med), De Ketelaere (low)",
+      "status": "pending",
+      "statusTime": "",
+      "note": "Watcher confirms the XI ~45 min before kickoff, then runs the 10k sim.",
+      "noteHeld": false,
+      "result": "FT 2–1",
+      "resultGrade": "PARTIAL",
+      "resultScorers": "F. Ruiz 30, De Ketelaere 41, Merino 88 (Spain win — outcome ✅, scoreline within-one, scorer primary ✗)"
+    }
+  ]
+}

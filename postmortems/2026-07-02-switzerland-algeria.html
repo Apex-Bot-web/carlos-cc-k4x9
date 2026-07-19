@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Post-mortem — 2026-07-02-switzerland-algeria</title><style>
+:root{color-scheme:light;--bg:#eef1f5;--card:#fff;--ink:#161a1d;--mut:#5b6770;--line:#e1e6ec;
+--green:#1a7f37;--navy:#0f2740;--accent:#1a7f4f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.55}
+.wrap{max-width:1100px;margin:0 auto;padding:14px 14px 50px}
+nav.site{display:flex;gap:4px;align-items:center;flex-wrap:wrap;background:var(--navy);border-radius:12px;padding:8px 10px;margin-bottom:14px;position:sticky;top:8px;z-index:10;box-shadow:0 2px 10px rgba(15,39,64,.25)}
+nav.site .brand{color:#fff;font-weight:800;letter-spacing:-.2px;margin-right:8px;font-size:15px;text-decoration:none}
+nav.site .brand .dot{color:#3ddc84}
+nav.site a.t{color:#c8d3de;text-decoration:none;font-size:13px;font-weight:700;padding:5px 10px;border-radius:8px}
+nav.site a.t.on,nav.site a.t:hover{background:rgba(255,255,255,.14);color:#fff}
+nav.site .upd{margin-left:auto;color:#8fa3b5;font-size:11px;text-align:right}
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px;border-bottom:2px solid #d7dde4;padding-bottom:12px;margin-bottom:16px}
+.title{font-size:21px;font-weight:800;letter-spacing:-.3px}
+.sub{color:var(--mut);font-size:13px;margin-top:3px}
+.meta{text-align:right;font-size:12px;color:var(--mut)}
+.meta .exp{display:inline-block;margin-top:4px;background:var(--navy);color:#fff;padding:3px 9px;border-radius:999px;font-weight:700;font-size:12px}
+.badge{display:inline-flex;align-items:center;gap:5px;font-weight:700;font-size:11px;padding:3px 8px;border-radius:6px;letter-spacing:.2px}
+.b-conf{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.b-pend{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-hit{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.r-miss{background:#fde7e7;color:#b42318;border:1px solid #f3bcbc}
+.r-part{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-live{background:#e7eefc;color:#1d4ed8;border:1px solid #bcd0f5}
+.b-sim{background:#efeafd;color:#6b46c1;border:1px solid #d6c8f5}
+.sim{font-size:12px;color:#4a3a6b;margin-top:9px;background:#f7f4fe;border:1px solid #ece5fb;border-radius:8px;padding:7px 9px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.window{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);margin:20px 0 10px;display:flex;align-items:center;gap:8px}
+.window::after{content:"";flex:1;height:1px;background:#dbe1e8}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 15px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.card.confirmed{border-left:4px solid #1a7f37}
+.card.pending{border-left:4px solid #e8b33a}
+.match{font-size:16px;font-weight:800;letter-spacing:-.2px}
+.ctx{font-size:12px;color:var(--mut);margin-top:2px}
+.row{display:flex;align-items:center;justify-content:space-between;margin-top:11px;gap:8px}
+.pred{font-size:14px}.pred b{font-weight:800}.score{font-weight:800}
+.muted{color:#8a949c}
+.stake{font-size:12px;font-weight:800;background:var(--navy);color:#fff;padding:2px 8px;border-radius:6px;white-space:nowrap}
+.scorer{font-size:12.5px;color:#34404a;margin-top:9px}.scorer .k{color:var(--mut)}
+.result{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:11px;padding:8px 10px;border-radius:8px;background:#f6f8fb;border:1px solid #e6ebf1}
+.result .rscore{font-weight:800;font-size:14px}.result .rscore .k{color:var(--mut);font-weight:600;font-size:11px}
+.note{font-size:11.5px;color:var(--mut);margin-top:9px;border-top:1px dashed var(--line);padding-top:8px}
+.note.held{color:#1a7f37}
+footer{margin-top:26px;font-size:11px;color:#8a949c;text-align:center;line-height:1.6}
+/* prose (markdown pages) */
+.prose{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;box-shadow:0 1px 2px rgba(16,39,64,.04);overflow-x:auto}
+.prose h1{font-size:22px;letter-spacing:-.3px;margin:.2em 0 .5em}
+.prose h2{font-size:17px;margin:1.3em 0 .5em;padding-bottom:5px;border-bottom:1px solid var(--line)}
+.prose h3{font-size:15px;margin:1.2em 0 .4em}
+.prose p,.prose li{font-size:14px;color:#2a333b}
+.prose table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13px}
+.prose th,.prose td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+.prose th{background:#f4f6f9;font-weight:700}
+.prose tr:nth-child(even) td{background:#fafbfc}
+.prose blockquote{margin:10px 0;padding:6px 14px;border-left:3px solid #cbd5df;color:var(--mut);font-size:13.5px}
+.prose code{background:#f0f3f6;border:1px solid #e3e8ee;border-radius:4px;padding:1px 5px;font-size:12.5px}
+.prose hr{border:0;border-top:1px solid var(--line);margin:18px 0}
+.prose a{color:#1d4ed8}
+.prose img{max-width:100%}
+/* index lists */
+.linklist{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;margin-top:12px}
+.linklist a{display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;text-decoration:none;color:var(--ink);font-weight:700;font-size:13.5px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.linklist a:hover{border-color:#b9c4cf}
+.linklist a .d{display:block;font-weight:500;color:var(--mut);font-size:12px;margin-top:3px}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0 0 16px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.stat .v{font-size:19px;font-weight:800;letter-spacing:-.3px}
+.stat .k{font-size:11px;color:var(--mut);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.dayhead{font-size:16px;font-weight:800;margin:26px 0 4px}
+@media (max-width:560px){.wrap{padding:10px 9px 40px}.grid{grid-template-columns:1fr}.meta{text-align:left}}
+</style></head>
+<body><div class="wrap">
+<nav class="site"><a class="brand" href="../index.html">Carlos<span class="dot"> ●</span></a><a class="t" href="../index.html">Board</a><a class="t" href="../history.html">History</a><a class="t" href="../record.html">Record</a><a class="t on" href="../intel.html">Intel</a>
+<span class="upd">updated<br><b id="ago">…</b></span></nav>
+<div class="prose"><h1>Post-Mortem: Switzerland 2–0 Algeria — R32, July 2, 2026</h1>
+<h2>Prediction vs actual</h2>
+<ul>
+<li><b>Card:</b> Switzerland win, most likely <b>2–1</b> (alts 1–0, 2–0); Embolo primary scorer (low/med); Manzambi flagged as a form-spike alt to list "started or super-sub"; mandatory late-window teamsheet check called for ~10:15 PM ET; 1u stake.</li>
+<li><b>Actual:</b> <b>Switzerland 2–0 Algeria</b> (Embolo 10'; Ndoye 46'). Switzerland's first WC knockout win in 88 years.</li>
+<li><b>Grade:</b> ✅ outcome, <b>✅ alt-exact scoreline</b> (2–0 was the 2nd-listed alt), ✅ scorer (Embolo primary). +1u. No sim was run for this game (watcher coverage gap, despite the card's own mandatory-teamsheet-check flag).</li>
+</ul>
+<h2>Deep dive</h2>
+<p><b>Shot profile (Opta):</b> Switzerland xG 2.52, Algeria xG 0.73. Algeria actually had more of the ball (56% possession) but Switzerland's chances were far higher quality — a clear "control the ball, control little else" profile for Algeria against a structured Swiss block.</p>
+<p><b>Phase-by-phase:</b></p>
+<ul>
+<li><b>1st half:</b> Embolo opened the scoring in the 10th minute off a Manzambi individual run and cross — Manzambi's involvement in the buildup validates the card's flag on him as a live attacking factor, even though he didn't get the goal himself. This is the exact opponent-score/quality-edge shape the card described (Swiss structure vs a leaky Algeria back line), arriving early rather than accumulating.</li>
+<li><b>2nd half (46'):</b> Ndoye scored 48 seconds after the restart, sweeping home a half-hearted clearance — a fast, low-event goal not tied to sustained second-half pressure, more an individual/transition finish off a loose ball.</li>
+<li><b>Late:</b> Sub Fabian Rieder missed an open goal (notable miss, no material effect on scoreline). Algeria's transition threat (Mahrez, Gouiri, Aït-Nouri) — the mechanism the card explicitly priced via the "opponent-score mass" lesson from their 3–3 with Austria — never actually landed; Algeria finished with a low 0.73 xG despite the possession share.</li>
+</ul>
+<p><b>What caused the result:</b> Switzerland's structural edge translated cleanly and early, and unlike the Austria game, Algeria's transition/chaos script (the thing the card correctly worried about, given their 3–3 with Austria) simply didn't fire — Petković's information edge and Switzerland's Yakin structure held up. The second goal via a loose-ball transition (Ndoye) was not clearly forecast by either the primary or alt scorer calls.</p>
+<h2>Process vs variance split</h2>
+<p><b>~55% process, ~45% variance.</b> The outcome and win-margin lean were correct process — Switzerland's structural edge over a leakier Algeria side (which had just conceded 3 to Austria) held exactly as read. But the specific goal-scorers diverging from the list (Ndoye scoring instead of the flagged Manzambi, despite Manzambi's genuine involvement in goal #1's buildup) is a real, transferable process gap, not noise — the card's own instruction ("list him started or super-sub") was about Manzambi as a <i>scorer</i> threat, and while Manzambi's press/dribbling created the first goal, the second-scorer slot went to an entirely unlisted player (Ndoye). Algeria's near-total failure to convert possession into danger (0.73 xG on 56% possession) is closer to a correct structural read holding up than to variance.</p>
+<h2>Predictive signals for future games</h2>
+<ul>
+<li><b>Buildup involvement ≠ scorer credit — track it separately.</b> Manzambi assisted/created the opener exactly as flagged, but the goal-scorer slot list still missed the actual 2nd scorer (Ndoye). Scout-personnel should widen the "credible secondary scorer" pool beyond the single flagged form-spike name to include any attacking player getting consistent service, not just the trending name.</li>
+<li><b>High-possession-but-low-quality performances (Algeria: 56% possession, 0.73 xG) are a real, repeatable "control without threat" profile</b> for transition-reliant sides facing a structured mid-block — worth flagging pre-match as a <i>lower</i> opponent-score-mass case even when a team has shown chaos/scoring upside earlier in the tournament (here, contrasted directly against Algeria's earlier 3–3 with Austria, a different opponent/game state).</li>
+<li><b>Fast second-half restart goals (within the first 2 minutes of the 2nd half) are an underweighted script</b> — teams that dominate xG in the 1st half but don't add to the lead pre-half sometimes convert immediately on the restart; this is a distinct, plausible pattern from "sustained 2nd-half pressure."</li>
+<li><b>Watcher coverage gap — same issue as Portugal–Croatia:</b> no sim output exists for this game despite the card carrying a mandatory late-window teamsheet-check flag, which should have been the trigger for a confirmed-XI re-sim. This is now a 2-for-3 miss on the slate and needs an operational fix before R16, not just a football lesson (see <code>predictions/2026-07-02-slate.md</code> and <code>RECORD.md</code>).</li>
+</ul>
+<hr>
+<p>Sources: <a href="https://www.aljazeera.com/sports/2026/7/3/switzerland-algeria-fifa-world-cup-2026-score-embolo-ndoye" target="_blank" rel="noopener">Al Jazeera report</a>; <a href="https://www.skysports.com/football/switzerland-vs-algeria/report/549848" target="_blank" rel="noopener">Sky Sports report</a>; <a href="https://www.espn.com/soccer/report/_/gameId/760498" target="_blank" rel="noopener">ESPN game analysis</a></p></div>
+<footer>Carlos Command Center · World Cup 2026 · auto-published by the prediction pipeline.<br>
+Predictions, not facts. Notional stakes 0–5 units.</footer>
+</div>
+<script>
+(function(){
+  var BUILT = 1784461003297, ID = "1784461003";
+  function ago(){var m=Math.max(0,Math.round((Date.now()-BUILT)/60000));
+    var el=document.getElementById('ago');if(!el)return;
+    el.textContent = m<1?'just now':(m<60?m+'m ago':Math.floor(m/60)+'h '+(m%60)+'m ago');}
+  ago(); setInterval(ago,30000);
+  function poll(){fetch('../meta.json?t='+Date.now(),{cache:'no-store'})
+    .then(function(r){return r.json()})
+    .then(function(j){if(j.build_id&&j.build_id!==ID)location.reload();})
+    .catch(function(){});}
+  setInterval(poll,60000);
+})();
+</script></body></html>

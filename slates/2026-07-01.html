@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Carlos — Slate 2026-07-01</title><style>
+:root{color-scheme:light;--bg:#eef1f5;--card:#fff;--ink:#161a1d;--mut:#5b6770;--line:#e1e6ec;
+--green:#1a7f37;--navy:#0f2740;--accent:#1a7f4f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.55}
+.wrap{max-width:1100px;margin:0 auto;padding:14px 14px 50px}
+nav.site{display:flex;gap:4px;align-items:center;flex-wrap:wrap;background:var(--navy);border-radius:12px;padding:8px 10px;margin-bottom:14px;position:sticky;top:8px;z-index:10;box-shadow:0 2px 10px rgba(15,39,64,.25)}
+nav.site .brand{color:#fff;font-weight:800;letter-spacing:-.2px;margin-right:8px;font-size:15px;text-decoration:none}
+nav.site .brand .dot{color:#3ddc84}
+nav.site a.t{color:#c8d3de;text-decoration:none;font-size:13px;font-weight:700;padding:5px 10px;border-radius:8px}
+nav.site a.t.on,nav.site a.t:hover{background:rgba(255,255,255,.14);color:#fff}
+nav.site .upd{margin-left:auto;color:#8fa3b5;font-size:11px;text-align:right}
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px;border-bottom:2px solid #d7dde4;padding-bottom:12px;margin-bottom:16px}
+.title{font-size:21px;font-weight:800;letter-spacing:-.3px}
+.sub{color:var(--mut);font-size:13px;margin-top:3px}
+.meta{text-align:right;font-size:12px;color:var(--mut)}
+.meta .exp{display:inline-block;margin-top:4px;background:var(--navy);color:#fff;padding:3px 9px;border-radius:999px;font-weight:700;font-size:12px}
+.badge{display:inline-flex;align-items:center;gap:5px;font-weight:700;font-size:11px;padding:3px 8px;border-radius:6px;letter-spacing:.2px}
+.b-conf{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.b-pend{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-hit{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.r-miss{background:#fde7e7;color:#b42318;border:1px solid #f3bcbc}
+.r-part{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-live{background:#e7eefc;color:#1d4ed8;border:1px solid #bcd0f5}
+.b-sim{background:#efeafd;color:#6b46c1;border:1px solid #d6c8f5}
+.sim{font-size:12px;color:#4a3a6b;margin-top:9px;background:#f7f4fe;border:1px solid #ece5fb;border-radius:8px;padding:7px 9px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.window{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);margin:20px 0 10px;display:flex;align-items:center;gap:8px}
+.window::after{content:"";flex:1;height:1px;background:#dbe1e8}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 15px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.card.confirmed{border-left:4px solid #1a7f37}
+.card.pending{border-left:4px solid #e8b33a}
+.match{font-size:16px;font-weight:800;letter-spacing:-.2px}
+.ctx{font-size:12px;color:var(--mut);margin-top:2px}
+.row{display:flex;align-items:center;justify-content:space-between;margin-top:11px;gap:8px}
+.pred{font-size:14px}.pred b{font-weight:800}.score{font-weight:800}
+.muted{color:#8a949c}
+.stake{font-size:12px;font-weight:800;background:var(--navy);color:#fff;padding:2px 8px;border-radius:6px;white-space:nowrap}
+.scorer{font-size:12.5px;color:#34404a;margin-top:9px}.scorer .k{color:var(--mut)}
+.result{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:11px;padding:8px 10px;border-radius:8px;background:#f6f8fb;border:1px solid #e6ebf1}
+.result .rscore{font-weight:800;font-size:14px}.result .rscore .k{color:var(--mut);font-weight:600;font-size:11px}
+.note{font-size:11.5px;color:var(--mut);margin-top:9px;border-top:1px dashed var(--line);padding-top:8px}
+.note.held{color:#1a7f37}
+footer{margin-top:26px;font-size:11px;color:#8a949c;text-align:center;line-height:1.6}
+/* prose (markdown pages) */
+.prose{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;box-shadow:0 1px 2px rgba(16,39,64,.04);overflow-x:auto}
+.prose h1{font-size:22px;letter-spacing:-.3px;margin:.2em 0 .5em}
+.prose h2{font-size:17px;margin:1.3em 0 .5em;padding-bottom:5px;border-bottom:1px solid var(--line)}
+.prose h3{font-size:15px;margin:1.2em 0 .4em}
+.prose p,.prose li{font-size:14px;color:#2a333b}
+.prose table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13px}
+.prose th,.prose td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+.prose th{background:#f4f6f9;font-weight:700}
+.prose tr:nth-child(even) td{background:#fafbfc}
+.prose blockquote{margin:10px 0;padding:6px 14px;border-left:3px solid #cbd5df;color:var(--mut);font-size:13.5px}
+.prose code{background:#f0f3f6;border:1px solid #e3e8ee;border-radius:4px;padding:1px 5px;font-size:12.5px}
+.prose hr{border:0;border-top:1px solid var(--line);margin:18px 0}
+.prose a{color:#1d4ed8}
+.prose img{max-width:100%}
+/* index lists */
+.linklist{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;margin-top:12px}
+.linklist a{display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;text-decoration:none;color:var(--ink);font-weight:700;font-size:13.5px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.linklist a:hover{border-color:#b9c4cf}
+.linklist a .d{display:block;font-weight:500;color:var(--mut);font-size:12px;margin-top:3px}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0 0 16px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.stat .v{font-size:19px;font-weight:800;letter-spacing:-.3px}
+.stat .k{font-size:11px;color:var(--mut);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.dayhead{font-size:16px;font-weight:800;margin:26px 0 4px}
+@media (max-width:560px){.wrap{padding:10px 9px 40px}.grid{grid-template-columns:1fr}.meta{text-align:left}}
+</style></head>
+<body><div class="wrap">
+<nav class="site"><a class="brand" href="../index.html">Carlos<span class="dot"> ●</span></a><a class="t" href="../index.html">Board</a><a class="t on" href="../history.html">History</a><a class="t" href="../record.html">Record</a><a class="t" href="../intel.html">Intel</a>
+<span class="upd">updated<br><b id="ago">…</b></span></nav>
+<div class="prose"><h1>Carlos — Match Prediction Cards · July 1, 2026 — Round of 32 (Day 4)</h1>
+<p>*Knockouts: a draw after 90' goes to extra time / penalties. <b>Both teams are must-win</b>, so the</p>
+<p>group-stage "unmotivated favorite" discount does NOT apply — it's quality + form. Stakes capped on</p>
+<p>the honest ladder — no genuine France-type 2u edge today, so all three sit at 1u. Lineups pending;</p>
+<p>sims run only after the watcher confirms each XI (~45 min pre-KO). Predictions, not facts; sources at end.*</p>
+<p><b>Calibration applied (carlos.lessons.md):</b> (1) vs a <b>fit deep block make 1–0 a live primary/alt, not a buried tail</b> — DR Congo just held Portugal 1–1 and lost only 1–0 to Colombia, so England's margin is capped. (2) <b>Margin under-projection is the systematic error</b> — for a home favorite vs a defense that never keeps clean sheets (USA vs Bosnia), model <b>2+</b>. (3) <b>Honest stake ladder</b> — reserve the big stake for an open, clear quality edge; <b>cap near-even knockouts and break-the-bus favorites at 1u</b>. (4) <b>Compress/cap when the underdog is organised and dangerous</b> — Senegal are. (5) <b>Late-window (8 PM ET) games get a mandatory teamsheet check</b> (rotation/talisman risk highest) — flagged on USA. (6) Keep <b>scorer calls low/med</b> and hedged.</p>
+<hr>
+<h2>1) England vs DR Congo — R32 · Atlanta (Mercedes-Benz Stadium) · 12:00 PM ET</h2>
+<p><b>Prediction:</b> <b>England win</b> — most likely <b>2–0</b>; <b>1–0 is a live co-primary</b> (deep block), alt 2–1. A draw after 90' → ET/pens is the tail.</p>
+<p><b>Why:</b> England won Group L (7 pts); DR Congo are third from Group K on their <b>first-ever</b> knockout run, and they defend for their lives — they <b>held Portugal 1–1 and lost just 1–0 to Colombia</b>. Desabre sets a back three (Mbemba marshalling) with Wissa/Bakambu to run in behind on the break. Opta ~74% England in regulation. England's edge is Kane + Bellingham + <b>set-piece quality</b> breaking a low block down — expect patience, a set piece, and a late second for gloss rather than an early rout.</p>
+<p><b>Players to watch:</b> Kane (record 11 WC goals, set pieces/pens), Bellingham + Saka behind him; Mbemba (DRC organiser), Wissa on the counter. <i>Reece James out; Quansah doubtful.</i></p>
+<p><b>Most likely scorer:</b> <b>Kane</b> (med — a packed box starves the No.9, but he's on set pieces + pens). Alts: Bellingham, Saka; Wissa (DRC counter).</p>
+<p><b>Stake:</b> <b>1u England</b> (capped — break-the-bus favorite; the repeated lesson is <i>don't over-stake England vs a low block</i>, and Colombia only managed 1–0 vs this exact block).</p>
+<p><b>What would flip it:</b> England off-day vs the low block dragging it toward 0–0/pens; DR Congo landing an early counter through Wissa/Bakambu.</p>
+<h2>2) Belgium vs Senegal — R32 · Seattle (Lumen Field) · 4:00 PM ET</h2>
+<p><b>Prediction:</b> <b>Belgium edge</b> — most likely <b>2–1</b>; a <b>1–1 (→ ET/pens) is a live alt</b>, plus 1–0. The most open, highest-quality tie of the day, but near-even.</p>
+<p><b>Why:</b> Belgium topped their group (5–1 over New Zealand); Senegal came through as a best-3rd — thrashed Iraq 5–0 but shipped heavy losses to France and Norway. Market is near a coin-flip (bet365 ~ Belgium +115 / draw +220 / Senegal +275). The tie turns on <b>De Bruyne's creativity vs Senegal's midfield press (Gueye + Pape Matar Sarr)</b>; Belgium's edge is Courtois + top-end quality (Doku/Lukaku/Trossard). <b>Concrete personnel edge for Belgium: Senegal are without first-choice GK Édouard Mendy (knee sprain).</b></p>
+<p><b>Players to watch:</b> De Bruyne (Belgium's transition engine), Doku (1v1 width), Lukaku (No.9); Mané, I. Sarr, Jackson + Koulibaly (SEN) — Senegal's pace + physicality is the danger.</p>
+<p><b>Most likely scorer:</b> <b>Lukaku</b> (med). Alts: De Bruyne, Doku; Mané / Jackson (SEN).</p>
+<p><b>Stake:</b> <b>1u Belgium</b> (capped — Senegal are organised and dangerous and the market's near-even; not a clean 2u edge).</p>
+<p><b>What would flip it:</b> Gueye/Sarr smothering De Bruyne and Senegal's pace getting in behind Belgium's high line; a backup-keeper wobble either way.</p>
+<h2>3) USA vs Bosnia &amp; Herzegovina — R32 · Santa Clara (SF Bay Area Stadium / Levi's) · 8:00 PM ET</h2>
+<p><b>Prediction:</b> <b>USA win</b> — most likely <b>2–1</b> (alts 2–0, 3–1). Home crowd + a leaky Bosnia points to a multi-goal USA night, but Bosnia score too.</p>
+<p><b>Why:</b> USA won Group D under Pochettino (beat Paraguay + Australia; a much-changed XI lost a five-goal thriller to Türkiye). Bosnia beat Italy in the UEFA play-offs and took 4 points from Group C, but <b>have never kept a clean sheet in six WC matches</b> — no side has played more at the finals without one. Home favourite (Opta ~67.5% win / ~77% to progress) vs a defense that always concedes → <b>model USA 2+</b> (margin-under-projection lesson). Džeko + Demirović keep Bosnia live, and USA's own back line leaked late vs Türkiye, so lean <b>over 2.5</b>.</p>
+<p><b>Players to watch:</b> <b>Pulisic</b> (expected to start after only 77 min so far — the talisman moment), Balogun (No.9), Tillman/Adams (midfield control); Džeko (c) + Demirović (BIH).</p>
+<p><b>Most likely scorer:</b> <b>Pulisic</b> (med — talisman, set pieces). Alts: Balogun, Tillman; Džeko (BIH).</p>
+<p><b>Stake:</b> <b>1u USA</b> (home + leaky opponent is a real edge, but knockout variance + Bosnia's goal threat cap it at 1u).</p>
+<p><b>What would flip it:</b> <b>Late-window teamsheet risk — mandatory XI check ~7:15 PM ET</b> (USA rotated heavily vs Türkiye; confirm Pulisic + Balogun start). An early Bosnia goal against the run of play; a Džeko set-piece night.</p>
+<hr>
+<h3>Slate note</h3>
+<p>Total exposure <b>3u / 3 games</b> (England, Belgium, USA — <b>1u each</b>). No France-type clean 2u edge today: England is a capped break-the-bus favorite, Belgium–Senegal is near-even, USA is a home edge with a live opponent. Two of three carry a real draw→ET/pens tail. Motivation is symmetric (all must-win). Sims (10k, v2) attach per game once the watcher confirms each XI.</p>
+<h3>Sources</h3>
+<ul>
+<li>R32 schedule/ET times: <a href="https://sports.yahoo.com/soccer/article/world-cup-2026-round-of-32-full-bracket-matchups-schedule-and-how-each-team-qualified-164942403.html" target="_blank" rel="noopener">Yahoo R32 bracket/schedule</a>; <a href="https://www.cbssports.com/soccer/news/world-cup-2026-schedule-times-dates/" target="_blank" rel="noopener">CBS knockout schedule</a></li>
+<li>England–DR Congo: <a href="https://www.aljazeera.com/sports/2026/6/30/england-vs-dr-congo-world-cup-round-of-32-kane-match-prediction-lineups" target="_blank" rel="noopener">Al Jazeera preview/lineups</a>; <a href="https://www.rotowire.com/soccer/article/england-vs-dr-congo-preview-predicted-lineups-team-news-tactical-analysis-2026-world-cup-round-of-32-120375" target="_blank" rel="noopener">Rotowire predicted XIs</a>; <a href="https://www.cbssports.com/soccer/news/england-congo-dr-odds-prediction-start-time-2026-world-cup-round-of-32-picks/" target="_blank" rel="noopener">CBS odds/prediction</a></li>
+<li>Belgium–Senegal: <a href="https://www.rotowire.com/soccer/article/belgium-vs-senegal-preview-predicted-lineups-team-news-tactical-analysis-2026-world-cup-round-of-32-120376" target="_blank" rel="noopener">Rotowire preview/lineups</a>; <a href="https://theanalyst.com/articles/belgium-vs-senegal-prediction-world-cup-2026-match-preview" target="_blank" rel="noopener">Opta Analyst preview</a>; <a href="https://www.squawka.com/us/news/world-cup/match-preview-belgium-vs-senegal-07-01-26-world-cup-2026-round-of-32/" target="_blank" rel="noopener">Squawka preview</a></li>
+<li>USA–Bosnia: <a href="https://www.aljazeera.com/news/2026/7/1/usa-vs-bosnia-herzegovina-world-cup-round-of-32-prediction-team-lineups" target="_blank" rel="noopener">Al Jazeera preview/lineups</a>; <a href="https://www.foxsports.com/stories/soccer/usmnt-world-cup-pulisic-bosnia-and-herzegovina-storylines-projected-lineup-predictions" target="_blank" rel="noopener">FOX Sports projected XI/storylines</a>; <a href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/usa-bosnia-and-herzegovina-live-stream-team-news-tickets" target="_blank" rel="noopener">FIFA match preview</a></li>
+</ul>
+<hr>
+<h3>Lineup updates (2026-07-01 04:09 PM ET)</h3>
+<ul>
+<li><b>England vs DR Congo (confirmed XI):</b> Pickford; Spence, Konsa, Guehi, O'Reilly; Anderson, Rice; Madueke, Bellingham, Rashford; Kane (James + Quansah out; Rice back). Kane confirmed → <b>most-likely scorer stays Kane</b>. v2 sim (post-XI, retro): England 53.7% / draw 26.6% / DRC 19.7%, proj 1–1, O2.5 49%, top scorer Kane 33%. <b>RESULT: FT England 2–1 DR Congo</b> — Cipenga 7' (DRC), Kane 75', 86'. Predicted England win → <b>HIT</b>.</li>
+<li><b>Belgium vs Senegal (confirmed XI):</b> Belgium 4-2-3-1 Courtois; Castagne, Mechele, Theate, De Cuyper; Tielemans(C), Vanaken; Doku, De Bruyne, Trossard; <b>De Ketelaere false-9 — LUKAKU BENCHED (material change)</b>. Senegal 4-3-3 M. Diaw (Mendy still out); Diatta, Niakhate, P. Ciss, Jakobs; P. Gueye, I. Gueye(C), H. Diarra; Mané, I. Sarr, Ndiaye. With Lukaku out, <b>most-likely scorer → De Bruyne</b> (alts: De Ketelaere, Trossard, Doku). Stake unchanged (1u Belgium). v2 sim (post-XI): Belgium 46.4% / draw 26.9% / Senegal 26.7%, proj 1–1, O2.5 56%, top scorer De Bruyne 23%.</li>
+</ul>
+<hr>
+<h2>Grades (graded 2026-07-02 07:18 AM ET)</h2>
+<p><i>Verified finals — sources: <a href="https://www.espn.com/soccer/match/_/gameId/760495/congo-dr-england" target="_blank" rel="noopener">ESPN England 2–1 DRC</a>, <a href="https://www.skysports.com/football/england-vs-dr-congo/report/549847" target="_blank" rel="noopener">Sky Sports report</a>; <a href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/belgium-senegal-review-highlights" target="_blank" rel="noopener">FIFA Belgium 3–2 Senegal (AET)</a>, <a href="https://africa.espn.com/football/match/_/gameId/760493/senegal-belgium" target="_blank" rel="noopener">ESPN</a>; <a href="https://www.espn.com/soccer/match/_/gameId/760494/bosnia-herzegovina-united-states" target="_blank" rel="noopener">ESPN USA 2–0 Bosnia</a>, <a href="https://www.cbsnews.com/news/world-cup-us-bosnia-herzegovina-round-of-32/" target="_blank" rel="noopener">CBS News</a>.</i></p>
+<h3>1) England 2–1 DR Congo (FT) — Cipenga 7'; Kane 75', 86'</h3>
+<ul>
+<li><b>Outcome:</b> ✅ HIT (1u England, +1u). England trailed 74 minutes vs the low block before Kane's brace.</li>
+<li><b>Scoreline:</b> primary 2–0 ❌; <b>listed alt 2–1 EXACT</b> ✅; within-one ✅.</li>
+<li><b>Key players / scorer:</b> ✅✅ <b>Kane primary</b> — header + 86' winner (WC goals 12 &amp; 13); Bellingham featured. "England off-day vs low block" flip-risk nearly fired — patience + the No.9 bailed it out, exactly the 1–0/2–1 shape the card priced.</li>
+</ul>
+<h3>2) Belgium 3–2 Senegal (AET; regulation 2–2) — H. Diarra 25', I. Sarr 51'; Lukaku 86', Tielemans 89', Tielemans 120+5 (pen)</h3>
+<ul>
+<li><b>Outcome:</b> ✅ HIT (1u Belgium, +1u) — via the ET path the card listed as live alt (draw after 90' → ET). Belgium were 0–2 down at 85' and produced the tournament's biggest comeback; Tielemans' 120+5 pen is the latest goal in WC history.</li>
+<li><b>Scoreline:</b> primary 2–1 ❌ (reg 2–2 not among alts 1–1/1–0); within-one ✅.</li>
+<li><b>Key players / scorer:</b> ❌ revised primary <b>De Bruyne</b> didn't score (originally Lukaku — benched at XI, then scored as a sub: the lineup-revision logic backfired here). Gueye/Diarra midfield danger flagged in "what would flip it" was real — Diarra scored.</li>
+<li><b>Calibration:</b> honest read = near-miss rescued late. On a 90' basis this was a draw; credit the outcome, don't credit the process fully.</li>
+</ul>
+<h3>3) USA 2–0 Bosnia &amp; Herzegovina (FT) — Balogun ~44'; Tillman 81' (FK). Balogun sent off 64'; USA held with 10 men.</h3>
+<ul>
+<li><b>Outcome:</b> ✅ HIT (1u USA, +1u).</li>
+<li><b>Scoreline:</b> primary 2–1 ❌; <b>listed alt 2–0 EXACT</b> ✅; within-one ✅. Over-2.5 lean missed (unstaked) — Bosnia's "never a clean sheet" streak continued (conceded 2), but USA blanked them.</li>
+<li><b>Key players / scorer:</b> ❌ primary <b>Pulisic</b> didn't score (goal ruled out offside); <b>both alts scored</b> (Balogun, Tillman) ◐. Teamsheet check held — Pulisic + Balogun started.</li>
+</ul>
+<h3>Day totals</h3>
+<ul>
+<li><b>Outcome 3–0</b> (second straight perfect day) · scoreline <b>2 alt-exact / 3 within-one / 0 primary-exact</b> · most-likely scorer <b>1/3 primary</b> (Kane; both misses had alts score) · <b>+3u net (3u staked)</b> → cumulative <b>+10u</b>.</li>
+</ul>
+<h3>v2 sim scoring (grade_sim.py, deterministic — 2 of 3 games simmed)</h3>
+<p><i>USA–Bosnia was never simmed (watcher produced no post-XI sim for the 8 PM game) — <b>coverage gap</b>, excluded from sim stats.</i></p>
+<table><thead><tr><th>Game</th><th>Actual (reg)</th><th>Proj</th><th>Brier</th><th>Outcome lean</th><th>±1</th><th>Top scorer</th></tr></thead><tbody>
+<tr><td>England v DR Congo</td><td>2–1</td><td>1–1 (53.7/26.6/19.7)</td><td><b>0.324</b></td><td>✅</td><td>✅</td><td>Kane ✅</td></tr>
+<tr><td>Belgium v Senegal</td><td>2–2</td><td>1–1 (46.4/26.9/26.7)</td><td><b>0.821</b></td><td>❌ (leaned Belgium; reg = draw)</td><td>✅</td><td>De Bruyne ❌</td></tr>
+</tbody></table>
+<ul>
+<li><b>Slate means:</b> Brier <b>0.573</b> · outcome 1/2 · exact 0/2 · ±1 2/2 · margin err <b>−0.5</b> · total-goals err <b>−1.5</b> · top-scorer <b>1/2</b>.</li>
+<li><b>List-construction miss:</b> <b>Lukaku absent from the Belgium scorer list entirely</b> (benched at sim time, scored as sub) — "Other (unlisted)" was 62.1% for that game. Route to scout-personnel: carry high-impact bench forwards in the list. Diarra, Sarr, Tielemans were all listed (9.6/17.6/10.8%).</li>
+<li>No game &gt;0.9 Brier, but Belgium (0.821) was the classic knockout compression case: near-coin-flip probs were roughly right; the miss came from a 3-goals-after-85' regulation, i.e. <b>margin damp / late-chaos under-modeling</b>, not the lean.</li>
+</ul>
+<h3>Lessons routed</h3>
+<ul>
+<li><b>scout-personnel:</b> benched stars stay on the scorer list (Lukaku). Second straight slate where the sub/secondary scorer was unlisted.</li>
+<li><b>scout-tactics / sim:</b> total-goals under-prediction reopened (−1.5 on this slate) driven by late-game chaos; the must-win-chase lever helped the lean but not the goal count.</li>
+<li><b>watcher:</b> late-window (8 PM ET) sim coverage failed — USA game had a mandatory teamsheet check but no sim. Fix the watcher's last-game pass.</li>
+</ul>
+<h3>Watcher catch-up note (2026-07-02 11:25 AM ET)</h3>
+<ul>
+<li>Watcher woke late (armed 5:45 PM 07-01, fired 07-02 AM) — LIVE/FINAL Belgium and LINEUP/LIVE/FINAL USA handled here as catch-up; grading was already done by the 07-02 post-mortem (see RECORD.md).</li>
+<li><b>Belgium vs Senegal RESULT:</b> Belgium 3–2 Senegal AET (reg 2–2; Diarra, I. Sarr; Lukaku 86', Tielemans 89' + 125' pen — latest winning goal in WC history). Predicted Belgium → <b>HIT</b> via the draw→ET alt. Sources: <a href="https://www.espn.com/soccer/match/_/gameId/760493/senegal-belgium" target="_blank" rel="noopener">ESPN</a>, <a href="https://theanalyst.com/articles/belgium-vs-senegal-stats-world-cup-2026" target="_blank" rel="noopener">Opta Analyst</a>.</li>
+<li><b>USA vs Bosnia confirmed XI (retro):</b> Freese; Freeman, Richards, Ream (C), Dest, Robinson, Adams, McKennie, Tillman, Pulisic, Balogun — 10 changes from Türkiye, same XI as the Paraguay opener; Pulisic started as flagged. Source: <a href="https://www.ussoccer.com/stories/2026/07/usmnt/starting-xi-lineup-notes-vs-bosnia-and-herzegovina-world-cup" target="_blank" rel="noopener">ussoccer.com Starting XI</a>.</li>
+<li><b>USA vs Bosnia RESULT:</b> USA 2–0 (Balogun ~44', Tillman 81' FK; Balogun red 64'). Predicted USA → <b>HIT</b>, 2–0 listed alt exact. No post-XI sim was run (coverage gap, already routed as a lesson; excluded from sim stats — not retro-simmed to keep grading clean). Sources: <a href="https://www.espn.com/soccer/match/_/gameId/760494/bosnia-herzegovina-united-states" target="_blank" rel="noopener">ESPN</a>, <a href="https://www.ussoccer.com/stories/2026/07/usmnt/match-recap-highlights-vs-bosnia-and-herzegovina-world-cup-round-of-32" target="_blank" rel="noopener">ussoccer.com recap</a>.</li>
+</ul></div>
+<footer>Carlos Command Center · World Cup 2026 · auto-published by the prediction pipeline.<br>
+Predictions, not facts. Notional stakes 0–5 units.</footer>
+</div>
+<script>
+(function(){
+  var BUILT = 1784461003297, ID = "1784461003";
+  function ago(){var m=Math.max(0,Math.round((Date.now()-BUILT)/60000));
+    var el=document.getElementById('ago');if(!el)return;
+    el.textContent = m<1?'just now':(m<60?m+'m ago':Math.floor(m/60)+'h '+(m%60)+'m ago');}
+  ago(); setInterval(ago,30000);
+  function poll(){fetch('../meta.json?t='+Date.now(),{cache:'no-store'})
+    .then(function(r){return r.json()})
+    .then(function(j){if(j.build_id&&j.build_id!==ID)location.reload();})
+    .catch(function(){});}
+  setInterval(poll,60000);
+})();
+</script></body></html>

@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Post-mortem — 2026-07-01-england-dr-congo</title><style>
+:root{color-scheme:light;--bg:#eef1f5;--card:#fff;--ink:#161a1d;--mut:#5b6770;--line:#e1e6ec;
+--green:#1a7f37;--navy:#0f2740;--accent:#1a7f4f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.55}
+.wrap{max-width:1100px;margin:0 auto;padding:14px 14px 50px}
+nav.site{display:flex;gap:4px;align-items:center;flex-wrap:wrap;background:var(--navy);border-radius:12px;padding:8px 10px;margin-bottom:14px;position:sticky;top:8px;z-index:10;box-shadow:0 2px 10px rgba(15,39,64,.25)}
+nav.site .brand{color:#fff;font-weight:800;letter-spacing:-.2px;margin-right:8px;font-size:15px;text-decoration:none}
+nav.site .brand .dot{color:#3ddc84}
+nav.site a.t{color:#c8d3de;text-decoration:none;font-size:13px;font-weight:700;padding:5px 10px;border-radius:8px}
+nav.site a.t.on,nav.site a.t:hover{background:rgba(255,255,255,.14);color:#fff}
+nav.site .upd{margin-left:auto;color:#8fa3b5;font-size:11px;text-align:right}
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px;border-bottom:2px solid #d7dde4;padding-bottom:12px;margin-bottom:16px}
+.title{font-size:21px;font-weight:800;letter-spacing:-.3px}
+.sub{color:var(--mut);font-size:13px;margin-top:3px}
+.meta{text-align:right;font-size:12px;color:var(--mut)}
+.meta .exp{display:inline-block;margin-top:4px;background:var(--navy);color:#fff;padding:3px 9px;border-radius:999px;font-weight:700;font-size:12px}
+.badge{display:inline-flex;align-items:center;gap:5px;font-weight:700;font-size:11px;padding:3px 8px;border-radius:6px;letter-spacing:.2px}
+.b-conf{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.b-pend{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-hit{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.r-miss{background:#fde7e7;color:#b42318;border:1px solid #f3bcbc}
+.r-part{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-live{background:#e7eefc;color:#1d4ed8;border:1px solid #bcd0f5}
+.b-sim{background:#efeafd;color:#6b46c1;border:1px solid #d6c8f5}
+.sim{font-size:12px;color:#4a3a6b;margin-top:9px;background:#f7f4fe;border:1px solid #ece5fb;border-radius:8px;padding:7px 9px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.window{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);margin:20px 0 10px;display:flex;align-items:center;gap:8px}
+.window::after{content:"";flex:1;height:1px;background:#dbe1e8}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 15px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.card.confirmed{border-left:4px solid #1a7f37}
+.card.pending{border-left:4px solid #e8b33a}
+.match{font-size:16px;font-weight:800;letter-spacing:-.2px}
+.ctx{font-size:12px;color:var(--mut);margin-top:2px}
+.row{display:flex;align-items:center;justify-content:space-between;margin-top:11px;gap:8px}
+.pred{font-size:14px}.pred b{font-weight:800}.score{font-weight:800}
+.muted{color:#8a949c}
+.stake{font-size:12px;font-weight:800;background:var(--navy);color:#fff;padding:2px 8px;border-radius:6px;white-space:nowrap}
+.scorer{font-size:12.5px;color:#34404a;margin-top:9px}.scorer .k{color:var(--mut)}
+.result{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:11px;padding:8px 10px;border-radius:8px;background:#f6f8fb;border:1px solid #e6ebf1}
+.result .rscore{font-weight:800;font-size:14px}.result .rscore .k{color:var(--mut);font-weight:600;font-size:11px}
+.note{font-size:11.5px;color:var(--mut);margin-top:9px;border-top:1px dashed var(--line);padding-top:8px}
+.note.held{color:#1a7f37}
+footer{margin-top:26px;font-size:11px;color:#8a949c;text-align:center;line-height:1.6}
+/* prose (markdown pages) */
+.prose{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;box-shadow:0 1px 2px rgba(16,39,64,.04);overflow-x:auto}
+.prose h1{font-size:22px;letter-spacing:-.3px;margin:.2em 0 .5em}
+.prose h2{font-size:17px;margin:1.3em 0 .5em;padding-bottom:5px;border-bottom:1px solid var(--line)}
+.prose h3{font-size:15px;margin:1.2em 0 .4em}
+.prose p,.prose li{font-size:14px;color:#2a333b}
+.prose table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13px}
+.prose th,.prose td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+.prose th{background:#f4f6f9;font-weight:700}
+.prose tr:nth-child(even) td{background:#fafbfc}
+.prose blockquote{margin:10px 0;padding:6px 14px;border-left:3px solid #cbd5df;color:var(--mut);font-size:13.5px}
+.prose code{background:#f0f3f6;border:1px solid #e3e8ee;border-radius:4px;padding:1px 5px;font-size:12.5px}
+.prose hr{border:0;border-top:1px solid var(--line);margin:18px 0}
+.prose a{color:#1d4ed8}
+.prose img{max-width:100%}
+/* index lists */
+.linklist{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;margin-top:12px}
+.linklist a{display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;text-decoration:none;color:var(--ink);font-weight:700;font-size:13.5px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.linklist a:hover{border-color:#b9c4cf}
+.linklist a .d{display:block;font-weight:500;color:var(--mut);font-size:12px;margin-top:3px}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0 0 16px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.stat .v{font-size:19px;font-weight:800;letter-spacing:-.3px}
+.stat .k{font-size:11px;color:var(--mut);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.dayhead{font-size:16px;font-weight:800;margin:26px 0 4px}
+@media (max-width:560px){.wrap{padding:10px 9px 40px}.grid{grid-template-columns:1fr}.meta{text-align:left}}
+</style></head>
+<body><div class="wrap">
+<nav class="site"><a class="brand" href="../index.html">Carlos<span class="dot"> ●</span></a><a class="t" href="../index.html">Board</a><a class="t" href="../history.html">History</a><a class="t" href="../record.html">Record</a><a class="t on" href="../intel.html">Intel</a>
+<span class="upd">updated<br><b id="ago">…</b></span></nav>
+<div class="prose"><h1>Post-mortem — England 2–1 DR Congo (R32, Atlanta/Mercedes-Benz) · 2026-07-01</h1>
+<p><i>Filed 2026-07-02. Film Room / DEEP post-mortem. All stats sourced. No fluff.</i></p>
+<h2>1) Prediction vs actual</h2>
+<table><thead><tr><th></th><th>Card</th><th>Actual</th><th>Grade</th></tr></thead><tbody>
+<tr><td>Outcome</td><td><b>England win</b></td><td><b>England won 2–1</b> (FT)</td><td>✅ HIT (+1u)</td></tr>
+<tr><td>Scoreline</td><td>primary <b>2–0</b>; <b>1–0 co-primary</b>; alt 2–1</td><td><b>2–1</b></td><td>◐ primaries miss; <b>listed alt exact</b>; within-one</td></tr>
+<tr><td>Most-likely scorer</td><td><b>Kane</b> (med); alts Bellingham, Saka; Wissa (DRC)</td><td><b>Kane ×2</b> (75', 86')</td><td>✅ primary hit (brace)</td></tr>
+<tr><td>Stake</td><td><b>1u England</b> (capped, break-the-bus)</td><td>—</td><td><b>+1u</b></td></tr>
+<tr><td>Sim (v2, post-XI)</td><td>Eng 53.7 / D 26.6 / DRC 19.7 · proj 1–1 · Kane 33%</td><td>2–1, Kane top scorer</td><td>✅ lean, ✅ ±1, ✅ scorer · Brier 0.324</td></tr>
+</tbody></table>
+<p>Scorers: <b>Cipenga 7'</b> (DRC), <b>Kane 75', 86'</b> — WC goals 12 &amp; 13, past Pelé; first England knockout brace since Lineker vs Cameroon 1990. Sources: <a href="https://www.skysports.com/football/england-vs-dr-congo/report/549847" target="_blank" rel="noopener">Sky Sports report</a>; <a href="https://www.espn.com/soccer/match/_/gameId/760495/congo-dr-england" target="_blank" rel="noopener">ESPN final</a>; <a href="https://www.aljazeera.com/sports/2026/7/1/kane-double-fires-england-to-comeback-win-over-dr-congo-at-world-cup-2026" target="_blank" rel="noopener">Al Jazeera report</a>.</p>
+<h2>2) The deep dive</h2>
+<p><b>Shot profile</b> (<a href="https://xgscore.io/world-cup/england-congo-dr/xg-statistics" target="_blank" rel="noopener">xGscore match page</a>; Al Jazeera's provider reads slightly higher for both sides):</p>
+<ul>
+<li>England: <b>16 shots / 7 on target, xG 2.03</b> (Al Jazeera: 2.16) → xG/shot ~0.13; <b>xGOT 1.95</b>; xG by half 1.33 / 0.70; open play 1.96, set play 0.07; 60% possession, 517 passes (91%), 5 corners.</li>
+<li>DR Congo: <b>7 shots / 2 on target, xG 0.74</b> (AJ: 0.77) → xG/shot ~0.11; <b>xGOT 0.14</b>; xG by half 0.64 / 0.10; 40% possession, 365 passes (82%).</li>
+<li>Al Jazeera: <b>Mpasi 5 saves</b>; England 7 big chances (6 missed), DR Congo 0 big chances created.</li>
+</ul>
+<p><b>Block/shape.</b> DR Congo (Desabre) in the expected deep back-three low block (Mbemba organising), breaking through Wissa/Bakambu. England's opener-conceding chain was individual, not structural (<a href="https://www.skysports.com/football/england-vs-dr-congo/report/549847" target="_blank" rel="noopener">Sky analysis</a>): Konsa and Guehi too close together, <b>Spence dragged out of position on the cover, Madueke failed to track back, Pickford beaten too easily at his near post</b>. Rice later filled in at right-back. Sub effect: <b>Gordon on → assist for the 75' equaliser</b> within the final quarter-hour.</p>
+<p><b>Phase-by-phase.</b></p>
+<ul>
+<li><i>1st half:</i> <b>Cipenga 7'</b> against the run — DRC's only real look all game (their xGOT for the whole match was 0.14). England's first shot didn't come until <b>30'</b> (Bellingham header, saved). Then the siege: Kane <b>controversially denied a penalty 43'</b> after contact from Mpasi — <a href="https://www.espn.com/soccer/story/_/id/49238553/world-cup-2026-var-review-england-penalty-foul-harry-kane-congo" target="_blank" rel="noopener">ESPN's VAR review says England deserved the penalty</a> — plus Mpasi saves at 45+6 and 46+2. Tuchel: England "had four or five opportunities" after the water break.</li>
+<li><i>2nd half:</i> more of the same — Mpasi save 53' (Bellingham deflected cross), <b>Rashford cleared off the line by Wan-Bissaka</b>; DRC generated 0.10 second-half xG and effectively stopped attacking.</li>
+<li><i>Late:</i> <b>75' Kane heads in Gordon's cross</b>; <b>86' Kane makes space in the box and rifles the winner</b>. England trailed for 68 minutes and led for the last four plus stoppage.</li>
+</ul>
+<p><b>Conditions:</b> midday kickoff in Atlanta, hydration/water breaks taken (Tuchel and Kane both referenced the break as the momentum reset). Weather specifics unknown.</p>
+<h2>3) Process vs variance — ~85% correct process / ~15% variance (and the prediction HIT)</h2>
+<p>The card priced exactly this shape: "expect patience, a set piece, and a late second… England off-day vs the low block" plus "DR Congo landing an early counter" as the flip — <b>the flip fired (7') and the card's structure absorbed it</b>. England's 2.03–2.16 xG vs a 0.74-xG opponent is a deserved win; the sweat came from (a) Mpasi's 5-save day vs 1.95 xGOT (goalkeeper variance), (b) a denied legitimate penalty (officiating variance), and (c) a cleared-off-the-line effort. The one true process error was DRC's goal chain — four English errors on one sequence — but Cipenga scoring from a 0.14-xGOT match is heavy finishing overperformance, not a repeatable DRC threat. <b>No lesson from the scare itself; do not downgrade England's block-breaking.</b> The 1u cap (don't over-stake England vs a low block) was correct discipline and is now validated twice.</p>
+<h2>4) Predictive signals for future games</h2>
+<ul>
+<li><b>England vs a deep block (next: Mexico at the Azteca, a very different problem): the engine is Kane + width-served headers, and it lands LATE.</b> Both goals in the final 15; vs Ghana (06-23) the block also held ~90'. England reliably generate ~2.0+ xG vs blocks but convert late — keep the win lean, keep 1–0/2–1 live, and <b>weight England "goal after 75'" / late-window scorer mass up</b>. Route: scout-patterns / carlos.</li>
+<li><b>Kane's anytime-scorer stays HIGH even when starved</b> — the No.9 got 2 from a packed box via a cross + a self-made strike; he leads the tournament conversation (13 WC goals). The "packed box starves the No.9" hedge is now 1-for-2 against Kane specifically. Route: scout-personnel.</li>
+<li><b>Gordon off the bench is a live assist/route-changer vs tired blocks</b> (cross for the equaliser). Carry England's bench wingers in assist/scorer lists. Route: scout-personnel. <i>(Same class as the Lukaku/Barcola unlisted-sub pattern — REPEAT.)</i></li>
+<li><b>England's right-back is a genuine defensive fault line</b> — Spence "struggled" (Sky ratings), was dragged out on the goal, Rice ended up covering RB. A quality left-winger (Mexico's left side) attacks that channel. Route: scout-tactics.</li>
+<li><b>DR Congo eliminated</b> — archive their deep-block profile: three straight games (Portugal 1–1, Colombia 0–1, England 1–2) conceding ≤2 with sub-0.85 xG for. The "fit deep block caps elite favorites to ~2" rule survives another test. Route: scout-patterns.</li>
+</ul></div>
+<footer>Carlos Command Center · World Cup 2026 · auto-published by the prediction pipeline.<br>
+Predictions, not facts. Notional stakes 0–5 units.</footer>
+</div>
+<script>
+(function(){
+  var BUILT = 1784461003297, ID = "1784461003";
+  function ago(){var m=Math.max(0,Math.round((Date.now()-BUILT)/60000));
+    var el=document.getElementById('ago');if(!el)return;
+    el.textContent = m<1?'just now':(m<60?m+'m ago':Math.floor(m/60)+'h '+(m%60)+'m ago');}
+  ago(); setInterval(ago,30000);
+  function poll(){fetch('../meta.json?t='+Date.now(),{cache:'no-store'})
+    .then(function(r){return r.json()})
+    .then(function(j){if(j.build_id&&j.build_id!==ID)location.reload();})
+    .catch(function(){});}
+  setInterval(poll,60000);
+})();
+</script></body></html>

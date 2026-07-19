@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Carlos — Slate 2026-06-24</title><style>
+:root{color-scheme:light;--bg:#eef1f5;--card:#fff;--ink:#161a1d;--mut:#5b6770;--line:#e1e6ec;
+--green:#1a7f37;--navy:#0f2740;--accent:#1a7f4f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.55}
+.wrap{max-width:1100px;margin:0 auto;padding:14px 14px 50px}
+nav.site{display:flex;gap:4px;align-items:center;flex-wrap:wrap;background:var(--navy);border-radius:12px;padding:8px 10px;margin-bottom:14px;position:sticky;top:8px;z-index:10;box-shadow:0 2px 10px rgba(15,39,64,.25)}
+nav.site .brand{color:#fff;font-weight:800;letter-spacing:-.2px;margin-right:8px;font-size:15px;text-decoration:none}
+nav.site .brand .dot{color:#3ddc84}
+nav.site a.t{color:#c8d3de;text-decoration:none;font-size:13px;font-weight:700;padding:5px 10px;border-radius:8px}
+nav.site a.t.on,nav.site a.t:hover{background:rgba(255,255,255,.14);color:#fff}
+nav.site .upd{margin-left:auto;color:#8fa3b5;font-size:11px;text-align:right}
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px;border-bottom:2px solid #d7dde4;padding-bottom:12px;margin-bottom:16px}
+.title{font-size:21px;font-weight:800;letter-spacing:-.3px}
+.sub{color:var(--mut);font-size:13px;margin-top:3px}
+.meta{text-align:right;font-size:12px;color:var(--mut)}
+.meta .exp{display:inline-block;margin-top:4px;background:var(--navy);color:#fff;padding:3px 9px;border-radius:999px;font-weight:700;font-size:12px}
+.badge{display:inline-flex;align-items:center;gap:5px;font-weight:700;font-size:11px;padding:3px 8px;border-radius:6px;letter-spacing:.2px}
+.b-conf{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.b-pend{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-hit{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.r-miss{background:#fde7e7;color:#b42318;border:1px solid #f3bcbc}
+.r-part{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-live{background:#e7eefc;color:#1d4ed8;border:1px solid #bcd0f5}
+.b-sim{background:#efeafd;color:#6b46c1;border:1px solid #d6c8f5}
+.sim{font-size:12px;color:#4a3a6b;margin-top:9px;background:#f7f4fe;border:1px solid #ece5fb;border-radius:8px;padding:7px 9px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.window{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);margin:20px 0 10px;display:flex;align-items:center;gap:8px}
+.window::after{content:"";flex:1;height:1px;background:#dbe1e8}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 15px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.card.confirmed{border-left:4px solid #1a7f37}
+.card.pending{border-left:4px solid #e8b33a}
+.match{font-size:16px;font-weight:800;letter-spacing:-.2px}
+.ctx{font-size:12px;color:var(--mut);margin-top:2px}
+.row{display:flex;align-items:center;justify-content:space-between;margin-top:11px;gap:8px}
+.pred{font-size:14px}.pred b{font-weight:800}.score{font-weight:800}
+.muted{color:#8a949c}
+.stake{font-size:12px;font-weight:800;background:var(--navy);color:#fff;padding:2px 8px;border-radius:6px;white-space:nowrap}
+.scorer{font-size:12.5px;color:#34404a;margin-top:9px}.scorer .k{color:var(--mut)}
+.result{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:11px;padding:8px 10px;border-radius:8px;background:#f6f8fb;border:1px solid #e6ebf1}
+.result .rscore{font-weight:800;font-size:14px}.result .rscore .k{color:var(--mut);font-weight:600;font-size:11px}
+.note{font-size:11.5px;color:var(--mut);margin-top:9px;border-top:1px dashed var(--line);padding-top:8px}
+.note.held{color:#1a7f37}
+footer{margin-top:26px;font-size:11px;color:#8a949c;text-align:center;line-height:1.6}
+/* prose (markdown pages) */
+.prose{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;box-shadow:0 1px 2px rgba(16,39,64,.04);overflow-x:auto}
+.prose h1{font-size:22px;letter-spacing:-.3px;margin:.2em 0 .5em}
+.prose h2{font-size:17px;margin:1.3em 0 .5em;padding-bottom:5px;border-bottom:1px solid var(--line)}
+.prose h3{font-size:15px;margin:1.2em 0 .4em}
+.prose p,.prose li{font-size:14px;color:#2a333b}
+.prose table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13px}
+.prose th,.prose td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+.prose th{background:#f4f6f9;font-weight:700}
+.prose tr:nth-child(even) td{background:#fafbfc}
+.prose blockquote{margin:10px 0;padding:6px 14px;border-left:3px solid #cbd5df;color:var(--mut);font-size:13.5px}
+.prose code{background:#f0f3f6;border:1px solid #e3e8ee;border-radius:4px;padding:1px 5px;font-size:12.5px}
+.prose hr{border:0;border-top:1px solid var(--line);margin:18px 0}
+.prose a{color:#1d4ed8}
+.prose img{max-width:100%}
+/* index lists */
+.linklist{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;margin-top:12px}
+.linklist a{display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;text-decoration:none;color:var(--ink);font-weight:700;font-size:13.5px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.linklist a:hover{border-color:#b9c4cf}
+.linklist a .d{display:block;font-weight:500;color:var(--mut);font-size:12px;margin-top:3px}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0 0 16px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.stat .v{font-size:19px;font-weight:800;letter-spacing:-.3px}
+.stat .k{font-size:11px;color:var(--mut);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.dayhead{font-size:16px;font-weight:800;margin:26px 0 4px}
+@media (max-width:560px){.wrap{padding:10px 9px 40px}.grid{grid-template-columns:1fr}.meta{text-align:left}}
+</style></head>
+<body><div class="wrap">
+<nav class="site"><a class="brand" href="../index.html">Carlos<span class="dot"> ●</span></a><a class="t" href="../index.html">Board</a><a class="t on" href="../history.html">History</a><a class="t" href="../record.html">Record</a><a class="t" href="../intel.html">Intel</a>
+<span class="upd">updated<br><b id="ago">…</b></span></nav>
+<div class="prose"><h1>Carlos — Match Prediction Cards · June 24, 2026 — <b>v3 (full 6-game slate, recalibrated)</b></h1>
+<p><i>Pre-registered before kickoff. Stake = 0–5 units, small bankroll. Predictions, not facts — every fact below traces to a cited source (see Sources). v2 re-applied the 2026-06-23 (MD2) post-mortem calibration to the carried-over games; <b>v3 corrects a fixture-scan miss by adding the two Group A 9 PM ET finals</b> (Czechia–Mexico, South Africa–South Korea) that v1/v2 omitted. Issued well before all kickoffs (3 / 6 / 9 PM ET).</i></p>
+<p><b>ET kickoffs (for lineup watcher):</b> Group B games kick <b>3:00 PM ET</b> (simultaneous); Group C games kick <b>6:00 PM ET</b> (simultaneous); <b>Group A games kick 9:00 PM ET</b> (simultaneous). Source: ESPN/Fox/Sky/Al Jazeera schedule, June 24, 2026.</p>
+<h3>Calibration applied (from MD2 post-mortems)</h3>
+<ul>
+<li><b>Honest stake ladder</b> — a "clean win vs a deep block" is a <i>capped</i> spot, not a top play. 3u is reserved for genuinely open, high-quality-edge games. None today qualifies, so every card is capped at <b>2u</b>. (The four games carried from v1 fell 9u → 6u; the full six-game v3 slate totals <b>9u</b> across six games, max 2u each.)</li>
+<li><b>1–0 primary vs a fit deep block + live keeper</b> (durable rule after England 0–0 + Colombia 1–0) — applied hardest to Scotland–Brazil.</li>
+<li><b>Width/carrier read</b> — favorites need genuine width / 1v1 carriers to break a block; be skeptical of one forced to combine centrally. Raphinha's absence triggers this for Brazil.</li>
+<li><b>Scoring-sub / full-back / set-piece tail</b> — goal-games keep getting decided by unlisted players; every scorer call stays low-confidence and carries that tail.</li>
+</ul>
+<hr>
+<h2>1) Bosnia &amp; Herzegovina vs Qatar — Group B · Seattle (Lumen Field) · <b>3:00 PM ET</b></h2>
+<p><b>Stakes:</b> Both sit on <b>1 pt</b> (Bosnia 3rd, Qatar 4th). <b>Both must win</b> to reach 4 pts and chase a third-place qualifying spot (4 pts is almost always enough). This is the key change from v1: Qatar are <b>not</b> eliminated, so this is <b>not</b> a bus-park — both sides are incentivised to attack.</p>
+<p><b>Prediction:</b> <b>Bosnia win, in an open game.</b> Most likely <b>2–1</b>; alternates 2–0, 3–1.</p>
+<p><b>Why:</b></p>
+<ul>
+<li><i>Stakes/tactics (decisive):</i> because <b>both</b> need a win, expect an open, two-directional match rather than a Qatar low block — goals at both ends are in play. (scout-form / scout-tactics)</li>
+<li><i>Personnel:</i> Qatar are without <b>Homam Ahmed and Assim Madibo</b> (both red-carded vs Canada) — Al Brake and Boudiaf step in. Bosnia lose <b>Muharemović</b> (suspended); <b>Hadžikadunić</b> likely into central defence — a reshuffled back line on both sides. (scout-personnel)</li>
+<li><i>Quality edge:</i> Bosnia are the stronger, deeper side led by Džeko/Demirović; Qatar were thrashed 6–0 by Canada and must now chase a result they're ill-equipped to get. (scout-form)</li>
+</ul>
+<p><b>Players to watch:</b> Edin Džeko (captain, focal point + set-piece target, after a "difficult outing" last time); Akram Afif (Qatar's main creative threat — their route to the goal they need).</p>
+<p><b>Most likely scorer:</b> <b>Edin Džeko</b> — focal point + set-piece target <i>(low confidence)</i>. Alternates: Ermedin Demirović <i>(low)</i>, and a <b>set-piece header from a defender</b> <i>(low — personnel lesson: carry the unlisted/set-piece tail)</i>. Firms up at the lineup check.</p>
+<p><b>Confidence &amp; stake:</b> Medium. <b>2 units on Bosnia to win.</b> Clear quality edge in a game that should open up — but Bosnia's reshuffled defence + Qatar's must-win desperation add real two-way variance, so this is <b>not</b> a 3u spot.</p>
+<p><b>What would flip it:</b> Qatar scoring first and Bosnia (nervy, poor last out) failing to respond; or Bosnia's makeshift back line leaking early in an end-to-end game.</p>
+<blockquote>
+<p><b>Lineup update — 2026-06-24 13:55 ET · best-available, XI NOT yet official (re-check next run):</b> Official teamsheets not yet posted (~1h pre-KO). Reputable <i>predicted</i> XIs align with this card. <b>Bosnia (4-4-2):</b> Vasilj; Dedić, Katić, <b>Hadžikadunić</b>, Kolašinac; Bajraktarević, Tahirović, Šunjić, Memić; <b>Demirović, Džeko</b> — confirms Muharemović suspended, Hadžikadunić into CB, and the predicted Džeko–Demirović front two. <b>Qatar (4-3-3):</b> Abunada; Al Oui, Miguel, Khoukhi, <b>Al Brake</b>; Gaber, <b>Fathy</b>, Laye; Edmilson, Abdurisag, <b>Afif</b> — confirms Ahmed &amp; Madibo suspended (Al Brake LB, Fathy covering midfield), Afif starting. No material change → prediction/confidence/stake hold (<b>Bosnia win, 2–1, 2u</b>). <b>Most-likely-scorer (Carlos, low conf — pending official XI):</b> primary <b>Edin Džeko</b> (focal point + set-piece/aerial target); alternates <b>Ermedin Demirović</b> <i>(low)</i> and a <b>set-piece header from a defender</b> <i>(low)</i>. Not marked done. Sources: <a href="https://www.sportsmole.co.uk/football/bosnia-herzegovina/world-cup-2026/predicted-lineups/defensive-change-for-the-dragons-how-bosnia-herzegovina-could-line-up-vs-qatar_599841.html" target="_blank" rel="noopener">Sports Mole — Bosnia XI</a>; <a href="https://www.sportsmole.co.uk/football/bosnia-herzegovina/world-cup-2026/predicted-lineups/who-replaces-ahmed-madibo-how-qatar-could-line-up-vs-bosnia-herzegovina_599842.html" target="_blank" rel="noopener">Sports Mole — Qatar XI</a>; <a href="https://www.si.com/soccer/bosnia-herzegovina-vs-qatar-world-cup-preview-predictions-lineups-6-24-26" target="_blank" rel="noopener">SI preview</a>; <a href="https://sports.yahoo.com/articles/bosnia-vs-qatar-predicted-lineup-094000151.html" target="_blank" rel="noopener">Yahoo predicted XI</a>.</p>
+</blockquote>
+<blockquote>
+<p><b>Lineup update — 2026-06-24 14:11 ET · OFFICIAL XI CONFIRMED (finalized):</b> Official teamsheets now posted (~50 min pre-KO), corroborated across multiple sources. <b>Bosnia &amp; Herzegovina (4-4-2):</b> Vasilj; <b>Radeljić</b>, Katić, <b>Malić</b>, Kolašinac; Bajraktarević, Šunjić, <b>Bašić</b>, <b>Alajbegović</b>; <b>Demirović, Džeko</b>. Changes vs this card's predicted XI: Radeljić starts at RB (not Dedić), <b>Malić</b> at CB (not Hadžikadunić), Bašić in for Tahirović, Alajbegović in, Memić out. Confirms Muharemović suspended and the <b>predicted Demirović–Džeko front two</b>. <b>Qatar (4-3-3):</b> Abunada; <b>Al Brake</b>, Pedro Miguel, Khoukhi, Laye; Gaber, <b>Fathy</b>, Boudiaf; <b>Al Haydos</b>, <b>Afif</b>, Edmílson Júnior. Confirms Ahmed &amp; Madibo suspended (Al Brake LB + Boudiaf in midfield, as predicted); veteran <b>Al-Haydos starts over Abdurisag</b> (not material); Afif starts. <b>No material change</b> — no keeper change (Vasilj), predicted front two intact, both makeshift back lines as anticipated → prediction/confidence/stake <b>HOLD: Bosnia win, 2–1, 2u.</b> <b>Most-likely-scorer (Carlos, FINALIZED, low conf):</b> primary <b>Edin Džeko</b> (captain, focal point, set-piece/aerial target, likely penalty taker); alternates <b>Ermedin Demirović</b> <i>(low)</i> and a <b>set-piece header from a defender</b> <i>(low)</i>. <b>Marked done.</b> Sources: <a href="https://www.101greatgoals.com/football/world-cup-news/bosnia-herzegovina-qatar-confirmed-line-ups/" target="_blank" rel="noopener">101GreatGoals — confirmed line-ups</a>; <a href="https://www.oddschecker.com/insight/football/20260624-bosnia-and-herzegovina-vs-qatar-confirmed-lineups" target="_blank" rel="noopener">Oddschecker — confirmed lineups</a>; <a href="https://onefootball.com/en/news/world-cup-2026-official-line-ups-bosnia-vs-qatar-and-switzerland-vs-canada-43053046" target="_blank" rel="noopener">OneFootball — official line-ups</a>; <a href="https://www.fifa.com/en/match-centre/match/17/285023/289273/400021448" target="_blank" rel="noopener">FIFA match centre</a>.</p>
+</blockquote>
+<hr>
+<h2>2) Morocco vs Haiti — Group C · Atlanta (Mercedes-Benz) · <b>6:00 PM ET</b></h2>
+<p><b>Stakes:</b> Morocco are all but through and <b>can qualify even with a defeat if Brazil beat Scotland</b> — but they want to <b>win and pile on goals</b> to pip Brazil to top spot on GD. Haiti are eliminated (first nation out, weakest side in the field, first World Cup since 1974).</p>
+<p><b>Prediction:</b> <b>Morocco win.</b> Most likely <b>2–0</b>; alternates 1–0, 3–1 (the GD chase keeps a bigger margin live).</p>
+<p><b>Why:</b></p>
+<ul>
+<li><i>Quality gap + width (decisive):</i> Morocco are 2022 semifinalists with overlapping full-backs (Hakimi) and 1v1 carriers (Brahim Díaz, Saibari) — the exact width/carrier profile that <b>can</b> break a low block, unlike a side forced to combine centrally. (scout-tactics)</li>
+<li><i>Stakes/motivation:</i> the live GD race with Brazil gives Morocco reason to keep scoring rather than coast — the lever that separates this from a dead-rubber bus-break. (scout-form)</li>
+<li><i>Personnel:</i> Bounou is fit; Morocco likely <b>unchanged for a third straight game</b>. Aguerd and Ezzalzouli remain injury doubts. Haiti lose only bench midfielder Leverton Pierre (injured); no suspensions. (scout-personnel)</li>
+</ul>
+<p><b>Players to watch:</b> Achraf Hakimi (overlap + set-piece/penalty duty — a prime route to goal vs a packed box); Brahim Díaz (final-third creativity).</p>
+<p><b>Most likely scorer:</b> <b>Youssef En-Nesyri</b> as the likely focal striker <i>(low confidence — striker not yet XI-confirmed; defer to lineup check)</i>. Alternates: <b>Hakimi</b> (overlap / set-piece / penalty) <i>(low–medium — personnel lesson favours the full-back vs a deep block)</i> and Brahim Díaz <i>(low)</i>.</p>
+<p><b>Confidence &amp; stake:</b> Medium–high read, <b>capped stake. 2 units on Morocco to win.</b> The cleanest quality edge on the slate, but Haiti will sit deep, so per the honest ladder this is a capped 2u, not a 3u — and per the deep-block rule the primary scoreline is a measured <b>2–0</b>, not 3–0.</p>
+<p><b>What would flip it:</b> Morocco easing off the moment qualification is mathematically locked (Brazil leading in Miami), letting Haiti grab a historic morale point.</p>
+<blockquote>
+<p><b>Lineup update — 2026-06-24 17:02 ET · best-available, XI NOT yet official (re-check next run):</b> Official teamsheets not yet posted (~58 min pre-KO); reputable sources still list <i>predicted</i> XIs and explicitly note they'll update once official lineups drop. <b>Morocco (4-2-3-1, consistent across all sources):</b> Bono; Hakimi, Diop, Riad, Mazraoui; El Aynaoui, Bouaddi; Brahim Díaz, Ounahi, El Khannouss; <b>Saibari</b> — likely unchanged for a third straight game. <b>Key for the scorer call:</b> <b>En-Nesyri is NOT in the projected XI — Saibari leads the line</b> (he scored in both prior games: vs Brazil and vs Scotland). <b>Haiti (predicted, sources disagree):</b> Placide; (Arcus/Duverne), Ade, Delcroix, Experience; (Don Deedson/Casimir), Bellegarde, Jean Jacques, Providence; Isidor, (Pierrot/Lenny Joseph) — RB, one midfield slot and the second striker unresolved. No material change to the outcome read → prediction/confidence/stake <b>HOLD: Morocco win, 2–0, 2u.</b> <b>Most-likely-scorer (Carlos, best-available, low conf — pending official XI):</b> primary <b>Ismael Saibari</b> (in-form lone striker) — <i>revised from the card's En-Nesyri, who isn't in the projected XI</i>; alternates <b>Achraf Hakimi</b> (overlap / set-piece / penalty — full-back-vs-deep-block tail) <i>(low–med)</i> and <b>Brahim Díaz</b> <i>(low)</i>. <b>Not marked done.</b> Sources: <a href="https://khelnow.com/football/world-football-morocco-starting-lineup-vs-haiti-fifa-world-cup-202606" target="_blank" rel="noopener">Khel Now — Morocco lineup (predicted, "updated when official")</a>; <a href="https://worldsoccertalk.com/world-cup/is-achraf-hakimi-playing-morocco-vs-haiti-projected-lineups-for-the-2026-world-cup-group-c-game/" target="_blank" rel="noopener">World Soccer Talk — Morocco vs Haiti projected XIs</a>; <a href="https://www.101greatgoals.com/match-previews/world-cup-matches/morocco-v-haiti-line-ups-stats-preview-tv-channel-live-online-stream-prediction/" target="_blank" rel="noopener">101GreatGoals — predicted line-ups</a>.</p>
+</blockquote>
+<blockquote>
+<p><b>Lineup update — 2026-06-24 17:09 ET · re-check, XI STILL NOT official (re-check next run):</b> ~51 min pre-KO. Reputable sources still show the same <i>predicted</i> Morocco XI (Bono; Hakimi, Diop, Riad, Mazraoui; Bouaddi, El Aynaoui; Brahim Díaz, Ounahi, El Khannouss; <b>Saibari</b> lone striker) — World Soccer Talk's page (mod. 13:13 ET) and Khel Now (explicit "will update when official lineups are revealed") both still projected; no official teamsheet confirmed. (A web-search summary floated an alt XI with El Kaabi up top / Saibari at the 10, but it is <b>not corroborated by any source page checked</b> — not recording it per the no-hallucination rule; will confirm next run.) <b>No material change → HOLD: Morocco win, 2–0, 2u; scorer read unchanged — primary Saibari, alts Hakimi / Brahim Díaz (low).</b> <b>Not marked done.</b> Sources: <a href="https://worldsoccertalk.com/world-cup/is-achraf-hakimi-playing-morocco-vs-haiti-projected-lineups-for-the-2026-world-cup-group-c-game/" target="_blank" rel="noopener">World Soccer Talk — projected XIs</a>; <a href="https://khelnow.com/football/world-football-morocco-starting-lineup-vs-haiti-fifa-world-cup-202606" target="_blank" rel="noopener">Khel Now — Morocco lineup ("updated when official")</a>.</p>
+</blockquote>
+<blockquote>
+<p><b>Lineup update — 2026-06-24 17:27 ET · OFFICIAL XI CONFIRMED (finalized):</b> Official teamsheets now posted (~33 min pre-KO), corroborated across two independent teamsheet sources. <b>Morocco (4-2-3-1):</b> Bono; Hakimi (©), <b>Halhal</b>, Riad, <b>[Salah-Eddine / Mazraoui — sources differ at LB]</b>; <b>Amrabat</b>, El Aynaoui; Brahim Díaz, <b>Saibari</b>, El Khannouss; <b>Ayoub El Kaabi.</b> This is the alt XI flagged-but-uncorroborated in the 17:09 note, now <b>confirmed</b>: Morocco rotate ~four — <b>El Kaabi starts as the #9, Saibari shifts to the No.10</b> (Diop→Halhal at CB, Bouaddi→Amrabat in the pivot, Ounahi drops out of the XI). The two confirmed sources <b>disagree only at left-back</b> — 101GreatGoals lists <b>Anass Salah-Eddine</b> (Mazraoui among its subs); Bulinews lists <b>Mazraoui</b> — the lone unresolved slot, immaterial to the bet. <b>Haiti (4-4-2):</b> Placide (©); Duverne, Adé, Delcroix, Experience; Casimir, Jean Jacques, Bellegarde, Providence; Isidor, <b>Lenny Joseph</b> (Pierrot to the bench). <b>No material change to the bet</b> — no keeper change (Bono), still a strongly-attacking Morocco XI (Hakimi, Brahim Díaz, El Khannouss, Saibari, El Kaabi) vs an eliminated, winless Haiti, with the live GD race still incentivising goals → prediction/confidence/stake <b>HOLD: Morocco win, 2–0, 2u.</b> <b>Most-likely-scorer (Carlos, FINALIZED, low–med — highest-variance call):</b> primary <b>Ayoub El Kaabi</b> (now the focal #9 — proven penalty-box poacher; <i>supersedes the card's En-Nesyri and the interim Saibari-as-striker read</i>); co-lead <b>Ismael Saibari</b> (dropped to the 10 but scored in BOTH prior games vs Brazil &amp; Scotland — late runs into the box). Alternates: <b>Achraf Hakimi</b> (captain, overlap + likeliest penalty/set-piece duty — the full-back-vs-deep-block tail) <i>(low)</i> and <b>Brahim Díaz / El Khannouss</b> creativity-to-goal <i>(low)</i>. Penalty taker not officially confirmed (Hakimi the likeliest). <b>Marked done.</b> Sources: <a href="https://www.101greatgoals.com/football/world-cup-news/morocco-v-haiti-confirmed-line-ups-team-news/" target="_blank" rel="noopener">101GreatGoals — confirmed line-ups</a>; <a href="https://bulinews.com/world-cup-future-bayern-star-saibari-starts-for-morocco-against-haiti" target="_blank" rel="noopener">Bulinews — confirmed lineups</a>.</p>
+</blockquote>
+<hr>
+<h2>3) Scotland vs Brazil — Group C · Miami (Hard Rock) · <b>6:00 PM ET</b></h2>
+<p><b>Stakes:</b> Brazil (top of the group) need a result to hold first place from Morocco on GD — real motivation. Scotland (3 pts, GD 0) are close to safe with a draw but must, above all, <b>avoid a heavy defeat</b>.</p>
+<p><b>Prediction:</b> <b>Brazil win, narrow — with the draw genuinely live.</b> Most likely <b>1–0</b>; alternates 2–1, 2–0. A <b>1–1 draw (~33%)</b> is the real risk and an outcome Scotland would take.</p>
+<p><b>Why:</b></p>
+<ul>
+<li><i>Tactics + personnel (decisive, double red flag):</i> Scotland will sit in a deep, do-or-die low block, and Brazil are <b>without Raphinha</b> (right-thigh muscle injury, confirmed) — losing their primary right-side width / 1v1 carrier. A favourite forced to combine <b>centrally</b> against a packed block is exactly the profile the post-mortem says to fade on margin. (scout-tactics / scout-personnel)</li>
+<li><i>Deep-block rule:</i> two straight MD2 games (England 0–0, Colombia 1–0) showed elite attacks out-shoot but don't out-score a fit block — high volume, low xG/shot, late or no breakthrough. So <b>1–0 is the primary</b>, not 2–1. (scout-patterns)</li>
+<li><i>Squad:</i> Neymar is back in the squad and available but a <b>start is unlikely</b>; Rayan and Martinelli are the wide options to replace Raphinha. (scout-personnel)</li>
+</ul>
+<p><b>Players to watch:</b> Brazil's central forward and full-backs (their route to goal with the width blunted); for Scotland, the goalkeeper and a set-piece/counter moment — their most realistic path to the point they need.</p>
+<p><b>Most likely scorer:</b> <b>a Brazil forward (Cunha through the middle)</b> <i>(low confidence)</i>. Alternates: <b>a full-back overlap or set-piece header</b>, and a <b>scoring sub (Neymar / Martinelli / Rayan off the bench)</b> <i>(low — personnel lesson: vs a deep block + live keeper the scorer is often a secondary runner or sub, not the marquee name)</i>.</p>
+<p><b>Confidence &amp; stake:</b> Low–medium. <b>1 unit on Brazil to win.</b> Stake cut from v1's 2u: deep block <b>plus</b> the loss of Brazil's primary width carrier is a doubly-capped spot, and the draw is a live ~33%.</p>
+<p><b>What would flip it:</b> Scotland scoring first and bunkering for the point; or Brazil heavily rotating with top spot in hand.</p>
+<blockquote>
+<p><b>Lineup update — 2026-06-24 17:02 ET · OFFICIAL XI CONFIRMED (finalized):</b> Official teamsheets posted (~58 min pre-KO), corroborated by World Soccer Talk's confirmed-lineups update. <b>Brazil (4-2-3-1):</b> Alisson; Danilo, Marquinhos, Gabriel Magalhães, Douglas Santos; Bruno Guimarães, Casemiro; Rayan, Lucas Paquetá, <b>Vinícius Júnior</b>; <b>Matheus Cunha.</b> Confirms this card's read: <b>Raphinha out</b> (injury), <b>Neymar benched</b> (available but not starting), <b>Cunha central</b>, <b>Rayan starts wide</b> (the predicted Raphinha replacement). <b>New vs the card: Vinícius Júnior starts at LW</b> — the card had treated Brazil's width as blunted by Raphinha's absence; Vini's start materially <b>restores the left-side width / 1v1 carrier</b> the card thought was lost. <b>Scotland (4-3-3):</b> Gunn; Patterson, Hendry, McKenna, Robertson; McLean, Ferguson, McTominay; Gannon-Doak, Shankland, McGinn — as expected, set up to sit deep do-or-die. <b>No material change to the bet</b> — no keeper change (Alisson/Gunn); the deep-block discipline (England 0–0, Colombia 1–0) still caps the margin and Scotland will park the bus → prediction/confidence/stake <b>HOLD: Brazil win, 1–0, 1u; draw ~33% live.</b> (Vini's start mildly firms the lean but does not lift it off the doubly-capped 1u.) <b>Most-likely-scorer (Carlos, FINALIZED, low–med):</b> primary <b>Vinícius Júnior</b> (in-form LW, scored + assisted vs Haiti); penalty/FK duty uncertain with Neymar benched and Raphinha out (Vini or Paquetá). Alternates: <b>Matheus Cunha</b> (central 9, brace vs Haiti) <i>(low)</i> and a <b>scoring sub — Neymar / Martinelli / Rayan</b> <i>(low — deep-block + live-keeper tail)</i>. <b>Marked done.</b> Sources: <a href="https://worldsoccertalk.com/world-cup/is-vinicius-junior-playing-scotland-vs-brazil-projected-lineups-for-the-2026-world-cup-group-c-game/" target="_blank" rel="noopener">World Soccer Talk — confirmed lineups (Vini in, Neymar out)</a>; <a href="https://worldsoccertalk.com/world-cup/why-isnt-neymar-starting-for-brazil-against-scotland-at-the-2026-world-cup/" target="_blank" rel="noopener">World Soccer Talk — why Neymar isn't starting</a>; <a href="https://www.espn.com/soccer/story/_/id/49152740/scotland-brazil-line-ups-world-cup-predicted-xis" target="_blank" rel="noopener">ESPN — Scotland vs Brazil line-ups</a>.</p>
+</blockquote>
+<hr>
+<h2>4) Canada vs Switzerland — Group B · Vancouver (BC Place) · <b>3:00 PM ET</b></h2>
+<p><b>Stakes:</b> Both on <b>4 pts</b>; this decides top spot and seeding. <b>Canada win the group with a win or a draw</b> (and earn an R32 game back at BC Place); Switzerland are essentially through but <b>need a win</b> to finish first.</p>
+<p><b>Prediction:</b> <b>Lean draw / low-event</b> — most likely <b>1–1</b>; a Switzerland win (1–2) is the main alternative if they chase top seed hard.</p>
+<p><b>Why:</b></p>
+<ul>
+<li><i>Stakes (decisive):</i> a draw suits Canada perfectly, so they'll manage the game; a cagey, lower-event match is the base case even though Switzerland have a reason to push. (scout-form)</li>
+<li><i>Personnel:</i> Canada are without Ismael Koné (fractured leg, out for the tournament) and likely still without Alfie Jones (ankle). <b>Davies is expected to play but NOT start</b> (correcting v1) — an off-the-bench x-factor, not a starter. (scout-personnel)</li>
+<li><i>Pattern:</i> seeding deciders between two already-qualified sides skew toward controlled, lower-scoring outcomes. (scout-patterns)</li>
+</ul>
+<p><b>Players to watch:</b> Granit Xhaka (Switzerland's tempo-setter — they must take the initiative); Alphonso Davies as a second-half changer for Canada.</p>
+<p><b>Most likely scorer:</b> genuinely <b>unclear / low</b> in a manage-the-game match. Lean: a Switzerland forward (they'll have to chase) <i>(low)</i>; alternates a Canada striker <i>(low)</i> and a <b>scoring sub</b> (Davies' introduction could swing it) <i>(low)</i>.</p>
+<p><b>Confidence &amp; stake:</b> Low. <b>1 unit on the draw.</b> Close to a coin-flip; do not over-commit (honest-ladder discipline).</p>
+<p><b>What would flip it:</b> Switzerland deciding top seed is worth a real push and going for it early, or an early goal forcing the game open.</p>
+<blockquote>
+<p><b>Lineup update — 2026-06-24 13:55 ET · best-available, XI NOT yet official (re-check next run):</b> Teamsheets not yet official. Reputable <i>predicted</i> XIs broadly match this card. <b>Canada:</b> Crépeau; Johnston, de Fougerolles, Cornelius, Laryea; Buchanan, Eustáquio, Saliba, Ali Ahmed; <b>David, Larin</b> — <b>Davies not in the XI</b> (off-bench x-factor, as predicted); Koné already out for the tournament. <b>Switzerland:</b> Kobel; Widmer, Elvedi, Akanji, Rodríguez; Xhaka, Freuler + midfield, <b>Embolo</b> central — but sources disagree on the Swiss midfield/wide (Manzambi &amp; Vargas vs Aebischer &amp; Rieder), a clear sign the XI is <b>not</b> confirmed. No material change → prediction/confidence/stake hold (<b>lean draw 1–1; SUI win 1–2 the alt; 1u on the draw</b>). <b>Most-likely-scorer (Carlos, low conf — manage-the-game match):</b> lean a <b>Switzerland forward, Breel Embolo</b> (they must chase the top seed); alternates <b>Jonathan David</b> (CAN) <i>(low)</i> and a <b>scoring sub — Alphonso Davies</b> <i>(low)</i>. Not marked done. Sources: <a href="https://www.espn.com/soccer/story/_/id/49141389/fifa-world-cup-2026-switzerland-vs-canada-tv-channel-how-watch-kick-live-stream-referee-predicted-line-ups" target="_blank" rel="noopener">ESPN preview</a>; <a href="https://www.sportsmole.co.uk/football/switzerland/world-cup-2026/preview/switzerland-vs-canada-prediction-team-news-lineups_599751.html" target="_blank" rel="noopener">Sports Mole preview</a>; <a href="https://www.si.com/soccer/switzerland-vs-canada-world-cup-preview-predictions-lineups-6-24-26" target="_blank" rel="noopener">SI preview</a>; <a href="https://www.rotowire.com/soccer/article/switzerland-vs-canada-preview-predicted-lineups-team-news-tactical-analysis-2026-world-cup-group-b-119339" target="_blank" rel="noopener">RotoWire preview</a>.</p>
+</blockquote>
+<blockquote>
+<p><b>Lineup update — 2026-06-24 14:11 ET · OFFICIAL XI CONFIRMED (finalized):</b> Official teamsheets now posted (~50 min pre-KO), corroborated across multiple sources. <b>Switzerland (4-3-3):</b> Kobel; Widmer, Elvedi, Akanji, Rodríguez; <b>Aebischer</b>, Xhaka, Freuler, <b>Rieder</b>; <b>Ndoye</b>, <b>Embolo</b> (Embolo central, Ndoye wide). Resolves this card's flagged midfield uncertainty — <b>Aebischer &amp; Rieder start</b> (not Manzambi/Vargas). <b>Canada:</b> Crépeau; Johnston, de Fougerolles, Cornelius, Laryea; Buchanan, Saliba, Eustáquio, Ali Ahmed; <b>David, Larin</b> — <b>matches this card's predicted XI exactly</b>; <b>Davies NOT in the XI</b> (off-bench x-factor, as predicted); Koné already out for the tournament. <b>No material change</b> — no keeper change (Kobel/Crépeau), no suspensions/late surprises → prediction/confidence/stake <b>HOLD: lean draw 1–1; SUI win 1–2 the alt; 1u on the draw.</b> <b>Most-likely-scorer (Carlos, FINALIZED, low conf — manage-the-game match):</b> lean <b>Breel Embolo</b> (Swiss central striker, primary threat; Switzerland must chase the top seed); alternates <b>Dan Ndoye</b> (SUI, confirmed wide) <i>(low)</i>, <b>Jonathan David</b> (CAN) <i>(low)</i>, and a <b>scoring sub — Alphonso Davies</b> <i>(low)</i>. (Switzerland's regular penalty option is Rodríguez — low conf, no spot-kick assumed.) <b>Marked done.</b> Sources: <a href="https://www.101greatgoals.com/match-previews/world-cup-matches/switzerland-v-canada-line-ups-stats-preview-tv-channel-live-online-stream-prediction/" target="_blank" rel="noopener">101GreatGoals — line-ups &amp; preview</a>; <a href="https://onefootball.com/en/news/world-cup-2026-official-line-ups-bosnia-vs-qatar-and-switzerland-vs-canada-43053046" target="_blank" rel="noopener">OneFootball — official line-ups</a>; <a href="https://www.nbcnews.com/sports/soccer/live-blog/fifa-world-cup-games-2026-june-24-live-updates-rcna351554" target="_blank" rel="noopener">NBC News live blog</a>; <a href="https://www.fifa.com/en/match-centre/match/17/285023/289273/400021451" target="_blank" rel="noopener">FIFA match centre</a>.</p>
+</blockquote>
+<hr>
+<h2>5) Czechia vs Mexico — Group A · Mexico City (Estadio Azteca) · <b>9:00 PM ET</b></h2>
+<p><b>Stakes:</b> Mexico have <b>already won Group A and qualified</b> — a dead rubber/seeding game for them, and they're expected to <b>rotate</b> (veteran Ochoa, 40, in line to start; XI unconfirmed). Czechia are bottom on 1 pt and <b>must win</b> to keep slim best-third hopes alive — do-or-die, so they'll commit forward.</p>
+<p><b>Prediction:</b> <b>Mexico edge, narrow.</b> Most likely <b>1–0</b>; the <b>1–1 draw is nearly as likely</b>. Alternate: 2–1.</p>
+<p><b>Why:</b></p>
+<ul>
+<li><i>Stakes/personnel (decisive, two-way):</i> a fully-qualified Mexico resting players vs a desperate must-win Czechia is closer than the talent gap implies — don't overrate an unmotivated, rotated favorite (MD2 honest-ladder lesson). (scout-form)</li>
+<li><i>Conditions (favors Mexico):</i> Estadio Azteca's <b>altitude (~2,240 m) + a packed home crowd</b>, late at 9 PM, is a real drag on a European side chasing the game. (scout-patterns)</li>
+<li><i>Personnel:</i> Czechia are without David Jurásek (thigh, out for the tournament); Schick leads the line, Krejčí captains. Mexico's XI is uncertain pending rotation. (scout-personnel)</li>
+</ul>
+<p><b>Players to watch:</b> Patrik Schick (Czechia's route to the win they need); whichever forward Mexico start (Raúl Jiménez if near-full-strength) against a Czech side forced to commit bodies forward.</p>
+<p><b>Most likely scorer:</b> <b>Raúl Jiménez</b> if he starts <i>(low — Mexico's rotation makes the XI soft)</i>. Alternates: Patrik Schick (CZE) <i>(low)</i>, a Mexico substitute <i>(low — scoring-sub tail)</i>.</p>
+<p><b>Confidence &amp; stake:</b> Low. <b>1 unit on Mexico to win.</b> Home + altitude edge keeps the lean on Mexico, but heavy rotation and Czechia's desperation make the draw nearly even — close to a no-play.</p>
+<p><b>What would flip it:</b> Mexico rotating heavily and coasting while Czechia's do-or-die press earns a goal — a Czech win or a draw is very much in range.</p>
+<hr>
+<h2>6) South Africa vs South Korea — Group A · Monterrey (Estadio BBVA) · <b>9:00 PM ET</b></h2>
+<p><b>Stakes:</b> Win-and-(likely)-through for both. South Korea (3 pts) advance with a win and are well placed even with a draw; South Africa (1 pt) <b>must win</b> to chase a best-third spot. Both need a result → an open game.</p>
+<p><b>Prediction:</b> <b>South Korea win.</b> Most likely <b>2–1</b>; alternates 1–0, 1–1.</p>
+<p><b>Why:</b></p>
+<ul>
+<li><i>Quality + personnel (decisive):</i> South Korea hold the clear talent edge (Son, Kim Min-jae, Lee Kang-in), and South Africa lose midfield anchor <b>Teboho Mokoena to suspension</b> (2nd yellow) — though Sithole returns from suspension. (scout-personnel)</li>
+<li><i>Stakes/tactics:</i> both must win, so expect a two-directional game with chances at both ends rather than a low block — favouring the more clinical side. (scout-form / scout-tactics)</li>
+<li><i>Conditions:</i> Monterrey heat at 9 PM has Hong signalling <b>2–3 rotations</b> for Korea — a mild variance flag, not enough to flip the edge. (scout-patterns)</li>
+</ul>
+<p><b>Players to watch:</b> Son Heung-min (captain, talisman, set-piece/penalty duty); Lyle Foster (South Africa's focal point and their route to the win they need).</p>
+<p><b>Most likely scorer:</b> <b>Son Heung-min</b> — captain, primary threat, penalty taker <i>(low–medium)</i>. Alternates: Hwang Hee-chan (KOR) <i>(low)</i>, Lyle Foster (RSA) <i>(low)</i>.</p>
+<p><b>Confidence &amp; stake:</b> Medium. <b>2 units on South Korea to win.</b> Talent edge + South Africa's midfield blow in a game that should open up; Korea's heat rotation and South Africa's desperation cap it at 2u.</p>
+<p><b>What would flip it:</b> Korea rotating too heavily in the heat and South Africa's must-win intensity overrunning a reshuffled Korean midfield early.</p>
+<hr>
+<h3>Slate discipline note</h3>
+<p>No 3u plays — by design. Per the MD2 honest-ladder lesson, the clearest edges (Morocco, Bosnia, South Korea) are quality-vs-desperate/depleted opponents (capped 2u), and Scotland–Brazil is doubly capped (deep block + Raphinha out → 1u). <b>Total exposure 9 units across 6 games</b> (max 2u each). Three simultaneous kickoff windows — <b>watch the parallel scores</b>: at 3 PM, Canada will manage the moment a draw still tops Group B while Bosnia–Qatar opens up (both must win); at 6 PM, Morocco and Brazil both chase GD; at 9 PM, Mexico are a dead rubber that may rest legs (raising the Czechia/draw tail) while South Korea–South Africa is a mutual must-win.</p>
+<h3>Changelog</h3>
+<p><b>v2 → v3 (fixture-scan correction)</b></p>
+<ul>
+<li><b>Added the two Group A 9 PM ET finals that v1/v2 missed:</b> Czechia–Mexico (Mexico win <b>1–0</b>, <b>1u</b>, low — rotated host + altitude vs must-win Czechia) and South Africa–South Korea (Korea win <b>2–1</b>, <b>2u</b>, medium — talent edge + SA's Mokoena suspension, mutual must-win). Slate is now the full <b>6 games / 9u</b>.</li>
+</ul>
+<p><b>v1 → v2 (post-mortem calibration)</b></p>
+<ul>
+<li><b>Bosnia–Qatar:</b> corrected — Qatar are <b>not</b> eliminated (both on 1 pt, both must win). Reframed as an <b>open</b> game; scoreline 2–0 → <b>2–1</b>; stake 3u → <b>2u</b>.</li>
+<li><b>Morocco–Haiti:</b> primary 3–0 → <b>2–0</b> (deep-block margin discipline); stake 3u → <b>2u</b>. Dropped the unverified "Nazon doubtful" claim (not re-confirmed); added Hakimi as a full-back scorer tail.</li>
+<li><b>Scotland–Brazil:</b> primary 2–1 → <b>1–0</b>; stake 2u → <b>1u</b> (deep block + confirmed Raphinha absence). Draw weight raised.</li>
+<li><b>Canada–Switzerland:</b> held the draw lean at 1u; corrected Davies from "back/starting" to <b>expected to play but not start</b>.</li>
+<li><b>Added</b> a most-likely-scorer line (low-confidence, scoring-sub/full-back tail) to every card per the carlos.md format.</li>
+</ul>
+<h3>Sources</h3>
+<ul>
+<li>Schedule &amp; ET kickoffs: <a href="https://www.espn.com/soccer/story/_/id/48939282/2026-fifa-world-cup-fixtures-results-match-schedule-group-stage-knockout-rounds-bracket" target="_blank" rel="noopener">ESPN 2026 WC schedule</a>; <a href="https://sports.yahoo.com/soccer/article/2026-fifa-world-cup-daily-schedule-every-match-date-kickoff-time-and-venue-for-all-48-teams-234515087.html" target="_blank" rel="noopener">Yahoo daily schedule</a></li>
+<li>Group B standings/scenarios: <a href="https://www.skysports.com/football/news/12098/13543085/world-cup-2026-group-b-guide-fixtures-schedule-standings-and-odds-for-canada-bosnia-herzegovina-qatar-and-switzerland" target="_blank" rel="noopener">Sky Sports Group B guide</a>; <a href="https://www.cbssports.com/soccer/news/world-cup-group-standings-table-results/" target="_blank" rel="noopener">CBS Sports group standings</a>; <a href="https://fansided.com/soccer/world-cup-group-b-standings-canada-and-switzerland-well-placed-how-bosnia-and-qatar-can-advance" target="_blank" rel="noopener">FanSided Group B</a></li>
+<li>Bosnia–Qatar team news/suspensions/XIs: <a href="https://www.sportsmole.co.uk/football/qatar/world-cup-2026/team-news/bosnia-herzegovina-vs-qatar-injury-suspension-list-predicted-xis_599839.html" target="_blank" rel="noopener">Sports Mole team news</a>; <a href="https://www.espn.com/soccer/story/_/id/49138188/bosnia-herzegovina-qatar-fifa-world-cup-2026-tv-channel-how-watch-kick-live-stream-referee-predicted-line-ups" target="_blank" rel="noopener">ESPN preview</a></li>
+<li>Group C standings: <a href="https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_Group_C" target="_blank" rel="noopener">Wikipedia Group C</a>; <a href="https://sports.yahoo.com/articles/world-cup-group-c-standings-162944655.html" target="_blank" rel="noopener">Yahoo Group C scenarios</a></li>
+<li>Raphinha out / Neymar available: <a href="https://www.espn.com/soccer/story/_/id/49129032/brazil-confirm-raphinha-hamstring-injury-world-cup-2026-return-uncertain-group-c" target="_blank" rel="noopener">ESPN Raphinha injury</a>; <a href="https://bolavip.com/en/world-cup/brazil-provide-injury-update-on-raphinha-will-miss-game-vs-scotland-at-2026-world-cup" target="_blank" rel="noopener">Bolavip</a></li>
+<li>Morocco–Haiti team news: <a href="https://www.espn.com/soccer/story/_/id/49141508/fifa-world-cup-2026-morocco-vs-haiti-tv-channel-how-watch-kick-live-stream-referee-predicted-line-ups" target="_blank" rel="noopener">ESPN preview/predicted XIs</a>; <a href="https://www.goal.com/en/news/morocco-haiti-world-cup-preview/bltfe68a8f621710de3" target="_blank" rel="noopener">Goal.com preview</a></li>
+<li>Canada–Switzerland / Davies: <a href="https://fieldlevelmedia.com/news/canadas-alphonso-davies-expected-to-make-2026-world-cup-debut-vs-switzerland/" target="_blank" rel="noopener">Field Level Media</a>; <a href="https://www.theglobeandmail.com/sports/soccer/article-alphonso-davies-world-cup-switzerland-marsch/" target="_blank" rel="noopener">Globe and Mail</a></li>
+<li>Full June 24 schedule (all 6 games): <a href="https://www.aljazeera.com/sports/2026/6/24/world-cup-2026-full-group-schedule-and-top-third-round-matches-to-watch" target="_blank" rel="noopener">Al Jazeera group schedule</a>; <a href="https://sports.yahoo.com/soccer/article/2026-fifa-world-cup-daily-schedule-every-match-date-kickoff-time-and-venue-for-all-48-teams-234515087.html" target="_blank" rel="noopener">Yahoo daily schedule</a></li>
+<li>Group A standings/scenarios: <a href="https://www.skysports.com/football/news/12098/13540670/world-cup-2026-group-a-guide-fixtures-schedule-standings-and-odds-for-mexico-south-africa-south-korea-and-czech-republic" target="_blank" rel="noopener">Sky Sports Group A guide</a>; <a href="https://www.cbssports.com/soccer/news/world-cup-group-a-scenarios-june-23-2026/" target="_blank" rel="noopener">CBS Group A scenarios</a></li>
+<li>Czechia–Mexico team news: <a href="https://www.espn.com/soccer/story/_/id/49142462/czechia-vs-mexico-fifa-world-cup-2026-tv-channel-how-watch-kick-live-stream-injury-predicted-line-ups" target="_blank" rel="noopener">ESPN preview/predicted XIs</a>; <a href="https://www.sportsmole.co.uk/football/czech-republic/world-cup-2026/preview/czech-republic-vs-mexico-prediction-team-news-lineups_599786.html" target="_blank" rel="noopener">Sports Mole</a></li>
+<li>South Africa–South Korea team news/XIs: <a href="https://www.espn.com/soccer/story/_/id/49144478/fifa-world-cup-2026-south-africa-vs-south-korea-channel-how-watch-kickoff-live-stream-referee-predicted-line-ups" target="_blank" rel="noopener">ESPN preview</a>; <a href="https://www.sportsmole.co.uk/football/south-africa/world-cup-2026/preview/south-africa-vs-south-korea-prediction-team-news-lineups_599815.html" target="_blank" rel="noopener">Sports Mole</a></li>
+</ul>
+<hr>
+<h2>Grades (graded 2026-06-25 07:12 ET)</h2>
+<p><b>Verification:</b> every final score below confirmed against ESPN + FIFA (Fox/Yahoo corroborating). Predictions, not odds. Scoreline credited "exact via listed alt" only where a listed alternate matched; "within-one" measured vs the primary predicted scoreline.</p>
+<h3>Day totals</h3>
+<ul>
+<li><b>Outcome (staked pick): 4–2</b> ✅ Bosnia, Morocco, Brazil, Mexico · ❌ Canada–Switzerland (staked the draw), South Africa–South Korea</li>
+<li><b>Scoreline:</b> exact <b>1/6</b> (Bosnia 3–1 via listed alt) · within-one <b>1/6</b> (primary) — favorites blew past the capped margins (two 0–3, one 0–3 Mexico, one 4–2, one 3–1)</li>
+<li><b>Most-likely scorer:</b> primary <b>1/6</b> (Vinícius Júnior brace — first-ever primary hit) · listed incl. alts landed <b>3/6</b> (Morocco co-lead Saibari + alt Hakimi; Brazil primary Vini + alt Cunha; Canada–Switz lean Swiss fwd Vargas + scoring-sub tail Promise David)</li>
+<li><b>Stake P&amp;L: +3u</b> from 9u staked</li>
+</ul>
+<h3>Per card</h3>
+<p><b>1) Bosnia &amp; Herzegovina vs Qatar — FT 3–1</b> (Alajbegović 29', Abunada OG 34', Mahmić 82'; Al-Haydos 42'). Pred: Bosnia win 2–1, 2u.</p>
+<ul>
+<li>Outcome ✅ · Scoreline ✅ <b>exact via listed alt 3–1</b> (primary 2–1 within-one) · Scorer ❌ — Džeko/Demirović blanked; an 18-yo (Alajbegović), an OG and a late strike decided it; key men Džeko/Afif didn't feature decisively. <b>+2u.</b> Lesson confirmed: unlisted/secondary-scorer tail again.</li>
+</ul>
+<p><b>2) Morocco vs Haiti — FT 4–2</b> (Hakimi 39', Saibari 45+1', Rahimi 78', Yassine 89'; Bounou OG 10', Isidor 43'). Pred: Morocco win 2–0, 2u.</p>
+<ul>
+<li>Outcome ✅ · Scoreline ❌ (2–0 vs 4–2 — margin &amp; two-way goals under-predicted; the measured-2–0 cap was wrong in a GD chase) · Scorer ✅ (listed) — primary El Kaabi ❌ but <b>co-lead Saibari (45+1') + alt Hakimi (39') scored</b>; key player Hakimi ✅; two subs (Rahimi, Yassine) scored. <b>+2u.</b> Route: scout-tactics — over-capped a GD-chasing favorite; trust the in-form repeat scorer (Saibari) over the rotated-in #9 (El Kaabi).</li>
+</ul>
+<p><b>3) Scotland vs Brazil — FT 0–3</b> (Vinícius Júnior 2, Cunha). Pred: Brazil win 1–0, 1u; draw ~33% flagged.</p>
+<ul>
+<li>Outcome ✅ (draw didn't land) · Scoreline ❌ (1–0 vs 0–3 — doubly-capped 1u badly under-shot once Vini started) · Scorer ✅✅ — <b>primary Vinícius Júnior brace (first-ever primary hit)</b> + <b>alt Cunha</b>; key-player "a Brazil forward (Cunha)" ✅. <b>+1u.</b> The 17:02 note "Vini's start restores the width" was the right read; the cap cost margin credit on the day's cleanest card.</li>
+</ul>
+<p><b>4) Canada vs Switzerland — FT 1–2</b> (P. David (CAN); Vargas, Manzambi (SUI)). Pred (staked): <b>draw 1–1, 1u</b>; listed alt: <b>SUI win 1–2</b>.</p>
+<ul>
+<li>Outcome ❌ — staked the draw; <b>Switzerland won 2–1</b>, and the <b>listed alt (SUI win 1–2) was exactly right</b> (Switzerland chased the top seed as the alt anticipated) · Scorer ✅ (listed) — lean "a Swiss forward" → <b>Vargas</b> ✅; alt "a Canada striker" → <b>Promise David</b> ✅; alt "scoring sub" → <b>David scored off the bench</b> ✅. <b>−1u.</b> Route: scout-tactics — don't default to the draw in a seed-chase game; favor the win alt.</li>
+</ul>
+<p><b>5) Czechia vs Mexico — FT 0–3</b> (Chávez 55', Quiñones 61', Fidalgo 90+). Pred: Mexico win 1–0, 1u.</p>
+<ul>
+<li>Outcome ✅ · Scoreline ❌ (1–0 vs 3–0 — margin under-predicted at altitude vs an eliminated side) · Scorer ❌ — Jiménez/Schick blanked; Mexico's rotation XI scored (incl. a stoppage-time sub, Fidalgo). <b>+1u.</b></li>
+</ul>
+<p><b>6) South Africa vs South Korea — FT 1–0</b> (Maseko 63'). Pred: South Korea win 2–1, 2u.</p>
+<ul>
+<li>Outcome ❌ — <b>South Africa won 1–0</b> (first-ever WC knockout berth) · Scoreline ❌ · Scorer ❌ — Son/Hwang/Foster blanked; Maseko decided it; key man Son didn't feature decisively. <b>−2u.</b> Route: scout-form — Korea overrated vs a desperate South Africa; the "should open up" tag was wrong (tight 1–0). Day's worst call (2u).</li>
+</ul>
+<h3>Calibration snapshot (day)</h3>
+<ul>
+<li><b>Margins systematically under-predicted.</b> Four winning favorites tipped narrow (1–0/2–0) came in at 3–0 ×2, 4–2, 3–1 → within-one cratered to 1/6. The deep-block "cap the margin" rule was over-applied to dead-rubber / GD-chase games. <b>Adjust:</b> in clear dead rubbers or GD chases with a big quality gap, widen the primary scoreline rather than reflexively capping at 1–0/2–0.</li>
+<li><b>Scorer model turned the corner:</b> first primary hit (Vini) + co-lead/alt + scoring-sub tails landing in 3 games. Keep low-confidence hedging, the in-form-repeat-scorer rule, and the scoring-sub/full-back tail.</li>
+<li><b>Stake calibration still flat:</b> 2u plays 2/3 (Bosnia ✅, Morocco ✅, South Korea ❌), 1u plays 2/3 (Brazil ✅, Mexico ✅, Canada-draw ❌) — high stake not outperforming (n=2 days). Watch.</li>
+<li><b>Both outcome misses were "should open up / talent edge" reads that flipped</b> (Switzerland chased the seed; South Africa's desperation won) — and Canada–Switzerland's correct result was the card's own listed alt. Bias check: respect seed-chase / elimination-desperation motivation over a default draw or marquee-talent lean.</li>
+</ul></div>
+<footer>Carlos Command Center · World Cup 2026 · auto-published by the prediction pipeline.<br>
+Predictions, not facts. Notional stakes 0–5 units.</footer>
+</div>
+<script>
+(function(){
+  var BUILT = 1784461003297, ID = "1784461003";
+  function ago(){var m=Math.max(0,Math.round((Date.now()-BUILT)/60000));
+    var el=document.getElementById('ago');if(!el)return;
+    el.textContent = m<1?'just now':(m<60?m+'m ago':Math.floor(m/60)+'h '+(m%60)+'m ago');}
+  ago(); setInterval(ago,30000);
+  function poll(){fetch('../meta.json?t='+Date.now(),{cache:'no-store'})
+    .then(function(r){return r.json()})
+    .then(function(j){if(j.build_id&&j.build_id!==ID)location.reload();})
+    .catch(function(){});}
+  setInterval(poll,60000);
+})();
+</script></body></html>

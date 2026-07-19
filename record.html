@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Carlos — Running Record</title><style>
+:root{color-scheme:light;--bg:#eef1f5;--card:#fff;--ink:#161a1d;--mut:#5b6770;--line:#e1e6ec;
+--green:#1a7f37;--navy:#0f2740;--accent:#1a7f4f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.55}
+.wrap{max-width:1100px;margin:0 auto;padding:14px 14px 50px}
+nav.site{display:flex;gap:4px;align-items:center;flex-wrap:wrap;background:var(--navy);border-radius:12px;padding:8px 10px;margin-bottom:14px;position:sticky;top:8px;z-index:10;box-shadow:0 2px 10px rgba(15,39,64,.25)}
+nav.site .brand{color:#fff;font-weight:800;letter-spacing:-.2px;margin-right:8px;font-size:15px;text-decoration:none}
+nav.site .brand .dot{color:#3ddc84}
+nav.site a.t{color:#c8d3de;text-decoration:none;font-size:13px;font-weight:700;padding:5px 10px;border-radius:8px}
+nav.site a.t.on,nav.site a.t:hover{background:rgba(255,255,255,.14);color:#fff}
+nav.site .upd{margin-left:auto;color:#8fa3b5;font-size:11px;text-align:right}
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px;border-bottom:2px solid #d7dde4;padding-bottom:12px;margin-bottom:16px}
+.title{font-size:21px;font-weight:800;letter-spacing:-.3px}
+.sub{color:var(--mut);font-size:13px;margin-top:3px}
+.meta{text-align:right;font-size:12px;color:var(--mut)}
+.meta .exp{display:inline-block;margin-top:4px;background:var(--navy);color:#fff;padding:3px 9px;border-radius:999px;font-weight:700;font-size:12px}
+.badge{display:inline-flex;align-items:center;gap:5px;font-weight:700;font-size:11px;padding:3px 8px;border-radius:6px;letter-spacing:.2px}
+.b-conf{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.b-pend{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-hit{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.r-miss{background:#fde7e7;color:#b42318;border:1px solid #f3bcbc}
+.r-part{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-live{background:#e7eefc;color:#1d4ed8;border:1px solid #bcd0f5}
+.b-sim{background:#efeafd;color:#6b46c1;border:1px solid #d6c8f5}
+.sim{font-size:12px;color:#4a3a6b;margin-top:9px;background:#f7f4fe;border:1px solid #ece5fb;border-radius:8px;padding:7px 9px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.window{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);margin:20px 0 10px;display:flex;align-items:center;gap:8px}
+.window::after{content:"";flex:1;height:1px;background:#dbe1e8}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 15px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.card.confirmed{border-left:4px solid #1a7f37}
+.card.pending{border-left:4px solid #e8b33a}
+.match{font-size:16px;font-weight:800;letter-spacing:-.2px}
+.ctx{font-size:12px;color:var(--mut);margin-top:2px}
+.row{display:flex;align-items:center;justify-content:space-between;margin-top:11px;gap:8px}
+.pred{font-size:14px}.pred b{font-weight:800}.score{font-weight:800}
+.muted{color:#8a949c}
+.stake{font-size:12px;font-weight:800;background:var(--navy);color:#fff;padding:2px 8px;border-radius:6px;white-space:nowrap}
+.scorer{font-size:12.5px;color:#34404a;margin-top:9px}.scorer .k{color:var(--mut)}
+.result{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:11px;padding:8px 10px;border-radius:8px;background:#f6f8fb;border:1px solid #e6ebf1}
+.result .rscore{font-weight:800;font-size:14px}.result .rscore .k{color:var(--mut);font-weight:600;font-size:11px}
+.note{font-size:11.5px;color:var(--mut);margin-top:9px;border-top:1px dashed var(--line);padding-top:8px}
+.note.held{color:#1a7f37}
+footer{margin-top:26px;font-size:11px;color:#8a949c;text-align:center;line-height:1.6}
+/* prose (markdown pages) */
+.prose{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;box-shadow:0 1px 2px rgba(16,39,64,.04);overflow-x:auto}
+.prose h1{font-size:22px;letter-spacing:-.3px;margin:.2em 0 .5em}
+.prose h2{font-size:17px;margin:1.3em 0 .5em;padding-bottom:5px;border-bottom:1px solid var(--line)}
+.prose h3{font-size:15px;margin:1.2em 0 .4em}
+.prose p,.prose li{font-size:14px;color:#2a333b}
+.prose table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13px}
+.prose th,.prose td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+.prose th{background:#f4f6f9;font-weight:700}
+.prose tr:nth-child(even) td{background:#fafbfc}
+.prose blockquote{margin:10px 0;padding:6px 14px;border-left:3px solid #cbd5df;color:var(--mut);font-size:13.5px}
+.prose code{background:#f0f3f6;border:1px solid #e3e8ee;border-radius:4px;padding:1px 5px;font-size:12.5px}
+.prose hr{border:0;border-top:1px solid var(--line);margin:18px 0}
+.prose a{color:#1d4ed8}
+.prose img{max-width:100%}
+/* index lists */
+.linklist{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;margin-top:12px}
+.linklist a{display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;text-decoration:none;color:var(--ink);font-weight:700;font-size:13.5px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.linklist a:hover{border-color:#b9c4cf}
+.linklist a .d{display:block;font-weight:500;color:var(--mut);font-size:12px;margin-top:3px}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0 0 16px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.stat .v{font-size:19px;font-weight:800;letter-spacing:-.3px}
+.stat .k{font-size:11px;color:var(--mut);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.dayhead{font-size:16px;font-weight:800;margin:26px 0 4px}
+@media (max-width:560px){.wrap{padding:10px 9px 40px}.grid{grid-template-columns:1fr}.meta{text-align:left}}
+</style></head>
+<body><div class="wrap">
+<nav class="site"><a class="brand" href="index.html">Carlos<span class="dot"> ●</span></a><a class="t" href="index.html">Board</a><a class="t" href="history.html">History</a><a class="t on" href="record.html">Record</a><a class="t" href="intel.html">Intel</a>
+<span class="upd">updated<br><b id="ago">…</b></span></nav>
+<div class="prose"><h1>Carlos — Running Record</h1>
+<p><i>Cumulative accountability for the prediction system (no odds, no CLV — outcome / scoreline / scorer accuracy + notional unit P&amp;L). Updated by the daily auto-grader. Newest day first.</i></p>
+<h2>Cumulative tally (through 2026-07-18; 07-03 &amp; 07-09 slates still ungraded — see backlog note)</h2>
+<p><i>Pre-registered cards = 28 across 10 graded slates (06-23/24/25/30, 07-01/02/10/14/15/18); the 16-game 06-26→29 backfill and the R16 07-04→07 backfill are sim-only and excluded from the card/P&amp;L rows.</i></p>
+<p><i>⚠️ <b>Backlog:</b> the 07-03 slate and the 07-09 QF slate (France 2–0 Morocco) were never graded or folded into this tally — pipeline/watcher gap. They are NOT included in the rows below and should be back-graded.</i></p>
+<table><thead><tr><th>Metric</th><th>Record</th><th>Rate</th></tr></thead><tbody>
+<tr><td><b>Outcome (win/draw/win)</b></td><td>18–9 (1 push)</td><td>67% (07-18: France loss ❌ — England 6–4 bronze final)</td></tr>
+<tr><td><b>Scoreline exact (primary)</b></td><td>1 / 28</td><td>4% (still just 07-02 Portugal 2–1)</td></tr>
+<tr><td><b>Scoreline exact (primary or listed alt)</b></td><td>11 / 28</td><td>39% (07-18 England 6–4 not listed)</td></tr>
+<tr><td><b>Scoreline within one</b></td><td>17 / 28</td><td>61% (07-18 was −7 on total goals, the season's worst)</td></tr>
+<tr><td><b>Key-player featured</b></td><td>strong (07-18 Mbappé brace + Golden Boot, Bellingham; 07-15 Messi 2 assists + Lautaro super-sub, all 3 scorers on-list; Rodri 07-14; Yamal 07-10)</td><td>—</td></tr>
+<tr><td><b>Most-likely scorer (primary)</b></td><td>8 / 26 gradable</td><td>31% (07-18: primary Mbappé ✅ + co-primary Bellingham ✅, but hat-trick hero Saka unlisted)</td></tr>
+<tr><td><b>Stake P&amp;L (notional units)</b></td><td><b>+12u</b></td><td>from 42u staked (+29% notional ROI; 07-18 −1u)</td></tr>
+<tr><td><b>Sim mean Brier — pre-registered slates</b></td><td>0.198 on 07-02 (Spain only) — <b>no sim 07-10</b></td><td>~0.67 no-skill</td></tr>
+<tr><td><b>Sim mean Brier — all sim-graded games</b></td><td>0.474 (28 games incl. 16-game backfill 0.434)</td><td>below no-skill</td></tr>
+<tr><td><b>Sim top-scorer hit rate</b></td><td>4 / 6 (06-30 3/3, 07-01 1/2, 07-02 0/1 Spain)</td><td>clean tracking from 06-30</td></tr>
+<tr><td><b>Sim margin / total-goals bias</b></td><td>07-02 (Spain only): margin −2.0, total-goals −2.0 (under, one-sided blowout)</td><td>under-prediction pattern persists on lopsided favorites</td></tr>
+</tbody></table>
+<p><b>⚠️ Watcher / sim-pipeline status (through 07-15):</b> NO sim output has been produced since <b>07-03</b> — the 07-04→07 R16 window, 07-09 QF, 07-10 QF, 07-14 SF, and now the <b>07-15 semifinal</b> all ran with <b>zero live sim coverage</b> (7th straight match day dark). What began as a 1–2 game coverage gap (07-01/02) is now a sustained multi-day outage and is the single highest-priority open lesson. Every sim-calibration metric above is therefore frozen at 07-02.</p>
+<p><b>Calibration snapshot (through 07-02):</b> (1) <b>Watcher coverage gap got WORSE, not better</b> — 07-01 flagged 1 missing sim (USA); 07-02 had <b>2 of 3 games with no sim output at all</b> (Portugal–Croatia, Switzerland–Algeria), despite Switzerland carrying a mandatory late-window teamsheet-check flag on the card. This needs an urgent fix before R16 — it's now blocking most of the sim-grading pipeline, not just an edge case. (2) <b>Scorer-list construction keeps missing secondary/role-player goals</b> — Porro (Spain fullback) and Ndoye (Switzerland, replacing the flagged Manzambi) were both unlisted actual scorers on the one game that did get sim-graded; Ramos (Portugal sub) was also an unlisted scorer on the ungraded game. Fourth-plus straight slate with this pattern. (3) <b>Margin damp still costs Brier on blowouts even when the outcome lean is right</b> — Spain's 3–0 vs a projected 1–0/64% lean scored a fine outcome Brier (0.198) but missed the scoreline badly (margin err −2.0); once a heavy favorite breaks through, the modal should shift up faster. (4) <b>Trivia-streak discipline validated</b> — Ronaldo's "0-in-8" streak was correctly priced as noise, not a driver, and he scored. (5) <b>Primary-scoreline-exact finally happened</b> (Portugal 2–1) — first of the season; the compress-the-organised-underdog framing for Croatia held even though Portugal won.</p>
+<p><b>Prior snapshot (through 07-01):</b> (1) <b>Outcome engine is hot</b> — 6–0 across the last two R32 slates; the symmetric must-win framing keeps holding. (2) <b>Total-goals under-prediction reopened</b> — 06-30 was near-exact but 07-01 came in −1.5, driven by Belgium–Senegal's 3-goals-after-85' regulation; the must-win-chase lever got the lean right (near-coin-flip) but under-models late chaos. (3) <b>Scorer-list construction is now the top sim flaw</b> — Lukaku (benched at XI, scored as sub) was absent from the Belgium list entirely, the 4th straight slate with an unlisted actual scorer; "Other (unlisted)" &gt;60% both games. Route: keep benched stars/high-impact subs on the list. (4) <b>Lineup-revision logic can backfire</b> — demoting Lukaku for De Bruyne on the scorer call was correct process at XI time but lost the hit; consider "started or likely super-sub" rather than XI-only. (5) <b>Watcher coverage gap</b> — the 8 PM USA game never got a post-XI sim; late-window games are exactly where teamsheet risk is highest. Fix before the R16.</p>
+<p><b>Prior snapshot (through 06-30):</b> (1) <b>Best day yet, 06-30 R32:</b> outcome 3–0, scorer 3/3 primary, +4u/4u, sim Brier 0.355 — the knockout "symmetric must-win = quality, no motivation discount" framing plus confirmed-XI re-sims paid off. (2) <b>Margin under-prediction is closing but not gone</b> — the deep-block margin cap that badly hurt 06-24 (favorites 3–0 ×2 / 4–2) is now down to a ~1-goal modal miss (France 3–0 vs proj 2–0; Mexico 2–0 vs proj 1–0), while <i>total</i> xG was near-exact both times. Keep nudging the favorite's modal scoreline up on clear quality edges. (3) <b>Scorer top-pick is now a strength; list construction still short</b> — every 06-30 top scorer scored, but all three <i>secondary</i> scorers (Amad Diallo, Barcola, Quiñones) were absent from their sim's scorer list (cf. Pépé 06-25). Route to scout-personnel: extend the scorer list past the marquee name (2nd striker / in-form winger / attacking full-back). (4) <b>Stake discrimination finally showed</b> — the lone 2u play (France) was the most emphatic result; one clean day isn't a trend, keep watching. (5) <b>Motivation model</b> — remains the #1 group-stage driver; R32 is symmetric must-win so it nets out to quality + form, which held on all three.</p>
+<hr>
+<h2>Daily log</h2>
+<h3>2026-07-18 — World Cup Third-Place Play-Off (1 card, 1u staked) · graded 07-19</h3>
+<ul>
+<li><b>France win, 2–1 (1u)</b> → <b>England 6–4 France</b> (Rice, Konsa, <b>Saka 37'/45+'/87' pen — hat-trick</b>, <b>Bellingham</b> — his 7th, England record; <b>Mbappé ×2</b> → WC all-time top scorer 22 + Golden Boot, <b>Barcola</b>, <b>Dembélé 96'</b>) · ❌ outcome (France lost; England's best WC finish since 1966), ❌ scoreline (mirror to wrong side + <b>10-goal game vs projected 3, −7 total, worst of the season</b>), ◐ scorer (primary <b>Mbappé ✅ brace</b> + co-primary <b>Bellingham ✅</b>, but <b>hat-trick hero Saka unlisted</b>; Kane/Doué blanked; Rice/Konsa/Barcola/Dembélé all unlisted) · <b>−1u</b> · <b>no sim run (watcher dark since 07-03 — now the entire QF/SF/final week)</b></li>
+<li><b>Day:</b> outcome <b>0–1</b> · 0 exact / 0 within-one · scorer primary+co-primary hit but decisive scorer unlisted · <b>−1u net (1u staked)</b> · England finish 3rd; the final (Spain v Argentina) follows 07-19. Lessons routed: (1) <b>scorer-list construction — worst single miss of the tournament:</b> Saka scored 3 and was on no list; the "Saka-type" phrase appeared only in the flip line. Extend to in-form wide forwards + set-piece/midfield threats (Rice, Konsa) even in rotated XIs → scout-personnel. (2) <b>dead-rubber = pure variance → pass/no-lean, not a token favorite:</b> third straight KO token-stake loss (07-14 −2u, 07-15 −1u, 07-18 −1u); symmetric-rotation dead-rubbers should not be leaned even absent a directional bear-case. (3) <b>watcher outage now spans the whole knockout back-half</b> — top infrastructure lesson, unresolved; sim calibration frozen at 07-02. (4) <b>positive:</b> Mbappé Golden-Boot motivation call was the read of the day (brace + Boot + all-time WC record). Grades: <code>predictions/2026-07-18-slate.md</code>.</li>
+</ul>
+<h3>2026-07-15 — World Cup Semifinal, Day 2 (1 card, 1u staked) · graded 07-16</h3>
+<ul>
+<li><b>England win, 2–1 (1u)</b> → <b>Argentina 2–1 England</b> (Gordon 55'; <b>Enzo Fernández 85'</b>, <b>Lautaro Martínez 92'</b> — sub winner; <b>Messi 2 assists</b>) · ❌ outcome (England's exit; Argentina's 5/5 semifinal record held — the flagged bear-case plank), ❌ scoreline (mirror 2–1 to the wrong side, 2-goal swing, not within-one), ❌ scorer primary (Bellingham/Kane blanked) — but <b>all three actual scorers were on the card's lists</b>: Gordon (ENG alt), Enzo Fernández (listed low, possession-side gap), and <b>Lautaro Martínez explicitly kept on the list per the super-sub lesson</b> · <b>−1u</b> · <b>no sim run (watcher dark since 07-03, 7th straight day)</b></li>
+<li><b>Day:</b> outcome <b>0–1</b> · 0 exact / 0 within-one · scorer 0/1 primary (but <b>3/3 actual scorers on-list</b> — super-sub construction finally validated after 4 straight unlisted-scorer slates) · <b>−1u net (1u staked)</b> · Argentina advance to face Spain in the final (07-19). Lessons routed: (1) <b>scorer-list construction WIN</b> — the 07-09/07-10/07-14 super-sub fix worked: Lautaro Martínez was pre-listed and scored the winner; route a positive confirmation to scout-personnel. (2) <b>second straight semifinal losing a token favorite stake on a coin-flip</b> (07-14 France −2u, 07-15 England −1u) — the cap-the-stake rule contained the loss but the deeper 07-14 lesson stands: near-pick'em (Opta within ~7 pts, high draw prob) may warrant <b>no-lean/pass</b> over a token favorite. (3) <b>Watcher outage now 7 match days</b> — top infrastructure lesson, worsening; sim calibration frozen at 07-02. Grades: <code>predictions/2026-07-15-slate.md</code>.</li>
+</ul>
+<h3>2026-07-14 — World Cup Semifinal, Day 1 (1 card, 2u staked) · graded 07-15</h3>
+<ul>
+<li><b>France win, 2–1 (2u)</b> → <b>Spain 2–0 France</b> (Oyarzabal 22' pen; <b>Porro 58'</b>) · ❌ outcome (France's first loss), ❌ scoreline (2-goal swing, not within one), ❌ scorer primary (Mbappé blanked) — but <b>Spain-list primary Oyarzabal scored</b> (listed secondary hit) · <b>−2u</b> · <b>no sim run (watcher dark since 07-03, 6th straight day)</b></li>
+<li><b>Day:</b> outcome <b>0–1</b> · 0 exact / 0 within-one · scorer 0/1 primary (France) · <b>−2u net (2u staked)</b> · Spain advance to the final. Lessons routed: (1) <b>"cap the stake on the tightest-game label" held but wasn't enough</b> — the rule correctly sized to 2u and called "fine margins not a rout," but still bet the wrong side of a coin-flip against the bracket's best defense; when the model (Opta 42/32/26) and the H2H precedent both say near-even, consider a no-lean/pass rather than a token favorite stake. (2) <b>Scorer-list construction — fullback miss repeats the exact 07-02 Porro flag</b> — Pedro Porro (Spain RB) unlisted and scored, the second time this tournament the <i>same player</i> has burned the list; attacking fullbacks/wingbacks must go on Spain's scorer list. Route: scout-personnel. (3) <b>Watcher outage now 6 match days</b> — still the top infrastructure lesson; sim calibration frozen at 07-02. Grades: <code>predictions/2026-07-14-slate.md</code>.</li>
+</ul>
+<h3>2026-07-10 — World Cup Quarterfinal, Day 2 (1 card, 2u staked) · graded 07-11</h3>
+<ul>
+<li><b>Spain win, 2–0 (2u)</b> → <b>Spain 2–1 Belgium</b> (Fabián Ruiz 30'; De Ketelaere 41'; <b>Merino 88'</b> super-sub winner off a Lammens spill — Courtois injured off, Tielemans out in warm-up) · ✅ outcome, ◐ within-one (2–1 vs primary 2–0), ❌ scorer primary (Oyarzabal/Yamal blanked; Yamal assisted) — but <b>listed Belgium secondary De Ketelaere scored</b> · <b>+2u</b> · <b>no sim run (watcher dark since 07-03)</b></li>
+<li><b>Day:</b> outcome <b>1–0</b> · 0 exact / 1 within-one · scorer 0/1 primary (Spain), Belgium secondary hit · <b>+2u net (2u staked)</b> · Spain advance to face France in the semi-final. Lessons routed: (1) <b>scorer-list construction</b> miss again — both Spain goals from box-arriving midfielders (Ruiz, Merino) absent from the front-three scorer list; extend past the marquee attackers to the central-mid runners on set possession sides. (2) <b>margin-widen</b> validated on goal count (2 not capped 1) and 2u stake correct, but the clean-sheet branch correctly did NOT fire (De Ketelaere beat Cubarsí) — the tightest-QF / coin-flip read held. (3) <b>Watcher outage is now the top infrastructure lesson</b> — no live sim on any of the last 5 match days. Grades: <code>predictions/2026-07-10-slate.md</code>.</li>
+</ul>
+<h3>2026-07-04 → 07-07 — BACKFILL: World Cup Round of 16 (7 games, retrospective, graded 07-07)</h3>
+<p><i>Pipeline was dark for all 4 R16 match days (watcher never re-armed after 07-03; see infrastructure lesson). Sim (v2) run retrospectively on pre-match fundamentals, NOT pre-registered: <b>outcome lean 6/7 (86%)</b>, <b>mean Brier 0.38</b> (no-skill ≈ 0.67), scorer top-pick 4/7. Colombia v Switzerland (07-07) excluded — still live at grading time; will run through the normal pipeline once final.</i></p>
+<ul>
+<li>Morocco 3–0 Canada (Ounahi ×2, Rahimi) · sim 66.9/21.7/11.4, proj 2–0 · ✅ outcome, ±1 ✅ · Brier 0.17</li>
+<li>France 1–0 Paraguay (Mbappé pen) · sim 73.4/19.2/7.4, proj 2–0 · ✅ outcome, ±1 ✅, ✅ scorer · Brier 0.11</li>
+<li>Brazil 1–2 Norway (Neymar pen; Haaland ×2) · sim 43.9/28.1/28.0, proj 1–1 · ❌ outcome (only miss — Brazil's 43.9% wasn't a real edge over a near-even field), ±1 ✅, ✅ scorer (Haaland) · Brier 0.79</li>
+<li>Mexico 2–3 England (Quiñones, Jiménez pen; Bellingham ×2, Kane pen) · sim 25.1/27.1/47.7, proj 1–1 · ✅ outcome, ±1 ❌, ✅ scorer (Bellingham) · Brier 0.41</li>
+<li>Portugal 0–1 Spain (Merino 90+1') · sim 29.9/29.6/40.5, proj 1–1 · ✅ outcome, ±1 ✅ · Brier 0.53</li>
+<li>USA 1–4 Belgium (Tillman; De Ketelaere ×2, Vanaken, Lukaku) · sim 22.4/28.1/49.5, proj 1–1 · ✅ outcome, ±1 ❌ · Brier 0.38</li>
+<li>Argentina 3–2 Egypt (down 0–2, 3 goals in the last 13': Romero, Messi, Enzo Fernández) · sim 58.2/25.0/16.8, proj 1–1 · ✅ outcome, ±1 ❌, ✅ scorer (Messi) · Brier 0.27</li>
+<li><b>Slate:</b> outcome 6/7 · exact 0/7 · ±1 4/7 · margin err +0.71 · total-goals err −1.29 · top-scorer 4/7. Lessons routed: watcher went dark 4 days (infrastructure, top-weight), "favorite" barely clearing the field ≠ real edge (Brazil), margin still undershoots once a KO game breaks open (repeat), comeback-from-2-down finishes recurring (Argentina), scorer top-pick misses are role-fit coin-flips not list gaps (Hakimi/Yamal/De Bruyne). PM: <code>postmortems/2026-07-04_07-r16-backfill.md</code>. <i>(Retrospective — NOT pre-registered; excluded from the staked-P&amp;L tally, same treatment as the 06-26→29 backfill.)</i></li>
+</ul>
+<h3>2026-07-02 — World Cup Round of 32, Day 5 (3 cards, 4u staked) · graded 07-03</h3>
+<ul>
+<li><b>Spain win, 2–0 (2u)</b> → <b>Spain 3–0 Austria</b> (Oyarzabal 36', 89'; Porro 66') · ✅ outcome, ❌ scoreline (no within-one), ✅ scorer via alt (Oyarzabal; primary Yamal missed) · <b>+2u</b> · sim Brier 0.198 (proj 1–0/64% lean; margin err −2.0)</li>
+<li><b>Portugal win, 2–1 (1u)</b> → <b>Portugal 2–1 Croatia</b> (Perišić; Ronaldo pen; Ramos 94') · ✅ outcome, <b>✅ EXACT scoreline (primary)</b>, ✅ scorer (Ronaldo primary) · <b>+1u</b> · <b>no sim run</b> (watcher gap)</li>
+<li><b>Switzerland win, 2–1 (1u)</b> → <b>Switzerland 2–0 Algeria</b> (Embolo 10'; Ndoye 46') · ✅ outcome, <b>2–0 alt exact</b> + within-one, ✅ scorer (Embolo primary; Ndoye unlisted, not flagged Manzambi) · <b>+1u</b> · <b>no sim run</b> (watcher gap, despite mandatory teamsheet-check flag)</li>
+<li><b>Day:</b> outcome <b>3–0</b> (3rd straight perfect day) · 1 primary-exact + 1 alt-exact scoreline / 2 within-one · scorer 2/3 primary + 1/3 alt-exact (3/3 incl. alts) · <b>+4u net (4u staked)</b> · sim: only Spain graded (Brier 0.198); <b>2 of 3 games had no sim at all — worse than 07-01's single gap</b>. Lessons routed: margin damp on blowout favorites (scout-tactics), scorer-list misses on role players/subs — Porro, Ndoye, Ramos (scout-personnel), watcher coverage gap now urgent (2 straight slates, got worse not better). Grades: <code>predictions/2026-07-02-slate.md</code>; sim detail: <code>sims/2026-07-02-sims-grade.json</code>.</li>
+</ul>
+<h3>2026-07-01 — World Cup Round of 32, Day 4 (3 cards, 3u staked) · graded 07-02</h3>
+<ul>
+<li><b>England win, 2–0 (1u)</b> → <b>England 2–1 DR Congo</b> (Cipenga 7'; Kane 75', 86') · ✅ outcome, <b>2–1 alt exact</b> + within-one, ✅ scorer (Kane primary, brace) · <b>+1u</b> · sim Brier 0.324</li>
+<li><b>Belgium edge, 2–1 (1u)</b> → <b>Belgium 3–2 Senegal (AET; reg 2–2)</b> (Diarra, I. Sarr; Lukaku 86', Tielemans 89' + 120+5 pen — latest goal in WC history) · ✅ outcome via the listed draw→ET alt (0–2 down at 85'), ◐ within-one only, ❌ scorer (revised primary De Bruyne; benched Lukaku scored as sub) · <b>+1u</b> · sim Brier 0.821 (leaned Belgium; reg = draw)</li>
+<li><b>USA win, 2–1 (1u)</b> → <b>USA 2–0 Bosnia</b> (Balogun ~44', Tillman 81' FK; Balogun red 64', USA held with 10) · ✅ outcome, <b>2–0 alt exact</b> + within-one, ❌ scorer (Pulisic — goal disallowed; both alts Balogun/Tillman scored) · <b>+1u</b> · <b>no sim run</b> (watcher missed the late game)</li>
+<li><b>Day:</b> outcome <b>3–0</b> · 2 alt-exact / 3 within-one · scorer 1/3 primary · <b>+3u net (3u staked)</b> · <b>sim mean Brier 0.573</b> (2 games only) · sim top-scorer 1/2 · margin −0.5 / total-goals −1.5. Lessons routed: Lukaku list-construction miss (scout-personnel), late-chaos goal under-count (sim), watcher late-window coverage gap. Grades: <code>predictions/2026-07-01-slate.md</code>; sim detail: <code>sims/2026-07-01-sims-grade.json</code>.</li>
+</ul>
+<h3>2026-06-30 — World Cup Round of 32, Day 3 (3 cards, 4u staked) · graded 07-01</h3>
+<ul>
+<li><b>Norway edge, 1–1 (1u Norway)</b> → <b>Ivory Coast 1–2 Norway</b> (Amad Diallo; Nusa, Haaland 86') · ✅ outcome, <b>2–1 alt exact</b> + within-one, ✅✅ scorer (Haaland primary + A. Diallo alt) · <b>+1u</b> · sim Brier 0.389 (confirmed-XI 0.415)</li>
+<li><b>France win, 2–0 (2u)</b> → <b>France 3–0 Sweden</b> (Mbappé ×2, Barcola) · ✅ outcome, <b>3–0 alt exact</b> + within-one, ✅ scorer (Mbappé brace, primary) · <b>+2u</b> · sim Brier <b>0.139</b> (best of day)</li>
+<li><b>Mexico edge, 1–0 (1u Mexico)</b> → <b>Mexico 2–0 Ecuador</b> (Quiñones 22', Jiménez 31') · ✅ outcome, ◐ within-one, ✅ scorer (Jiménez primary) · <b>+1u</b> · sim Brier 0.536 (correct favorite, near coin-flip)</li>
+<li><b>Day:</b> outcome <b>3–0 (perfect)</b> · 2 alt-exact scorelines / 3 within-one · <b>most-likely scorer 3/3 primary</b> (system best) · <b>+4u net (4u staked)</b> · <b>sim mean Brier 0.355</b> (best slate; no game &gt;0.9) · sim top-scorer hit 3/3 · margin bias +0.67 modal / total-goals +0.18. All three won in regulation — no ET/pens tails fired. Lesson routed: scorer-list construction still misses secondaries (Amad Diallo, Barcola, Quiñones). PM: deep post-mortem via <code>wc-carlos-postmortem</code>.</li>
+</ul>
+<h3>2026-06-26 → 06-29 — BACKFILL validation (16 games, retrospective, graded 06-30)</h3>
+<p>Sim (v2) on 16 unpredicted games: <b>outcome lean 11/16 (69%)</b>, <b>mean Brier 0.434</b> (group finals 0.38, R32 0.60) — real out-of-sample skill. Misses: Egypt/Iran &amp; Cape Verde/Saudi (coin-flips → draw), Austria 3–3 Algeria (open), <b>Colombia 0–0 Portugal</b> (both-through dead rubber), <b>Germany &amp; Netherlands</b> (R32 favorites held → out on pens). Lessons routed (calibration): raise favorite lambda for blowouts (Belgium 5–1, Senegal 5–0, France 4–1 under-projected); <b>R32 compression → raise draw/ET-pens + cap favorites</b>; both-through → draw. PM: <code>postmortems/2026-06-26_29-backfill.md</code>. <i>(Retrospective — NOT pre-registered; excluded from the staked-P&amp;L tally.)</i></p>
+<h3>2026-06-25 — World Cup MD3 Groups D/E/F (6 cards, 9u staked) · graded late 06-30</h3>
+<ul>
+<li><b>Germany win 2–0 (2u)</b> → <b>Ecuador 2–1 Germany</b> (Angulo, Plata late) · ❌ outcome, ❌ scoreline, ❌ scorer · <b>−2u</b> · sim Brier 1.12 (GER already through/rotated vs must-win ECU)</li>
+<li><b>Ivory Coast win 1–0 (1u)</b> → <b>Curaçao 0–2 Ivory Coast</b> (Pépé 2) · ✅ outcome, ◐ within-one, ❌ scorer (Pépé not in list) · <b>+1u</b> · sim Brier 0.40</li>
+<li><b>Japan win 2–1 / or draw (2u)</b> → <b>Japan 1–1 Sweden</b> · ◐ Japan advanced, <b>1–1 alt exact</b> · <b>push 0u</b> · sim Brier 0.85</li>
+<li><b>Netherlands win 3–0 (2u)</b> → <b>Netherlands 3–1 Tunisia</b> · ✅ outcome, <b>3–1 alt exact</b> · <b>+2u</b> · sim Brier <b>0.08</b> (best)</li>
+<li><b>USA win 1–0 (1u, near no-play)</b> → <b>Türkiye 3–2 USA</b> · ❌ outcome, ❌ scoreline (5-goal game) · <b>−1u</b> · sim Brier 0.65 (USA rested heavily; margin under-predicted)</li>
+<li><b>Paraguay win 1–0 (1u)</b> → <b>Paraguay 0–0 Australia</b> · ❌ outcome (draw — AUS happy with it), ◐ within-one · <b>−1u</b> · sim Brier 0.74</li>
+<li><b>Day:</b> outcome 2 hit / 3 miss / 1 push · 2 alt-exact scorelines · <b>−1u net</b> · <b>sim mean Brier 0.64</b> · motivation/rotation flipped 3 of 6 (Ecuador, Türkiye, Paraguay) — now the #1 driver. PMs: <code>postmortems/2026-06-25-*</code>.</li>
+</ul>
+<h3>2026-06-24 — World Cup MD3 (6 cards, 9u staked)</h3>
+<ul>
+<li><b>Bosnia win 2–1 (2u)</b> → <b>Bosnia 3–1 Qatar</b> (Alajbegović, OG, Mahmić; Al-Haydos) · ✅ outcome, ✅ scoreline (3–1 listed alt exact), ❌ scorer (Džeko) · <b>+2u</b></li>
+<li><b>Morocco win 2–0 (2u)</b> → <b>Morocco 4–2 Haiti</b> (Hakimi, Saibari, Rahimi, Yassine) · ✅ outcome, ❌ scoreline, ✅ scorer via co-lead Saibari + alt Hakimi · <b>+2u</b></li>
+<li><b>Brazil win 1–0 (1u)</b> → <b>Brazil 3–0 Scotland</b> (Vinícius Jr 2, Cunha) · ✅ outcome, ❌ scoreline, ✅✅ scorer (primary Vini brace + alt Cunha) · <b>+1u</b></li>
+<li><b>Draw 1–1 (1u)</b> → <b>Switzerland 2–1 Canada</b> (Vargas, Manzambi; David) · ❌ outcome (listed alt "SUI win 1–2" was exact), ✅ scorer via lean + scoring-sub tail · <b>−1u</b></li>
+<li><b>Mexico win 1–0 (1u)</b> → <b>Mexico 3–0 Czechia</b> (Chávez, Quiñones, Fidalgo) · ✅ outcome, ❌ scoreline, ❌ scorer (Jiménez) · <b>+1u</b></li>
+<li><b>South Korea win 2–1 (2u)</b> → <b>South Africa 1–0 South Korea</b> (Maseko) · ❌ outcome, ❌ scoreline, ❌ scorer (Son) · <b>−2u</b></li>
+<li><b>Day:</b> outcome 4–2 · scoreline 1 exact / 1 within-one (primary) · scorer 1/6 primary, 3/6 incl. alts · <b>+3u net</b></li>
+</ul>
+<h3>2026-06-23 — World Cup MD2 (3 cards, 7u staked)</h3>
+<ul>
+<li><b>England win 2–0 (3u)</b> → <b>0–0 draw</b> · ❌ outcome, ❌ scoreline, scorer N/A · <b>−3u</b></li>
+<li><b>Croatia win 2–1 (2u)</b> → <b>Croatia 1–0</b> (Budimir 54', HT sub) · ✅ outcome, ◐ within-one, ❌ scorer (Musa) · <b>+2u</b></li>
+<li><b>Colombia win 2–0 (2u)</b> → <b>Colombia 1–0</b> (Muñoz 76', RB) · ✅ outcome, ✅ scoreline (1–0 alt exact), key-players ✅ (Díaz/James dominated), ❌ scorer · <b>+2u</b></li>
+<li><b>Day:</b> outcome 2–1 · scoreline 1 exact / 2 within-one · scorer 0/3 · <b>+1u net</b></li>
+<li>Postmortems: <code>postmortems/2026-06-23-england-ghana.md</code>, <code>…-panama-croatia.md</code>, <code>…-colombia-dr-congo.md</code></li>
+</ul>
+<p><i>(Pre-pivot odds-era estimates, e.g. POR–UZB 2026-06-23, are not counted in this prediction-era tally.)</i></p></div>
+<footer>Carlos Command Center · World Cup 2026 · auto-published by the prediction pipeline.<br>
+Predictions, not facts. Notional stakes 0–5 units.</footer>
+</div>
+<script>
+(function(){
+  var BUILT = 1784461003297, ID = "1784461003";
+  function ago(){var m=Math.max(0,Math.round((Date.now()-BUILT)/60000));
+    var el=document.getElementById('ago');if(!el)return;
+    el.textContent = m<1?'just now':(m<60?m+'m ago':Math.floor(m/60)+'h '+(m%60)+'m ago');}
+  ago(); setInterval(ago,30000);
+  function poll(){fetch('meta.json?t='+Date.now(),{cache:'no-store'})
+    .then(function(r){return r.json()})
+    .then(function(j){if(j.build_id&&j.build_id!==ID)location.reload();})
+    .catch(function(){});}
+  setInterval(poll,60000);
+})();
+</script></body></html>

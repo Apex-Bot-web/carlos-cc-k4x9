@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Carlos — Slate 2026-07-02</title><style>
+:root{color-scheme:light;--bg:#eef1f5;--card:#fff;--ink:#161a1d;--mut:#5b6770;--line:#e1e6ec;
+--green:#1a7f37;--navy:#0f2740;--accent:#1a7f4f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.55}
+.wrap{max-width:1100px;margin:0 auto;padding:14px 14px 50px}
+nav.site{display:flex;gap:4px;align-items:center;flex-wrap:wrap;background:var(--navy);border-radius:12px;padding:8px 10px;margin-bottom:14px;position:sticky;top:8px;z-index:10;box-shadow:0 2px 10px rgba(15,39,64,.25)}
+nav.site .brand{color:#fff;font-weight:800;letter-spacing:-.2px;margin-right:8px;font-size:15px;text-decoration:none}
+nav.site .brand .dot{color:#3ddc84}
+nav.site a.t{color:#c8d3de;text-decoration:none;font-size:13px;font-weight:700;padding:5px 10px;border-radius:8px}
+nav.site a.t.on,nav.site a.t:hover{background:rgba(255,255,255,.14);color:#fff}
+nav.site .upd{margin-left:auto;color:#8fa3b5;font-size:11px;text-align:right}
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px;border-bottom:2px solid #d7dde4;padding-bottom:12px;margin-bottom:16px}
+.title{font-size:21px;font-weight:800;letter-spacing:-.3px}
+.sub{color:var(--mut);font-size:13px;margin-top:3px}
+.meta{text-align:right;font-size:12px;color:var(--mut)}
+.meta .exp{display:inline-block;margin-top:4px;background:var(--navy);color:#fff;padding:3px 9px;border-radius:999px;font-weight:700;font-size:12px}
+.badge{display:inline-flex;align-items:center;gap:5px;font-weight:700;font-size:11px;padding:3px 8px;border-radius:6px;letter-spacing:.2px}
+.b-conf{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.b-pend{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-hit{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.r-miss{background:#fde7e7;color:#b42318;border:1px solid #f3bcbc}
+.r-part{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-live{background:#e7eefc;color:#1d4ed8;border:1px solid #bcd0f5}
+.b-sim{background:#efeafd;color:#6b46c1;border:1px solid #d6c8f5}
+.sim{font-size:12px;color:#4a3a6b;margin-top:9px;background:#f7f4fe;border:1px solid #ece5fb;border-radius:8px;padding:7px 9px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.window{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);margin:20px 0 10px;display:flex;align-items:center;gap:8px}
+.window::after{content:"";flex:1;height:1px;background:#dbe1e8}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 15px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.card.confirmed{border-left:4px solid #1a7f37}
+.card.pending{border-left:4px solid #e8b33a}
+.match{font-size:16px;font-weight:800;letter-spacing:-.2px}
+.ctx{font-size:12px;color:var(--mut);margin-top:2px}
+.row{display:flex;align-items:center;justify-content:space-between;margin-top:11px;gap:8px}
+.pred{font-size:14px}.pred b{font-weight:800}.score{font-weight:800}
+.muted{color:#8a949c}
+.stake{font-size:12px;font-weight:800;background:var(--navy);color:#fff;padding:2px 8px;border-radius:6px;white-space:nowrap}
+.scorer{font-size:12.5px;color:#34404a;margin-top:9px}.scorer .k{color:var(--mut)}
+.result{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:11px;padding:8px 10px;border-radius:8px;background:#f6f8fb;border:1px solid #e6ebf1}
+.result .rscore{font-weight:800;font-size:14px}.result .rscore .k{color:var(--mut);font-weight:600;font-size:11px}
+.note{font-size:11.5px;color:var(--mut);margin-top:9px;border-top:1px dashed var(--line);padding-top:8px}
+.note.held{color:#1a7f37}
+footer{margin-top:26px;font-size:11px;color:#8a949c;text-align:center;line-height:1.6}
+/* prose (markdown pages) */
+.prose{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;box-shadow:0 1px 2px rgba(16,39,64,.04);overflow-x:auto}
+.prose h1{font-size:22px;letter-spacing:-.3px;margin:.2em 0 .5em}
+.prose h2{font-size:17px;margin:1.3em 0 .5em;padding-bottom:5px;border-bottom:1px solid var(--line)}
+.prose h3{font-size:15px;margin:1.2em 0 .4em}
+.prose p,.prose li{font-size:14px;color:#2a333b}
+.prose table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13px}
+.prose th,.prose td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+.prose th{background:#f4f6f9;font-weight:700}
+.prose tr:nth-child(even) td{background:#fafbfc}
+.prose blockquote{margin:10px 0;padding:6px 14px;border-left:3px solid #cbd5df;color:var(--mut);font-size:13.5px}
+.prose code{background:#f0f3f6;border:1px solid #e3e8ee;border-radius:4px;padding:1px 5px;font-size:12.5px}
+.prose hr{border:0;border-top:1px solid var(--line);margin:18px 0}
+.prose a{color:#1d4ed8}
+.prose img{max-width:100%}
+/* index lists */
+.linklist{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;margin-top:12px}
+.linklist a{display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;text-decoration:none;color:var(--ink);font-weight:700;font-size:13.5px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.linklist a:hover{border-color:#b9c4cf}
+.linklist a .d{display:block;font-weight:500;color:var(--mut);font-size:12px;margin-top:3px}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0 0 16px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.stat .v{font-size:19px;font-weight:800;letter-spacing:-.3px}
+.stat .k{font-size:11px;color:var(--mut);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.dayhead{font-size:16px;font-weight:800;margin:26px 0 4px}
+@media (max-width:560px){.wrap{padding:10px 9px 40px}.grid{grid-template-columns:1fr}.meta{text-align:left}}
+</style></head>
+<body><div class="wrap">
+<nav class="site"><a class="brand" href="../index.html">Carlos<span class="dot"> ●</span></a><a class="t" href="../index.html">Board</a><a class="t on" href="../history.html">History</a><a class="t" href="../record.html">Record</a><a class="t" href="../intel.html">Intel</a>
+<span class="upd">updated<br><b id="ago">…</b></span></nav>
+<div class="prose"><h1>Carlos — Match Prediction Cards · July 2, 2026 — Round of 32 (Day 5)</h1>
+<p>*Knockouts: a draw after 90' goes to extra time / penalties. Both teams must-win, so motivation is</p>
+<p>symmetric — quality + form decide. Lineups pending; sims run only after the watcher confirms each XI</p>
+<p>(~45 min pre-KO). Predictions, not facts; sources at end.*</p>
+<p><b>Calibration applied (carlos.lessons.md):</b> (1) <b>Opponent-score mass when the flip mechanism IS a plausible game script</b> (07-01 Belgium lesson) — Austria's press scoring on Spain and Algeria's transition scoring on Switzerland both get real weight; no zero-opponent modal unless the profile earns it. (2) <b>Margin under-projection [durable]</b> — a clear quality edge in an <i>open</i> game gets the modal nudged up; Austria's high line vs Spain is the openest profile today. (3) <b>Honest stake ladder</b> — one genuine quality-edge-in-an-open-game spot today (Spain) gets 2u; the other two are capped 1u. (4) <b>Kill trivia streaks</b> — Ronaldo's 0-goals-in-8-WC-knockouts is a trivia streak, not a driver; his scorer call is priced on role (pens, box presence), tagged low/med. (5) <b>Late-window mandatory teamsheet check</b> — the 11 PM ET Switzerland game is exactly the rotation-risk slot; watcher flag set. (6) Scorer calls low/med, hedged, and keep high-impact subs on the list (Lukaku lesson — Manzambi, Kalajdžić flagged).</p>
+<hr>
+<h2>1) Spain vs Austria — R32 · Inglewood (SoFi Stadium) · 3:00 PM ET</h2>
+<p><b>Prediction:</b> <b>Spain win</b> — most likely <b>2–0</b>; alts 2–1, 3–1. Draw → ET/pens is a thin tail.</p>
+<p><b>Why:</b> Spain topped Group H <b>unbeaten and unscored-upon</b> (capped by 1–0 over Uruguay); Austria qualified second from Group J on Kalajdžić's 96' equaliser in a <b>3–3 with Algeria</b> — Rangnick's press creates chances at both ends, every game. The matchup is the problem for Austria: a high press vs the midfield (Rodri/Zubimendi–Pedri) built precisely to play <i>through</i> pressure — beat the first wave and the space behind the high line is where Spain's margin comes from (margin lesson: open game + clear quality edge → model 2+). Austria's press scoring once is a live script (opponent-score lesson), hence 2–1 as first alt, but three clean sheets say the modal stays 2–0.</p>
+<p><b>Players to watch:</b> Yamal (carries the width with <b>Nico Williams and Pino carrying knocks, neither expected to start</b>), Pedri (press escape), Baena; Arnautović + Kalajdžić (super-sub threat) and Sabitzer's arrivals for Austria.</p>
+<p><b>Most likely scorer:</b> <b>Yamal</b> (med — talisman, 1v1 vs an exposed backline). Alts: Oyarzabal (pens), Merino (late box arrivals), Baena; Arnautović/Kalajdžić (AUT).</p>
+<p><b>Stake:</b> <b>2u Spain</b> (the one honest quality-edge-in-an-open-game spot on the slate — the France-class play, not a break-the-bus cap case; Austria will not park).</p>
+<p><b>What would flip it:</b> Austria's first-wave press actually landing (turnovers on Spain's 6) and an early Austria goal forcing chaos; a Yamal off-day with both natural left-wingers hurt.</p>
+<h2>2) Portugal vs Croatia — R32 · Toronto (BMO Field) · 7:00 PM ET</h2>
+<p><b>Prediction:</b> <b>Portugal win</b> — most likely <b>2–1</b>; alts 1–0, 2–0. <b>Draw after 90' → ET/pens is a fat, live tail</b> — this is Croatia's signature habitat.</p>
+<p><b>Why:</b> Portugal took Group K's second spot (draws vs DR Congo and Colombia around a 5–0 over Uzbekistan) — dominant on the ball, occasionally slack at the back. Croatia rebuilt after the 4–2 England loss with grinding wins over Panama and Ghana. Opta: <b>Portugal ~54.5% / Croatia ~20.4%</b> in regulation. The tie lives in midfield: Neves + Vitinha's press-resistance vs Modrić (40) and Kovačić's tempo — Portugal should win the ball higher and feed Conceição/Leão. But Croatia's entire modern identity is dragging better sides past 90' (finalists/semifinalists three straight cycles), so the compress-the-organised-underdog lesson applies in full.</p>
+<p><b>Players to watch:</b> Vitinha + João Neves (the engine), Bruno Fernandes, Leão/Conceição wide; Modrić, Kovačić, Kramarić, Gvardiol (CRO). Both squads report clean injury tables.</p>
+<p><b>Most likely scorer:</b> <b>Ronaldo</b> (low/med — 2 goals this tournament, pens, box presence; the 0-in-8-WC-knockouts stat is trivia, not a model input, but a packed knockout box still starves a 41-year-old No.9). Alts: Bruno Fernandes, Leão, Conceição; Kramarić (CRO).</p>
+<p><b>Stake:</b> <b>1u Portugal</b> (capped — organised, dangerous, tournament-hardened underdog with a real ET/pens route; not a clean 2u edge).</p>
+<p><b>What would flip it:</b> Modrić controlling tempo and the game reaching 70' level — Croatia's pens equity then eats the price; a rotated/false-9 Portugal front line at the XI (watch Félix/Neto vs Conceição/Leão calls).</p>
+<h2>3) Switzerland vs Algeria — R32 · Vancouver (BC Place) · 11:00 PM ET</h2>
+<p><b>Prediction:</b> <b>Switzerland win</b> — most likely <b>2–1</b>; alts 1–0, 2–0. Draw → ET/pens live tail.</p>
+<p><b>Why:</b> Switzerland won Group B unbeaten — organised Yakin structure, Kobel behind Akanji/Elvedi, Xhaka–Freuler control. Algeria arrived third from Group J the hard way: a <b>3–3 thriller with Austria</b> where a 93' lead evaporated — they score (Gouiri, Mahrez, Aït-Nouri's overlaps) and they concede. Algeria's transition threat is a genuine script (opponent-score lesson → 2–1 modal, not 2–0), but Switzerland's structure vs a team that just shipped three is the quality-and-control edge. Subplot: <b>Petković</b> (7 years Switzerland boss) now on the Algeria bench — knows the opponent's spine intimately, worth respect not units.</p>
+<p><b>Players to watch:</b> <b>Manzambi</b> (3 goals + assist in three games, mostly off the bench — Young Player watch, may start), Embolo, Vargas, Xhaka; Mahrez (35, still the moment-maker), Gouiri, Aït-Nouri (ALG). Widmer (SUI) doubtful, not ruled out.</p>
+<p><b>Most likely scorer:</b> <b>Embolo</b> (low/med — the No.9 vs a leaky line). Alts: <b>Manzambi (form spike — list him started or super-sub)</b>, Vargas; Gouiri, Mahrez (ALG).</p>
+<p><b>Stake:</b> <b>1u Switzerland</b> (capped — Algeria's attack keeps them live and the Petković information edge is real; near-even-adjacent knockout).</p>
+<p><b>What would flip it:</b> <b>MANDATORY late-window teamsheet check ~10:15 PM ET</b> (11 PM slot = max rotation/talisman risk — confirm Embolo starts and where Manzambi is). Mahrez producing one moment + Algeria sitting on a lead; Swiss legs in a fifth game in 15 days.</p>
+<hr>
+<h3>Slate note</h3>
+<p>Total exposure <b>4u / 3 games</b> (Spain <b>2u</b>, Portugal 1u, Switzerland 1u). Spain–Austria is the honest 2u: open game (press vs possession), clear quality gap, no bus. Portugal and Switzerland are capped: both underdogs carry a real route (Croatia's ET/pens DNA; Algeria's transition goals). All three carry opponent-score mass per the 07-01 Belgium lesson. Sims (10k, v2) attach per game once the watcher confirms each XI.</p>
+<h3>Sources</h3>
+<ul>
+<li>R32 schedule/ET times: <a href="https://www.cbssports.com/soccer/news/world-cup-2026-schedule-times-dates/" target="_blank" rel="noopener">CBS knockout schedule</a>; <a href="https://www.si.com/soccer/every-confirmed-round-of-32-match-2026-world-cup" target="_blank" rel="noopener">SI R32 dates/kickoffs</a></li>
+<li>Spain–Austria: <a href="https://www.rotowire.com/soccer/article/spain-vs-austria-preview-predicted-lineups-team-news-tactical-analysis-2026-world-cup-round-of-32-120533" target="_blank" rel="noopener">Rotowire preview/lineups</a>; <a href="https://www.si.com/soccer/spain-vs-austria-world-cup-preview-predictions-and-lineups-7-2-26" target="_blank" rel="noopener">SI preview/predictions</a>; <a href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/spain-austria-live-stream-team-news-tickets" target="_blank" rel="noopener">FIFA match preview</a></li>
+<li>Portugal–Croatia: <a href="https://www.rotowire.com/soccer/article/portugal-vs-croatia-preview-predicted-lineups-team-news-tactical-analysis-2026-world-cup-round-of-32-120534" target="_blank" rel="noopener">Rotowire preview/lineups</a>; <a href="https://theanalyst.com/articles/portugal-vs-croatia-prediction-world-cup-2026-match-preview" target="_blank" rel="noopener">Opta Analyst preview</a>; <a href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/portugal-croatia-live-stream-team-news-tickets-and-more" target="_blank" rel="noopener">FIFA match preview</a></li>
+<li>Switzerland–Algeria: <a href="https://www.rotowire.com/soccer/article/switzerland-vs-algeria-preview-predicted-lineups-team-news-tactical-analysis-2026-world-cup-round-of-32-120535" target="_blank" rel="noopener">Rotowire preview/lineups</a>; <a href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/switzerland-algeria-live-stream-team-news-tickets-and-more" target="_blank" rel="noopener">FIFA match preview</a>; <a href="https://khelnow.com/football/switzerland-vs-algeria-preview-fifa-world-cup-2026" target="_blank" rel="noopener">Khel Now preview</a></li>
+</ul>
+<hr>
+<h2>Grades (graded 2026-07-03 ET, manual run)</h2>
+<h3>1) Spain vs Austria — Spain 3–0 Austria (Oyarzabal 36', 89'; Porro 66')</h3>
+<ul>
+<li><b>Outcome:</b> ✅ HIT (Spain win)</li>
+<li><b>Scoreline:</b> ❌ not exact (primary 2–0, alts 2–1/3–1) vs actual 3–0; ❌ not within-one (total goals off by 1, margin off by 2)</li>
+<li><b>Most-likely scorer:</b> ❌ primary (Yamal) miss; ✅ alt-exact — Oyarzabal was listed as an alt scorer and scored twice</li>
+<li><b>Key players:</b> Yamal did not score (quiet night); Oyarzabal (listed alt) was the difference</li>
+<li><b>Stake P&amp;L:</b> 2u Spain → <b>+2u</b></li>
+<li><b>Sim (v2, confirmed-XI re-sim <code>sims/2026-07-02-esp-aut-confirm-output.json</code>):</b> proj 1–0 lean Spain (64.1/22.9/13.0) vs actual 3–0 · <b>Brier 0.198</b> · outcome ✅ · exact ❌ · within-one ❌ · margin err −2.0 / total-goals err −2.0 · top-scorer pick Yamal ❌ (Oyarzabal was 2nd in list at 30.4%, so not a full list-construction miss) · <b>Porro (2nd Spain goal) absent from the sim's scorer list entirely — list-construction miss, fullback goal</b>. Lever: <b>margin damp</b> (sim undercounted a one-sided game once Spain broke through — Brier 0.198 is fine on the win/draw/loss lean but the scoreline undershoots badly).</li>
+<li><b>Calibration note:</b> the "margin under-projection" lesson (07-01) still applies on the winning side even when the outcome lean is strong; a big favorite in an open game can blow a tie open past the modal 1–0/2–0 shape.</li>
+</ul>
+<h3>2) Portugal vs Croatia — Portugal 2–1 Croatia (Perišić early; Ronaldo pen equalizer; Ramos 94' winner)</h3>
+<ul>
+<li><b>Outcome:</b> ✅ HIT (Portugal win)</li>
+<li><b>Scoreline:</b> ✅ <b>EXACT</b> — primary 2–1 called correctly</li>
+<li><b>Most-likely scorer:</b> ✅ HIT primary — Ronaldo scored (penalty), ending an 8-game WC knockout scoreless streak</li>
+<li><b>Key players:</b> Ramos (unlisted) scored the 94th-minute winner; Gvardiol's late equalizer was VAR-disallowed (offside on Pašalić)</li>
+<li><b>Stake P&amp;L:</b> 1u Portugal → <b>+1u</b></li>
+<li><b>Sim:</b> <b>not run</b> — no <code>sims/2026-07-02-<i>por-cro</i></code> output file exists. Watcher coverage gap (same issue flagged 07-01 for the 8 PM USA game — this is the 2nd straight slate with a missing sim on a non-lead game).</li>
+<li><b>Calibration note:</b> trivia-streak lesson (Ronaldo's scoreless run) was correctly discounted as noise, not a driver — validated. Ramos as an unlisted late-sub scorer is a fresh scorer-list-construction data point (attacking subs, not just starters).</li>
+</ul>
+<h3>3) Switzerland vs Algeria — Switzerland 2–0 Algeria (Embolo 10'; Ndoye 46')</h3>
+<ul>
+<li><b>Outcome:</b> ✅ HIT (Switzerland win)</li>
+<li><b>Scoreline:</b> ✅ <b>alt-exact</b> — 2–0 was the 2nd-listed alt</li>
+<li><b>Most-likely scorer:</b> ✅ HIT primary — Embolo scored in the 10th minute</li>
+<li><b>Key players:</b> Ndoye (unlisted, not Manzambi) scored the 2nd goal; Manzambi did not feature as a scorer despite the flagged form-spike watch</li>
+<li><b>Stake P&amp;L:</b> 1u Switzerland → <b>+1u</b></li>
+<li><b>Sim:</b> <b>not run</b> — no confirmed-XI sim output exists for this game either (mandatory late-window teamsheet check from the card was not backed by a re-sim). 2nd game this slate with no sim, on top of Portugal–Croatia — a real watcher gap, not a one-off.</li>
+<li><b>Calibration note:</b> Ndoye scoring instead of Manzambi is another scorer-list-construction miss — the flagged "form spike" sub can crowd out the actual secondary scorer; list should include all credible secondary options, not just the trending name.</li>
+</ul>
+<h3>Day totals — July 2, 2026 (R32, Day 5)</h3>
+<ul>
+<li><b>Outcome:</b> 3–0 (perfect)</li>
+<li><b>Scoreline:</b> 1 exact primary (Portugal) / 1 alt-exact (Switzerland) / 1 miss, no within-one credit (Spain) → 2/3 alt-exact-or-better</li>
+<li><b>Most-likely scorer:</b> 2/3 primary (Ronaldo, Embolo); 1/3 alt-exact (Oyarzabal) → 3/3 hit incl. alts</li>
+<li><b>Stake P&amp;L:</b> <b>+4u net (4u staked)</b></li>
+<li><b>Sim coverage:</b> 1/3 games sim-graded (Spain only) — mean Brier 0.198 on that one game; <b>2 of 3 games have no sim output at all</b>, a worse watcher gap than 07-01's single miss</li>
+<li><b>Lessons routed:</b> margin damp on a broken-open favorite (Spain, scout-tactics); scorer-list construction missed 2 straight unlisted actual scorers (Porro, Ndoye — scout-personnel) plus a 3rd unlisted secondary (Ramos); <b>watcher coverage gap is now 2 slates running and got worse (1 miss → 2 misses)</b> — flag for urgent fix before R16 per prior grading note.</li>
+</ul></div>
+<footer>Carlos Command Center · World Cup 2026 · auto-published by the prediction pipeline.<br>
+Predictions, not facts. Notional stakes 0–5 units.</footer>
+</div>
+<script>
+(function(){
+  var BUILT = 1784461003297, ID = "1784461003";
+  function ago(){var m=Math.max(0,Math.round((Date.now()-BUILT)/60000));
+    var el=document.getElementById('ago');if(!el)return;
+    el.textContent = m<1?'just now':(m<60?m+'m ago':Math.floor(m/60)+'h '+(m%60)+'m ago');}
+  ago(); setInterval(ago,30000);
+  function poll(){fetch('../meta.json?t='+Date.now(),{cache:'no-store'})
+    .then(function(r){return r.json()})
+    .then(function(j){if(j.build_id&&j.build_id!==ID)location.reload();})
+    .catch(function(){});}
+  setInterval(poll,60000);
+})();
+</script></body></html>

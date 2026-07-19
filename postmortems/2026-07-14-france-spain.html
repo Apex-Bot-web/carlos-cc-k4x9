@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Post-mortem — 2026-07-14-france-spain</title><style>
+:root{color-scheme:light;--bg:#eef1f5;--card:#fff;--ink:#161a1d;--mut:#5b6770;--line:#e1e6ec;
+--green:#1a7f37;--navy:#0f2740;--accent:#1a7f4f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.55}
+.wrap{max-width:1100px;margin:0 auto;padding:14px 14px 50px}
+nav.site{display:flex;gap:4px;align-items:center;flex-wrap:wrap;background:var(--navy);border-radius:12px;padding:8px 10px;margin-bottom:14px;position:sticky;top:8px;z-index:10;box-shadow:0 2px 10px rgba(15,39,64,.25)}
+nav.site .brand{color:#fff;font-weight:800;letter-spacing:-.2px;margin-right:8px;font-size:15px;text-decoration:none}
+nav.site .brand .dot{color:#3ddc84}
+nav.site a.t{color:#c8d3de;text-decoration:none;font-size:13px;font-weight:700;padding:5px 10px;border-radius:8px}
+nav.site a.t.on,nav.site a.t:hover{background:rgba(255,255,255,.14);color:#fff}
+nav.site .upd{margin-left:auto;color:#8fa3b5;font-size:11px;text-align:right}
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px;border-bottom:2px solid #d7dde4;padding-bottom:12px;margin-bottom:16px}
+.title{font-size:21px;font-weight:800;letter-spacing:-.3px}
+.sub{color:var(--mut);font-size:13px;margin-top:3px}
+.meta{text-align:right;font-size:12px;color:var(--mut)}
+.meta .exp{display:inline-block;margin-top:4px;background:var(--navy);color:#fff;padding:3px 9px;border-radius:999px;font-weight:700;font-size:12px}
+.badge{display:inline-flex;align-items:center;gap:5px;font-weight:700;font-size:11px;padding:3px 8px;border-radius:6px;letter-spacing:.2px}
+.b-conf{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.b-pend{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-hit{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.r-miss{background:#fde7e7;color:#b42318;border:1px solid #f3bcbc}
+.r-part{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-live{background:#e7eefc;color:#1d4ed8;border:1px solid #bcd0f5}
+.b-sim{background:#efeafd;color:#6b46c1;border:1px solid #d6c8f5}
+.sim{font-size:12px;color:#4a3a6b;margin-top:9px;background:#f7f4fe;border:1px solid #ece5fb;border-radius:8px;padding:7px 9px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.window{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);margin:20px 0 10px;display:flex;align-items:center;gap:8px}
+.window::after{content:"";flex:1;height:1px;background:#dbe1e8}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 15px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.card.confirmed{border-left:4px solid #1a7f37}
+.card.pending{border-left:4px solid #e8b33a}
+.match{font-size:16px;font-weight:800;letter-spacing:-.2px}
+.ctx{font-size:12px;color:var(--mut);margin-top:2px}
+.row{display:flex;align-items:center;justify-content:space-between;margin-top:11px;gap:8px}
+.pred{font-size:14px}.pred b{font-weight:800}.score{font-weight:800}
+.muted{color:#8a949c}
+.stake{font-size:12px;font-weight:800;background:var(--navy);color:#fff;padding:2px 8px;border-radius:6px;white-space:nowrap}
+.scorer{font-size:12.5px;color:#34404a;margin-top:9px}.scorer .k{color:var(--mut)}
+.result{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:11px;padding:8px 10px;border-radius:8px;background:#f6f8fb;border:1px solid #e6ebf1}
+.result .rscore{font-weight:800;font-size:14px}.result .rscore .k{color:var(--mut);font-weight:600;font-size:11px}
+.note{font-size:11.5px;color:var(--mut);margin-top:9px;border-top:1px dashed var(--line);padding-top:8px}
+.note.held{color:#1a7f37}
+footer{margin-top:26px;font-size:11px;color:#8a949c;text-align:center;line-height:1.6}
+/* prose (markdown pages) */
+.prose{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;box-shadow:0 1px 2px rgba(16,39,64,.04);overflow-x:auto}
+.prose h1{font-size:22px;letter-spacing:-.3px;margin:.2em 0 .5em}
+.prose h2{font-size:17px;margin:1.3em 0 .5em;padding-bottom:5px;border-bottom:1px solid var(--line)}
+.prose h3{font-size:15px;margin:1.2em 0 .4em}
+.prose p,.prose li{font-size:14px;color:#2a333b}
+.prose table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13px}
+.prose th,.prose td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+.prose th{background:#f4f6f9;font-weight:700}
+.prose tr:nth-child(even) td{background:#fafbfc}
+.prose blockquote{margin:10px 0;padding:6px 14px;border-left:3px solid #cbd5df;color:var(--mut);font-size:13.5px}
+.prose code{background:#f0f3f6;border:1px solid #e3e8ee;border-radius:4px;padding:1px 5px;font-size:12.5px}
+.prose hr{border:0;border-top:1px solid var(--line);margin:18px 0}
+.prose a{color:#1d4ed8}
+.prose img{max-width:100%}
+/* index lists */
+.linklist{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;margin-top:12px}
+.linklist a{display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;text-decoration:none;color:var(--ink);font-weight:700;font-size:13.5px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.linklist a:hover{border-color:#b9c4cf}
+.linklist a .d{display:block;font-weight:500;color:var(--mut);font-size:12px;margin-top:3px}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0 0 16px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.stat .v{font-size:19px;font-weight:800;letter-spacing:-.3px}
+.stat .k{font-size:11px;color:var(--mut);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.dayhead{font-size:16px;font-weight:800;margin:26px 0 4px}
+@media (max-width:560px){.wrap{padding:10px 9px 40px}.grid{grid-template-columns:1fr}.meta{text-align:left}}
+</style></head>
+<body><div class="wrap">
+<nav class="site"><a class="brand" href="../index.html">Carlos<span class="dot"> ●</span></a><a class="t" href="../index.html">Board</a><a class="t" href="../history.html">History</a><a class="t" href="../record.html">Record</a><a class="t on" href="../intel.html">Intel</a>
+<span class="upd">updated<br><b id="ago">…</b></span></nav>
+<div class="prose"><h1>Post-Mortem — France 0–2 Spain · World Cup 2026 Semifinal (Day 1)</h1>
+<p><i>Dallas Stadium (AT&amp;T Stadium), Arlington · 14 July 2026 · post-mortem written 2026-07-15.</i></p>
+<p><i>Prediction card: <code>predictions/2026-07-14-slate.md</code>. NO hallucination — every stat cited; unconfirmed = "unknown".</i></p>
+<hr>
+<h2>1) Prediction vs Actual</h2>
+<table><thead><tr><th>Axis</th><th>Carlos card</th><th>Actual</th><th>Grade</th></tr></thead><tbody>
+<tr><td>Outcome</td><td><b>France win</b> (2u)</td><td><b>Spain win</b></td><td>❌ MISS</td></tr>
+<tr><td>Scoreline</td><td>2–1 France (alts 2–0 Fr, 1–1)</td><td><b>2–0 Spain</b></td><td>❌ (2-goal swing; no alt hit)</td></tr>
+<tr><td>Most-likely scorer</td><td>Mbappé (primary), Dembélé (co)</td><td>France shut out</td><td>❌ MISS</td></tr>
+<tr><td>Spain scorer list</td><td>Oyarzabal (primary), Merino, Yamal</td><td><b>Oyarzabal (pen)</b> + <b>Porro</b></td><td>◐ Oyarzabal ✅ / Porro ❌ unlisted</td></tr>
+<tr><td>Stake P&amp;L</td><td>2u France</td><td>—</td><td><b>−2u</b></td></tr>
+</tbody></table>
+<p>Scorers: <b>Mikel Oyarzabal 22' (pen)</b>, <b>Pedro Porro 58'</b>.</p>
+<hr>
+<h2>2) The Deep Dive</h2>
+<h3>Shot profile / xG (Opta)</h3>
+<ul>
+<li><b>France: 0.3 xG from 10 shots (3 on target).</b> ~0.03 xG per shot — a scatter of low-value, mostly speculative attempts. This is France's <i>worst</i> attacking output of the tournament by a distance (cf. ~3.10 xG vs Morocco in the QF).</li>
+<li><b>Spain: 1.63 xG from 10 shots; scored with both of their shots on target.</b> Ruthless efficiency — two shots on target, two goals — but the underlying number (1.63) says the win was <i>earned</i>, not stolen.</li>
+<li><b>Possession: Spain 51% – France 49%.</b> Near-even, and France actually saw more of the ball late chasing the game. Spain did not need to dominate possession to dominate the match — the control was positional/pressing, not hoggish.</li>
+</ul>
+<h3>Big chances &amp; when they fell</h3>
+<ul>
+<li><b>22' — Oyarzabal penalty (1–0).</b> Lamine Yamal drew a foul from Lucas Digne inside the box; Oyarzabal converted. A real foul, not a soft/controversial call per reports.</li>
+<li><b>30' — France reshuffle forced.</b> Centre-back <b>William Saliba</b> off with a back injury, replaced by <b>Maxence Lacroix</b> (Crystal Palace). France's back line disrupted while already chasing.</li>
+<li><b>58' — Porro (2–0).</b> A clean give-and-go (1-2) with <b>Dani Olmo</b>; Porro broke free of his marker and side-footed past Maignan. A worked team goal, not a set-piece scramble or deflection.</li>
+<li>France never produced a clear big chance; <b>Unai Simón</b> made the "key saves" that were needed but was rarely stretched.</li>
+</ul>
+<h3>Block / shape</h3>
+<ul>
+<li><b>Spain</b> set up to strangle France's transition game exactly as the card itself described: they <b>crowded Mbappé in transition</b>, limited his touches in dangerous areas, and pressed France all over the field. The Rodri/Pedri-type control (the card's named "single biggest tactical swing factor") won the midfield outright.</li>
+<li><b>France</b> could not unlock a compact, aggressive Spanish press; their front four (Mbappé/Dembélé/Olise/Barcola) were smothered.</li>
+</ul>
+<h3>Substitutions &amp; effect</h3>
+<ul>
+<li><b>Spain:</b> Digne foul aside, no reshuffle needed — they controlled from the front.</li>
+<li><b>France (Deschamps, HT):</b> <b>Koné for Rabiot</b>, then <b>Doué for Barcola</b> early in the second half. No effect — "same story," France stayed frustrated. The changes chased the game but did not move the xG needle.</li>
+<li><b>86':</b> Mbappé's frustration boiled over — collided with Simón as the keeper gathered, <b>yellow card</b>. A tell of a striker who never got into the match.</li>
+</ul>
+<h3>Phase-by-phase</h3>
+<ul>
+<li><b>1st half (0–22):</b> Even, low-tempo, Spain slightly on the ball but not testing Maignan. Yamal wins and Oyarzabal converts the pen (22') — the game's hinge. Saliba injury (30') adds to France's problems. Spain take a controlled 1–0 to the break.</li>
+<li><b>2nd half (46–58):</b> France change personnel at HT chasing a leveler; Spain absorb and then land the knockout — Porro's give-and-go with Olmo (58') for 2–0.</li>
+<li><b>Late (58–90):</b> France see more of the ball but generate nothing of value (their 0.3 xG never climbs into danger). Simón mops up; Mbappé booked (86'). Spain see it out — extending their unbeaten run to <b>37 (level with Italy's record)</b> and reaching a <b>second-ever World Cup final</b>.</li>
+</ul>
+<h3>Conditions</h3>
+<p>Indoor at Dallas Stadium (climate-controlled roof venue). No weather factor. Pitch/conditions: unknown of note.</p>
+<hr>
+<h2>3) Process vs Variance — ~70% process / ~30% variance</h2>
+<p><b>This was NOT a bad-beat.</b> France produced <b>0.3 xG</b>; Spain produced <b>1.63 xG</b> and both goals came from live, repeatable actions (a real penalty, a worked give-and-go). The scoreboard matched the performance. When a favorite you backed generates 0.3 xG in a knockout, the miss is overwhelmingly a <b>read error</b>, not the ball refusing to cooperate.</p>
+<ul>
+<li><b>Process (~70%):</b> The card <i>enumerated every reason Spain could win</i> — Opta coin-flip (42.1/31.8/26.1), the Euro-2024 semifinal precedent (Spain 2–1), Spain's tournament-best defense, and a control game "built to strangle exactly the kind of transition speed France offers" — <b>and then leaned France anyway on attacking form.</b> Every structural factor the card listed pointed toward Spain or a pick'em; the France lean rode "red-hot form / Golden Boot race" (vibes), and the game played out precisely as the card's own bear case described. That is a synthesis/direction error, not luck.</li>
+<li><b>Variance (~30%):</b> The Saliba injury (30') and the specific penalty incident carry some chance element, and 2 SoT → 2 goals is a clinical finish that flatters the margin slightly. But Spain's structural control (0.3 xG conceded) would have won this most of the time regardless.</li>
+</ul>
+<p><b>Stake note (what went right):</b> The <b>2u-not-3u</b> cap held (07-07/07-10 "don't over-lean the favorite label" rule), and the card explicitly called France "on fine margins, not a rout." So the <i>magnitude</i> discipline worked; the <i>direction</i> did not. Loss contained to −2u.</p>
+<hr>
+<h2>4) Predictive Signals for Future Games</h2>
+<ul>
+<li>1. <b>Spain (this cycle) is a control side that beats — not just survives — elite transition favorites.</b> Third straight win over France (Euro 2024 SF 2–1, Nations League SF 2025, WC 2026 SF 2–0). Their profile: crowd the opponent's star in transition, win midfield, convert efficiently. Against a possession-control side of this tier, do <b>not</b> default to "the favorite's attack eventually breaks through." Model the control side winning <b>outright</b>, and raise their clean-sheet mass.</li>
+</ul>
+<ul>
+<li>2. <b>France's raw goal-tally form was schedule-inflated.</b> 16 goals in 6 games came largely against weaker/deeper blocks (Morocco QF etc.). Against a top-tier defense they managed <b>0.3 xG</b>. Regress a favorite's goals-per-game hard when the beaten opponents were soft, and cut their attacking projection sharply vs a top-5 defense.</li>
+</ul>
+<ul>
+<li>3. <b>Spain's attacking fullbacks are live scorers — Porro specifically, again.</b> Porro's give-and-go goal is the <b>same fullback-scorer, same player</b> miss logged on 07-02. Against a side pinned into its own half, Spain's overlapping/underlapping fullbacks (Porro, and the left side) arrive to finish. List them.</li>
+</ul>
+<ul>
+<li>4. <b>When your own card lists the opponent's full ceiling and the model is a coin-flip, do not lean the favorite on form.</b> Go pick'em (no lean / cap stake at 1u) or lean the side the <i>structural</i> factors favor. Enumerating the bear case and then betting against it is the specific failure mode here.</li>
+</ul>
+<ul>
+<li>5. <b>A shut-out star tell:</b> Mbappé's 86' frustration foul is the visible signature of a transition forward fully neutralized by a compact press — a reminder that "in-form finisher" is conditional on getting service, which a control-press denies.</li>
+</ul>
+<hr>
+<h2>5) Lessons routed (dated, testable)</h2>
+<ul>
+<li><b>carlos</b> — direction-error rule when the card's own bear case + a coin-flip model contradict the lean.</li>
+<li><b>scout-patterns</b> — Spain control-side profile beats elite transition favorites outright (3rd straight vs France); H2H + stylistic, high weight.</li>
+<li><b>scout-tactics</b> — compact press that crowds a lone transition star (Mbappé) → 0.3 xG; how France plays vs an aggressive press.</li>
+<li><b>scout-personnel</b> — Porro / Spain attacking fullbacks as live scorers <b>[REPEAT of 07-02]</b>, high weight.</li>
+<li><b>scout-form</b> — discount schedule-inflated goal tallies; regress a favorite's attack vs a top-5 defense.</li>
+</ul>
+<p><i>Sources: <a href="https://www.espn.com/soccer/story/_/id/49361129/spain-shut-france-advance-world-cup-final" target="_blank" rel="noopener">ESPN report</a>, <a href="https://theanalyst.com/articles/france-vs-spain-stats-world-cup-semi-final" target="_blank" rel="noopener">Opta Analyst stats</a>, <a href="https://www.espn.com/soccer/match/_/gameId/760514/spain-france" target="_blank" rel="noopener">ESPN match</a>, <a href="https://www.fifa.com/en/match-centre/match/17/285023/289290/400021541" target="_blank" rel="noopener">FIFA match centre</a>.</i></p></div>
+<footer>Carlos Command Center · World Cup 2026 · auto-published by the prediction pipeline.<br>
+Predictions, not facts. Notional stakes 0–5 units.</footer>
+</div>
+<script>
+(function(){
+  var BUILT = 1784461003297, ID = "1784461003";
+  function ago(){var m=Math.max(0,Math.round((Date.now()-BUILT)/60000));
+    var el=document.getElementById('ago');if(!el)return;
+    el.textContent = m<1?'just now':(m<60?m+'m ago':Math.floor(m/60)+'h '+(m%60)+'m ago');}
+  ago(); setInterval(ago,30000);
+  function poll(){fetch('../meta.json?t='+Date.now(),{cache:'no-store'})
+    .then(function(r){return r.json()})
+    .then(function(j){if(j.build_id&&j.build_id!==ID)location.reload();})
+    .catch(function(){});}
+  setInterval(poll,60000);
+})();
+</script></body></html>

@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Carlos — Slate 2026-06-25</title><style>
+:root{color-scheme:light;--bg:#eef1f5;--card:#fff;--ink:#161a1d;--mut:#5b6770;--line:#e1e6ec;
+--green:#1a7f37;--navy:#0f2740;--accent:#1a7f4f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.55}
+.wrap{max-width:1100px;margin:0 auto;padding:14px 14px 50px}
+nav.site{display:flex;gap:4px;align-items:center;flex-wrap:wrap;background:var(--navy);border-radius:12px;padding:8px 10px;margin-bottom:14px;position:sticky;top:8px;z-index:10;box-shadow:0 2px 10px rgba(15,39,64,.25)}
+nav.site .brand{color:#fff;font-weight:800;letter-spacing:-.2px;margin-right:8px;font-size:15px;text-decoration:none}
+nav.site .brand .dot{color:#3ddc84}
+nav.site a.t{color:#c8d3de;text-decoration:none;font-size:13px;font-weight:700;padding:5px 10px;border-radius:8px}
+nav.site a.t.on,nav.site a.t:hover{background:rgba(255,255,255,.14);color:#fff}
+nav.site .upd{margin-left:auto;color:#8fa3b5;font-size:11px;text-align:right}
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px;border-bottom:2px solid #d7dde4;padding-bottom:12px;margin-bottom:16px}
+.title{font-size:21px;font-weight:800;letter-spacing:-.3px}
+.sub{color:var(--mut);font-size:13px;margin-top:3px}
+.meta{text-align:right;font-size:12px;color:var(--mut)}
+.meta .exp{display:inline-block;margin-top:4px;background:var(--navy);color:#fff;padding:3px 9px;border-radius:999px;font-weight:700;font-size:12px}
+.badge{display:inline-flex;align-items:center;gap:5px;font-weight:700;font-size:11px;padding:3px 8px;border-radius:6px;letter-spacing:.2px}
+.b-conf{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.b-pend{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-hit{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.r-miss{background:#fde7e7;color:#b42318;border:1px solid #f3bcbc}
+.r-part{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-live{background:#e7eefc;color:#1d4ed8;border:1px solid #bcd0f5}
+.b-sim{background:#efeafd;color:#6b46c1;border:1px solid #d6c8f5}
+.sim{font-size:12px;color:#4a3a6b;margin-top:9px;background:#f7f4fe;border:1px solid #ece5fb;border-radius:8px;padding:7px 9px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.window{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);margin:20px 0 10px;display:flex;align-items:center;gap:8px}
+.window::after{content:"";flex:1;height:1px;background:#dbe1e8}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 15px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.card.confirmed{border-left:4px solid #1a7f37}
+.card.pending{border-left:4px solid #e8b33a}
+.match{font-size:16px;font-weight:800;letter-spacing:-.2px}
+.ctx{font-size:12px;color:var(--mut);margin-top:2px}
+.row{display:flex;align-items:center;justify-content:space-between;margin-top:11px;gap:8px}
+.pred{font-size:14px}.pred b{font-weight:800}.score{font-weight:800}
+.muted{color:#8a949c}
+.stake{font-size:12px;font-weight:800;background:var(--navy);color:#fff;padding:2px 8px;border-radius:6px;white-space:nowrap}
+.scorer{font-size:12.5px;color:#34404a;margin-top:9px}.scorer .k{color:var(--mut)}
+.result{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:11px;padding:8px 10px;border-radius:8px;background:#f6f8fb;border:1px solid #e6ebf1}
+.result .rscore{font-weight:800;font-size:14px}.result .rscore .k{color:var(--mut);font-weight:600;font-size:11px}
+.note{font-size:11.5px;color:var(--mut);margin-top:9px;border-top:1px dashed var(--line);padding-top:8px}
+.note.held{color:#1a7f37}
+footer{margin-top:26px;font-size:11px;color:#8a949c;text-align:center;line-height:1.6}
+/* prose (markdown pages) */
+.prose{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;box-shadow:0 1px 2px rgba(16,39,64,.04);overflow-x:auto}
+.prose h1{font-size:22px;letter-spacing:-.3px;margin:.2em 0 .5em}
+.prose h2{font-size:17px;margin:1.3em 0 .5em;padding-bottom:5px;border-bottom:1px solid var(--line)}
+.prose h3{font-size:15px;margin:1.2em 0 .4em}
+.prose p,.prose li{font-size:14px;color:#2a333b}
+.prose table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13px}
+.prose th,.prose td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+.prose th{background:#f4f6f9;font-weight:700}
+.prose tr:nth-child(even) td{background:#fafbfc}
+.prose blockquote{margin:10px 0;padding:6px 14px;border-left:3px solid #cbd5df;color:var(--mut);font-size:13.5px}
+.prose code{background:#f0f3f6;border:1px solid #e3e8ee;border-radius:4px;padding:1px 5px;font-size:12.5px}
+.prose hr{border:0;border-top:1px solid var(--line);margin:18px 0}
+.prose a{color:#1d4ed8}
+.prose img{max-width:100%}
+/* index lists */
+.linklist{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;margin-top:12px}
+.linklist a{display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;text-decoration:none;color:var(--ink);font-weight:700;font-size:13.5px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.linklist a:hover{border-color:#b9c4cf}
+.linklist a .d{display:block;font-weight:500;color:var(--mut);font-size:12px;margin-top:3px}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0 0 16px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.stat .v{font-size:19px;font-weight:800;letter-spacing:-.3px}
+.stat .k{font-size:11px;color:var(--mut);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.dayhead{font-size:16px;font-weight:800;margin:26px 0 4px}
+@media (max-width:560px){.wrap{padding:10px 9px 40px}.grid{grid-template-columns:1fr}.meta{text-align:left}}
+</style></head>
+<body><div class="wrap">
+<nav class="site"><a class="brand" href="../index.html">Carlos<span class="dot"> ●</span></a><a class="t" href="../index.html">Board</a><a class="t on" href="../history.html">History</a><a class="t" href="../record.html">Record</a><a class="t" href="../intel.html">Intel</a>
+<span class="upd">updated<br><b id="ago">…</b></span></nav>
+<div class="prose"><h1>Carlos slate — 2026-06-25 (Matchday 3: Groups E, F, D finals)</h1>
+<p>_Built by the matchday planner. Predictions before kickoff; not betting odds. Every fact sourced; unknowns flagged. Lineups pending — the watcher confirms each XI ~1h pre-kickoff and the scorer calls sharpen then._</p>
+<p><b>Calibration applied (carlos.lessons.md):</b></p>
+<ul>
+<li><b>Margin under-prediction is the systematic error</b> — widen the primary scoreline in (a) GD chases, (b) dead rubbers / outclassed-attack sides, (c) when the favorite's width/finishing carrier starts. Reserve the 1–0 cap for genuine bus-parks with no width mismatch.</li>
+<li><b>Seed deciders: favor the must-win side, don't default to the draw.</b></li>
+<li><b>Honest stake ladder</b> — 3u is reserved for genuinely open, high-quality-edge games, never a break-the-bus favorite. Keep scorer calls low/low-med (high variance — working: first primary hit was Vini 06-24).</li>
+<li><b>Respect motivation + the underdog's chosen route over raw talent.</b></li>
+</ul>
+<p><b>Exposure: 9u across 6 games.</b></p>
+<hr>
+<h2>4:00 PM ET · Group E finals</h2>
+<h3>Ecuador vs Germany — MetLife Stadium, East Rutherford NJ</h3>
+<p><b>1. Fixture &amp; stakes.</b> Germany (6 pts, GD +7 after 7–1 Curaçao, 2–1 Ivory Coast) already through and playing for the top seed + momentum. Ecuador (1 pt, 0 goals scored) must win AND need Ivory Coast to drop points vs Curaçao — effectively must win and hope. Ecuador lost their best creator <b>Páez to suspension</b>. (Sky Sports Group E guide; FanDuel/Squawka previews.)</p>
+<p><b>2. Prediction.</b> <b>Germany win, 2–0.</b> Alts: <b>3–0</b>, <b>2–1</b>.</p>
+<p><b>3. Why.</b></p>
+<ul>
+<li><i>Form/stakes:</i> Germany have scored 9 in two games; Ecuador have scored 0 and just lost their chief creator. The quality gap is large even before motivation. (scout-form)</li>
+<li><i>Personnel:</i> Undav already has 3 goals in 57 minutes and is chasing the Golden Boot — expected to start; Wirtz/Musiala reported likely to stay in regardless of rotation. (scout-personnel)</li>
+<li><i>Margin lesson:</i> outclassed-attack opponent + a favorite whose finisher starts → do NOT reflexively cap at 1–0; widen toward 2–0/3–0.</li>
+</ul>
+<p><b>4. Players to watch.</b> <b>Deniz Undav</b> (poacher, Golden Boot charge); <b>Florian Wirtz</b> (tournament's top creator — the supply line); <b>Enner Valencia</b> (49 intl goals — Ecuador's one realistic outlet on the counter).</p>
+<p><b>5. Most likely scorer.</b> <b>Undav</b> _(low–med)_ — in form, expected to lead the line. Alts: <b>Woltemade</b>, <b>Wirtz</b>. High-variance; refine on XI.</p>
+<p><b>6. Confidence &amp; stake.</b> Medium — <b>2u.</b> Germany's class and Ecuador's toothlessness justify a real play; capped at 2u (not 3u) because Germany are already through and may rotate, lowering their ceiling.</p>
+<p><b>7. What would flip it.</b> Heavy German rotation (Nagelsmann resting Wirtz/Musiala alongside the expected Havertz/Kimmich/Neuer rests) + an early Ecuador goal forcing a desperate, open game. Watcher confirms the XI ~3:00 PM ET.</p>
+<p><b>Lineup update (3:08 PM ET) — XI OFFICIAL.</b> <b>Germany (4-2-3-1):</b> Neuer; Kimmich, Rüdiger, Tah, Raum; Nmecha, Pavlović; Sané, Musiala, Wirtz; <b>Havertz</b>. (Rüdiger in for the injured Schlotterbeck; the feared rotation did NOT hit the creative core — Wirtz, Musiala, Sané all start.) <b>Ecuador (4-4-2):</b> Galíndez; Franco, Ordóñez, Pacho, Hincapié; Yeboah, Vite, Caicedo, Angulo; Plata, <b>Valencia</b> (Páez suspended, as flagged). <b>Prediction/stake HOLD: Germany 2–0, 2u</b> — the only flip-trigger (resting the supply line) didn't happen, so confidence is, if anything, firmer. <b>Scorer call REVISED:</b> Undav &amp; Woltemade are BENCHED, so the card's primary is void → <b>Havertz</b> _(low–med, starts at CF)_; alts <b>Wirtz</b>, <b>Musiala</b>. (Sources: official DFB teamsheet via Khel Now; SI/World Soccer Talk confirmed XIs.)</p>
+<h3>Curaçao vs Ivory Coast — Lincoln Financial Field, Philadelphia</h3>
+<p><b>1. Fixture &amp; stakes.</b> Ivory Coast (3 pts, GD 0) need <b>only a draw</b> to clinch 2nd. Curaçao (1 pt, GD −6) are all but eliminated — they need a sizeable win and Ecuador to lose. Curaçao's story so far is defensive: keeper <b>Eloy Room made 15 saves</b> holding Ecuador 0–0 (most in a 90-min WC match since 1966). (Sky Sports Group E guide; ESPN MD recap.)</p>
+<p><b>2. Prediction.</b> <b>Ivory Coast win, 1–0.</b> Alts: <b>2–0</b>, <b>0–0 draw</b> (live tail — a point sends them through).</p>
+<p><b>3. Why.</b></p>
+<ul>
+<li><i>Stakes/route:</i> Ivory Coast control their fate and only need a point, so expect a controlled game; Curaçao will sit deep behind Room as they did vs Ecuador. (scout-form, scout-tactics)</li>
+<li><i>Deep-block lesson:</i> vs a fit, stubborn low block with no width mismatch, make <b>1–0 the primary</b>, carry the draw/0–0 tail — exactly the England/Colombia error pattern. (scout-patterns)</li>
+<li><i>Quality:</i> Ivory Coast are the stronger side and should manufacture enough to win, but a side playing for a draw rarely runs up a score.</li>
+</ul>
+<p><b>4. Players to watch.</b> <b>Eloy Room</b> (Curaçao GK — the entire game runs through whether he holds again); Ivory Coast's attacking unit to break a packed box.</p>
+<p><b>5. Most likely scorer.</b> _Unconfirmed — scouts could not verify who scored Ivory Coast's MD1/MD2 goals._ Squad's likeliest finishers if they start are <b>Haller / Adingra</b>, tagged <b>low</b>; refine once the XI is confirmed. (Honest gap, not an invented name.)</p>
+<p><b>6. Confidence &amp; stake.</b> Low–medium — <b>1u.</b> Win lean is sound but capped: Curaçao bus-park + Ivory Coast happy to settle for the point they need = a low-ceiling, capped spot, not a high-conviction play.</p>
+<p><b>7. What would flip it.</b> Curaçao scoring first (forcing Ivory Coast to chase and opening the game) or Ivory Coast visibly managing for the draw they need. Watcher confirms XIs ~3:00 PM ET.</p>
+<p><b>Lineup update (3:08 PM ET) — XI OFFICIAL.</b> <b>Ivory Coast (4-1-4-1):</b> Y. Fofana; Doue, Kossounou, Agbadou, Konan; Sangare; Diallo, Kessie, Oulai, Diomande; <b>Bonny</b> (Singo rested/out — Doue in at RB; same shape that led Germany to the 68th). <b>Curaçao:</b> <b>Eloy Room</b>; Brenet, Gaari, Obispo, Floranus; Fonville, Chong, Comenencia, L. Bacuna, J. Bacuna; Locadia (Room confirmed in goal — the entire game runs through him, as flagged). <b>Prediction/stake HOLD: Ivory Coast 1–0, 1u</b>, carry the 0–0 draw tail (deep Curaçao block + IC content with the point they need). <b>Scorer call RESOLVED:</b> the card's Haller/Adingra are NOT in the XI → finalized <b>Bonny</b> _(low, lone striker)_; alts <b>Amad Diallo</b>, <b>Diomande</b>. (Sources: OneFootball confirmed XIs — "Kossounou and Bonny start"; FIFA/ESPN match centres.)</p>
+<hr>
+<h2>7:00 PM ET · Group F finals</h2>
+<h3>Japan vs Sweden — AT&amp;T Stadium, Arlington TX</h3>
+<p><b>1. Fixture &amp; stakes.</b> Japan (4 pts) need <b>only a draw</b> to advance (and can still take the group). Sweden (3 pts) <b>must win</b>. Tunisia are out, so this game decides 2nd. (Sky Sports Group F guide; Opta/SI previews.)</p>
+<p><b>2. Prediction.</b> <b>Japan win or draw — lean Japan 2–1.</b> Alts: <b>1–1 draw</b>, <b>Sweden 2–1</b>.</p>
+<p><b>3. Why.</b></p>
+<ul>
+<li><i>Quality + position:</i> Japan controlled a 2–2 with the Netherlands at this same stadium and hammered Tunisia 4–0; Ueda (2g, 1a) and Kamada (2g) give them a sharp front line, and they only need a point. (scout-form, scout-personnel)</li>
+<li><i>Motivation/route (lesson):</i> Sweden must win, so they will push and leave space — that suits Japan's counter. But respect the must-win side's firepower: Isak (1g, 3a), Gyökeres and Ayari (2g) all scored vs Tunisia. This is the most genuinely open game on the slate.</li>
+<li><i>Conflict flag:</i> Japan may sit on the draw and absorb, which lets Sweden's attackers work — the reason this is a 2u and not a 3u.</li>
+</ul>
+<p><b>4. Players to watch.</b> <b>Ayase Ueda</b> (leads the line; joint Japan WC scoring record); <b>Takefusa Kubo / Ritsu Doan</b> (the spark in transition); <b>Alexander Isak &amp; Viktor Gyökeres</b> (Sweden's win-or-bust front two).</p>
+<p><b>5. Most likely scorer.</b> <b>Ueda</b> _(low–med)_ — focal striker, in form. Alts: <b>Kubo / Kamada</b>; <b>Isak</b> if Sweden's chase pays off. High-variance; refine on XI.</p>
+<p><b>6. Confidence &amp; stake.</b> Medium — <b>2u</b> on Japan (win-or-draw double chance is the real edge). Not higher: Sweden's firepower + Japan's incentive to sit make this closer than a clean favorite.</p>
+<p><b>7. What would flip it.</b> Sweden scoring first — Japan would still only need to chase a draw, but an early Swedish goal flips the game state and Sweden's xG threat is real. Watcher confirms XIs ~6:00 PM ET.</p>
+<h3>Tunisia vs Netherlands — Arrowhead Stadium, Kansas City</h3>
+<p><b>1. Fixture &amp; stakes.</b> Netherlands (4 pts, GD +4) want the win to lock the top seed; a point likely still advances them. Tunisia are <b>eliminated</b> (0 pts, conceded 9 across 1–5 and 0–4) — a dead rubber for them. (Sky Sports Group F guide; Opta preview.)</p>
+<p><b>2. Prediction.</b> <b>Netherlands win, 3–0.</b> Alts: <b>3–1</b>, <b>2–0</b>.</p>
+<p><b>3. Why.</b></p>
+<ul>
+<li><i>Dead-rubber-vs-outclassed lesson:</i> eliminated, demoralized Tunisia (9 conceded) against a Dutch side that put 5 past Sweden is the textbook "widen the scoreline" case — do not cap this at 2–0. (scout-patterns)</li>
+<li><i>Personnel:</i> Gakpo has 5 group-stage goals (joint Dutch record) and starts left; Brobbey scored twice vs Sweden and keeps the No. 9; Depay is pushing for his first start. Plenty of finishing on the pitch. (scout-personnel)</li>
+<li><i>Counter-weight:</i> Netherlands only need a point, so a slightly rotated XI (Depay in) is possible — hence a 2u cap rather than 3u.</li>
+</ul>
+<p><b>4. Players to watch.</b> <b>Cody Gakpo</b> (5 goals, the supply and the finish on the left); <b>Brian Brobbey</b> (leads the line, two vs Sweden); <b>Memphis Depay</b> (chasing a starting spot — a sub/scorer threat).</p>
+<p><b>5. Most likely scorer.</b> <b>Gakpo</b> _(low–med)_ — joint-record form, nailed-on starter. Alts: <b>Brobbey</b>, <b>Depay</b>. High-variance; refine on XI.</p>
+<p><b>6. Confidence &amp; stake.</b> Medium — <b>2u.</b> The mismatch is large and the margin lesson says widen, but Dutch rotation (point is enough) caps the stake.</p>
+<p><b>7. What would flip it.</b> Heavy Dutch rotation if they decide a point suffices, or Tunisia (playing free with nothing to lose) nicking an early goal. Watcher confirms the XI ~6:00 PM ET.</p>
+<hr>
+<h2>10:00 PM ET · Group D finals</h2>
+<h3>Türkiye vs USA — SoFi Stadium, Los Angeles</h3>
+<p><b>1. Fixture &amp; stakes.</b> <b>Dead rubber both ways.</b> USA already won Group D (6 pts, top seed locked); Türkiye eliminated (0 pts, 0 goals — but 62 shots, the most at the tournament, 13 on target). Pochettino confirmed he will <b>rest the four yellow-carded starters</b> (Adams, Balogun, Richards, Robinson) to avoid suspension; Pulisic, easing back from a calf knock, is a bench option at most. (ESPN; NPR; FOX Sports.)</p>
+<p><b>2. Prediction.</b> <b>USA edge, 1–0.</b> Alts: <b>1–1 draw</b>, <b>0–0</b> — genuinely close given heavy USA rotation.</p>
+<p><b>3. Why.</b></p>
+<ul>
+<li><i>Rotation/honest-stake lesson:</i> a heavily rotated USA vs an eliminated side that cannot finish (0 goals on 62 shots) is a low-information, low-ceiling game — keep the stake honest and small, do not over-back the favorite. (scout-personnel, scout-form)</li>
+<li><i>Talent depth:</i> even a second-string USA at home should carry slightly more end product than a deflated Türkiye, but Türkiye's shot volume means a goal against is live.</li>
+<li><i>Bias check:</i> don't assume the marquee side "should open up" — both teams have reduced stakes.</li>
+</ul>
+<p><b>4. Players to watch.</b> <b>Ricardo Pepi</b> (expected to start with Balogun rested — the USA focal point tonight); <b>Christian Pulisic</b> (if used off the bench, the most likely game-breaker); Türkiye's volume shooters chasing a first goal.</p>
+<p><b>5. Most likely scorer.</b> <b>Ricardo Pepi</b> _(low — and only if he starts)_ — likeliest USA starter up top with Balogun out. Alt: <b>Pulisic</b> (sub), USA set-piece header. Low confidence; refine on XI.</p>
+<p><b>6. Confidence &amp; stake.</b> Low — <b>1u.</b> A dead rubber with heavy USA rotation is close to a no-play; 1u on the depth edge, no more. Could drop to 0u if rotation is extreme.</p>
+<p><b>7. What would flip it.</b> The scale of USA rotation (an almost entirely second-string XI) and whether Pulisic features at all. Watcher confirms the XI ~9:00 PM ET — this late window is exactly where rotation risk bit us before (the Son-bench miss), so the teamsheet check is decisive.</p>
+<h3>Paraguay vs Australia — Levi's Stadium, Santa Clara</h3>
+<p><b>1. Fixture &amp; stakes.</b> Win-or-go-home for 2nd. <b>Paraguay (3 pts, GD −2) must win.</b> <b>Australia (3 pts, GD 0) advance with a draw.</b> Paraguay are without suspended captain <b>Miguel Almirón</b> — their tournament top scorer (10 intl goals) — after his MD2 red card. (Goal.com; theanalyst; Socceroos preview.)</p>
+<p><b>2. Prediction.</b> <b>Paraguay edge, 1–0.</b> Alts: <b>1–1 draw</b> (sends Australia through), <b>Australia 1–0</b> on the counter.</p>
+<p><b>3. Why.</b></p>
+<ul>
+<li><i>Seed-decider lesson:</i> favor the must-win side, don't default to the draw — Paraguay will push, and a team that must win usually shapes the game. (scout-form)</li>
+<li><i>But honest stake:</i> Australia only need a draw and are physically organized under Popović; with Almirón suspended, Paraguay's creation is blunted, and a side chasing the game leaves itself open to Australia's pace on the break. This is a true coin-flip-ish knockout, not a high-conviction spot. (scout-personnel, scout-tactics)</li>
+<li><i>Route:</i> Australia will sit and counter; Paraguay must break a "physically imposing defensive shape."</li>
+</ul>
+<p><b>4. Players to watch.</b> <b>Julio Enciso</b> (Paraguay's creative spearhead — must unlock Australia without Almirón); <b>Antonio Sanabria</b> (central striker, 7 intl goals — the focal point of Paraguay's direct approach); <b>Nestory Irankunda</b> (Australia's 20-yo pace outlet — the danger if the Socceroos counter a pushed-up Paraguay).</p>
+<p><b>5. Most likely scorer.</b> <b>Antonio Sanabria</b> _(low–med)_ — Paraguay's central striker and likeliest beneficiary of their direct, must-win approach. Alts: <b>Enciso</b>; <b>Irankunda</b> if Australia punish the counter. High-variance; refine on XI.</p>
+<p><b>6. Confidence &amp; stake.</b> Low–medium — <b>1u</b> on Paraguay (must-win lean). Genuinely close: Almirón's absence + Australia's draw-is-enough route keep this off a higher stake.</p>
+<p><b>7. What would flip it.</b> Australia scoring first — then Paraguay must chase two goals of impetus without their top creator, and Australia's counter (Irankunda) becomes the story. Watcher confirms XIs ~9:00 PM ET.</p>
+<hr>
+<h3>Slate summary</h3>
+<table><thead><tr><th>Window</th><th>Fixture</th><th>Lean</th><th>Score</th><th>Stake</th><th>Scorer (low/med)</th></tr></thead><tbody>
+<tr><td>4 PM ET</td><td>Ecuador–<b>Germany</b></td><td>Germany</td><td>2–0</td><td>2u</td><td>Havertz _(XI conf.; Undav benched)_</td></tr>
+<tr><td>4 PM ET</td><td>Curaçao–<b>Ivory Coast</b></td><td>Ivory Coast</td><td>1–0</td><td>1u</td><td>Bonny _(XI conf.; Haller/Adingra not starting)_</td></tr>
+<tr><td>7 PM ET</td><td><b>Japan</b>–Sweden</td><td>Japan (or draw)</td><td>2–1</td><td>2u</td><td>Ueda</td></tr>
+<tr><td>7 PM ET</td><td>Tunisia–<b>Netherlands</b></td><td>Netherlands</td><td>3–0</td><td>2u</td><td>Gakpo</td></tr>
+<tr><td>10 PM ET</td><td>Türkiye–<b>USA</b></td><td>USA edge</td><td>1–0</td><td>1u</td><td>Pepi (if starts)</td></tr>
+<tr><td>10 PM ET</td><td><b>Paraguay</b>–Australia</td><td>Paraguay</td><td>1–0</td><td>1u</td><td>Sanabria</td></tr>
+</tbody></table>
+<p><b>Total exposure: 9u / 6 games.</b> All XIs pending — the lineup watcher confirms each teamsheet ~1h before kickoff and updates the Command Center.</p>
+<p><b>Sources:</b> <a href="https://www.skysports.com/football/news/12098/13543089/" target="_blank" rel="noopener">Sky Sports Group E</a>, <a href="https://www.skysports.com/football/news/12098/13543097/" target="_blank" rel="noopener">Sky Sports Group F</a>, <a href="https://www.skysports.com/football/news/12098/13543088/" target="_blank" rel="noopener">Sky Sports Group D</a>, <a href="https://www.espn.com/espn/story/_/id/49129183/" target="_blank" rel="noopener">ESPN Group E recap</a>, <a href="https://www.fanduel.com/research/ecuador-vs-germany-prediction-lineups-preview-picks-and-best-bets-world-cup-2026-group-e" target="_blank" rel="noopener">FanDuel Ecuador–Germany</a>, <a href="https://theanalyst.com/articles/japan-vs-sweden-prediction-world-cup-2026-match-preview" target="_blank" rel="noopener">Opta Japan–Sweden</a>, <a href="https://www.goal.com/en-in/betting/world-cup/tunisia-vs-netherlands-predictions-26-06-26/A%3Ablt6f4b42c683fb8927" target="_blank" rel="noopener">Goal Tunisia–Netherlands</a>, <a href="https://www.espn.com/soccer/story/_/id/49140112/" target="_blank" rel="noopener">ESPN USA rotation</a>, <a href="https://www.goal.com/en/news/paraguay-australia-world-cup-preview/blt9c01b7bae1a3bfbd" target="_blank" rel="noopener">Goal Paraguay–Australia</a>, <a href="https://seatgeek.com/fifa-world-cup-tickets/international-soccer/2026-06-25-4-pm/17213262" target="_blank" rel="noopener">SeatGeek venue (Curaçao–Ivory Coast)</a></p>
+<hr>
+<h2>Grades (graded Fri Jun 26, 2026 · 7:12 AM ET)</h2>
+<p>_All final scores verified against ESPN / FIFA / FOX match centres (links per card). No backfill — cards were pre-registered before kickoff._</p>
+<h3>1. Ecuador–Germany — pred <b>Germany 2–0 (2u)</b>, scorer Havertz</h3>
+<p><b>FT: Ecuador 2–1 Germany</b> (Sané 2' GER; Angulo 7', Plata 77' ECU).</p>
+<ul>
+<li>Outcome <b>❌ MISS</b> — Ecuador upset the already-qualified Germans to steal 2nd.</li>
+<li>Scoreline ❌ (predicted GER −2; actual ECU +1 — wrong side, not within one).</li>
+<li>Scorer ❌ Havertz (alts Wirtz/Musiala also blank; only Sané scored for GER).</li>
+<li>Key player ❌ — Undav benched as flagged; Wirtz/Havertz did not decide.</li>
+<li><b>Stake −2u.</b> Biggest miss of the day.</li>
+<li><b>Lesson → scout-tactics / motivation:</b> classic <b>motivation-gap</b> error. Germany were through and rotating mentality; Ecuador were must-win. The system's own "respect motivation + the underdog's route over raw talent" rule should have carried an Ecuador live-tail, not a clean Germany margin. (<a href="https://www.espn.com/soccer/match/_/gameId/760468/germany-ecuador" target="_blank" rel="noopener">ESPN</a>, <a href="https://www.aljazeera.com/sports/2026/6/25/ecuador-edge-germany-2-1-to-squeeze-into-world-cup-last-32" target="_blank" rel="noopener">Al Jazeera</a>)</li>
+</ul>
+<h3>2. Curaçao–Ivory Coast — pred <b>Ivory Coast 1–0 (1u)</b>, alt 2–0, scorer Bonny</h3>
+<p><b>FT: Curaçao 0–2 Ivory Coast</b> (Pépé 2).</p>
+<ul>
+<li>Outcome <b>✅ HIT.</b></li>
+<li>Scoreline <b>✅ EXACT</b> via listed alt <b>2–0</b>.</li>
+<li>Scorer ❌ Bonny (alts Diallo/Diomande) — <b>Pépé was not in the card's list at all.</b></li>
+<li>Key player ◐ Eloy Room featured but conceded twice (the "does Room hold again?" question resolved no).</li>
+<li><b>Stake +1u.</b> (<a href="https://www.espn.com/soccer/match/_/gameId/760473/ivory-coast-curacao" target="_blank" rel="noopener">ESPN</a>)</li>
+</ul>
+<h3>3. Japan–Sweden — pred <b>Japan win-or-draw, lean 2–1 (2u)</b>, alt 1–1 draw, scorer Ueda</h3>
+<p><b>FT: Japan 1–1 Sweden</b> (Maeda 56'; Elanga 62').</p>
+<ul>
+<li>Outcome <b>✅ HIT</b> — double-chance win-or-draw; the draw landed (both teams advanced).</li>
+<li>Scoreline <b>✅ EXACT</b> via listed alt <b>1–1 draw</b>.</li>
+<li>Scorer ❌ Ueda (alts Kubo/Kamada, Isak) — Maeda &amp; Elanga not listed.</li>
+<li><b>Stake +2u.</b> (<a href="https://www.espn.com/soccer/match/_/gameId/760471/sweden-japan" target="_blank" rel="noopener">ESPN</a>, <a href="https://www.fifa.com/en/match-centre/match/17/285023/289273/400021471" target="_blank" rel="noopener">FIFA</a>)</li>
+</ul>
+<h3>4. Tunisia–Netherlands — pred <b>Netherlands 3–0 (2u)</b>, alt 3–1, scorer Gakpo, alt Brobbey</h3>
+<p><b>FT: Tunisia 1–3 Netherlands</b> (Skhiri OG, Brobbey 7', van Hecke; Mastouri 54' TUN).</p>
+<ul>
+<li>Outcome <b>✅ HIT.</b></li>
+<li>Scoreline <b>✅ EXACT</b> via listed alt <b>3–1</b>.</li>
+<li>Scorer ◐ primary Gakpo blank, but <b>alt Brobbey ✅ scored</b> — the day's only scorer hit.</li>
+<li><b>Stake +2u.</b> Card of the day: outcome + exact scoreline + alt scorer. (<a href="https://www.espn.com/soccer/match/_/gameId/760472/netherlands-tunisia" target="_blank" rel="noopener">ESPN</a>)</li>
+</ul>
+<h3>5. Türkiye–USA — pred <b>USA 1–0 (1u)</b>, alts 1–1 / 0–0, scorer Pepi (if starts)</h3>
+<p><b>FT: Türkiye 3–2 USA</b> (Trusty 3', Berhalter 49' USA; Güler 10', Yılmaz 31', Ayhan 90+8' TUR).</p>
+<ul>
+<li>Outcome <b>❌ MISS</b> — heavily-rotated USA (already top of Group D) lost on a stoppage-time Ayhan goal.</li>
+<li>Scoreline ❌.</li>
+<li>Scorer ❌ Pepi — USA's goals came from Trusty (DF) and Berhalter; Pulisic sub blank.</li>
+<li><b>Stake −1u.</b> Honest-stake ladder worked: the dead-rubber rotation was correctly read as a near-no-play and capped at 1u, limiting the damage. (<a href="https://www.espn.com/soccer/match/_/gameId/760470/united-states-turkiye" target="_blank" rel="noopener">ESPN</a>, <a href="https://www.npr.org/2026/06/25/nx-s1-5869807/2026-world-cup-fifa-usmnt-turkey" target="_blank" rel="noopener">NPR</a>)</li>
+</ul>
+<h3>6. Paraguay–Australia — pred <b>Paraguay 1–0 (1u)</b>, alt 1–1 draw, scorer Sanabria</h3>
+<p><b>FT: Paraguay 0–0 Australia</b> (no scorers).</p>
+<ul>
+<li>Outcome <b>❌ MISS</b> — the draw sent Australia through; listed "1–1 draw" alt caught the draw <i>outcome</i> but not a 0–0.</li>
+<li>Scoreline ❌ (within-one: predicted 1–0 vs actual 0–0).</li>
+<li>Scorer ❌ Sanabria (no goals).</li>
+<li><b>Stake −1u.</b></li>
+<li><b>Lesson → scout-form:</b> the seed-decider "favor the must-win side" rule backfired because the must-win side (Paraguay) was missing its creator (Almirón suspended) against a disciplined draw-is-enough block. Honest 1u cap again limited the loss. (<a href="https://www.fifa.com/en/match-centre/match/17/285023/289273/400021461" target="_blank" rel="noopener">FIFA</a>, <a href="https://sports.yahoo.com/soccer/fifa-world-cup/australia-paraguay-13587199/" target="_blank" rel="noopener">Yahoo</a>)</li>
+</ul>
+<h3>Day totals</h3>
+<table><thead><tr><th>Metric</th><th>Result</th></tr></thead><tbody>
+<tr><td><b>Outcome</b></td><td><b>3–3</b> (✅ Curaçao-IC, Japan-Swe, Tunisia-Ned · ❌ Ecuador-Ger, Türkiye-USA, Paraguay-Aus)</td></tr>
+<tr><td><b>Scoreline exact</b></td><td><b>3 / 6</b> (all via listed alt: 2–0, 1–1, 3–1)</td></tr>
+<tr><td><b>Scoreline within-one</b></td><td><b>4 / 6</b> (add Paraguay 0–0)</td></tr>
+<tr><td><b>Most-likely scorer (primary)</b></td><td><b>0 / 6</b></td></tr>
+<tr><td><b>Most-likely scorer (incl. alts)</b></td><td><b>1 / 6</b> (Brobbey)</td></tr>
+<tr><td><b>Stake P&amp;L</b></td><td><b>+1u net</b> (−2 +1 +2 +2 −1 −1; 9u staked)</td></tr>
+</tbody></table>
+<p><b>Calibration read (day):</b> a strong <i>scoreline</i> day (3 exact, all via the alt ladder — the margin-widening lesson is biting) undercut by two motivation-driven <i>outcome</i> misses on already-qualified/rotated favorites (Germany, USA) plus a blunted must-win side (Paraguay). Same theme as 06-24: respect the qualified-favorite's reduced motivation. Scorer model remains the weakest link (0/6 primary). Stake discipline held — the two −1u misses were correctly pre-tagged as near-no-plays.</p>
+<h3>Sim (v2) calibration — day mean Brier <b>0.629</b></h3>
+<table><thead><tr><th>Game</th><th>Sim (H/D/A)</th><th>Result</th><th>Brier</th><th>Note</th></tr></thead><tbody>
+<tr><td>Ecuador–Germany</td><td>16 / 24 / 60</td><td>ECU win</td><td><b>1.127</b></td><td><b>&gt;0.9 confidently wrong → motivation gap</b></td></tr>
+<tr><td>Curaçao–Ivory Coast</td><td>15 / 36 / 50</td><td>IC win</td><td>0.404</td><td>favorite landed</td></tr>
+<tr><td>Japan–Sweden</td><td>40 / 28 / 33</td><td>draw</td><td>0.787</td><td>leaned Japan; draw came</td></tr>
+<tr><td>Tunisia–Netherlands</td><td>7 / 16 / 77</td><td>NED win</td><td><b>0.081</b></td><td>best call of the day</td></tr>
+<tr><td>Türkiye–USA</td><td>33 / 33 / 34</td><td>TUR win</td><td>0.667</td><td>correctly priced a 3-way toss-up</td></tr>
+<tr><td>Paraguay–Australia</td><td>39 / 31 / 30</td><td>draw</td><td>0.710</td><td>leaned Paraguay; draw came</td></tr>
+</tbody></table>
+<ul>
+<li><b>Brier &gt; 0.9:</b> Ecuador–Germany (1.13). <b>Lever = motivation gap</b> — sim gave Germany 59.9% with no discount for an already-qualified favorite vs a must-win underdog (same blind spot as the card). Action: apply a motivation/qualification damp to favorites who are already through.</li>
+<li><b>Sim top-scorer hit: 1 / 6</b> (Brobbey 57% ✅; Havertz, Bonny, Isak, Pepi, Enciso ❌).</li>
+<li><b>Scorer-list construction misses</b> (actual scorer absent from the sim's list): <b>Pépé</b> (Curaçao-IC), <b>Maeda &amp; Elanga</b> (Japan-Swe). Partials: Angulo (Ecuador-Ger — Plata <i>was</i> listed), Trusty/Berhalter (Türkiye-USA — Güler <i>was</i> listed).</li>
+<li><b>Margin / total-goals bias:</b> mean total-goals bias <b>+0.24/game</b>, mean abs-margin bias <b>+0.33/game</b> (positive = sim still mildly <b>under-predicts</b> goals/margins — the standing bias persists but smaller than 06-24, and noisy: driven by +2.92 in the 5-goal Türkiye–USA vs −2.18 in the 0–0 Paraguay).</li>
+</ul></div>
+<footer>Carlos Command Center · World Cup 2026 · auto-published by the prediction pipeline.<br>
+Predictions, not facts. Notional stakes 0–5 units.</footer>
+</div>
+<script>
+(function(){
+  var BUILT = 1784461003297, ID = "1784461003";
+  function ago(){var m=Math.max(0,Math.round((Date.now()-BUILT)/60000));
+    var el=document.getElementById('ago');if(!el)return;
+    el.textContent = m<1?'just now':(m<60?m+'m ago':Math.floor(m/60)+'h '+(m%60)+'m ago');}
+  ago(); setInterval(ago,30000);
+  function poll(){fetch('../meta.json?t='+Date.now(),{cache:'no-store'})
+    .then(function(r){return r.json()})
+    .then(function(j){if(j.build_id&&j.build_id!==ID)location.reload();})
+    .catch(function(){});}
+  setInterval(poll,60000);
+})();
+</script></body></html>

@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Carlos — Slate 2026-07-14</title><style>
+:root{color-scheme:light;--bg:#eef1f5;--card:#fff;--ink:#161a1d;--mut:#5b6770;--line:#e1e6ec;
+--green:#1a7f37;--navy:#0f2740;--accent:#1a7f4f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.55}
+.wrap{max-width:1100px;margin:0 auto;padding:14px 14px 50px}
+nav.site{display:flex;gap:4px;align-items:center;flex-wrap:wrap;background:var(--navy);border-radius:12px;padding:8px 10px;margin-bottom:14px;position:sticky;top:8px;z-index:10;box-shadow:0 2px 10px rgba(15,39,64,.25)}
+nav.site .brand{color:#fff;font-weight:800;letter-spacing:-.2px;margin-right:8px;font-size:15px;text-decoration:none}
+nav.site .brand .dot{color:#3ddc84}
+nav.site a.t{color:#c8d3de;text-decoration:none;font-size:13px;font-weight:700;padding:5px 10px;border-radius:8px}
+nav.site a.t.on,nav.site a.t:hover{background:rgba(255,255,255,.14);color:#fff}
+nav.site .upd{margin-left:auto;color:#8fa3b5;font-size:11px;text-align:right}
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px;border-bottom:2px solid #d7dde4;padding-bottom:12px;margin-bottom:16px}
+.title{font-size:21px;font-weight:800;letter-spacing:-.3px}
+.sub{color:var(--mut);font-size:13px;margin-top:3px}
+.meta{text-align:right;font-size:12px;color:var(--mut)}
+.meta .exp{display:inline-block;margin-top:4px;background:var(--navy);color:#fff;padding:3px 9px;border-radius:999px;font-weight:700;font-size:12px}
+.badge{display:inline-flex;align-items:center;gap:5px;font-weight:700;font-size:11px;padding:3px 8px;border-radius:6px;letter-spacing:.2px}
+.b-conf{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.b-pend{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-hit{background:#e6f4ea;color:#1a7f37;border:1px solid #b7e1c3}
+.r-miss{background:#fde7e7;color:#b42318;border:1px solid #f3bcbc}
+.r-part{background:#fff4d6;color:#8a6100;border:1px solid #f0d99a}
+.r-live{background:#e7eefc;color:#1d4ed8;border:1px solid #bcd0f5}
+.b-sim{background:#efeafd;color:#6b46c1;border:1px solid #d6c8f5}
+.sim{font-size:12px;color:#4a3a6b;margin-top:9px;background:#f7f4fe;border:1px solid #ece5fb;border-radius:8px;padding:7px 9px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.window{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);margin:20px 0 10px;display:flex;align-items:center;gap:8px}
+.window::after{content:"";flex:1;height:1px;background:#dbe1e8}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 15px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.card.confirmed{border-left:4px solid #1a7f37}
+.card.pending{border-left:4px solid #e8b33a}
+.match{font-size:16px;font-weight:800;letter-spacing:-.2px}
+.ctx{font-size:12px;color:var(--mut);margin-top:2px}
+.row{display:flex;align-items:center;justify-content:space-between;margin-top:11px;gap:8px}
+.pred{font-size:14px}.pred b{font-weight:800}.score{font-weight:800}
+.muted{color:#8a949c}
+.stake{font-size:12px;font-weight:800;background:var(--navy);color:#fff;padding:2px 8px;border-radius:6px;white-space:nowrap}
+.scorer{font-size:12.5px;color:#34404a;margin-top:9px}.scorer .k{color:var(--mut)}
+.result{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:11px;padding:8px 10px;border-radius:8px;background:#f6f8fb;border:1px solid #e6ebf1}
+.result .rscore{font-weight:800;font-size:14px}.result .rscore .k{color:var(--mut);font-weight:600;font-size:11px}
+.note{font-size:11.5px;color:var(--mut);margin-top:9px;border-top:1px dashed var(--line);padding-top:8px}
+.note.held{color:#1a7f37}
+footer{margin-top:26px;font-size:11px;color:#8a949c;text-align:center;line-height:1.6}
+/* prose (markdown pages) */
+.prose{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;box-shadow:0 1px 2px rgba(16,39,64,.04);overflow-x:auto}
+.prose h1{font-size:22px;letter-spacing:-.3px;margin:.2em 0 .5em}
+.prose h2{font-size:17px;margin:1.3em 0 .5em;padding-bottom:5px;border-bottom:1px solid var(--line)}
+.prose h3{font-size:15px;margin:1.2em 0 .4em}
+.prose p,.prose li{font-size:14px;color:#2a333b}
+.prose table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13px}
+.prose th,.prose td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+.prose th{background:#f4f6f9;font-weight:700}
+.prose tr:nth-child(even) td{background:#fafbfc}
+.prose blockquote{margin:10px 0;padding:6px 14px;border-left:3px solid #cbd5df;color:var(--mut);font-size:13.5px}
+.prose code{background:#f0f3f6;border:1px solid #e3e8ee;border-radius:4px;padding:1px 5px;font-size:12.5px}
+.prose hr{border:0;border-top:1px solid var(--line);margin:18px 0}
+.prose a{color:#1d4ed8}
+.prose img{max-width:100%}
+/* index lists */
+.linklist{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;margin-top:12px}
+.linklist a{display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;text-decoration:none;color:var(--ink);font-weight:700;font-size:13.5px;box-shadow:0 1px 2px rgba(16,39,64,.04)}
+.linklist a:hover{border-color:#b9c4cf}
+.linklist a .d{display:block;font-weight:500;color:var(--mut);font-size:12px;margin-top:3px}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0 0 16px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.stat .v{font-size:19px;font-weight:800;letter-spacing:-.3px}
+.stat .k{font-size:11px;color:var(--mut);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.dayhead{font-size:16px;font-weight:800;margin:26px 0 4px}
+@media (max-width:560px){.wrap{padding:10px 9px 40px}.grid{grid-template-columns:1fr}.meta{text-align:left}}
+</style></head>
+<body><div class="wrap">
+<nav class="site"><a class="brand" href="../index.html">Carlos<span class="dot"> ●</span></a><a class="t" href="../index.html">Board</a><a class="t on" href="../history.html">History</a><a class="t" href="../record.html">Record</a><a class="t" href="../intel.html">Intel</a>
+<span class="upd">updated<br><b id="ago">…</b></span></nav>
+<div class="prose"><h1>Carlos — Match Prediction Cards · July 14, 2026 — Semifinal (Day 1)</h1>
+<p>*Knockouts: a draw after 90' goes to extra time / penalties. Lineups pending; sims run only after the</p>
+<p>watcher confirms each XI (~45 min pre-KO). Predictions, not facts; sources at end.*</p>
+<p><b>Calibration applied (carlos.lessons.md):</b> (1) **Margin-widen for France is a validated repeat lesson</p>
+<p>(06-09/07-09)** — but that pattern was built vs weaker/deeper-block opponents (Morocco). Spain have</p>
+<p>conceded <b>one goal in five games all tournament</b>, the best defensive record left in the field, so the</p>
+<p>widen-the-favorite instinct is tempered rather than applied at full strength here. (2) **"Tightest-game</p>
+<p>label → cap the stake, don't over-lean the favorite" (07-07, reinforced 07-10)** — Opta's own model has</p>
+<p>this at 42.1% France / 31.8% Spain / 26.1% ET, i.e. a genuine coin-flip with a thin French lean, exactly</p>
+<p>the scenario that rule was written for. (3) **Scorer-list construction: include the possession side's</p>
+<p>arriving central midfielder / proven super-sub, not just the front three** (repeat miss 07-09 and 07-10,</p>
+<p>both times Merino or an unlisted midfielder scored for Spain) — Merino goes on the Spain list explicitly</p>
+<p>this time. (4) <b>Dembélé is a validated co-primary alongside Mbappé for France (07-09)</b> — carried</p>
+<p>forward, not an afterthought.</p>
+<hr>
+<h2>1) France vs Spain — Semifinal · AT&amp;T Stadium, Arlington (Dallas) · 3:00 PM ET</h2>
+<p><b>Prediction:</b> <b>France win</b> — most likely <b>2–1</b>; alts <b>2–0</b>, **1–1 (→ ET/pens, live and not</p>
+<p>thin)**. This is the tightest fixture of the round on both form and model data.</p>
+<p><b>Why:</b> France arrive unbeaten and red-hot — six straight wins, 16 goals scored, and Mbappé tied with</p>
+<p>Messi for the tournament scoring lead (8 goals, plus 3 assists that put him ahead on the tie-break). The</p>
+<p>9 July quarterfinal win over Morocco (2–0, Mbappé + a Dembélé finish off a Mbappé assist) showed the</p>
+<p>same front-four fluidity that has carried the whole run. Spain counter with the best defense in the</p>
+<p>bracket by a distance — one goal conceded in five matches, and that one came via an 88th-minute</p>
+<p>super-sub winner (Merino) in the 2–1 quarterfinal escape past Belgium, not open play against them being</p>
+<p>carved apart. Spain's control game (Rodri/Pedri double pivot, Yamal–Oyarzabal–Baena front three) is</p>
+<p>built to strangle exactly the kind of transition speed France offers, and Yamal looks to be back to full</p>
+<p>fitness after managing an injury through the group stage. Opta's supercomputer has this at 42.1% France</p>
+<p>in regulation, 31.8% Spain in regulation, 26.1% to extra time — essentially a coin flip with a thin</p>
+<p>French edge, and the Euro 2024 semifinal precedent (Spain won 2–1) argues for respecting Spain's ceiling</p>
+<p>rather than assuming France's attack simply breaks through. <b>Net read:</b> France's attacking output has</p>
+<p>been the most explosive in the field, but this is not a Morocco-level gulf in class — call it a France win</p>
+<p>on fine margins, not a rout.</p>
+<p><b>Players to watch:</b> Kylian Mbappé (Golden Boot leader, France's line-leader), Ousmane Dembélé (reigning</p>
+<p>Ballon d'Or, validated co-primary alongside Mbappé since 07-09), Aurélien Tchouameni (thigh issue,</p>
+<p>game-time decision — a late scratch reshapes France's pivot alongside Rabiot). For Spain: Lamine Yamal</p>
+<p>(returning to full sharpness, highest chance-volume creator), Mikel Oyarzabal (confirmed starting</p>
+<p>striker, has decided the last two knockout rounds alongside Merino), Rodri (midfield control battle vs</p>
+<p>Tchouameni/Rabiot — the single biggest tactical swing factor).</p>
+<p><b>Most likely scorer:</b> <b>Kylian Mbappé</b> (medium-high — tournament's most in-form finisher, Golden Boot</p>
+<p>race) as primary; <b>Ousmane Dembélé</b> (medium — validated co-primary, scored last time out) as</p>
+<p>co-primary. Alts: Michael Olise, Désiré Doué/Bradley Barcola (competing for the wide slot). For Spain,</p>
+<p><b>Mikel Oyarzabal</b> (low-medium — confirmed starting striker) is the primary source, with **Mikel</p>
+<p>Merino** (low-medium — has decided Spain's last two knockout games as a super-sub, explicitly kept on the</p>
+<p>list per the 07-09/07-10 scorer-construction lesson) and <b>Lamine Yamal</b> (low — chance creation, still</p>
+<p>building back to peak sharpness) as secondary threats.</p>
+<p><b>Confidence &amp; stake:</b> <b>Medium confidence, 2u France.</b> France's attacking form and the tie-break edge</p>
+<p>in the Golden Boot race are real, but Opta's own model, the H2H precedent (Spain won the last</p>
+<p>knockout meeting 2–1), and Spain's tournament-best defense make this the textbook "don't over-lean the</p>
+<p>favorite label" spot from the 07-07/07-10 lessons — 2u, not 3u, even with France sharper on paper.</p>
+<p><b>What would flip it:</b> A confirmed Tchouameni absence (thigh) would weaken France's pivot against</p>
+<p>Rodri/Pedri and shift this toward Spain's control game and the draw/ET tail; conversely, an early</p>
+<p>Mbappé or Dembélé goal against a Spain side that has never trailed by more than one goal all tournament</p>
+<p>would open this into the 3–0-class rout the margin-widen lesson keeps flagging as live for France.</p>
+<hr>
+<h2>Grades (graded 2026-07-15 08:20 ET)</h2>
+<p><b>Result: Spain 2–0 France</b> (Mikel Oyarzabal 22' pen; Pedro Porro 58'). France's first loss of the tournament; Spain advance to the final vs England/Argentina. Sources: <a href="https://www.espn.com/soccer/match/_/gameId/760514/spain-france" target="_blank" rel="noopener">ESPN</a>, <a href="https://www.nbcnews.com/sports/soccer/live-blog/spain-france-world-cup-2026-july-14-live-updates-rcna587324" target="_blank" rel="noopener">NBC News</a>, <a href="https://www.fifa.com/en/match-centre/match/17/285023/289290/400021541?gender=2&amp;date=2026-07-14" target="_blank" rel="noopener">FIFA match centre</a>, <a href="https://www.npr.org/2026/07/14/nx-s1-5893692/2026-world-cup-fifa-spain-france-semifinal" target="_blank" rel="noopener">NPR</a>.</p>
+<h3>1) France vs Spain — predicted <b>France win, 2–1</b> (2u France)</h3>
+<ul>
+<li><b>Outcome:</b> ❌ <b>MISS</b> — Spain won. The "don't over-lean the favorite label / tightest-game" rule (07-07/07-10) was applied (2u not 3u, France called on "fine margins not a rout"), but the direction was still wrong: Spain's tournament-best defense (now 1 conceded in 6) and control game won outright, exactly the ceiling the card flagged via the Euro-24 precedent but bet against anyway.</li>
+<li><b>Scoreline:</b> ❌ not exact, ❌ not within-one — predicted France by 1, actual Spain by 2 (2-goal swing). Neither listed alt (2–0 France, 1–1) matched.</li>
+<li><b>Most-likely scorer (primary):</b> ❌ <b>MISS</b> — Mbappé/Dembélé named; France were shut out (Mbappé blanked, Golden Boot race stalls). ◐ <b>Partial credit on the Spain list:</b> <b>Oyarzabal</b> was correctly listed as Spain's primary scorer and scored (penalty). <b>Merino</b> (explicitly kept on the list per the 07-09/07-10 lesson) did not feature on the scoresheet.</li>
+<li><b>Key players:</b> Spain's control (Rodri/Pedri) named as "the single biggest tactical swing factor" — validated; it decided the game. Yamal featured but did not score. The card's own "what would flip it" (Spain never trailing, France needing an early goal) resolved against France — France never led.</li>
+<li><b>Scorer-list construction miss (recurring):</b> <b>Pedro Porro</b> (Spain right-back) scored the second and was <b>unlisted</b> — the <i>same fullback-scorer, same player</i> miss logged on 07-02 ("Porro, Spain fullback, unlisted"). Fullback/wingback scorers remain the system's most persistent list-construction gap. Route: scout-personnel.</li>
+<li><b>Stake P&amp;L:</b> <b>−2u</b> (2u France, lost).</li>
+</ul>
+<p><b>Day totals:</b> outcome <b>0–1</b>, 0 exact / 0 within-one, scorer 0/1 primary (France) — Spain-list primary Oyarzabal hit as a listed secondary source. <b>−2u net (2u staked).</b> No v2 sim was produced (watcher dark since 07-03 — 6th straight match day with zero live sim coverage; sim calibration remains frozen at 07-02).</p>
+<hr>
+<h3>Slate note</h3>
+<p>Total exposure <b>2u / 1 game</b> (France 2u). Single-fixture day — first semifinal; England vs Argentina</p>
+<p>follows 07-15. Sim attaches once the watcher confirms the XI (~2:15 PM ET).</p>
+<h3>Sources</h3>
+<ul>
+<li>Match details, kickoff, venue, Opta model probabilities: <a href="https://www.aljazeera.com/sports/2026/7/12/france-spain-fifa-world-cup-semifinals-mbappe-yamal-prediction-stats-venue" target="_blank" rel="noopener">Al Jazeera preview</a>, <a href="https://www.sportsmole.co.uk/football/france/world-cup-2026/preview/france-vs-spain-prediction-team-news-lineups_601083.html" target="_blank" rel="noopener">Sports Mole preview</a></li>
+<li>Predicted lineups, Tchouameni/Thuram fitness, Doué/Barcola competition: <a href="https://www.rotowire.com/soccer/article/france-vs-spain-preview-predicted-lineups-team-news-tactical-analysis-2026-world-cup-semifinal-122319" target="_blank" rel="noopener">RotoWire preview</a>, <a href="https://www.sportsmole.co.uk/football/france/world-cup-2026/team-news/france-vs-spain-injury-suspension-list-predicted-xis--world-cup-2026_601095.html" target="_blank" rel="noopener">Sports Mole team news</a>, <a href="https://www.espn.com/soccer/story/_/id/49341955/france-vs-spain-fifa-world-cup-2026-tv-channel-how-watch-kickoff-live-stream-injury-predicted-lineups" target="_blank" rel="noopener">ESPN</a></li>
+<li>France quarterfinal (2-0 Morocco, Mbappé + Dembélé), 16 goals/6 games, Golden Boot tie-break: <a href="https://www.espn.com/soccer/story/_/id/49318321/kylian-mbappe-france-lethal-morocco-reaching-2026-world-cup-semifinals" target="_blank" rel="noopener">ESPN</a>, <a href="https://www.aljazeera.com/sports/2026/7/9/mbappe-and-dembele-net-as-france-beat-morocco-to-reach-world-cup-semifinal" target="_blank" rel="noopener">Al Jazeera</a></li>
+<li>Spain defensive record (1 conceded in 5), Merino's back-to-back knockout winners, Yamal fitness: <a href="https://sports.yahoo.com/articles/spain-xi-vs-france-confirmed-155620902.html" target="_blank" rel="noopener">Yahoo Sports</a>, <a href="https://www.aljazeera.com/sports/2026/7/12/france-spain-fifa-world-cup-semifinals-mbappe-yamal-prediction-stats-venue" target="_blank" rel="noopener">Al Jazeera</a></li>
+</ul></div>
+<footer>Carlos Command Center · World Cup 2026 · auto-published by the prediction pipeline.<br>
+Predictions, not facts. Notional stakes 0–5 units.</footer>
+</div>
+<script>
+(function(){
+  var BUILT = 1784461003297, ID = "1784461003";
+  function ago(){var m=Math.max(0,Math.round((Date.now()-BUILT)/60000));
+    var el=document.getElementById('ago');if(!el)return;
+    el.textContent = m<1?'just now':(m<60?m+'m ago':Math.floor(m/60)+'h '+(m%60)+'m ago');}
+  ago(); setInterval(ago,30000);
+  function poll(){fetch('../meta.json?t='+Date.now(),{cache:'no-store'})
+    .then(function(r){return r.json()})
+    .then(function(j){if(j.build_id&&j.build_id!==ID)location.reload();})
+    .catch(function(){});}
+  setInterval(poll,60000);
+})();
+</script></body></html>
